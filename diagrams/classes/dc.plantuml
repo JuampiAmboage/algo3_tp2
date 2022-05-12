@@ -1,0 +1,32 @@
+@startuml
+
+class Materia {
+    - cupoMaximo
+
+    - estaInscripto(Alumno otro)
+
+    + enrolarse(Alumno otro)
+}
+
+class Genero {
+    + cantidadMismoSexo(List<Genero> generos) : int
+    + validarCantidadMismoSexo(int cantidadPorGenero, Genero genero)
+}
+class Masculino {
+    + equals(Genero) : boolean
+}
+
+class Femenino {
+    + equals(Genero) : boolean
+}
+
+Materia o-- Alumno
+
+Alumno *- Padron
+Alumno *- Genero
+
+
+Genero <|-- Masculino
+Genero <|-- Femenino
+
+@enduml
