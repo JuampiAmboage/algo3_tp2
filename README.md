@@ -25,6 +25,10 @@ $ java -jar <archivo.jar>
 
 Aquellos que deseen colaborar con el proyecto pueden consultar la [guía de desarrollo](./docs/Desarrollo.md).
 
+## Calidad
+
+Aquellos que deseen colaborar con el proyecto pueden consultar la [guía de calidad](./docs/Calidad.md).
+
 ## Licencia
 
 Este repositorio se encuentra bajo la Licencia MIT.
