@@ -7,7 +7,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 ## Grupo {12}
 
 * **Integrante 1** - [Juan Patricio Amboage](https://github.com/JuampiAmboage)
-* **Integrante 2** - [integrante2](https://github.com/integrante2)
+* **Integrante 2** - [Lucas Venutti](https://github.com/venutti)
 * **Integrante 3** - [integrante3](https://github.com/integrante3)
 * **Integrante 4** - [integrante4](https://github.com/integrante4)
 
