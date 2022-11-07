@@ -125,14 +125,57 @@ public void whenExceptionThrown_thenAssertionSucceeds() {
 
     @Test
     public void caso0401() {
-        Extractor e = new Extractor();
+        Extractor e = new Extractor(4);
+        e.pasarTurno();
+        e.pasarTurno();
+        e.pasarTurno();
+        e.pasarTurno();
+
         // se crea con 0 zanganos
         // a los zanganos se les puede pasar la celda de gas
         // extractor tiene un array de zanganos
         // extractor tiene una cantidad de zanganos limite
         // recorre la lista y le manda a cada zangano a GENERAR GAS con la celda
+        // un extractor lanza una excepción si tiene que extraer gas y no esta terminado
         assertEquals(0, e.extraerGas());
     }
 
+    @Test
+    public void caso0402() {
+        Extractor e = new Extractor();
+        Zangano z = new Zangano();
+        e.agregarZangano(z);
+        assertEquals(10, e.extraerGas());
+    }
+
+    @Test
+    public void caso0403() {
+        Extractor e = new Extractor();
+        Zangano z = new Zangano();
+        Zangano x = new Zangano();
+        Zangano y = new Zangano();
+        Zangano v = new Zangano();
+
+        // Que tire una excepción
+        e.agregarZangano(x);
+        e.agregarZangano(z);
+        e.agregarZangano(y);
+        e.agregarZangano(v);
+
+    }
+
     //extractor.extraerGas() ==> zangano.extraerGas(celdaConGas)
+
+    /*
+    * Verificar que no se puedan construir edificios fuera del rango de un pilon o fuera del
+moho.
+    *
+    * */
+
+    // Tener tipos de celdas ==>  celdaConVolcan, celdaConMoho, celdaEnergizada
+    // cada celda tenga algo encima ==> celda.contiene(moho) ==> celda.contiene(Criadero)
+
+    // Constructor(turnos, aConstruir, celda)
+
+    // cada celda se puede expandir con un radio
 }
