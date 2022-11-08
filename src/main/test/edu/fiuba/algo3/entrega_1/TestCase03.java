@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.Criadero;
+import edu.fiuba.algo3.entrega_1.Volcan.Volcan;
+import edu.fiuba.algo3.entrega_1.Criadero.Criadero;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
@@ -13,8 +14,9 @@ public class TestCase03 {
     @Test
     public void noSePuedeCrearUnCriaderoEnUnVolcan() {
         Volcan v = new Volcan();
+        Criadero c = new Criadero();
         Executable task = () -> {
-            v.construir(new Criadero());
+            v.ocupar(c);
         };
 
         assertThrows(RuntimeException.class, task);
@@ -24,7 +26,7 @@ public class TestCase03 {
     public void sePuedeCrearUnAsimiladorSobreUnVolcan() {
         Volcan v = new Volcan();
         Executable task = () -> {
-            v.construir(new Asimilador());
+            v.ocupar(new Asimilador());
         };
 
         assertDoesNotThrow(task);

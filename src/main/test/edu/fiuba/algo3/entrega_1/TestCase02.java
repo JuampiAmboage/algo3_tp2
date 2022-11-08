@@ -1,9 +1,8 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.Criadero;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
-
+import edu.fiuba.algo3.entrega_1.Criadero.Criadero;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
