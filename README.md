@@ -9,7 +9,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 1** - [Juan Patricio Amboage](https://github.com/JuampiAmboage)
 * **Integrante 2** - [Lucas Venutti](https://github.com/venutti)
 * **Integrante 3** - [Joaquin Ordoñez](https://github.com/joac001)
-* **Integrante 4** - [integrante4](https://github.com/integrante4)
+* **Integrante 4** - [Valeria Fernandez Boch](https://github.com/valeriafb)
 
 Corrector: **{Corrector}**
 
