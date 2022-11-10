@@ -24,10 +24,10 @@ public class TestsJuan {
         Pilar pilar2 = new Pilar();
 
         //construyo un asimilador que va a estar en rango de ambos pilares
-        Asimilador asimilador = new Asimilador();
-        celda3.construir(asimilador);
-        celda1.construir(pilar1);
-        celda2.construir(pilar2);
+        //Asimilador asimilador = new Asimilador();
+        //celda3.construir(asimilador);
+        //celda1.construir(pilar1);
+        //celda2.construir(pilar2);
 
         /*aca iria el método donde el pilar se "expande" y energiza sus celdas limitrofes
         problablemente expandirEnergia() deba cambiarse */
@@ -48,8 +48,8 @@ public class TestsJuan {
         //volver a tener el 100%.
 
         CeldaMoho celda = new CeldaMoho();
-        Criadero criadero = new Criadero();
-        celda.construir(criadero);
+        //Criadero criadero = new Criadero();
+        //celda.construir(criadero);
         celda.afectarEdificio(150); //el parametro es el daño, criadero tiene 500V, pasa a tener 350
 
         //ahora llamo al método reparar tres veces, emulando que se lo llama una vez por turno
@@ -60,7 +60,7 @@ public class TestsJuan {
         assertEquals(500,celda.obtenerEdificio().obtenerVida());
 
         //OPCION 2: sin necesidad de usar celdas
-        Criadero criader = new Criadero();
+        //Criadero criader = new Criadero();
         criader.reducirVida(150);
         criader.aumentarVida(50);
         criader.aumentarVida(50);
@@ -75,7 +75,7 @@ public class TestsJuan {
 
         CeldaLibre celda = new CeldaLibre();
         NexoMineral nexoMineral = new NexoMineral();
-        celda.construir(pilon);
+        //celda.construir(pilon);
         celda.afectarEdificio(150); //le paso 150 de daño, pilon tiene 300E 300V, queda con 150E 300V
 
         //emulo tres turnos llamando tres veces a reparar
@@ -103,7 +103,7 @@ public class TestsJuan {
 
         CeldaLibre celda = new CeldaLibre();
         Acceso acceso = new Acceso();
-        celda.construir(acceso);
+        //celda.construir(acceso);
 
         celda.afectarEdificio(700); //acceso tiene 500E 500V, va a quedar con 0E 300V
         celda.repararEdificio(200); //turno 1

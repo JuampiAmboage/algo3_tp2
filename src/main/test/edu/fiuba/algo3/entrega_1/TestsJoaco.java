@@ -64,7 +64,7 @@ public class TestsJoaco {
 
         Partida partida = new partida();
 
-        Extractor extractor = zangano.construirExtractor();
+        //Extractor extractor = zangano.construirExtractor();
 
         zanganosTrabajadores[0] = zangano;
 
