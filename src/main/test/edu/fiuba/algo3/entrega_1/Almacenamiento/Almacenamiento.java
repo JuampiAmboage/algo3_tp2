@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.entrega_1.Almacenamiento;
 
 public class Almacenamiento {
-    private int contador_de_gas;
-    private int contador_de_mineral;
+    private int cantidad_de_gas;
+    private int cantidad_de_mineral;
 
 }
