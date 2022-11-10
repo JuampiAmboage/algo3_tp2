@@ -1,7 +1,7 @@
-package edu.fiuba.algo3.entrega_1.Comunidad;
+package edu.fiuba.algo3.modelo.Comunidad;
 
-import edu.fiuba.algo3.entrega_1.Raza.Raza;
-import edu.fiuba.algo3.entrega_1.Almacenamiento.Almacenamiento;
+import edu.fiuba.algo3.modelo.Almacenamiento.Almacenamiento;
+import edu.fiuba.algo3.modelo.Raza.Raza;
 
 public class Comunidad {
     private Raza[] pueblo;

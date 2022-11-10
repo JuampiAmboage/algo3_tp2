@@ -5,4 +5,9 @@ public class Extractor implements Edificio {
     public void construir() {
         System.out.println("Soy extractor, me constuyo!");
     }
+
+    @Override
+    public void pasarTurno() {
+
+    }
 }

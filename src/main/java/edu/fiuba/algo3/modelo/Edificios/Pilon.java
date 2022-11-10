@@ -5,4 +5,9 @@ public class Pilon implements Edificio {
     public void construir() {
         System.out.println("Soy pilon, me constuyo!");
     }
+
+    @Override
+    public void pasarTurno() {
+
+    }
 }

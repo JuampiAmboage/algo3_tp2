@@ -13,4 +13,8 @@ public class Vida {
     public void recibirAtaque(int ataque) {
         this.vida.recibirAtaque(ataque);
     }
+
+    public int getVidaActual(){
+        return vida.getVidaActual();
+    };
 }

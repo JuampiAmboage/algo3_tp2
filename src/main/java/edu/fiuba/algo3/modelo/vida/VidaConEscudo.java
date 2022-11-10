@@ -33,4 +33,12 @@ public class VidaConEscudo {
             this.vidaActual = 0;
         }
     }
+
+    public int getVidaActual() {
+        return this.vidaActual;
+    }
+
+    public int getEscudoActual() {
+        return escudo.getVidaActual();
+    }
 }

@@ -36,4 +36,8 @@ public class Regenerable {
         }
         return ataqueRestante;
     }
+
+    public int getVidaActual() {
+        return this.vidaActual;
+    }
 }
