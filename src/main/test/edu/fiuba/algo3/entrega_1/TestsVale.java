@@ -16,7 +16,6 @@ public class TestsVale {
         celda2.direccionarSureste(celda3);
 
         Criadero criadero = new Criadero(4);
-        celda1.construir(criadero); //Se construye el criadero en celda1, la celda 2 tiene moho
         celda1.destruirEstructura(); //Se destruye el criadero
 
         celda2.construirExtractor(); //no deberia saltar excepcion porque sigue teniendo el moho
@@ -30,10 +29,10 @@ public class TestsVale {
 
             //como planteo las celdas para probarlo??
             Criadero criadero = new Criadero(4);
-            celda1.construir(criadero); //deberia ser una funcion construirCriadero() que se encargue de crearlo?
+            //celda1.construir(criadero); //deberia ser una funcion construirCriadero() que se encargue de crearlo?
             //Necesito un radio de 5 lleno de moho
             Pilar pilar1 = new Pilar();
-            celda2.construir(pilar1);
+            //celda2.construir(pilar1);
 
             pilar1.expandirEnergia(); //deberia elegir una coordenada que este cubierta por moho pero tambien al alcance del pila
             celda3.energizada(); //deberia dar falso
@@ -64,8 +63,8 @@ public class TestsVale {
     public void caso16() {
         //Verificar que no se pueda construir sobre un volcán con una edificación ya existente
         Volcan v = new Volcan();
-        v.construir(new Extractor()); //creo una estructura
-        v.construir(new Extractor()); //salta error porque ya tiene una estructura
+        //v.construir(new Extractor()); //creo una estructura
+        //v.construir(new Extractor()); //salta error porque ya tiene una estructura
 
         //Verificar que no se pueda construir un nexo mineral si hay un zángano trabajando en él y
         //viceversa
@@ -73,15 +72,15 @@ public class TestsVale {
         NodoMineral nodo1 = new NodoMineral();
         Zangano z1= new Zangano();
         CeldaLibre celda1 = new CeldaLibre();
-        celda1.construir(nodo1);
+        //celda1.construir(nodo1);
         zangano.extraer(celda1);
-        celda1.construir(NexoMineral new()); //deberia lanzar error
+        //celda1.construir(NexoMineral new()); //deberia lanzar error
 
         NodoMineral nodo2 = new NodoMineral();
         Zangano z2= new Zangano();
         CeldaLibre celda2 = new CeldaLibre();
-        celda2.construir(nodo2);
-        celda2.construir(NexoMineral new());
+        //celda2.construir(nodo2);
+        //celda2.construir(NexoMineral new());
         zangano.extraer(celda2); //deberia lanzar error
     }
 }

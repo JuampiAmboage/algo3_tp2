@@ -104,15 +104,15 @@ public void whenExceptionThrown_thenAssertionSucceeds() {
 
         //probar que funciona
         Terreno v = new Volcan();
-        v.construir(new Asimilador(6));
+        //v.construir(new Asimilador(6));
 
 
         Terreno v = new Volcan();
-        v.construir(new Extractor(4));
+        //v.construir(new Extractor(4));
 
         // probar excepción
         Terreno v = new Volcan();
-        v.construir(new Criadero(4));
+        //v.construir(new Criadero(4));
     }
 
     /*
