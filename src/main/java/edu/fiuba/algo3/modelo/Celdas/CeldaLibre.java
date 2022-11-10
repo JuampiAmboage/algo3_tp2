@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.entrega_1.Celdas;
+package edu.fiuba.algo3.modelo.Celdas;
 
 /*public class CeldaLibre implements Celda{
     /*private Moho moho = false;

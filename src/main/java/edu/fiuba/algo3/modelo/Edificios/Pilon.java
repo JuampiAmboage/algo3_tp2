@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.entrega_1.Edificios;
+package edu.fiuba.algo3.modelo.Edificios;
 
 public class Pilon implements Edificio {
     @Override

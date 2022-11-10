@@ -1,7 +1,6 @@
-package edu.fiuba.algo3.entrega_1.Celdas;
+package edu.fiuba.algo3.modelo.Celdas;
 
-import edu.fiuba.algo3.entrega_1.Celdas.Celda;
-import edu.fiuba.algo3.entrega_1.Edificio;
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
 
 public abstract class CeldaConRecursos implements Celda {
     protected int cantidadRecursoRestante;

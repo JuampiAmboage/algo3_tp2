@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.entrega_1.Criadero;
+package edu.fiuba.algo3.modelo.Criadero;
 
-import edu.fiuba.algo3.entrega_1.MiembroRaza.MiembroRaza;
+import edu.fiuba.algo3.modelo.MiembroRaza.MiembroRaza;
 
 public class Criadero extends MiembroRaza {
     private int cantidadLarvas;

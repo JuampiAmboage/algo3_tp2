@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.entrega_1.Almacenamiento;
+package edu.fiuba.algo3.modelo.Almacenamiento;
 
 public class Almacenamiento {
     private int cantidad_de_gas;
