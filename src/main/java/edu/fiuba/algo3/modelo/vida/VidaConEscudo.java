@@ -13,18 +13,18 @@ public class VidaConEscudo {
         this.escudo = new Regenerable(escudoMaximo);
     }
 
-    public boolean tieneVida() {
-        return this.vidaActual > 0;
+    public boolean estaSinVida() {
+        return this.vidaActual <= 0;
     }
 
     public void pasarTurno() {
-        if (!tieneVida()) return;
+        if (estaSinVida()) return;
         // regenerar la vida
         escudo.regenerar(10);
     }
 
     public void recibirAtaque(int ataque) {
-        if (!this.tieneVida()) return;
+        if (this.estaSinVida()) return;
         int ataqueRestante = this.escudo.recibirAtaque(ataque);
         if (ataqueRestante > 0) {
             this.vidaActual -= ataqueRestante;
