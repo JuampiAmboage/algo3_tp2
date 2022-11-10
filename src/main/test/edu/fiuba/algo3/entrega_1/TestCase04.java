@@ -12,20 +12,20 @@ public class TestCase04 {
     //que el Asimilador recoge gas una vez construido según lo estipulado
     @Test
     public void unExtractorSinZanganosNoGeneraGas() {
-        Extractor e = new Extractor(new Volcan());
+        //Extractor e = new Extractor(new Volcan());
         assertEquals(0, e.extraerGas());
     }
 
     @Test
     public void unExtractorConUnZanganoGenera10DeGas() {
-        Extractor e = new Extractor(new Volcan());
+        //Extractor e = new Extractor(new Volcan());
         e.agregarZangano(new Zangano());
         assertEquals(10, e.extraerGas());
     }
 
     @Test
     public void unExtractorConDosZanganosGenera20DeGas() {
-        Extractor e = new Extractor(new Volcan());
+        //Extractor e = new Extractor(new Volcan());
         e.agregarZangano(new Zangano());
         e.agregarZangano(new Zangano());
         assertEquals(20, e.extraerGas());
@@ -33,7 +33,7 @@ public class TestCase04 {
 
     @Test
     public void unExtractorConTresZanganosGenera30DeGas() {
-        Extractor e = new Extractor(new Volcan());
+        //Extractor e = new Extractor(new Volcan());
         e.agregarZangano(new Zangano());
         e.agregarZangano(new Zangano());
         e.agregarZangano(new Zangano());
@@ -42,7 +42,7 @@ public class TestCase04 {
 
     @Test
     public void unExtractorNoPuedeRecibirUnCuartoZangano() {
-        Extractor e = new Extractor(new Volcan());
+        //Extractor e = new Extractor(new Volcan());
         e.agregarZangano(new Zangano());
         e.agregarZangano(new Zangano());
         e.agregarZangano(new Zangano());

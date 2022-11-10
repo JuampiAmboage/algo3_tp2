@@ -48,7 +48,7 @@ public class TestsJuan {
         //volver a tener el 100%.
 
         CeldaMoho celda = new CeldaMoho();
-        Criadero criadero = new Criadero();
+        //Criadero criadero = new Criadero();
         //celda.construir(criadero);
         celda.afectarEdificio(150); //el parametro es el daño, criadero tiene 500V, pasa a tener 350
 
@@ -60,7 +60,7 @@ public class TestsJuan {
         assertEquals(500,celda.obtenerEdificio().obtenerVida());
 
         //OPCION 2: sin necesidad de usar celdas
-        Criadero criader = new Criadero();
+        //Criadero criader = new Criadero();
         criader.reducirVida(150);
         criader.aumentarVida(50);
         criader.aumentarVida(50);

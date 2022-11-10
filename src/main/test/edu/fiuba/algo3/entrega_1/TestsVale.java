@@ -15,7 +15,7 @@ public class TestsVale {
         celda2.direccionarSur(celda1);
         celda2.direccionarSureste(celda3);
 
-        Criadero criadero = new Criadero(4);
+        //Criadero criadero = new Criadero(4);
         celda1.destruirEstructura(); //Se destruye el criadero
 
         celda2.construirExtractor(); //no deberia saltar excepcion porque sigue teniendo el moho
@@ -28,7 +28,7 @@ public class TestsVale {
             //pilón)
 
             //como planteo las celdas para probarlo??
-            Criadero criadero = new Criadero(4);
+            //Criadero criadero = new Criadero(4);
             //celda1.construir(criadero); //deberia ser una funcion construirCriadero() que se encargue de crearlo?
             //Necesito un radio de 5 lleno de moho
             Pilar pilar1 = new Pilar();

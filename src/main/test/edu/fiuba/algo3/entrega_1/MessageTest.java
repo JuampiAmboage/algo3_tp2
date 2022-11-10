@@ -21,7 +21,7 @@ public class MessageTest {
 
     @Test
     public void elCriaderoInicializaConTresLarvas() {
-        Criadero c = new Criadero();
+        //Criadero c = new Criadero();
         assertEquals(3, c.cantidadLarvas());
     }
     @Test
@@ -33,7 +33,7 @@ que se regeneren acorde a los tiempos estipulados
         *
         * */
 
-        Criadero c = new Criadero();
+        //Criadero c = new Criadero();
         c.consumir();
 
         assertEquals(2, c.cantidadLarvas());
@@ -44,7 +44,7 @@ que se regeneren acorde a los tiempos estipulados
     @Test
     public void alPasarTurnoElCriaderoRegeneraUnaLarva() {
 
-        Criadero c = new Criadero();
+        //Criadero c = new Criadero();
         c.consumir();
         c.pasarTurno();
         assertEquals(3, c.cantidadLarvas());
@@ -58,7 +58,7 @@ recién están “operativos” cuando ya se terminaron de construir.
 
     @Test
     public void unCriaderoEnConstruccionEstaInactivo() {
-        Criadero c = new Criadero(4);
+        //Criadero c = new Criadero(4);
 
         assertDeny(c.estaActivo());
 
@@ -66,7 +66,7 @@ recién están “operativos” cuando ya se terminaron de construir.
 
     @Test
     public void unCriaderoSeCreaAlPasarLosTurnos() {
-        Criadero c = new Criadero(4);
+        //Criadero c = new Criadero(4);
 
         c.pasarTurno();
         c.pasarTurno();
@@ -125,7 +125,7 @@ public void whenExceptionThrown_thenAssertionSucceeds() {
 
     @Test
     public void caso0401() {
-        Extractor e = new Extractor(4);
+        //Extractor e = new Extractor(4);
         e.pasarTurno();
         e.pasarTurno();
         e.pasarTurno();
@@ -142,7 +142,7 @@ public void whenExceptionThrown_thenAssertionSucceeds() {
 
     @Test
     public void caso0402() {
-        Extractor e = new Extractor();
+        //Extractor e = new Extractor();
         Zangano z = new Zangano();
         e.agregarZangano(z);
         assertEquals(10, e.extraerGas());
@@ -150,7 +150,7 @@ public void whenExceptionThrown_thenAssertionSucceeds() {
 
     @Test
     public void caso0403() {
-        Extractor e = new Extractor();
+        //Extractor e = new Extractor();
         Zangano z = new Zangano();
         Zangano x = new Zangano();
         Zangano y = new Zangano();
