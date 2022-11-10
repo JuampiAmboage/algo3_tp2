@@ -3,7 +3,7 @@ package edu.fiuba.algo3.entrega_1;
 import org.junit.jupiter.api.Test;
 
 public class TestsVale {
-
+/*
     @Test
     public void caso13() {
         //Se destruye un criadero e igual se puede seguir construyendo sobre el moho que dejó
@@ -81,6 +81,7 @@ public class TestsVale {
         CeldaLibre celda2 = new CeldaLibre();
         //celda2.construir(nodo2);
         //celda2.construir(NexoMineral new());
-        zangano.extraer(celda2); //deberia lanzar error
-    }
+        zangano.extraer(celda2); //deberia lanzar error }
+
+ */
 }

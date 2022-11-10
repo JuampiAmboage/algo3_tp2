@@ -6,8 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestsJoaco {
 
     /*
-     Caso de uso #5: Verificar que no se puedan construir edificios fuera del rango de un pilon o fuera del moho.
-    */
+    //Caso de uso #5: Verificar que no se puedan construir edificios fuera del rango de un pilon o fuera del moho.
 
     @Test
     public void caso05_1 () {
@@ -33,9 +32,8 @@ public class TestsJoaco {
         assertTrue();
     }
 
-    /*
-    CAso de uso #6: Verificar el crecimiento del moho acorde a lo estipulado.
-    */
+
+    // Caso de uso #6: Verificar el crecimiento del moho acorde a lo estipulado.
 
     @Test
     public void caso06_1() {
@@ -50,9 +48,8 @@ public class TestsJoaco {
         assertTrue(celdaSinMoho.crecerMoho(celdaDeAlLado));
     }
 
-    /*
-    Caso de uso #7: Verificar la recolección de minerales para ambas razas.
-    */
+
+    //Caso de uso #7: Verificar la recolección de minerales para ambas razas.
     @Test
 
     //Recoleccion de gas
@@ -88,9 +85,7 @@ public class TestsJoaco {
         assertEquals(5, nexo.minar());
     }
 
-    /*
-    Caso de uso #8: Verificar que sino se tienen los recursos no se pueden construir los edificios (Para cada edificio para cada raza).
-    */
+    // Caso de uso #8: Verificar que sino se tienen los recursos no se pueden construir los edificios (Para cada edificio para cada raza).
 
     //Construir edificio Zerg
     @Test
@@ -102,5 +97,7 @@ public class TestsJoaco {
 
         assertTrue(excepcion.contains(mensajeEsperado));
     }
+
+     */
 
 }
