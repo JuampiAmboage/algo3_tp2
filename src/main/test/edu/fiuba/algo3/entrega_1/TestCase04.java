@@ -52,7 +52,7 @@ public class TestCase04 {
         assertThrows(RuntimeException.class, task);
     }
     @Test elAsimiladorSoloPuedeExtraerGasPasadoElTiempoEstipulado() {
-        Asimilador a = new Asimilador(6);
+        //Asimilador a = new Asimilador(6);
         a.pasarTurno();
         a.pasarTurno();
         a.pasarTurno();

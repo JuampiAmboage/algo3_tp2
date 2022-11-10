@@ -24,7 +24,7 @@ public class TestsJuan {
         Pilar pilar2 = new Pilar();
 
         //construyo un asimilador que va a estar en rango de ambos pilares
-        Asimilador asimilador = new Asimilador();
+        //Asimilador asimilador = new Asimilador();
         //celda3.construir(asimilador);
         //celda1.construir(pilar1);
         //celda2.construir(pilar2);
