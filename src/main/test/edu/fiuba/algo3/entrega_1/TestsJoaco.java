@@ -8,15 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestsJoaco {
 
     /*
-      Instancioa de comunidad
-    */
-    @Test
-    public void  instancia_de_comunidad() {
-        Opciones_de_raza tipo = Opciones_de_raza.PROTOSS;
-        Comunidad c = new Comunidad(tipo);
-    }
-
-    /*
     //Caso de uso #5: Verificar que no se puedan construir edificios fuera del rango de un pilon o fuera del moho.
 
     @Test
