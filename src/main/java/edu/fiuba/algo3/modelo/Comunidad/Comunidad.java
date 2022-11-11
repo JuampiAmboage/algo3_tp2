@@ -8,11 +8,4 @@ public class Comunidad {
     private Raza[] pueblo;
     private Almacenamiento almacenamiento;
 
-    public Comunidad(Opciones_de_raza tipo) {
-        if ( (tipo.toString() ) == "PROTOSS") {
-            System.out.println("creo Protoss");
-        } else {
-            System.out.println("creo Zerg");
-        }
-    }
 }
