@@ -9,9 +9,6 @@ public abstract class CeldaConRecursos extends Celda {
     public CeldaConRecursos(){
         super();
     }
-    public void pasarTurno(){
-        edificioEnCelda.pasarTurno();
-    }
 
     public void ocupar(Edificio nuevoEdificioRecolector) {
         if(edificioEnCelda != null)

@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 
 import java.util.ArrayList;
 
-public abstract class Celda {
+public class Celda {
     protected ArrayList<Celda> celdasAdyacentes;
     protected Edificio edificioEnCelda;
 
@@ -20,7 +20,9 @@ public abstract class Celda {
     public void desocupar(){
         edificioEnCelda = null;
     }
-    public abstract void pasarTurno();
+    public void pasarTurno(){
+        edificioEnCelda.pasarTurno();
+    }
     public int cantidadAdyacentes() {
         return celdasAdyacentes.size();
     }

@@ -15,10 +15,6 @@ public class CeldaLibre extends Celda{
         energia = null;
     }
 
-    public void pasarTurno(){
-        edificioEnCelda.pasarTurno();
-    }
-
     public void setCeldasAdyacentesPropagables(){
         for (int i=0; i<celdasAdyacentes.size();i++){
             Celda celdaAdyacenteActual = celdasAdyacentes.get(i);

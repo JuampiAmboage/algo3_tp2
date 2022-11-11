@@ -1,5 +1,4 @@
 package edu.fiuba.algo3.modelo.Celdas;
-import edu.fiuba.algo3.modelo.Celdas.CeldaConRecursos;
 
 public class NodoMineral extends CeldaConRecursos {
 
@@ -9,5 +8,4 @@ public class NodoMineral extends CeldaConRecursos {
     }
 
     public void extraerRecurso(){}
-    }
 }
