@@ -3,30 +3,25 @@ package edu.fiuba.algo3.modelo.Celdas;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Raza.Raza;
 
-public abstract class CeldaConRecursos implements Celda {
+public abstract class CeldaConRecursos extends Celda {
     protected int cantidadRestanteRecurso;
-    protected Edificio edificioRecolector;
 
     public CeldaConRecursos(){
-        edificioRecolector = null;
+        super();
     }
     public void pasarTurno(){
-        edificioRecolector.pasarTurno();
+        edificioEnCelda.pasarTurno();
     }
 
     public void ocupar(Edificio nuevoEdificioRecolector) {
-        if(edificioRecolector != null)
-            edificioRecolector = nuevoEdificioRecolector;
+        if(edificioEnCelda != null)
+            edificioEnCelda = nuevoEdificioRecolector;
     }
 
     public void desocupar(){
-        edificioRecolector = null;
+        edificioEnCelda = null;
     }
 
-    public boolean esCelda(){
-        return true;
-    }
-
-    public abstract int extraerRecurso();
+    public abstract void extraerRecurso();
 
 }

@@ -16,9 +16,11 @@ public class Volcan extends CeldaConRecursos {
         return cantidadRestanteRecurso;
     }
 
-    public int extraerRecurso() {
+    public void extraerRecurso() {
         if (suficienteGas())
             cantidadRestanteRecurso -= 10;
-        return cantidadRestanteRecurso;
+        else{ //provisorio, iría una excepción
+            System.out.println("La cantidad de gas restante no es suficiente para abastecer la extracción");
+        }
     }
 }

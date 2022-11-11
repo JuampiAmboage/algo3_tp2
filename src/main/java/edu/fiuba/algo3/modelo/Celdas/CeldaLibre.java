@@ -3,35 +3,46 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 
 import java.util.ArrayList;
 
-public class CeldaLibre implements Celda{
-    private Edificio edificio;
-    private ArrayList<Celda> celdasAdyacentes;
+public class CeldaLibre extends Celda{
     private Moho moho;
+    private Energia energia;
+
+    private ArrayList<CeldaLibre> celdasAdyacentesPropagables;
 
     public CeldaLibre(){
-        edificio = null;
+        super();
+        moho = null;
+        energia = null;
     }
-    public void setAdyacentes(ArrayList<Celda> adyacentes){
-        celdasAdyacentes = adyacentes;
-    }
-    public void ocupar(Edificio nuevoEdificio){
-        edificio = nuevoEdificio;
-    }
-    public void desocupar(){
-        edificio = null;
-    }
-    public void pasarTurno(){
-        edificio.pasarTurno();
-    }
-    /*public void energizar(){
-        energia = new Energizada();
-    }*/
 
+    public void pasarTurno(){
+        edificioEnCelda.pasarTurno();
+    }
+
+    public void setCeldasAdyacentesPropagables(){
+        for (int i=0; i<celdasAdyacentes.size();i++){
+            Celda celdaAdyacenteActual = celdasAdyacentes.get(i);
+            if(celdaAdyacenteActual instanceof CeldaLibre)
+                celdasAdyacentesPropagables.add(celdaAdyacenteActual);
+        }
+    }
+
+    //creacion del moho/energia
     public void infectarConMoho(){
         moho = new Moho();
     }
 
-    public boolean esCelda(){
-        return true;
+    //booleano para saber si hay moho/energia
+    public void energizar(){
+        if(!infectadaConMoho()){
+            energia = new Energia();
+        }
+    }
+
+    public boolean infectadaConMoho(){ return moho != null;}
+    public boolean energizada(){return energia != null;}
+
+    public void propagarFenomenos(){
+
     }
 }

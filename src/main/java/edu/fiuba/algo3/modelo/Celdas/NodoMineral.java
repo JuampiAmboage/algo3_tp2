@@ -8,7 +8,6 @@ public class NodoMineral extends CeldaConRecursos {
         cantidadRestanteRecurso = 2000;
     }
 
-    public int extraerRecurso(){
-        return 0;
+    public void extraerRecurso(){}
     }
 }

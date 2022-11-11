@@ -8,10 +8,12 @@ public class Moho {
 
     public Moho(){}
 
-    public void infectarCeldas(ArrayList<Celda> adyacentes,int radio){
+    public void infectarCeldas(ArrayList<CeldaLibre> propagables,int radio){
         Celda celdaAledania;
         for(int i=0; i<radio;i++){
-            celdaAledania = adyacentes.get(i).infectarConMoho();
+            celdaAledania = adyacentes.get(i);
+            if(!celdaAledania.infectadaConMoho())
+                celdaAledania.infectarConMoho();
             celdaAledania.propagarFenonemos(radio-1);
         }
     }
