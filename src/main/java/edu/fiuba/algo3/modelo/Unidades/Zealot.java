@@ -1,0 +1,13 @@
+package edu.fiuba.algo3.modelo.Unidades;
+
+public class Zealot extends Unidad{
+    public Zealot(){
+        ataque = new AtacarTierra();
+        costoMinerales = 100;
+        costoGas = 0;
+        tiempo_constuccion = 4;
+        danio = 8;
+        rango_ataque = 4;
+        vida = 100;
+    }
+}
