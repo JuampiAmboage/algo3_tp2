@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Mapa {
 
-    private Celda[][] celdas;
+    private final Celda[][] celdas;
     private final int tam; // Tamaño del mapa
 
     public Mapa(int tamTotal) {
@@ -40,7 +40,7 @@ public class Mapa {
         * [x-1, y+1]   [x, y+1]   [x+1, y+1]
         *
         * */
-        ArrayList<Celda> adyacentes = new ArrayList<Celda>();
+        ArrayList<Celda> adyacentes = new ArrayList<>();
 
         for (int x = celdaX - 1; x <= celdaX + 1; x++) {
             for (int y = celdaY - 1; y <= celdaY + 1; y++) {

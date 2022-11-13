@@ -1,32 +1,52 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
-import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Comunidad.Unidad;
 
 import java.util.ArrayList;
 
 public class Celda {
     protected ArrayList<Celda> celdasAdyacentes;
-    protected Edificio edificioEnCelda;
+    protected Unidad ocupante; // Uso Unidad porque según el caso de uso 16, un Zángano cuenta como ocupante
+    protected TipoCelda tipo;
 
-    public Celda(){
-        edificioEnCelda = null;
-    }
     static public boolean esCelda(Object objeto) {
         return objeto instanceof Celda;
     }
-    public void ocupar(Edificio nuevoEdificio){
-        edificioEnCelda = nuevoEdificio;
+
+    public Celda(){
+        this.tipo = new CeldaLibre(this);
     }
-    public void desocupar(){
-        edificioEnCelda = null;
+
+    public void ocupar(Unidad ocupante){
+        this.ocupante = ocupante;
+    }
+    public Unidad desocupar(){
+        Unidad u = this.ocupante;
+        this.ocupante = null;
+        return u;
     }
     public void pasarTurno(){
-        edificioEnCelda.pasarTurno();
+        if (this.ocupante != null) {
+            this.ocupante.pasarTurno();
+        }
+        this.tipo.pasarTurno();
+    }
+
+    public void cambiarTipo(TipoCelda t) {
+        this.tipo = t;
+    }
+
+    public boolean esMismoTipo(TipoCelda t) {
+        return this.tipo.esMismoTipo(t);
     }
     public int cantidadAdyacentes() {
         return celdasAdyacentes.size();
     }
     public void setAdyacentes(ArrayList<Celda> adyacentes){
         celdasAdyacentes = adyacentes;
+    }
+
+    public boolean estaOcupada() {
+        return this.tipo.estaOcupada();
     }
 }

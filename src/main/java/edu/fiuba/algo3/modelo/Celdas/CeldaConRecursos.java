@@ -1,24 +1,25 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
-import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Raza.Raza;
+public class CeldaConRecursos extends TipoCelda {
+    private int cantidadRestanteRecurso; // Acá podría tener objeto del tipo Recurso
 
-public abstract class CeldaConRecursos extends Celda {
-    protected int cantidadRestanteRecurso;
-
-    public CeldaConRecursos(){
-        super();
+    public CeldaConRecursos(Celda celda) {
+        super(celda);
     }
 
-    public void ocupar(Edificio nuevoEdificioRecolector) {
-        if(edificioEnCelda != null)
-            edificioEnCelda = nuevoEdificioRecolector;
+    @Override
+    void pasarTurno() {
+
     }
 
-    public void desocupar(){
-        edificioEnCelda = null;
+    @Override
+    boolean esMismoTipo(Object objeto) {
+        return objeto instanceof CeldaConRecursos;
     }
 
-    public abstract void extraerRecurso();
+    @Override
+    boolean estaOcupada() {
+        return true;
+    }
 
 }
