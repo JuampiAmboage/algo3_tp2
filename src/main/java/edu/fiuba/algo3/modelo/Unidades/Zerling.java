@@ -4,6 +4,7 @@ public class Zerling extends Unidad
 {
     public Zerling(){
         ataque = new AtacarTierra();
+        superficie = "tierra";
         costoMinerales = 25;
         costoGas = 0;
         tiempo_constuccion = 2;

@@ -4,6 +4,7 @@ public class Dragon extends Unidad {
 
     public Dragon() {
         ataque = new AtacarTierraYAire();
+        superficie = "tierra";
         costoMinerales = 125;
         costoGas = 50;
         tiempo_constuccion = 6;

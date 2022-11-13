@@ -25,4 +25,6 @@ public class Unidad {
     public String obtenerSuperficie() {
         return superficie;
     }
+
+    public int obtenerVida(){ return vida;}
 }

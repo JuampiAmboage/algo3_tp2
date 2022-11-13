@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 public class Zealot extends Unidad{
     public Zealot(){
         ataque = new AtacarTierra();
+        superficie = "tierra";
         costoMinerales = 100;
         costoGas = 0;
         tiempo_constuccion = 4;

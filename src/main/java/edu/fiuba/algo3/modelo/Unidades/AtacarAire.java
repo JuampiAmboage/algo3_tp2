@@ -1,13 +1,12 @@
 package edu.fiuba.algo3.modelo.Unidades;
-
 public class AtacarAire implements Atacar{
     @Override
     public void atacar(Unidad unidadAtacable, int puntosAtaqueTierra, int puntosAtaqueAire) {
-        if (unidadAtacable.obtenerSuperficie().equals("Aire")){
+        if (unidadAtacable.obtenerSuperficie().equals("aire")){
             unidadAtacable.reducirVida(puntosAtaqueAire);
         }
         else{
-            System.out.println("No podés atacar a una unidad en tierra.");
+            throw new IllegalArgumentException("No podes atacar a una unidad en tierra");
         }
     }
 }

@@ -11,7 +11,7 @@ public class TestCase18 {
     }*/
 
     @Test
-    public void testearAtaques(){
+    public void testearAtaquesTerrestres() {
 
         //UNIDADES ZERG
         Zerling zerling = new Zerling();
@@ -24,10 +24,30 @@ public class TestCase18 {
         Scout scout = new Scout();
 
         //ASSERTS
-        assertEquals(4,zerling.obtenerDanioTerrestre());
-        assertEquals(10,hidralisco.obtenerDanioTerrestre());
-        assertEquals(9,mutalisco.obtenerDanioTerrestre());
-        assertEquals(8,zealot.obtenerDanioTerrestre());
-        assertEquals(20,dragon.obtenerDanioTerrestre());
-        assertEquals(8,scout.obtenerDanioTerrestre());    }
+        assertEquals(4, zerling.obtenerDanioTerrestre());
+        assertEquals(10, hidralisco.obtenerDanioTerrestre());
+        assertEquals(9, mutalisco.obtenerDanioTerrestre());
+        assertEquals(8, zealot.obtenerDanioTerrestre());
+        assertEquals(20, dragon.obtenerDanioTerrestre());
+        assertEquals(8, scout.obtenerDanioTerrestre());
+    }
+
+    @Test
+    public void testearAtaquesAereos() {
+
+        //UNIDADES ZERG
+        Hidralisco hidralisco = new Hidralisco();
+        Mutalisco mutalisco = new Mutalisco();
+
+
+        //UNIDADES PROTOSS
+        Dragon dragon = new Dragon();
+        Scout scout = new Scout();
+
+        //ASSERTS
+        assertEquals(10, hidralisco.obtenerDanioAereo());
+        assertEquals(9, mutalisco.obtenerDanioAereo());
+        assertEquals(20, dragon.obtenerDanioAereo());
+        assertEquals(14, scout.obtenerDanioAereo());
+    }
 }
