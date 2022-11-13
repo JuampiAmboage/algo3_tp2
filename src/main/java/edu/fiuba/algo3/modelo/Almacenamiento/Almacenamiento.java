@@ -19,7 +19,7 @@ public class Almacenamiento {
         this.gas_vespeno += cantidad;
     }
 
-    public void almacenar_mineral(int cantidad) {
+    public void almacenar_minerales(int cantidad) {
         this.mineral += cantidad;
     }
 }
