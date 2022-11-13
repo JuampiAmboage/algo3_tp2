@@ -6,7 +6,7 @@ public class Jugador {
     private String nombre, color;
     Comunidad comunidad;
 
-    public Jugador(String nombre, Comunidad comunidad, String raza){
+    public Jugador(String nombre, String raza){
         this.nombre = nombre;
         this.comunidad = new Comunidad(raza);
     }

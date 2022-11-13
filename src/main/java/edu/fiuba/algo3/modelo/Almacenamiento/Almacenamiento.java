@@ -1,20 +1,29 @@
 package edu.fiuba.algo3.modelo.Almacenamiento;
 
+import edu.fiuba.algo3.modelo.Gas_vespeno.Gas_vespeno;
+import edu.fiuba.algo3.modelo.Mineral.Mineral;
+
+import java.util.ArrayList;
+
 public class Almacenamiento {
-    private int cantidad_de_gas;
-    private int cantidad_de_mineral;
+
+    private int gas_vespeno;
+    private int mineral;
 
     public Almacenamiento(){
-        this.cantidad_de_gas = 0;
-        this.cantidad_de_mineral = 200; //cada jugador inicia con 200 de mineral
+        this.gas_vespeno = 0;
+        this.mineral = 0;
     }
 
-    public void agregarGas(int cantidad_gas_entrante){
-        this.cantidad_de_gas += cantidad_gas_entrante;
+    public void almacenar_gas_vespeno(int cantidad) {
+        this.gas_vespeno += cantidad;
     }
-    public void agregarMineral(int cantidad_mineral_entrante){
-        this.cantidad_de_mineral += cantidad_mineral_entrante;
+
+    public void almacenar_minerales(int cantidad) {
+        this.mineral += cantidad;
     }
-    /*restar gas y mineral, también podría hacerse en un mismo método y pasarle un boolean que determine
+
+        /*restar gas y mineral, también podría hacerse en un mismo método y pasarle un boolean que determine
     si es suma o resta. Pj: public void manipularGas(cantidadGas,true (sumar)/false (restar))*/
+
 }
