@@ -1,13 +1,8 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
-public class Extractor implements Edificio {
+public class Extractor extends Edificio {
     @Override
     public void construir() {
         System.out.println("Soy extractor, me constuyo!");
-    }
-
-    @Override
-    public void pasarTurno() {
-
     }
 }
