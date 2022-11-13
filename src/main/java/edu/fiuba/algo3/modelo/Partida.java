@@ -10,7 +10,7 @@ public class Partida {
         this.mapa = new Mapa(tamanio_del_mapa);
         this.turno = new Turno();
 
-        this.jugador_uno = new Jugador(nombre_de_los_jugadores[0]);
-        this.jugador_dos = new Jugador(nombre_de_los_jugadores[1]);
+        //this.jugador_uno = new Jugador(nombre_de_los_jugadores[0]);
+        //this.jugador_dos = new Jugador(nombre_de_los_jugadores[1]);
     }
 }
