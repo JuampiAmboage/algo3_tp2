@@ -7,7 +7,8 @@ public class Zerling extends Unidad
         costoMinerales = 25;
         costoGas = 0;
         tiempo_constuccion = 2;
-        danio = 4;
+        danioTerrestre = 4;
+        danioAereo = 0;
         rango_ataque = 1;
         vida = 35;
     }

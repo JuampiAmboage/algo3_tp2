@@ -6,7 +6,8 @@ public class Zealot extends Unidad{
         costoMinerales = 100;
         costoGas = 0;
         tiempo_constuccion = 4;
-        danio = 8;
+        danioTerrestre = 8;
+        danioAereo = 0;
         rango_ataque = 4;
         vida = 100;
     }

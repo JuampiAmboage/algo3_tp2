@@ -24,10 +24,10 @@ public class TestCase18 {
         Scout scout = new Scout();
 
         //ASSERTS
-        assertEquals(4,zerling.obtenerDanio());
-        assertEquals(10,hidralisco.obtenerDanio());
-        assertEquals(9,mutalisco.obtenerDanio());
-        assertEquals(8,zealot.obtenerDanio());
-        assertEquals(20,dragon.obtenerDanio());
-        assertEquals(8,scout.obtenerDanio());    }
+        assertEquals(4,zerling.obtenerDanioTerrestre());
+        assertEquals(10,hidralisco.obtenerDanioTerrestre());
+        assertEquals(9,mutalisco.obtenerDanioTerrestre());
+        assertEquals(8,zealot.obtenerDanioTerrestre());
+        assertEquals(20,dragon.obtenerDanioTerrestre());
+        assertEquals(8,scout.obtenerDanioTerrestre());    }
 }
