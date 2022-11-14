@@ -4,8 +4,9 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 
 public class Criadero extends Edificio {
     @Override
-    public void construir_en(Celda celda) {
-        System.out.println("Soy extractor, me constuyo en: " + celda);
+    public String construir_en(Celda celda) {
+        String string = "Soy Criadero, me constuyo en: " + celda;
+        return string;
     }
 
 }

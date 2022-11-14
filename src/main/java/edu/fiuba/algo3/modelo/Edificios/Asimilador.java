@@ -6,7 +6,8 @@ public class Asimilador extends Edificio {
 
 
     @Override
-    public void construir_en(Celda celda) {
-        System.out.println("Soy asimilador, me constuyo en: " + celda);
+    public String construir_en(Celda celda) {
+        String string = "Soy asimilador, me constuyo en: " + celda;
+        return string;
     }
 }
