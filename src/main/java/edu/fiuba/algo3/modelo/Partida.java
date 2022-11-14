@@ -10,6 +10,7 @@ public class Partida {
 
     public Partida(int tamanio_del_mapa, String[] nombre_de_los_jugadores, String[] razas) {
         this.mapa = new Mapa();
+        this.mapa.instanciarMapa(tamanio_del_mapa);
         this.turno = new Turno();
 
         this.jugador_uno = new Jugador(nombre_de_los_jugadores[0], razas[0]);
