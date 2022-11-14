@@ -3,43 +3,34 @@ package edu.fiuba.algo3.entrega_1;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import edu.fiuba.algo3.modelo.Recursos.Volcan;
+import edu.fiuba.algo3.modelo.Edificios.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestCase03 {
-    /*
     // Verificar que solo Asimilador y extractor se puedan construir sobre el gas
 
     @Test
     public void noSePuedeCrearUnCriaderoEnUnVolcan() {
         Volcan v = new Volcan();
-        Criadero c = new Criadero();
-        Executable task = () -> {
-            v.ocupar(c);
-        };
 
-        assertThrows(RuntimeException.class, task);
+        assertFalse(v.ocupar_con(new Criadero()));
+
     }
 
     @Test
     public void sePuedeCrearUnAsimiladorSobreUnVolcan() {
         Volcan v = new Volcan();
-        Executable task = () -> {
-            //v.ocupar(new Asimilador());
-        };
 
-        assertDoesNotThrow(task);
+        assertTrue(v.ocupar_con(new Asimilador()));
     }
 
     @Test
     public void sePuedeConstruirUnExtractorSobreUnVolcan() {
         Volcan v = new Volcan();
-        Executable task = () -> {
-            //v.construir(new Extractor());
-        };
 
-        assertDoesNotThrow(task);
+        assertTrue(v.ocupar_con(new Extractor()));
     }
 
-     */
 }
