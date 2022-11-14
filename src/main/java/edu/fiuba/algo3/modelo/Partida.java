@@ -8,7 +8,7 @@ public class Partida {
 
     public Partida(int tamanio_del_mapa, String[] nombre_de_los_jugadores) {
         this.mapa = Mapa.getInstance();
-        mapa.obtenerTamanio();
+        mapa.instanciarMapa(tamanio_del_mapa);
         this.turno = new Turno();
 
         //this.jugador_uno = new Jugador(nombre_de_los_jugadores[0]);
