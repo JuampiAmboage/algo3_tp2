@@ -25,20 +25,7 @@ public class Celda {
         this.ocupante = null;
         return u;
     }
-    public void pasarTurno(){
-        if (this.ocupante != null) {
-            this.ocupante.pasarTurno();
-        }
-        this.tipo.pasarTurno();
-    }
 
-    public void cambiarTipo(TipoCelda t) {
-        this.tipo = t;
-    }
-
-    public boolean esMismoTipo(TipoCelda t) {
-        return this.tipo.esMismoTipo(t);
-    }
     public int cantidadAdyacentes() {
         return celdasAdyacentes.size();
     }
@@ -48,5 +35,20 @@ public class Celda {
 
     public boolean estaOcupada() {
         return this.tipo.estaOcupada();
+    }
+    public void pasarTurno(){
+        if (this.ocupante != null) {
+            this.ocupante.pasarTurno();
+        }
+        this.tipo.pasarTurno();
+    }
+
+    public void cambiarTipo(TipoCelda t) {
+        //  delego para que cambiarTipo(Energizada) en una celda energizada aumente su energía
+        this.tipo.cambiarTipo(t);
+    }
+
+    public boolean esMismoTipo(TipoCelda t) {
+        return this.tipo.esMismoTipo(t);
     }
 }

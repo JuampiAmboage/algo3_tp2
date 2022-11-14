@@ -21,7 +21,6 @@ public class Mapa {
         }
         for (int i = 0; i < tam; i++) {
             for (int j = 0; j < tam; j++) {
-                // cambio las posiciones de NULL a Celda
                 celdas[i][j].setAdyacentes(this.obtenerCeldasAdyacentes(i, j));
             }
         }
@@ -32,25 +31,29 @@ public class Mapa {
     }
 
     public ArrayList<Celda> obtenerCeldasAdyacentes(int celdaX, int celdaY) {
-        /*
-        * La estructura para encontrar a las celdas en radio sería
-        *
-        * [x-1, y-1]   [x, y-1]   [x+1, y-1]
-        *  [x-1, y]     [x,y]      [x+1, y]
-        * [x-1, y+1]   [x, y+1]   [x+1, y+1]
-        *
-        * */
-        ArrayList<Celda> adyacentes = new ArrayList<>();
 
-        for (int x = celdaX - 1; x <= celdaX + 1; x++) {
-            for (int y = celdaY - 1; y <= celdaY + 1; y++) {
+        return this.obtenerCeldasEnRadio(celdaX, celdaY, 1);
+    }
+
+    public ArrayList<Celda> obtenerCeldasEnRadio(int celdaX, int celdaY, int radio) {
+        /*
+         * La estructura para encontrar a las celdas en radio sería
+         *
+         * [x-1, y-1]   [x, y-1]   [x+1, y-1]
+         *  [x-1, y]     [x,y]      [x+1, y]
+         * [x-1, y+1]   [x, y+1]   [x+1, y+1]
+         *
+         * */
+        ArrayList<Celda> enRadio = new ArrayList<>();
+
+        for (int x = celdaX - radio; x <= celdaX + radio; x++) {
+            for (int y = celdaY - radio; y <= celdaY + radio; y++) {
                 if (x < 0 || x >= tam || y < 0 || y >= tam || (x == celdaX && y == celdaY)) {
                     continue;
                 }
-                adyacentes.add(this.obtenerCelda(x,y));
+                enRadio.add(this.obtenerCelda(x,y));
             }
         }
-        return adyacentes;
+        return enRadio;
     }
-
 }

@@ -20,4 +20,9 @@ public class CeldaLibre extends TipoCelda {
         return this.celda.ocupante != null;
     }
 
+    @Override
+    void cambiarTipo(TipoCelda t) {
+        this.celda.tipo = t;
+    }
+
 }

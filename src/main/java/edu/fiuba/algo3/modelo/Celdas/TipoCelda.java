@@ -14,4 +14,6 @@ public abstract class TipoCelda {
     abstract boolean esMismoTipo(Object objeto);
 
     abstract boolean estaOcupada();
+
+    abstract void cambiarTipo(TipoCelda t);
 }

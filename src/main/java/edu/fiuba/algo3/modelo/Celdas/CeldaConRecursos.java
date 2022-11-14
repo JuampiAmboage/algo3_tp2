@@ -22,4 +22,9 @@ public class CeldaConRecursos extends TipoCelda {
         return true;
     }
 
+    @Override
+    void cambiarTipo(TipoCelda t) {
+        this.celda.tipo = t;
+    }
+
 }

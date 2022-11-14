@@ -49,4 +49,27 @@ public class CeldaTest {
             }
         }
     }
+
+    @Test
+    public void elMohoNoSeExpandeSobreCeldasOcupadas() {
+        Mapa m = new Mapa(3);
+        Celda c0 = m.obtenerCelda(0,0);
+        Celda c1 = m.obtenerCelda(1,1);
+
+        c0.ocupar(new Zangano());
+        c1.cambiarTipo(new CeldaConMoho(c1));
+        c1.pasarTurno();
+
+        assertFalse(c0.esMismoTipo(new CeldaConMoho(c1)));
+    }
+
+    @Test
+    public void unaCeldaSePuedeOcuparYDesocuparCorrectamente() {
+        Celda c = new Celda();
+        c.ocupar(new Zangano());
+        c.desocupar();
+        assertFalse(c.estaOcupada());
+    }
+
+
 }
