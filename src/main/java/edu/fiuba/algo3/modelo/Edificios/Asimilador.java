@@ -14,10 +14,14 @@ public class Asimilador extends Edificio {
     }
     @Override
     public void pasarTurno(){
-
+        extraerGas();
     }
 
     public String nombre(){
         return this.nombre;
+    }
+
+    public int extraerGas(){
+        return 20;
     }
 }

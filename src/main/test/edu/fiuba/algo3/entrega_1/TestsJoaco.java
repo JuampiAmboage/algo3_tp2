@@ -7,17 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestsJoaco {
 
-    /*
-    //Caso de uso #5: Verificar que no se puedan construir edificios fuera del rango de un pilon o fuera del moho.
-
-    @Test
-    public void caso05_1 () {
-        Celda c = new Celda("libre", "moho");
-        c.construirEdificio();
-        //Assert que no salte la excepcion de que no se puede construir ahi
-        assertFalse();
-    }
-
     @Test
     public void caso05_2 () {
         Celda c = new Celda("libre", "energizada");
@@ -34,7 +23,7 @@ public class TestsJoaco {
         assertTrue();
     }
 
-
+/*
     // Caso de uso #6: Verificar el crecimiento del moho acorde a lo estipulado.
 
     @Test
