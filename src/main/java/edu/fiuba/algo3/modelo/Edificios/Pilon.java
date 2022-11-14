@@ -4,9 +4,8 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 
 public class Pilon extends Edificio {
     @Override
-    public String construir_en(Celda celda) {
-        String string = "Soy Pilon, me constuyo en: " + celda;
-        return string;
+    public void construir_en(Celda celda) {
+
     }
 
 }
