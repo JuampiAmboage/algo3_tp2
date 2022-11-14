@@ -7,7 +7,8 @@ public class Partida {
     private Jugador jugador_dos;
 
     public Partida(int tamanio_del_mapa, String[] nombre_de_los_jugadores) {
-        this.mapa = new Mapa(tamanio_del_mapa);
+        this.mapa = Mapa.getInstance();
+        mapa.instanciarMapa(tamanio_del_mapa);
         this.turno = new Turno();
 
         //this.jugador_uno = new Jugador(nombre_de_los_jugadores[0]);
