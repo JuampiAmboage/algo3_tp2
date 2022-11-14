@@ -6,34 +6,25 @@ public class CeldaEnergizada extends TipoCelda{
         super(celda);
         this.energia++;
     }
-
     @Override
-    void pasarTurno() {
-
-    }
-
+    void pasarTurno() {}
     @Override
     boolean esMismoTipo(Object objeto) {
-        return false;
-    }
-
-    @Override
-    boolean estaOcupada() {
-        return false;
+        return objeto instanceof CeldaEnergizada;
     }
 
     @Override
     void cambiarTipo(TipoCelda t) {
         if (t instanceof CeldaEnergizada) {
-            energia ++;
+            this.energia++;
+        } else if (t instanceof CeldaLibre){
+            this.energia--;
         } else {
             this.celda.tipo = t;
         }
-    }
-
-    public void expandir(int radio) {
-        // Haciendo mapa un singleton para tenerlo de referencia
-        //Mapa.getCeldasEnRadio(this.celda, radio)
-        //celdas.forEach(cambiarTipo(energizada))
+        // Si la celda se queda sin energía
+        if (this.energia <= 0) {
+            this.celda.tipo = new CeldaLibre(this.celda);
+        }
     }
 }

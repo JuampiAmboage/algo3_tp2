@@ -34,7 +34,7 @@ public class Celda {
     }
 
     public boolean estaOcupada() {
-        return this.tipo.estaOcupada();
+        return this.ocupante != null;
     }
     public void pasarTurno(){
         if (this.ocupante != null) {
@@ -50,9 +50,5 @@ public class Celda {
 
     public boolean esMismoTipo(TipoCelda t) {
         return this.tipo.esMismoTipo(t);
-    }
-
-    public TipoCelda getTipo() {
-        return this.tipo;
     }
 }
