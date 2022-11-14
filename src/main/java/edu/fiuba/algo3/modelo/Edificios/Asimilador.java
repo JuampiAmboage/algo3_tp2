@@ -1,13 +1,12 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
-public class Asimilador implements Edificio {
-    @Override
-    public void construir() {
-        System.out.println("Soy asimilador, me constuyo!");
-    }
+import edu.fiuba.algo3.modelo.Celdas.Celda;
+
+public class Asimilador extends Edificio {
+
 
     @Override
-    public void pasarTurno() {
-
+    public void construir_en(Celda celda) {
+        System.out.println("Soy asimilador, me constuyo en: " + celda);
     }
 }
