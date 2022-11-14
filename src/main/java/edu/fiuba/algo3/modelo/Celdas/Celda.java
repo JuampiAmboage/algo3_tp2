@@ -51,4 +51,8 @@ public class Celda {
     public boolean esMismoTipo(TipoCelda t) {
         return this.tipo.esMismoTipo(t);
     }
+
+    public TipoCelda getTipo() {
+        return this.tipo;
+    }
 }

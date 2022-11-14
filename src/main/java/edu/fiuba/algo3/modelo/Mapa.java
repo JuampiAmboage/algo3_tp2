@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
+
 import java.util.ArrayList;
 
 public class Mapa {
@@ -11,17 +12,17 @@ public class Mapa {
     public Mapa(int tamTotal) {
         this.tam = tamTotal;
         this.celdas = new Celda[tam][tam];
-        // establezco las celdas en radio
 
-        for (int i = 0; i < tam; i++) {
-            for (int j = 0; j < tam; j++) {
-                // cambio las posiciones de NULL a Celda
-                celdas[i][j] = new Celda();
+        // cambio las posiciones de NULL a Celda
+        for (int i = 0; i < this.tam; i++) {
+            for (int j = 0; j < this.tam; j++) {
+                this.celdas[i][j] = new Celda();
             }
         }
-        for (int i = 0; i < tam; i++) {
-            for (int j = 0; j < tam; j++) {
-                celdas[i][j].setAdyacentes(this.obtenerCeldasAdyacentes(i, j));
+        // establezco las celdas en radio
+        for (int i = 0; i < this.tam; i++) {
+            for (int j = 0; j < this.tam; j++) {
+                this.celdas[i][j].setAdyacentes(this.obtenerCeldasAdyacentes(i, j));
             }
         }
     }
@@ -31,7 +32,6 @@ public class Mapa {
     }
 
     public ArrayList<Celda> obtenerCeldasAdyacentes(int celdaX, int celdaY) {
-
         return this.obtenerCeldasEnRadio(celdaX, celdaY, 1);
     }
 
@@ -55,5 +55,16 @@ public class Mapa {
             }
         }
         return enRadio;
+    }
+
+    public ArrayList<Celda> obtenerCeldasEnRadio(Celda celda, int radio) {
+        for (int i = 0; i < tam; i++) {
+            for (int j = 0; j < tam; j++) {
+                if (this.celdas[i][j] == celda) {
+                    return this.obtenerCeldasEnRadio(i, j, radio);
+                }
+            }
+        }
+        return null;
     }
 }

@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 public class CeldaEnergizada extends TipoCelda{
-    private int energia;
+    private int energia = 0;
     public CeldaEnergizada(Celda celda) {
         super(celda);
-        energia = 1;
+        this.energia++;
     }
 
     @Override
@@ -31,7 +31,9 @@ public class CeldaEnergizada extends TipoCelda{
         }
     }
 
-    public void expandir() {
-
+    public void expandir(int radio) {
+        // Haciendo mapa un singleton para tenerlo de referencia
+        //Mapa.getCeldasEnRadio(this.celda, radio)
+        //celdas.forEach(cambiarTipo(energizada))
     }
 }
