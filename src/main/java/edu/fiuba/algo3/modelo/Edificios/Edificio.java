@@ -9,5 +9,5 @@ public abstract class Edificio {
     protected Almacenamiento amlmacenamiento;
 
     public abstract void construir_en(Celda celda);
-    public void pasarTurno(){ System.out.println("Pasar turno"); }
+    public abstract void pasarTurno();
 }

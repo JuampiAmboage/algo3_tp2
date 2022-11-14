@@ -9,14 +9,14 @@ public class TestCase01 {
     @Test
     public void unCriaderoSeIniciaConTresLarvas() {
         Criadero c = new Criadero();
-        assertEquals(3, c.cantidadLarvas());
+        assertEquals(3, c.cantidadDeLarvas());
     }
 
     @Test
     public void elCriaderoEngendraUnaLarvaYReduceSuCantidad() {
         Criadero c = new Criadero();
         c.engendrar();
-        assertEquals(2, c.cantidadLarvas());
+        assertEquals(2, c.cantidadDeLarvas());
     }
 
     @Test
@@ -24,7 +24,7 @@ public class TestCase01 {
         Criadero c = new Criadero();
         c.engendrar();
         c.pasarTurno();
-        assertEquals(3, c.cantidadLarvas());
+        assertEquals(3, c.cantidadDeLarvas());
     }
 
     @Test
@@ -33,7 +33,7 @@ public class TestCase01 {
         c.engendrar();
         c.engendrar();
         c.pasarTurno();
-        assertEquals(2, c.cantidadLarvas());
+        assertEquals(2, c.cantidadDeLarvas());
     }
 
     @Test
@@ -42,6 +42,6 @@ public class TestCase01 {
         c.engendrar();
         c.engendrar();
         c.engendrar();
-        assertEquals(0, c.cantidadLarvas());
+        assertEquals(0, c.cantidadDeLarvas());
     }
 }

@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.Almacenamiento;
 
-import edu.fiuba.algo3.modelo.Gas_vespeno.Gas_vespeno;
-import edu.fiuba.algo3.modelo.Mineral.Mineral;
+import edu.fiuba.algo3.modelo.Recursos.Recurso;
 
 import java.util.ArrayList;
 

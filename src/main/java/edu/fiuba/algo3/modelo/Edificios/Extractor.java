@@ -7,4 +7,8 @@ public class Extractor extends Edificio {
     public void construir_en(Celda celda) {
 
     }
+    @Override
+    public void pasarTurno(){
+
+    }
 }
