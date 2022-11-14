@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
+
 public class Criadero extends Edificio {
     @Override
-    public void construir() {
-        System.out.println("Soy extractor, me constuyo!");
+    public void construir_en(Celda celda) {
+        System.out.println("Soy extractor, me constuyo en: " + celda);
     }
 
 }
