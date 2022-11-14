@@ -5,11 +5,17 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import java.util.ArrayList;
 
 public class Mapa {
+    private static Mapa mapa;
+    private Celda[][] celdas;
+    private int tam; // Tamaño del mapa
+    private Mapa(){ mapa = null; celdas = null;}
 
-    private final Celda[][] celdas;
-    private final int tam; // Tamaño del mapa
-
-    public Mapa(int tamTotal) {
+    public static Mapa getInstance(){
+        if(mapa == null)
+            mapa = new Mapa();
+        return mapa;
+    }
+    public void instanciarMapa(int tamTotal) {
         this.tam = tamTotal;
         this.celdas = new Celda[tam][tam];
 
@@ -66,5 +72,9 @@ public class Mapa {
             }
         }
         return null;
+    }
+
+    public int obtenerTamanio(){
+        return tam;
     }
 }

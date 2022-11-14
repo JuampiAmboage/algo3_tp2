@@ -11,7 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class MapaTest {
     @Test
     public void elMapaSeCreaConCeldasAdentro() {
-        Mapa m = new Mapa(5);
+        Mapa m = Mapa.getInstance();
+        m.instanciarMapa(5);
         Celda c = m.obtenerCelda(0,0);
 
         assertTrue(Celda.esCelda(c));
@@ -19,10 +20,23 @@ public class MapaTest {
 
     @Test
     public void elMapaCargaCorrectamenteLaCantidadDeCeldasAdyacentesDeLasCeldas() {
-        Mapa m = new Mapa(3);
+        Mapa m = Mapa.getInstance();
+        m.instanciarMapa(3);
         Celda c = m.obtenerCelda(1,1);
 
         assertEquals(8, c.cantidadAdyacentes());
+    }
+
+    @Test
+    public void elMapaEsUnaSolaInstancia(){
+        Mapa m = Mapa.getInstance();
+        m.instanciarMapa(8);
+
+        Mapa s = Mapa.getInstance();
+        Mapa y = Mapa.getInstance();
+
+        assertEquals(8,s.obtenerTamanio());
+        assertEquals(8,y.obtenerTamanio());
     }
 
 }

@@ -38,7 +38,8 @@ public class CeldaTest {
 
     @Test
     public void unaCeldaConMohoInfectaASusCeldasAdyacentes() {
-        Mapa m = new Mapa(3);
+        Mapa m = Mapa.getInstance();
+        m.instanciarMapa(3);
         Celda c = m.obtenerCelda(1,1);
         c.cambiarTipo(new CeldaConMoho(c));
         c.pasarTurno(); // todo esto lo debería hacer Mapa, y bajar en cascada
@@ -52,7 +53,8 @@ public class CeldaTest {
 
     @Test
     public void elMohoNoSeExpandeSobreCeldasOcupadas() {
-        Mapa m = new Mapa(3);
+        Mapa m = Mapa.getInstance();
+        m.instanciarMapa(3);
         Celda c0 = m.obtenerCelda(0,0);
         Celda c1 = m.obtenerCelda(1,1);
 
