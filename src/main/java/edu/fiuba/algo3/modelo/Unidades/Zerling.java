@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import edu.fiuba.algo3.modelo.vida.Vida;
+
 public class Zerling extends Unidad
 {
     public Zerling(){
@@ -11,7 +13,11 @@ public class Zerling extends Unidad
         danioTerrestre = 4;
         danioAereo = 0;
         rango_ataque = 1;
-        vida = 35;
+        vida = new Vida(35);
     }
 
+    @Override
+    public void pasarTurno() {
+        vida.pasarTurno();
+    }
 }

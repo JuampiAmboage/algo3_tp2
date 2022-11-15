@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
+
 public class Dragon extends Unidad {
 
     public Dragon() {
@@ -11,6 +13,11 @@ public class Dragon extends Unidad {
         danioTerrestre = 20;
         danioAereo = 20;
         rango_ataque = 4;
-        vida = 100;
+        vida = new VidaConEscudo(100,80);
+    }
+
+    @Override
+    public void pasarTurno() {
+        vida.pasarTurno();
     }
 }

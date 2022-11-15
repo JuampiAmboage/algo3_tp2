@@ -2,10 +2,10 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.vida.Salud;
 
-public abstract class Bando {
-    private Salud vida;
-    private int costoEnMinerales;
-    private int costoEnGas;
+public abstract class Racita {
+    protected Salud vida;
+    protected int costoEnMinerales;
+    protected int costoEnGas;
 
     public abstract void pasarTurno();
 

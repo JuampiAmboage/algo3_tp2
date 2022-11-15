@@ -2,10 +2,10 @@ package edu.fiuba.algo3.modelo.Edificios;
 
 import edu.fiuba.algo3.modelo.Almacenamiento.Almacenamiento;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Racita;
 import edu.fiuba.algo3.modelo.vida.Salud;
 
-public abstract class Edificio {
-    protected Salud vida;
+public abstract class Edificio extends Racita {
 
     protected int costo_de_construccion;
     protected Almacenamiento amlmacenamiento;
@@ -30,10 +30,4 @@ public abstract class Edificio {
     public String nombre() {
         return this.nombre;
     }
-
-    public void daniarEdificio(int puntosAtaque){
-        vida.recibirAtaque(puntosAtaque);
-    }
-
-    public int obtenerVida(){return vida.getVidaActual();}
 }

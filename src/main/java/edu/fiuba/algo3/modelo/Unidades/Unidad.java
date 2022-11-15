@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-public class Unidad {
+import edu.fiuba.algo3.modelo.Racita;
+
+public abstract class Unidad extends Racita{
     protected String superficie;
     protected int costoMinerales;
     protected int costoGas;
@@ -8,7 +10,6 @@ public class Unidad {
     protected int danioTerrestre;
     protected int danioAereo;
     protected int rango_ataque;
-    protected int vida;
     protected Atacar ataque;
 
     public int obtenerDanioTerrestre(){
@@ -18,13 +19,10 @@ public class Unidad {
     public void atacar(Unidad unidadAtacable){
         ataque.atacar(unidadAtacable,danioTerrestre,danioAereo);
     }
-    public void reducirVida(int puntosAtaque){
-        vida -= puntosAtaque;
-    }
-
+    public abstract void pasarTurno();
     public String obtenerSuperficie() {
         return superficie;
     }
 
-    public int obtenerVida(){ return vida;}
+
 }

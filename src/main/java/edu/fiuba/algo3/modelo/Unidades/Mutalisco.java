@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import edu.fiuba.algo3.modelo.vida.Vida;
+
 public class Mutalisco extends Unidad {
     public Mutalisco(){
         ataque = new AtacarTierraYAire();
@@ -10,6 +12,11 @@ public class Mutalisco extends Unidad {
         danioTerrestre = 9;
         danioAereo = 9;
         rango_ataque = 4;
-        vida = 80;
+        vida = new Vida(80);
+    }
+
+    @Override
+    public void pasarTurno() {
+        vida.pasarTurno();
     }
 }

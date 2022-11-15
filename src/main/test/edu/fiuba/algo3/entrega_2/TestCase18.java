@@ -6,10 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class TestCase18 {
-    /*public void ataqueDeUnidadCorrecto(Unidad unidadATestear,int valorDeAtaqueEsperado){
-        assertEquals(valorDeAtaqueEsperado,unidadATestear.obtenerDanio());
-    }*/
-
     @Test
     public void testearAtaquesTerrestres() {
 

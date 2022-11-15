@@ -4,12 +4,13 @@ import edu.fiuba.algo3.modelo.Comunidad.Unidad;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Racita;
 
 import java.util.ArrayList;
 
 public class Celda {
     protected ArrayList<Celda> celdasAdyacentes;
-    protected Edificio ocupante; // Uso Unidad porque según el caso de uso 16, un Zángano cuenta como ocupante
+    protected Racita ocupante; // Uso Unidad porque según el caso de uso 16, un Zángano cuenta como ocupante
     protected TipoCelda tipo;
     protected Recurso recurso;
 
@@ -29,8 +30,8 @@ public class Celda {
             throw new IllegalArgumentException();
         }
     }
-    public Edificio desocupar(){
-        Edificio u = this.ocupante;
+    public Racita desocupar(){
+        Racita u = this.ocupante;
         this.ocupante = null;
         return u;
     }

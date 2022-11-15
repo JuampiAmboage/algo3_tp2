@@ -10,8 +10,8 @@ public class TestCase12 {
     @Test void alSacarleTodoElEscudoAUnAsimiladorYSeguirDaniandoloPierdeVida(){
         Asimilador asimilador = new Asimilador(); //empieza con 450 de vida y 450 de escudo
 
-        asimilador.daniarEdificio(450); //aca pierde todo el escudo
-        asimilador.daniarEdificio(50); //afecto a la vida
+        asimilador.daniar(450); //aca pierde todo el escudo
+        asimilador.daniar(50); //afecto a la vida
 
         assertEquals(0,asimilador.obtenerEscudo());
         assertEquals(400,asimilador.obtenerVida());
@@ -21,8 +21,8 @@ public class TestCase12 {
     public void alSacarleTodoElEscudoYParteDeLaVidaAUnAsimiladorSoloRecuperaEscudo(){
         Asimilador asimilador = new Asimilador(); //empieza con 450 de vida y 450 de escudo
 
-        asimilador.daniarEdificio(450); //aca pierde todo el escudo
-        asimilador.daniarEdificio(200); //afecto a la vida
+        asimilador.daniar(450); //aca pierde todo el escudo
+        asimilador.daniar(200); //afecto a la vida
 
         for(int i=0;i<10;i++)
             asimilador.pasarTurno(); //pasan unos cuantos turnos

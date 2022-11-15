@@ -4,10 +4,10 @@ public class AtacarTierraYAire implements Atacar{
     @Override
     public void atacar(Unidad unidadAtacable, int puntosAtaqueTierra, int puntosAtaqueAire) {
         if(unidadAtacable.obtenerSuperficie().equals("tierra")){
-            unidadAtacable.reducirVida(puntosAtaqueTierra);
+            unidadAtacable.daniar(puntosAtaqueTierra);
         }
         else{
-            unidadAtacable.reducirVida(puntosAtaqueAire);
+            unidadAtacable.daniar(puntosAtaqueAire);
         }
     }
 }

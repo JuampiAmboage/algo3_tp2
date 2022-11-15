@@ -9,7 +9,7 @@ public class TestCase10 {
     @Test
     public void alDaniarUnCriaderoYPasarUnTurnoRecuperaSuVidaMaxima(){
        Criadero criadero = new Criadero(); //empieza con 500 de vida
-       criadero.daniarEdificio(50);
+       criadero.daniar(50);
        criadero.pasarTurno(); //en cada turno regenera 20% de su vida maxima, es decir 100
 
        assertEquals(500,criadero.obtenerVida());
@@ -18,7 +18,7 @@ public class TestCase10 {
     @Test
     public void alDaniarUnCriaderoCasiHastaElBordeYLuegoPasarTurnosVaRecuperandoSuVida(){
         Criadero criadero = new Criadero();
-        criadero.daniarEdificio(450);
+        criadero.daniar(450);
 
         for(int i=0; i<8;i++)
             criadero.pasarTurno(); //tras 4 turnos recuperando de a 100 queda en 450

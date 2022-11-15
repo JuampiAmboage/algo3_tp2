@@ -3,7 +3,7 @@ public class AtacarAire implements Atacar{
     @Override
     public void atacar(Unidad unidadAtacable, int puntosAtaqueTierra, int puntosAtaqueAire) {
         if (unidadAtacable.obtenerSuperficie().equals("aire")){
-            unidadAtacable.reducirVida(puntosAtaqueAire);
+            unidadAtacable.daniar(puntosAtaqueAire);
         }
         else{
             throw new IllegalArgumentException("No podes atacar a una unidad en tierra");
