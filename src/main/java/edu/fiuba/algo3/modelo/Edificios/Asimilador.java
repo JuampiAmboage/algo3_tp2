@@ -6,6 +6,7 @@ public class Asimilador extends Edificio {
 
     public Asimilador(){
         this.nombre = "asimilador";
+        tiempoDeConstruccion = 6;
     }
 
     @Override
@@ -14,6 +15,9 @@ public class Asimilador extends Edificio {
     }
     @Override
     public void pasarTurno(){
+        if(!estaConstruido)
+            controlEstadoConstruccion();
+        //esto de abajo iria como else? (no extrae si no esta construido)
         extraerGas();
     }
 

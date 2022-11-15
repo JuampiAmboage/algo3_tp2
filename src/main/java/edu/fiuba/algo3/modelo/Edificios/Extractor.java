@@ -13,6 +13,7 @@ public class Extractor extends Edificio {
     public Extractor(){
         this.nombre = "extractor";
         this.trabajadores = new ArrayList<Zangano>(0);
+        this.tiempoDeConstruccion = 6;
     }
     @Override
     public void construir_en(Celda celda) {
@@ -20,7 +21,8 @@ public class Extractor extends Edificio {
     }
     @Override
     public void pasarTurno(){
-
+        if(!estaConstruido)
+            controlEstadoConstruccion();
     }
 
     public void agregarTrabajador(Zangano trabajador) {
