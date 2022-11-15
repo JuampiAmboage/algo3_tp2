@@ -6,9 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class TestCase12 {
-    /*Verificar que al dañar una construcción protoss quitandole todo el escudo y parte de la
-vida la misma recupera SOLO su escudo por turnos hasta volver a tener el 100% del
-mismo.*/
 
     @Test void alSacarleTodoElEscudoAUnAsimiladorYSeguirDaniandoloPierdeVida(){
         Asimilador asimilador = new Asimilador(); //empieza con 450 de vida y 450 de escudo

@@ -9,8 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 public class TestCase13 {
 
     @Test
-    public void caso13() {
-        //Se destruye un criadero e igual se puede seguir construyendo sobre el moho que dejó
+    public void siSeDistruyeUnCriaderoSePuedeSeguirConstruyendoEnElMoho() {
         Criadero criadero = new Criadero();
         Criadero otroCriadero = new Criadero();
         Celda celda = new Celda();
