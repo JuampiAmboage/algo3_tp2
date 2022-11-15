@@ -1,29 +1,24 @@
 package edu.fiuba.algo3.modelo.Comunidad;
 
+import edu.fiuba.algo3.modelo.Racita;
 import edu.fiuba.algo3.modelo.Raza.*;
 import edu.fiuba.algo3.modelo.Almacenamiento.Almacenamiento;
 import edu.fiuba.algo3.modelo.Edificios.*;
 import java.util.ArrayList;
 
 public class Comunidad {
-    private ArrayList<Raza> pueblo;
+    private ArrayList<Racita> pueblo;
     private Almacenamiento almacenamiento;
 
     private ArrayList<Edificio> edificios;
 
-    public Comunidad(String raza) {
+    public Comunidad(Racita[] raza) {
 
-        Raza[] lista_inicial = new Raza[0];
+        Racita[] lista_inicial = new Racita[0];
         this.almacenamiento = new Almacenamiento();
 
-        if (raza.equals("protoss")) {
-            for (int i = 0; i < 3; i++) {
-                this.pueblo.add(new Protoss());
-            }
-        } else {
-            for (int i = 0; i < 3; i++) {
-                this.pueblo.add(new Larva());
-            }
+        for (Racita elemento :raza) {
+            this.pueblo.add(elemento);
         }
     }
 

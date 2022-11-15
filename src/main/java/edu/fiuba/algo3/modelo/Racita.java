@@ -18,4 +18,5 @@ public abstract class Racita {
     public int obtenerCostoEnMinerales(){return costoEnMinerales;}
 
     public int obtenerCostoEnGas(){return costoEnGas;}
+
 }
