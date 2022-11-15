@@ -15,13 +15,18 @@ public class TestCase01 {
     @Test
     public void elCriaderoEngendraUnaLarvaYReduceSuCantidad() {
         Criadero c = new Criadero();
+        for(int i=0;i<4;i++)
+            c.pasarTurno();
         c.engendrar();
+
         assertEquals(2, c.cantidadDeLarvas());
     }
 
     @Test
     public void alEngendrarUnaLarvaYPasarTurnoElCriaderoVuelveATenerTresLarvas() {
         Criadero c = new Criadero();
+        for(int i=0;i<4;i++)
+            c.pasarTurno();
         c.engendrar();
         c.pasarTurno();
         assertEquals(3, c.cantidadDeLarvas());
@@ -30,6 +35,8 @@ public class TestCase01 {
     @Test
     public void alEngendrarDosLarvasYPasarTurnoElCriaderoTerminaConDosLarvas() {
         Criadero c = new Criadero();
+        for(int i=0;i<4;i++)
+            c.pasarTurno();
         c.engendrar();
         c.engendrar();
         c.pasarTurno();
@@ -39,6 +46,8 @@ public class TestCase01 {
     @Test
     public void unCriaderoRecienCreadoSeQuedaSinLarvasAlEngendrarTresVeces() {
         Criadero c = new Criadero();
+        for(int i=0;i<4;i++)
+            c.pasarTurno();
         c.engendrar();
         c.engendrar();
         c.engendrar();

@@ -21,6 +21,7 @@ public class Criadero extends Edificio {
             agregarLarvas();
         }
         regenerable = new Regenerable(this.vidaMaxima);
+        tiempoDeConstruccion = 4;
     }
 
     @Override
@@ -29,22 +30,14 @@ public class Criadero extends Edificio {
         this.turnosPasadosParaConstruccion = 0;
     }
 
-    @Override
     public void pasarTurno(){
+        if(!estaConstruido){
+            controlEstadoConstruccion();
+        }
         if (cantidadDeLarvas() < 3) {
             agregarLarvas();
         }
 
-        if (this.turnosPasadosParaConstruccion != this.tiempoDeConstruccion) {
-
-            this.turnosPasadosParaConstruccion++;
-
-        } else {
-
-            this.turnosPasadosParaConstruccion = -1;
-            this.estaConstruido = true;
-
-        }
         this.regenerable.regenerar(20);
 
     }
