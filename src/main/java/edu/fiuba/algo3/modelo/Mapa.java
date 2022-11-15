@@ -77,4 +77,12 @@ public class Mapa {
     public int obtenerTamanio(){
         return tam;
     }
+
+    public void pasarTurno() {
+        for (int i = 0; i < tam; i++) {
+            for (int j = 0; j < tam; j++) {
+                this.celdas[i][j].pasarTurno();
+            }
+        }
+    }
 }
