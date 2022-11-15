@@ -15,19 +15,20 @@ public class TestCase05 {
     //Caso de uso #5: Verificar que no se puedan construir edificios fuera del rango de un pilon o fuera del moho.
 
     @Test
-    public void construyoUnedificioDeberiaSaltarExcepcionPorqueNoSePuedeConstruirAhi() {
-
-        CeldaConMoho celdaConMoho = new CeldaConMoho(new Celda);
-
-        Edificio p = new Pilon();
-
-
-
-        Executable task = () -> {
-            p.construir_en(celdaConMoho);
-        };
-
-        assertThrows(RuntimeException.class, task);
+    public void caso05_2 () {
+        Celda c = new Celda("libre", "energizada");
+        c.construirEdificio();
+        //Assert que no salte la excepcion de que no se puede construir ahi
+        assertFalse();
     }
+
+    @Test
+    public void caso05_3 () {
+        Celda c = new Celda("libre", null);
+        c.construirEdificio();
+        //Assert que salte la excepcion de que no se puede construir ahi
+        assertTrue();
+    }
+
 
 }
