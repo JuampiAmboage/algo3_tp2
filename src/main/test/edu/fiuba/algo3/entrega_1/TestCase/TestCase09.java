@@ -1,5 +1,5 @@
-package edu.fiuba.algo3.entrega_1;
-
+package edu.fiuba.algo3.entrega_1.TestCase;
+/*
 public class TestCase09 {
 
     @Test
@@ -39,3 +39,4 @@ public class TestCase09 {
         //un metodo como este para saber si esta recibiendo energia o no
     }
 }
+*/

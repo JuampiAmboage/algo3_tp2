@@ -1,7 +1,7 @@
-package edu.fiuba.algo3.entrega_1;
+package edu.fiuba.algo3.entrega_1.TestCase;
 
 import org.junit.jupiter.api.Test;
-
+/*
 public class TestCase06 {
 
     // Caso de uso #6: Verificar el crecimiento del moho acorde a lo estipulado.
@@ -20,3 +20,4 @@ public class TestCase06 {
     }
 
 }
+*/

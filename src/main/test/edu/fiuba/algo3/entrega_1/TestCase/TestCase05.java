@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.entrega_1;
+package edu.fiuba.algo3.entrega_1.TestCase;
 
 import edu.fiuba.algo3.modelo.Celdas.*;
 import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+/*
 public class TestCase05 {
     //Caso de uso #5: Verificar que no se puedan construir edificios fuera del rango de un pilon o fuera del moho.
 
@@ -32,3 +32,4 @@ public class TestCase05 {
 
 
 }
+*/
