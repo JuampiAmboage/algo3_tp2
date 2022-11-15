@@ -10,8 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TestCase15 {
 
-    //Verificar que no se sigan recolectando ni gas ni mineral una vez agotados los recursos del
-    //nodo mineral o del volcán.
     @Test
     public void siUnVolcanSeQuedaSinGasNoSePuedeSeguirRecolectando(){
         Celda celda = new Celda();
