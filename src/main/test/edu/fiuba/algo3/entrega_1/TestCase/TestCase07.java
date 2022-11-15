@@ -3,9 +3,9 @@ package edu.fiuba.algo3.entrega_1.TestCase;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-/*
-public class TestCase07 {
 
+public class TestCase07 {
+/*
     //Caso de uso #7: Verificar la recolección de minerales para ambas razas.
     @Test
     //Recoleccion de gas
@@ -40,6 +40,5 @@ public class TestCase07 {
 
         assertEquals(5, nexo.minar());
     }
-
-}
 */
+}

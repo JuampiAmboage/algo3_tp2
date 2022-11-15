@@ -10,10 +10,10 @@ import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/*
+
 public class TestCase05 {
     //Caso de uso #5: Verificar que no se puedan construir edificios fuera del rango de un pilon o fuera del moho.
-
+/*
     @Test
     public void caso05_2 () {
         Celda c = new Celda("libre", "energizada");
@@ -30,6 +30,5 @@ public class TestCase05 {
         assertTrue();
     }
 
-
-}
 */
+}
