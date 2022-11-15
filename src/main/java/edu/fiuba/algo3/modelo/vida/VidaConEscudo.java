@@ -1,16 +1,14 @@
 package edu.fiuba.algo3.modelo.vida;
 
-public class VidaConEscudo {
+public class VidaConEscudo extends Salud {
 
     private final int vidaMaxima;
     private int vidaActual;
-    Regenerable escudo;
-
 
     public VidaConEscudo(int vidaMaxima, int escudoMaximo) {
         this.vidaMaxima = vidaMaxima;
         this.vidaActual = this.vidaMaxima;
-        this.escudo = new Regenerable(escudoMaximo);
+        this.regenerable = new Regenerable(escudoMaximo);
     }
 
     public boolean estaSinVida() {
@@ -20,12 +18,12 @@ public class VidaConEscudo {
     public void pasarTurno() {
         if (estaSinVida()) return;
         // regenerar la vida
-        escudo.regenerar(10);
+        regenerable.regenerar(10);
     }
 
     public void recibirAtaque(int ataque) {
         if (this.estaSinVida()) return;
-        int ataqueRestante = this.escudo.recibirAtaque(ataque);
+        int ataqueRestante = this.regenerable.recibirAtaque(ataque);
         if (ataqueRestante > 0) {
             this.vidaActual -= ataqueRestante;
         }
@@ -39,6 +37,6 @@ public class VidaConEscudo {
     }
 
     public int getEscudoActual() {
-        return escudo.getVidaActual();
+        return regenerable.getVidaActual();
     }
 }

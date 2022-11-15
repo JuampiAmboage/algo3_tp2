@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
 public class Asimilador extends Edificio {
-    VidaConEscudo vida;
     public Asimilador(){
         this.nombre = "asimilador";
         tiempoDeConstruccion = 6;
@@ -31,12 +30,6 @@ public class Asimilador extends Edificio {
     public int extraerGas(){
         return 20;
     }
-
-    public void daniarEdificio(int puntosAtaque){
-        vida.recibirAtaque(puntosAtaque);
-    }
-
-    public int obtenerVida(){return vida.getVidaActual();}
 
     public int obtenerEscudo(){ return vida.getEscudoActual();}
 }

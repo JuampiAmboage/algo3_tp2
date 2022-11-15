@@ -1,25 +1,27 @@
 package edu.fiuba.algo3.modelo.vida;
 
-public class Vida {
-
-    Regenerable vida;
+public class Vida extends Salud{
     public Vida(int vidaMaxima) {
-      vida = new Regenerable(vidaMaxima);
+      regenerable = new Regenerable(vidaMaxima);
     }
 
     public boolean estaSinVida() {
-        return this.vida.getVidaActual() <= 0;
+        return this.regenerable.getVidaActual() <= 0;
     }
     public void pasarTurno(){
         if (estaSinVida()) return;
-        this.vida.regenerar(10);
+        this.regenerable.regenerar(10);
     }
     public void recibirAtaque(int ataque) {
         if (estaSinVida()) return;
-        this.vida.recibirAtaque(ataque);
+        this.regenerable.recibirAtaque(ataque);
     }
 
     public int getVidaActual(){
-        return vida.getVidaActual();
+        return regenerable.getVidaActual();
+    }
+
+    public int getEscudoActual(){
+        return 0;
     }
 }

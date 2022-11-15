@@ -62,8 +62,7 @@ public class Celda {
     }
 
     public void agregarRecurso(Recurso nuevoRecurso){
-        if(!tieneRecurso(recurso))
-            recurso = nuevoRecurso;
+        recurso = nuevoRecurso;
 
     }
     public boolean tieneRecurso(Recurso r) {

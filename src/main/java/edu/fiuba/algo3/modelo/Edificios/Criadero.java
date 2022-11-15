@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.lang.RuntimeException;
 
 public class Criadero extends Edificio {
-    Vida vida;
     private int vidaMaxima = 500;
 
     private int cantidadMaxDeLarvas = 3;
@@ -61,11 +60,4 @@ public class Criadero extends Edificio {
             throw (new RuntimeException());
         }
     }
-
-    public void daniarEdificio(int puntosAtaque){
-        vida.recibirAtaque(puntosAtaque);
-    }
-
-    public int obtenerVida(){return vida.getVidaActual();}
-
 }

@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.Celdas.*;
 import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
 public class Pilon extends Edificio {
-    VidaConEscudo vida;
 
     public Pilon(){
         this.nombre = "pilon";
@@ -21,13 +20,6 @@ public class Pilon extends Edificio {
             controlEstadoConstruccion();
         vida.pasarTurno();
     }
-
-    public void daniarEdificio(int puntosAtaque){
-        vida.recibirAtaque(puntosAtaque);
-    }
-
-    public int obtenerVida(){return vida.getVidaActual();}
-
     public int obtenerEscudo(){ return vida.getEscudoActual();}
 
 }

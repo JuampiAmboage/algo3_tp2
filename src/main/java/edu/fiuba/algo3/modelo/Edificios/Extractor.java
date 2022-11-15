@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Edificios;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Raza.Zangano;
+import edu.fiuba.algo3.modelo.vida.Vida;
 
 import java.util.ArrayList;
 
@@ -14,6 +15,7 @@ public class Extractor extends Edificio {
         this.nombre = "extractor";
         this.trabajadores = new ArrayList<Zangano>(0);
         this.tiempoDeConstruccion = 6;
+        this.vida = new Vida(750);
     }
     @Override
     public void construir_en(Celda celda) {
