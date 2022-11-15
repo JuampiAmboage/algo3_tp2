@@ -2,12 +2,12 @@ package edu.fiuba.algo3.modelo.Edificios;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Raza.Larva;
-import edu.fiuba.algo3.modelo.vida.Regenerable;
+import edu.fiuba.algo3.modelo.vida.Vida;
 import java.util.ArrayList;
 import java.lang.RuntimeException;
 
 public class Criadero extends Edificio {
-    Regenerable regenerable;
+    Vida vida;
     private int vidaMaxima = 500;
 
     private int cantidadMaxDeLarvas = 3;
@@ -20,7 +20,7 @@ public class Criadero extends Edificio {
         for (int i = 0; i < 3; i++) {
             agregarLarvas();
         }
-        regenerable = new Regenerable(this.vidaMaxima);
+        vida = new Vida(this.vidaMaxima);
         tiempoDeConstruccion = 4;
     }
 
@@ -38,7 +38,7 @@ public class Criadero extends Edificio {
             agregarLarvas();
         }
 
-        this.regenerable.regenerar(20);
+        this.vida.pasarTurno();
 
     }
 
@@ -63,11 +63,9 @@ public class Criadero extends Edificio {
     }
 
     public void daniarEdificio(int puntosAtaque){
-        regenerable.recibirAtaque(puntosAtaque);
+        vida.recibirAtaque(puntosAtaque);
     }
 
-    public void regenerar(int porcentaje){
-        regenerable.regenerar(porcentaje);
-    }
+    public int obtenerVida(){return vida.getVidaActual();}
 
 }

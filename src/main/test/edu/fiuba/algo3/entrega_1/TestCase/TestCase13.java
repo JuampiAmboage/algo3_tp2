@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 public class TestCase13 {
 
     @Test
@@ -13,9 +15,11 @@ public class TestCase13 {
         Criadero otroCriadero = new Criadero();
         Celda celda = new Celda();
         CeldaConMoho celdaConMoho = new CeldaConMoho(celda);
+
         celda.cambiarTipo(celdaConMoho);
         celda.ocupar(criadero);
         celda.desocupar();
-        celda.ocupar(otroCriadero);
+
+        assertDoesNotThrow(()->celda.ocupar(otroCriadero));
     }
 }

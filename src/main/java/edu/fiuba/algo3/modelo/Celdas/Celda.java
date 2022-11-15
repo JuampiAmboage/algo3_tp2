@@ -23,7 +23,11 @@ public class Celda {
     }
 
     public void ocupar(Edificio ocupante){
-        this.ocupante = ocupante;
+        if(!estaOcupada())
+            this.ocupante = ocupante;
+        else{
+            throw new IllegalArgumentException();
+        }
     }
     public Edificio desocupar(){
         Edificio u = this.ocupante;
@@ -55,6 +59,12 @@ public class Celda {
 
     public boolean esMismoTipo(TipoCelda t) {
         return this.tipo.esMismoTipo(t);
+    }
+
+    public void agregarRecurso(Recurso nuevoRecurso){
+        if(!tieneRecurso(recurso))
+            recurso = nuevoRecurso;
+
     }
     public boolean tieneRecurso(Recurso r) {
         return this.recurso.esIgualA(r);

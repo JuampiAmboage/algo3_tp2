@@ -11,8 +11,7 @@ public class NodoMineral extends Recurso {
             this.cantidad -= c;
             return c;
         } else {
-            // todo error
-            return 0;
+            throw new RuntimeException("No quedan minerales suficientes en este nodo para cumplir con la extraccion.");
         }
     }
 

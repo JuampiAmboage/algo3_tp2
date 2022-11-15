@@ -22,8 +22,7 @@ public class Volcan extends Recurso {
             this.cantidad -= c;
             return c;
         } else {
-            // todo error
-            return 0;
+            throw new RuntimeException("El gas de este volcan ha sido agotado.");
         }
     }
 
