@@ -22,7 +22,4 @@ public class Almacenamiento {
         this.mineral += cantidad;
     }
 
-        /*restar gas y mineral, también podría hacerse en un mismo método y pasarle un boolean que determine
-    si es suma o resta. Pj: public void manipularGas(cantidadGas,true (sumar)/false (restar))*/
-
 }
