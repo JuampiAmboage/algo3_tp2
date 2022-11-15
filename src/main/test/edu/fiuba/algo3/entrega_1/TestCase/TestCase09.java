@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
-/*
-public class TestCase09 {
 
+public class TestCase09 {
+/*
     @Test
     public void caso09(){
         //Verificar que un edificio protoss sigue operativo si le destruyen un pilon que lo energiza
@@ -38,5 +38,5 @@ public class TestCase09 {
         //como las estructuras protoss necesitan energia para funcionar, seguramente tengamos que usar
         //un metodo como este para saber si esta recibiendo energia o no
     }
-}
 */
+}
