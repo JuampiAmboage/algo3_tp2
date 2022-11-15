@@ -1,12 +1,14 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
 public class Asimilador extends Edificio {
-
+    VidaConEscudo vida;
     public Asimilador(){
         this.nombre = "asimilador";
         tiempoDeConstruccion = 6;
+        vida = new VidaConEscudo(450,450);
     }
 
     @Override
@@ -19,6 +21,7 @@ public class Asimilador extends Edificio {
             controlEstadoConstruccion();
         //esto de abajo iria como else? (no extrae si no esta construido)
         extraerGas();
+        vida.pasarTurno();
     }
 
     public String nombre(){
@@ -28,4 +31,12 @@ public class Asimilador extends Edificio {
     public int extraerGas(){
         return 20;
     }
+
+    public void daniarEdificio(int puntosAtaque){
+        vida.recibirAtaque(puntosAtaque);
+    }
+
+    public int obtenerVida(){return vida.getVidaActual();}
+
+    public int obtenerEscudo(){ return vida.getEscudoActual();}
 }
