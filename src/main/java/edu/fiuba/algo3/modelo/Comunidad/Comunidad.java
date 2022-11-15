@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Raza.*;
 import edu.fiuba.algo3.modelo.Almacenamiento.Almacenamiento;
 import edu.fiuba.algo3.modelo.Edificios.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Comunidad {
     private ArrayList<Racita> pueblo;
@@ -17,9 +18,8 @@ public class Comunidad {
         Racita[] lista_inicial = new Racita[0];
         this.almacenamiento = new Almacenamiento();
 
-        for (Racita elemento :raza) {
-            this.pueblo.add(elemento);
-        }
+        this.pueblo = new ArrayList<Racita>(0);
+        this.pueblo.addAll(Arrays.asList(raza));
     }
 
     public void almacenar_minerales(int cantidad) {
