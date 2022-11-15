@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
-import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Celdas.*;
 
 public class Pilon extends Edificio {
 

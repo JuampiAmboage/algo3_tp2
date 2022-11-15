@@ -1,12 +1,14 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
+import edu.fiuba.algo3.modelo.Celdas.*;
 import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
+import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Opciones_de_raza;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.function.Executable;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class TestCase05 {
@@ -14,13 +16,18 @@ public class TestCase05 {
 
     @Test
     public void construyoUnedificioDeberiaSaltarExcepcionPorqueNoSePuedeConstruirAhi() {
-        Celda celdaSinMoho = new Celda();
-        CeldaConMoho celdaConMoho = new CeldaConMoho(celdaSinMoho);
 
-        celdaConMoho.construirEdificio();
+        CeldaConMoho celdaConMoho = new CeldaConMoho(new Celda);
 
-        //Assert que no salte la excepcion de que no se puede construir ahi
-        assertFalse();
+        Edificio p = new Pilon();
+
+
+
+        Executable task = () -> {
+            p.construir_en(celdaConMoho);
+        };
+
+        assertThrows(RuntimeException.class, task);
     }
 
 }

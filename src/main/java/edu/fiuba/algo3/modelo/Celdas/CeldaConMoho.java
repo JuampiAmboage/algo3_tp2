@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 public class CeldaConMoho extends TipoCelda {
+
     private int delayExpandir = 2;
     public CeldaConMoho(Celda celda) {
         super(celda);
@@ -32,7 +33,5 @@ public class CeldaConMoho extends TipoCelda {
             }
         }
     }
-
-
 
 }
