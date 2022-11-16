@@ -15,20 +15,20 @@ public class TestCase19 {
     public void siUnaUnidadTerrestreSinAtaqueAereoAtacaAUnaUnidadAereaLanzaError() {
         Zerling zerling = new Zerling();
         Mutalisco mutalisco = new Mutalisco();
-        assertThrows(IllegalArgumentException.class, () -> zerling.atacar(mutalisco));
+        assertThrows(IllegalArgumentException.class, () -> zerling.atacarAire(mutalisco));
     }
     @Test
     public void siUnaUnidadConAtaqueAereoAtacaAUnaUnidadAereaElAtaqueEsEfectivo(){
         Mutalisco mutalisco = new Mutalisco(); //el mutalisco empieza con 80 de vida
         Scout scout = new Scout(); //cuando el scout ataca a una unidad aerea hace 14 de daño
-        scout.atacar(mutalisco);
+        scout.atacarAire(mutalisco);
         assertEquals(66,mutalisco.obtenerVida());
     }
     @Test
     public void siUnaUnidadConAtaqueTerrestreAtacaAOtraTerrestreElAtaqueEsEfectivo(){
         Zerling zerling = new Zerling(); //el zerling empieza con 35 de vida
         Scout scout = new Scout(); //cuando el scout ataca a una unidad terrestre hace 8 de daño
-        scout.atacar(zerling);
+        scout.atacarTierra(zerling);
         assertEquals(27,zerling.obtenerVida());
     }
 }

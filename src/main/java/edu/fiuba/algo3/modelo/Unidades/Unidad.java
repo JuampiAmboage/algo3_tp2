@@ -16,9 +16,10 @@ public abstract class Unidad extends Racita{
         return danioTerrestre;
     }
     public int obtenerDanioAereo(){ return danioAereo;}
-    public void atacar(Unidad unidadAtacable){
-        ataque.atacar(unidadAtacable,danioTerrestre,danioAereo);
+    public void atacarTierra(Racita unidadAtacable){
+        ataque.atacarTierra(unidadAtacable,danioTerrestre);
     }
+    public void atacarAire(Racita unidadAtacable){ ataque.atacarAire(unidadAtacable,danioAereo);}
     public abstract void pasarTurno();
     public String obtenerSuperficie() {
         return superficie;
