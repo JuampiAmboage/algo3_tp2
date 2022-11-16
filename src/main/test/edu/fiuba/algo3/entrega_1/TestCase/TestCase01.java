@@ -8,15 +8,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestCase01 {
     @Test
     public void unCriaderoSeIniciaConTresLarvas() {
-        Criadero c = new Criadero();
+        Criadero c = new Criadero(0);
         assertEquals(3, c.cantidadDeLarvas());
     }
 
     @Test
     public void elCriaderoEngendraUnaLarvaYReduceSuCantidad() {
-        Criadero c = new Criadero();
-        for(int i=0;i<4;i++)
-            c.pasarTurno();
+        Criadero c = new Criadero(0);
         c.engendrar();
 
         assertEquals(2, c.cantidadDeLarvas());
@@ -24,9 +22,7 @@ public class TestCase01 {
 
     @Test
     public void alEngendrarUnaLarvaYPasarTurnoElCriaderoVuelveATenerTresLarvas() {
-        Criadero c = new Criadero();
-        for(int i=0;i<4;i++)
-            c.pasarTurno();
+        Criadero c = new Criadero(0);
         c.engendrar();
         c.pasarTurno();
         assertEquals(3, c.cantidadDeLarvas());
@@ -34,9 +30,7 @@ public class TestCase01 {
 
     @Test
     public void alEngendrarDosLarvasYPasarTurnoElCriaderoTerminaConDosLarvas() {
-        Criadero c = new Criadero();
-        for(int i=0;i<4;i++)
-            c.pasarTurno();
+        Criadero c = new Criadero(0);
         c.engendrar();
         c.engendrar();
         c.pasarTurno();
@@ -45,9 +39,7 @@ public class TestCase01 {
 
     @Test
     public void unCriaderoRecienCreadoSeQuedaSinLarvasAlEngendrarTresVeces() {
-        Criadero c = new Criadero();
-        for(int i=0;i<4;i++)
-            c.pasarTurno();
+        Criadero c = new Criadero(0);
         c.engendrar();
         c.engendrar();
         c.engendrar();
