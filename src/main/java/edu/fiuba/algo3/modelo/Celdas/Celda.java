@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
+import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
-import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Racita;
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class Celda {
         if(!estaOcupada())
             this.ocupante = ocupante;
         else{
-            throw new IllegalArgumentException();
+            throw new CeldaOcupada();
         }
     }
     public Racita desocupar(){
@@ -35,14 +35,12 @@ public class Celda {
         this.ocupante = null;
         return u;
     }
-
     public int cantidadAdyacentes() {
         return celdasAdyacentes.size();
     }
     public void setAdyacentes(ArrayList<Celda> adyacentes){
         celdasAdyacentes = adyacentes;
     }
-
     public boolean estaOcupada() {
         return this.ocupante != null;
     }
@@ -52,23 +50,18 @@ public class Celda {
         }
         this.tipo.pasarTurno();
     }
-
     public void cambiarTipo(TipoCelda t) {
-        //  delego para que cambiarTipo(Energizada) en una celda energizada aumente su energía
         this.tipo.cambiarTipo(t);
     }
-
     public boolean esMismoTipo(TipoCelda t) {
         return this.tipo.esMismoTipo(t);
     }
-
     public void agregarRecurso(Recurso nuevoRecurso){
         recurso = nuevoRecurso;
     }
     public int extraer(int cantidad) {
         return this.recurso.extraer(cantidad);
     }
-
     public void quiereConstruir(Construible construible) {
         this.recurso.quiereConstruir(construible);
         this.tipo.quiereConstruir(construible);
