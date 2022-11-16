@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Celda {
     protected ArrayList<Celda> celdasAdyacentes;
-    protected Racita ocupante; // Uso Unidad porque según el caso de uso 16, un Zángano cuenta como ocupante
+    protected Racita ocupante;
     protected TipoCelda tipo;
     protected Recurso recurso;
 
@@ -23,7 +23,7 @@ public class Celda {
         this.tipo = new CeldaLibre(this);
     }
 
-    public void ocupar(Edificio ocupante){
+    public void ocupar(Racita ocupante){
         if(!estaOcupada())
             this.ocupante = ocupante;
         else{
