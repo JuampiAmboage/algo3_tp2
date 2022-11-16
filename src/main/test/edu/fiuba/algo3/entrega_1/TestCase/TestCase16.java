@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Edificios.Asimilador;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
+import edu.fiuba.algo3.modelo.Edificios.NexoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Unidades.Dragon;
 import org.junit.jupiter.api.Test;
@@ -29,23 +30,23 @@ public class TestCase16 {
         Celda celda = new Celda();
         CeldaEnergizada energizada = new CeldaEnergizada(celda);
         Dragon dragon = new Dragon();
-        Asimilador asimilador = new Asimilador();
+        NexoMineral nexoMineral = new NexoMineral();
 
         celda.cambiarTipo(energizada);
         celda.ocupar(dragon);
 
-        assertThrows(IllegalArgumentException.class, () -> celda.ocupar(asimilador));
+        assertThrows(IllegalArgumentException.class, () -> celda.ocupar(nexoMineral));
     }
 
     @Test
     public void noSePuedeTrasladarUnaUnidadDondeHayUnEdificio() {
         Celda celda = new Celda();
         CeldaEnergizada energizada = new CeldaEnergizada(celda);
-        Asimilador asimilador = new Asimilador();
+        NexoMineral nexoMineral = new NexoMineral();
         Dragon dragon = new Dragon();
 
         celda.cambiarTipo(energizada);
-        celda.ocupar(asimilador);
+        celda.ocupar(nexoMineral);
 
         assertThrows(IllegalArgumentException.class, () -> celda.ocupar(dragon));
     }
