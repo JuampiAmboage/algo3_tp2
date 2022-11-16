@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
-import edu.fiuba.algo3.modelo.Comunidad.Unidad;
+import edu.fiuba.algo3.modelo.Edificios.Construible;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Celda {
     protected ArrayList<Celda> celdasAdyacentes;
-    protected Racita ocupante; // Uso Unidad porque según el caso de uso 16, un Zángano cuenta como ocupante
+    protected Racita ocupante;
     protected TipoCelda tipo;
     protected Recurso recurso;
 
@@ -23,7 +23,7 @@ public class Celda {
         this.tipo = new CeldaLibre(this);
     }
 
-    public void ocupar(Edificio ocupante){
+    public void ocupar(Racita ocupante){
         if(!estaOcupada())
             this.ocupante = ocupante;
         else{
@@ -47,7 +47,7 @@ public class Celda {
         return this.ocupante != null;
     }
     public void pasarTurno(){
-        if (this.ocupante != null) {
+        if (this.estaOcupada()) {
             this.ocupante.pasarTurno();
         }
         this.tipo.pasarTurno();
@@ -64,12 +64,13 @@ public class Celda {
 
     public void agregarRecurso(Recurso nuevoRecurso){
         recurso = nuevoRecurso;
-
-    }
-    public boolean tieneRecurso(Recurso r) {
-        return this.recurso.esIgualA(r);
     }
     public int extraer(int cantidad) {
         return this.recurso.extraer(cantidad);
+    }
+
+    public void quiereConstruir(Construible construible) {
+        this.recurso.quiereConstruir(construible);
+        this.tipo.quiereConstruir(construible);
     }
 }

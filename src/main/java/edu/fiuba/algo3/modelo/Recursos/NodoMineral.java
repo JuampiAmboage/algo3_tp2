@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Recursos;
 
+import edu.fiuba.algo3.modelo.Edificios.Construible;
+
 public class NodoMineral extends Recurso {
     public NodoMineral() {
         super();
@@ -11,12 +13,11 @@ public class NodoMineral extends Recurso {
             this.cantidad -= c;
             return c;
         } else {
-            throw new RuntimeException("No quedan minerales suficientes en este nodo para cumplir con la extraccion.");
+            throw new RuntimeException("No quedan minerales suficientes en este nodo para cumplir con la extracción.");
         }
     }
-
     @Override
-    public boolean esIgualA(Object objeto) {
-        return objeto instanceof NodoMineral;
+    public void quiereConstruir(Construible construible) {
+        construible.construirSobreRecurso(this);
     }
 }
