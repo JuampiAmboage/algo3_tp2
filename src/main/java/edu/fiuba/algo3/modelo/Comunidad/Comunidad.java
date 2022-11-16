@@ -22,13 +22,21 @@ public class Comunidad {
         this.pueblo.addAll(Arrays.asList(raza));
     }
 
-    public void almacenar_minerales(int cantidad) {
-        this.almacenamiento.almacenar_minerales(cantidad);
+    public void almacenarMinerales(int cantidad) {
+        this.almacenamiento.almacenarMinerales(cantidad);
     }
-    public void almacenar_gas_vespeno(int cantidad) {
-        this.almacenamiento.almacenar_gas_vespeno(cantidad);
+    public void almacenarGasVespeno(int cantidad) {
+        this.almacenamiento.almacenarGasVespeno(cantidad);
     }
 
+    public void restarRecursos(int restaMinerales, int restaGas){
+        almacenamiento.retirarMinerales(restaMinerales);
+        almacenamiento.retirarGasVespeno(restaGas);
+    }
+
+    public boolean recursosSuficientes(int cantidadMineralRequerido, int cantidadGasRequerido){
+        return almacenamiento.recursosSuficientes(cantidadMineralRequerido,cantidadGasRequerido);
+    }
     public void agregar_edificio(Edificio edificio) {
         this.edificios.add(edificio);
     }

@@ -18,7 +18,7 @@ public class Extractor extends Edificio {
         this.vida = new Vida(750);
     }
     @Override
-    public void construir_en(Celda celda) {
+    public void construirEn(Celda celda) {
 
     }
     @Override

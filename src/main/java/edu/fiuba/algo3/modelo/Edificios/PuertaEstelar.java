@@ -12,7 +12,7 @@ public class PuertaEstelar extends Edificio{
         vida = new VidaConEscudo(600,600);
     }
 
-    public void construir_en(Celda celda) {
+    public void construirEn(Celda celda) {
         if (Acceso.existeAlMenosUnaInstancia()){
             celda.ocupar(this);
         }

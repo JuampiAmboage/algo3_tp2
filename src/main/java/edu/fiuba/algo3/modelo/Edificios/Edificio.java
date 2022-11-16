@@ -15,7 +15,7 @@ public abstract class Edificio extends Racita {
     protected int turnosPasadosParaConstruccion = -1;
     protected boolean estaConstruido = false;
 
-    public abstract void construir_en(Celda celda);
+    public abstract void construirEn(Celda celda);
     public abstract void pasarTurno();
     public void controlEstadoConstruccion(){
         if (this.turnosPasadosParaConstruccion != this.tiempoDeConstruccion) {

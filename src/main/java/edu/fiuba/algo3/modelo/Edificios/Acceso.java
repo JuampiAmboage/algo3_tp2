@@ -14,7 +14,7 @@ public class Acceso extends Edificio{
         conteoInstancias++;
     }
 
-    public void construir_en(Celda celda) {
+    public void construirEn(Celda celda) {
     }
 
     public void pasarTurno(){

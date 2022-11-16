@@ -24,7 +24,7 @@ public class Criadero extends Edificio {
     }
 
     @Override
-    public void construir_en(Celda celda) {
+    public void construirEn(Celda celda) {
         //verificacion de que se puede construir en esa celda
         this.turnosPasadosParaConstruccion = 0;
     }

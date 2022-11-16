@@ -6,20 +6,31 @@ import java.util.ArrayList;
 
 public class Almacenamiento {
 
-    private int gas_vespeno;
+    private int gasVespeno;
     private int mineral;
 
     public Almacenamiento(){
-        this.gas_vespeno = 0;
+        this.gasVespeno = 0;
         this.mineral = 0;
     }
 
-    public void almacenar_gas_vespeno(int cantidad) {
-        this.gas_vespeno += cantidad;
+    public void almacenarGasVespeno(int cantidadEntrante) {
+        this.gasVespeno += cantidadEntrante;
     }
 
-    public void almacenar_minerales(int cantidad) {
-        this.mineral += cantidad;
+    public void almacenarMinerales(int cantidadEntrante) {
+        this.mineral += cantidadEntrante;
     }
+
+    public void retirarGasVespeno(int cantidadARetirar){
+        gasVespeno -= cantidadARetirar;
+    }
+    public void retirarMinerales(int cantidadARetirar){
+        mineral -= cantidadARetirar;
+    }
+    public boolean recursosSuficientes(int cantidadMineralRequerido,int cantidadGasRequerido){
+        return (mineral >= cantidadMineralRequerido & gasVespeno >= cantidadGasRequerido);
+    }
+
 
 }

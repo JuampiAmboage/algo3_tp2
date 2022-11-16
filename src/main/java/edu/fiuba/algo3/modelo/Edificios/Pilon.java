@@ -11,7 +11,7 @@ public class Pilon extends Edificio {
         vida = new VidaConEscudo(300,300);
     }
     @Override
-    public void construir_en(Celda celda) {
+    public void construirEn(Celda celda) {
 
     }
     @Override

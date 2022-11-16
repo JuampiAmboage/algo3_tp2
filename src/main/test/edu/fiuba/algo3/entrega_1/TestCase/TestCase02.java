@@ -28,7 +28,7 @@ public class TestCase02 {
         Criadero c = new Criadero();
         Celda celda = new Celda();
 
-        c.construir_en(celda);
+        c.construirEn(celda);
 
         c.pasarTurno();
         c.pasarTurno();

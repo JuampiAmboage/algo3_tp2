@@ -11,7 +11,7 @@ public class Asimilador extends Edificio {
     }
 
     @Override
-    public void construir_en(Celda celda) {
+    public void construirEn(Celda celda) {
 
     }
     @Override

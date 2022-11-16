@@ -10,7 +10,7 @@ public class Espiral extends Edificio {
         vida = new Vida(1300);
     }
 
-    public void construir_en(Celda celda) {
+    public void construirEn(Celda celda) {
         if (Guarida.existeAlMenosUnaInstancia()){
             celda.ocupar(this);
         }

@@ -10,7 +10,7 @@ public class NexoMineral extends Edificio{
         vida = new VidaConEscudo(250,250);
     }
     @Override
-    public void construir_en(Celda celda) {
+    public void construirEn(Celda celda) {
         celda.ocupar(this);
     }
     @Override
