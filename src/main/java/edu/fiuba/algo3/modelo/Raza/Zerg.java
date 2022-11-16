@@ -1,5 +1,10 @@
 package edu.fiuba.algo3.modelo.Raza;
 
-public interface Zerg extends Raza {
+import edu.fiuba.algo3.modelo.Racita;
+
+public abstract class Zerg extends Racita {
+
+    public abstract void pasarTurno();
+
 
 }
