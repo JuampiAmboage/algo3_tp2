@@ -8,37 +8,35 @@ import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
+import edu.fiuba.algo3.modelo.vida.Salud;
 import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
 public class Asimilador extends Edificio implements Construible {
+    private final Salud vida = new VidaConEscudo(450, 450);
     public Asimilador() {
-        this.nombre = "asimilador";
-        tiempoDeConstruccion = 6;
-        vida = new VidaConEscudo(450,450);
+        this.tiempoDeConstruccion = 6;
+    }
+    public Asimilador(int tiempoDeConstruccion) {
+        this.tiempoDeConstruccion = tiempoDeConstruccion;
     }
 
-    @Override
-    public void construir_en(Celda celda) {
 
+    public boolean estaOperativo() {
+        return this.tiempoDeConstruccion <= 0;
     }
-    @Override
     public void pasarTurno(){
-        if(!estaConstruido)
-            controlEstadoConstruccion();
-        //esto de abajo iria como else? (no extrae si no esta construido)
-        extraerGas();
-        vida.pasarTurno();
+        if(!this.estaOperativo())
+            this.tiempoDeConstruccion--;
+        else{
+            vida.pasarTurno();
+        }
     }
-
-    public String nombre(){
-        return this.nombre;
-    }
-
     public int extraerGas(){
         return 20;
     }
-
-    public int obtenerEscudo(){ return vida.getEscudoActual();}
+    public int obtenerEscudo(){
+        return vida.getEscudoActual();
+    }
 
     @Override
     public void construirSobreRecurso(NoRecurso tipoRecurso) {

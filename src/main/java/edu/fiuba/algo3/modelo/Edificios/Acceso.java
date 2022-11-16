@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
+import edu.fiuba.algo3.modelo.vida.Salud;
 import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
 public class Acceso extends Edificio implements Construible {
@@ -15,18 +16,22 @@ public class Acceso extends Edificio implements Construible {
     public static boolean existeAlMenosUnaInstancia(){
         return conteoInstancias > 0;
     }
+    private final Salud vida = new VidaConEscudo(500, 500);
     public Acceso(){
-        tiempoDeConstruccion = 8;
-        vida = new VidaConEscudo(500,500);
+        this.tiempoDeConstruccion = 8;
+        conteoInstancias++;
+    }
+    public Acceso(int tiempoDeConstruccion) {
+        this.tiempoDeConstruccion = tiempoDeConstruccion;
         conteoInstancias++;
     }
 
-    public void construir_en(Celda celda) {
+    public boolean estaOperativo() {
+        return this.tiempoDeConstruccion <= 0;
     }
-
     public void pasarTurno(){
-        if(!estaConstruido)
-            controlEstadoConstruccion();
+        if(!this.estaOperativo())
+            this.tiempoDeConstruccion--;
         else{
             vida.pasarTurno();
         }
