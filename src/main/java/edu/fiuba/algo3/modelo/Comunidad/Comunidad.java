@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Comunidad;
 
+import edu.fiuba.algo3.modelo.Excepciones.SinRecursosSuficientes;
 import edu.fiuba.algo3.modelo.Racita;
 import edu.fiuba.algo3.modelo.Raza.*;
 import edu.fiuba.algo3.modelo.Almacenamiento.Almacenamiento;
@@ -13,6 +14,9 @@ public class Comunidad {
 
     private ArrayList<Edificio> edificios;
 
+    public Comunidad(){ //este constructor solo lo creé para correr tests, desp se arregla bien
+        almacenamiento = new Almacenamiento();
+    }
     public Comunidad(Racita[] raza) {
 
         Racita[] lista_inicial = new Racita[0];
@@ -35,9 +39,28 @@ public class Comunidad {
     }
 
     public boolean recursosSuficientes(int cantidadMineralRequerido, int cantidadGasRequerido){
-        return almacenamiento.recursosSuficientes(cantidadMineralRequerido,cantidadGasRequerido);
+        return (cantidadMineralRequerido <= almacenamiento.obtenerCantidadGasAlmacenado() && cantidadGasRequerido <= almacenamiento.obtenerCantidadGasAlmacenado());
     }
-    public void agregar_edificio(Edificio edificio) {
-        this.edificios.add(edificio);
+    public void agregarEdificio(Edificio edificio){
+        if (recursosSuficientes(edificio.obtenerCostoMinerales(),edificio.obtenerCostoGas())) {
+            this.edificios.add(edificio);
+            this.almacenamiento.retirarGasVespeno(edificio.obtenerCostoGas());
+            this.almacenamiento.retirarMinerales(edificio.obtenerCostoMinerales());
+        }
+        else{
+            throw new RuntimeException("No tenes recursos suficientes.");
+        }
     }
+    public void generarUnidad(Racita unidadAGenerar){
+        if (recursosSuficientes(unidadAGenerar.obtenerCostoMinerales(),unidadAGenerar.obtenerCostoGas())) {
+            this.pueblo.add(unidadAGenerar);
+            this.almacenamiento.retirarGasVespeno(unidadAGenerar.obtenerCostoGas());
+            this.almacenamiento.retirarMinerales(unidadAGenerar.obtenerCostoMinerales());
+        }
+        else{
+            throw new RuntimeException("No tenes recursos suficientes");
+        }
+    }
+
+
 }

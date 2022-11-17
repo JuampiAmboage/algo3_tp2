@@ -28,8 +28,11 @@ public class Almacenamiento {
     public void retirarMinerales(int cantidadARetirar){
         mineral -= cantidadARetirar;
     }
-    public boolean recursosSuficientes(int cantidadMineralRequerido,int cantidadGasRequerido){
-        return (mineral >= cantidadMineralRequerido & gasVespeno >= cantidadGasRequerido);
+    public int obtenerCantidadGasAlmacenado(){
+        return gasVespeno;
+    }
+    public int obtenerCantidadMineralAlmacenado(){
+        return mineral;
     }
 
 
