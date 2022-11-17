@@ -16,6 +16,5 @@ public class Jugador {
     public void construir(Edificio edificioAConstruir, Celda celda){
         comunidad.agregarEdificio(edificioAConstruir);
         edificioAConstruir.construirEn(celda);
-
     }
 }
