@@ -27,6 +27,7 @@ public class Criadero extends Edificio implements Construible {
         }
         this.tiempoDeConstruccion = 4;
     }
+
     public Criadero(int tiempoDeConstruccion) {
         this.larvas = new ArrayList<Larva>(cantidadMaxDeLarvas);
         for (int i = 0; i < 3; i++) {
@@ -34,6 +35,14 @@ public class Criadero extends Edificio implements Construible {
         }
         this.tiempoDeConstruccion = tiempoDeConstruccion;
     }
+
+
+    @Override
+    public void construirEn(Celda celda) {
+        //verificacion de que se puede construir en esa celda
+        this.turnosPasadosParaConstruccion = 0;
+    }
+
 
     public boolean estaOperativo() {
         return this.tiempoDeConstruccion <= 0;

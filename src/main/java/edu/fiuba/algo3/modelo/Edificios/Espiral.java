@@ -22,7 +22,7 @@ public class Espiral extends Edificio implements Construible {
         this.tiempoDeConstruccion = tiempoDeConstruccion;
     }
 
-    public void construir_en(Celda celda) {
+    public void construirEn(Celda celda) {
         if (Guarida.existeAlMenosUnaInstancia()){
             celda.ocupar(this);
         }

@@ -27,6 +27,7 @@ public class TestCase02 {
 
         c.construirSobre(celda);
 
+
         c.pasarTurno();
         c.pasarTurno();
         c.pasarTurno();

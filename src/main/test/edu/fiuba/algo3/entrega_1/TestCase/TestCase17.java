@@ -22,7 +22,7 @@ public class TestCase17 {
         PuertaEstelar puertaEstelar = new PuertaEstelar();
 
         celda.cambiarTipo(energizada);
-        assertThrows(RuntimeException.class, () -> puertaEstelar.construir_en(celda));
+        assertThrows(RuntimeException.class, () -> puertaEstelar.construirEn(celda));
     }
 
     @Test
@@ -34,7 +34,7 @@ public class TestCase17 {
 
         celda.cambiarTipo(energizada);
 
-        assertDoesNotThrow(()->puertaEstelar.construir_en(celda));
+        assertDoesNotThrow(()->puertaEstelar.construirEn(celda));
 
     }
 
@@ -45,7 +45,7 @@ public class TestCase17 {
         Espiral espiral = new Espiral();
 
         celda.cambiarTipo(celdaConMoho);
-        assertThrows(RuntimeException.class, () -> espiral.construir_en(celda));
+        assertThrows(RuntimeException.class, () -> espiral.construirEn(celda));
     }
 
     @Test
@@ -57,6 +57,6 @@ public class TestCase17 {
 
         celda.cambiarTipo(celdaConMoho);
 
-        assertDoesNotThrow(()->espiral.construir_en(celda));
+        assertDoesNotThrow(()->espiral.construirEn(celda));
     }
 }

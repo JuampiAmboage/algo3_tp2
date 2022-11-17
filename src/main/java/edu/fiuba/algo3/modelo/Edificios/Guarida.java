@@ -26,7 +26,7 @@ public class Guarida extends Edificio implements Construible {
         conteoInstancias++;
     }
 
-    public void construir_en(Celda celda) {
+    public void construirEn(Celda celda) {
         celda.ocupar(this);
     }
 

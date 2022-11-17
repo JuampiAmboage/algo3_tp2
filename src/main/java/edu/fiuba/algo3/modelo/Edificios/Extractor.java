@@ -23,9 +23,14 @@ public class Extractor extends Edificio implements Construible {
     public Extractor(){
         this.tiempoDeConstruccion = 6;
     }
+
     public Extractor(int tiempoDeConstruccion) {
         this.tiempoDeConstruccion = tiempoDeConstruccion;
     }
+
+    @Override
+    public void construirEn(Celda celda) {}
+
 
     public boolean estaOperativo() {
         return this.tiempoDeConstruccion <= 0;

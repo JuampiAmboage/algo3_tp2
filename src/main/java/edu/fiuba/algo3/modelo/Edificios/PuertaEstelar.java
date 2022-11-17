@@ -23,7 +23,7 @@ public class PuertaEstelar extends Edificio implements Construible {
         this.tiempoDeConstruccion = tiempoDeConstruccion;
     }
 
-    public void construir_en(Celda celda) {
+    public void construirEn(Celda celda) {
         if (Acceso.existeAlMenosUnaInstancia()){
             celda.ocupar(this);
         }

@@ -18,6 +18,9 @@ public class Pilon extends Edificio implements Construible {
         this.tiempoDeConstruccion = tiempoDeConstruccion;
     }
 
+    @Override
+    public void construirEn(Celda celda) {}
+
     public boolean estaOperativo() {
         return this.tiempoDeConstruccion <= 0;
     }

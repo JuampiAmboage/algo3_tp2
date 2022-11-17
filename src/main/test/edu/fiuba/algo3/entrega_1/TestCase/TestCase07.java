@@ -5,10 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestCase07 {
-/*
+
     //Caso de uso #7: Verificar la recolección de minerales para ambas razas.
-    @Test
-    //Recoleccion de gas
+/*    //Recoleccion de gas
     public void caso07_1(){
         int extraido;
 

@@ -1,16 +1,18 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
-import edu.fiuba.algo3.modelo.Edificios.Construible;
-import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
 import edu.fiuba.algo3.modelo.Racita;
+import edu.fiuba.algo3.modelo.Edificios.Construible;
+import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 import java.util.ArrayList;
 
 public class Celda {
     protected ArrayList<Celda> celdasAdyacentes;
     protected Racita ocupante;
+    protected Unidad ocupanteAereo;
     protected TipoCelda tipo;
     protected Recurso recurso;
 
@@ -28,6 +30,14 @@ public class Celda {
             this.ocupante = ocupante;
         else{
             throw new CeldaOcupada();
+        }
+    }
+
+    public void ocuparPorAire(Unidad ocupanteAereoNuevo){
+        if(this.ocupanteAereo == null && ocupanteAereoNuevo.obtenerSuperficie().equals("aire"))
+            this.ocupanteAereo = ocupanteAereoNuevo;
+        else{
+            throw new IllegalArgumentException();
         }
     }
     public Racita desocupar(){
