@@ -6,11 +6,12 @@ import edu.fiuba.algo3.modelo.Racita;
 import edu.fiuba.algo3.modelo.vida.Salud;
 
 public abstract class Edificio extends Racita {
-
-    protected int costo_de_construccion;
-    protected Almacenamiento amlmacenamiento;
     protected int tiempoDeConstruccion;
 
+    public Edificio() {}
+    public Edificio(int tiempoDeConstruccion) {
+        this.tiempoDeConstruccion = tiempoDeConstruccion;
+    }
     public String nombre;
     protected int turnosPasadosParaConstruccion = -1;
     protected boolean estaConstruido = false;
@@ -26,8 +27,6 @@ public abstract class Edificio extends Racita {
             this.estaConstruido = true;
         }
     }
-
-    public String nombre() {
-        return this.nombre;
-    }
+    public abstract void pasarTurno();
+    public abstract boolean estaOperativo();
 }

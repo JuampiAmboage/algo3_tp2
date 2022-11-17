@@ -1,17 +1,23 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
+import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
+import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
+import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Raza.Larva;
+import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
+import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
+import edu.fiuba.algo3.modelo.Recursos.Volcan;
+import edu.fiuba.algo3.modelo.vida.Salud;
 import edu.fiuba.algo3.modelo.vida.Vida;
 import java.util.ArrayList;
 import java.lang.RuntimeException;
 
-public class Criadero extends Edificio {
-    private int vidaMaxima = 500;
-
+public class Criadero extends Edificio implements Construible {
     private int cantidadMaxDeLarvas = 3;
     private int tiempoDeConstruccion = 3;
-
+    private final Salud vida = new Vida(500);
     ArrayList<Larva> larvas;
 
     public Criadero(){
@@ -19,9 +25,17 @@ public class Criadero extends Edificio {
         for (int i = 0; i < 3; i++) {
             agregarLarvas();
         }
-        vida = new Vida(this.vidaMaxima);
-        tiempoDeConstruccion = 4;
+        this.tiempoDeConstruccion = 4;
     }
+
+    public Criadero(int tiempoDeConstruccion) {
+        this.larvas = new ArrayList<Larva>(cantidadMaxDeLarvas);
+        for (int i = 0; i < 3; i++) {
+            agregarLarvas();
+        }
+        this.tiempoDeConstruccion = tiempoDeConstruccion;
+    }
+
 
     @Override
     public void construirEn(Celda celda) {
@@ -29,16 +43,16 @@ public class Criadero extends Edificio {
         this.turnosPasadosParaConstruccion = 0;
     }
 
+
+    public boolean estaOperativo() {
+        return this.tiempoDeConstruccion <= 0;
+    }
     public void pasarTurno(){
-        if(!estaConstruido){
-            controlEstadoConstruccion();
+        if(!this.estaOperativo())
+            this.tiempoDeConstruccion--;
+        else{
+            vida.pasarTurno();
         }
-        if (cantidadDeLarvas() < 3) {
-            agregarLarvas();
-        }
-
-        this.vida.pasarTurno();
-
     }
 
     public int cantidadDeLarvas(){
@@ -46,7 +60,7 @@ public class Criadero extends Edificio {
     }
 
     public void engendrar() {
-        if (this.estaConstruido) {
+        if (this.estaOperativo()) {
             this.larvas.remove(0);
         }else{
             throw (new RuntimeException());
@@ -59,5 +73,30 @@ public class Criadero extends Edificio {
        }else{
             throw (new RuntimeException());
         }
+    }
+
+    @Override
+    public void construirSobreRecurso(NoRecurso tipoRecurso) {}
+    @Override
+    public void construirSobreRecurso(NodoMineral tipoRecurso) {
+        throw new ConstruccionProhibida();
+    }
+    @Override
+    public void construirSobreRecurso(Volcan tipoRecurso) {
+        throw new ConstruccionProhibida();
+    }
+    @Override
+    public void construirSobreTipo(CeldaConMoho tipo) {}
+    @Override
+    public void construirSobreTipo(CeldaEnergizada tipo) {
+        throw new ConstruccionProhibida();
+    }
+    @Override
+    public void construirSobreTipo(CeldaLibre tipo) {
+        throw new ConstruccionProhibida();
+    }
+    @Override
+    public void construirSobre(Celda celda) throws ConstruccionProhibida{
+        celda.quiereConstruir(this);
     }
 }
