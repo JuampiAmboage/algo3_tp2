@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.Edificios;
 
 import edu.fiuba.algo3.modelo.Celdas.*;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
@@ -9,10 +11,16 @@ import edu.fiuba.algo3.modelo.vida.Salud;
 import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
 public class Pilon extends Edificio implements Construible {
+
+    RangoExpansible rango;
+
+    Posicion posicionPilon;
     private final Salud vida = new VidaConEscudo(300, 300);
 
     public Pilon(){
         this.tiempoDeConstruccion = 5;
+        rango = new RangoExpansible(3);
+        energizarCeldasEnRango();
     }
     public Pilon(int tiempoDeConstruccion) {
         this.tiempoDeConstruccion = tiempoDeConstruccion;
@@ -20,6 +28,14 @@ public class Pilon extends Edificio implements Construible {
 
     @Override
     public void construirEn(Celda celda) {}
+
+    public void energizarCeldasEnRango(){
+        rango.expandir(new CeldaEnergizada(),posicionPilon.obtenerPosicionX(), posicionPilon.obtenerPosicionY());
+    }
+
+    public void desernegizar(){
+        rango.expandir(new CeldaLibre(),posicionPilon.obtenerPosicionX(), posicionPilon.obtenerPosicionY());
+    }
 
     public boolean estaOperativo() {
         return this.tiempoDeConstruccion <= 0;

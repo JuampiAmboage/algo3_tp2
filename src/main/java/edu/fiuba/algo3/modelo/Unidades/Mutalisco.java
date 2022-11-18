@@ -8,10 +8,9 @@ public class Mutalisco extends Unidad {
         superficie = "aire";
         costoMinerales = 75;
         costoGas = 25;
-        tiempo_constuccion = 4;
+        tiempoConstruccion = 4;
         danioTerrestre = 9;
         danioAereo = 9;
-        rango_ataque = 4;
         vida = new Vida(80);
     }
 

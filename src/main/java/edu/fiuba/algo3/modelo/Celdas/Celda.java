@@ -76,4 +76,8 @@ public class Celda {
         this.recurso.quiereConstruir(construible);
         this.tipo.quiereConstruir(construible);
     }
+
+    public Racita obtenerOcupante(){
+        return ocupante;
+    }
 }

@@ -8,10 +8,9 @@ public class Zealot extends Unidad{
         superficie = "tierra";
         costoMinerales = 100;
         costoGas = 0;
-        tiempo_constuccion = 4;
+        tiempoConstruccion = 4;
         danioTerrestre = 8;
         danioAereo = 0;
-        rango_ataque = 4;
         vida = new VidaConEscudo(100,60);
     }
 
@@ -19,4 +18,7 @@ public class Zealot extends Unidad{
     public void pasarTurno() {
         vida.pasarTurno();
     }
+
+    public int obtenerEscudo(){return vida.getEscudoActual();}
+
 }

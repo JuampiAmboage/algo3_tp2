@@ -22,4 +22,7 @@ public class NexoMineral extends Edificio{
         }
     }
     public int obtenerEscudo(){ return vida.getEscudoActual();}
+
+    public boolean estaOperativo(){return estaConstruido;}
+
 }

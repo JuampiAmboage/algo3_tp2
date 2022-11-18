@@ -6,7 +6,7 @@ public class Posicion {
     private int X;
     private int Y;
 
-    public Posicion(int posicionX, int posicionY, int longitudEjeX, int longitudEjeY,){
+    public Posicion(int posicionX, int posicionY){
         X = posicionX;
         Y = posicionY;
     }

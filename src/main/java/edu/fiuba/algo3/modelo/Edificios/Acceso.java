@@ -24,6 +24,7 @@ public class Acceso extends Edificio implements Construible {
     public Acceso(int tiempoDeConstruccion) {
         this.tiempoDeConstruccion = tiempoDeConstruccion;
         conteoInstancias++;
+    }
 
     public void construirEn(Celda celda) {
     }

@@ -1,15 +1,18 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Racita;
+import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
+import edu.fiuba.algo3.modelo.vida.Salud;
 
 public abstract class Unidad extends Racita{
     protected String superficie;
     protected int costoMinerales;
     protected int costoGas;
-    protected int tiempo_constuccion;
+    protected int tiempoConstruccion;
     protected int danioTerrestre;
     protected int danioAereo;
-    protected int rango_ataque;
+    protected RangoAtaque rangoAtaque;
     protected Atacar ataque;
 
     public int obtenerDanioTerrestre(){
@@ -17,9 +20,9 @@ public abstract class Unidad extends Racita{
     }
     public int obtenerDanioAereo(){ return danioAereo;}
     public void atacarTierra(Racita unidadAtacable){
-        ataque.atacarTierra(unidadAtacable,danioTerrestre);
+        ataque.atacarTierra(rangoAtaque,unidadAtacable,danioTerrestre,posicion.obtenerPosicionX(), posicion.obtenerPosicionY());
     }
-    public void atacarAire(Racita unidadAtacable){ ataque.atacarAire(unidadAtacable,danioAereo);}
+    public void atacarAire(Racita unidadAtacable){ ataque.atacarAire(rangoAtaque,unidadAtacable,danioAereo,posicion.obtenerPosicionX(),posicion.obtenerPosicionY());}
     public abstract void pasarTurno();
     public String obtenerSuperficie() {
         return superficie;

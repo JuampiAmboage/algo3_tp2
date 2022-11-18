@@ -9,10 +9,9 @@ public class Dragon extends Unidad {
         superficie = "tierra";
         costoMinerales = 125;
         costoGas = 50;
-        tiempo_constuccion = 6;
+        tiempoConstruccion = 6;
         danioTerrestre = 20;
         danioAereo = 20;
-        rango_ataque = 4;
         vida = new VidaConEscudo(100,80);
     }
 
@@ -20,4 +19,6 @@ public class Dragon extends Unidad {
     public void pasarTurno() {
         vida.pasarTurno();
     }
+
+    public int obtenerEscudo(){return vida.getEscudoActual();}
 }
