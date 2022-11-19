@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 import edu.fiuba.algo3.modelo.Raza.Larva;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
@@ -20,12 +21,15 @@ public class Criadero extends Edificio implements Construible {
     private final Salud vida = new Vida(500);
     ArrayList<Larva> larvas;
 
+    RangoExpansible rangoExpansible;
     public Criadero(){
         this.larvas = new ArrayList<Larva>(cantidadMaxDeLarvas);
         for (int i = 0; i < 3; i++) {
             agregarLarvas();
         }
         this.tiempoDeConstruccion = 4;
+        this.rangoExpansible = new RangoExpansible(5);
+        rangoExpansible.expandir(new CeldaConMoho(),posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
     }
 
     public Criadero(int tiempoDeConstruccion) {
@@ -53,6 +57,7 @@ public class Criadero extends Edificio implements Construible {
         else{
             vida.pasarTurno();
         }
+        rangoExpansible.expandir(new CeldaConMoho(),posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
     }
 
     public int cantidadDeLarvas(){

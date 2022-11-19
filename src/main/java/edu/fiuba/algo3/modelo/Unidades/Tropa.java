@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Racita;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
-import edu.fiuba.algo3.modelo.vida.Salud;
 
-public abstract class Unidad extends Racita{
+public abstract class Tropa extends Racita{
     protected String superficie;
     protected int costoMinerales;
     protected int costoGas;

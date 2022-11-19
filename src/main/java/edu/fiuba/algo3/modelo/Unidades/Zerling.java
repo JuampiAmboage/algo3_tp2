@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.vida.Vida;
 
-public class Zerling extends Unidad
+public class Zerling extends Tropa
 {
     public Zerling(){
         ataque = new AtacarTierra();

@@ -2,7 +2,8 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
-public class Zealot extends Unidad{
+public class Zealot extends Tropa {
+    int bajasGeneradas;
     public Zealot(){
         ataque = new AtacarTierra();
         superficie = "tierra";
@@ -12,6 +13,7 @@ public class Zealot extends Unidad{
         danioTerrestre = 8;
         danioAereo = 0;
         vida = new VidaConEscudo(100,60);
+        bajasGeneradas = 0;
     }
 
     @Override

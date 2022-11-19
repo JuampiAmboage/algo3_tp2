@@ -1,9 +1,12 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
+import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 
 public class CeldaConMoho extends TipoCelda {
     private int delayExpandir = 2;
+
+    private RangoExpansible rango;
     public CeldaConMoho() {
         super();
     }

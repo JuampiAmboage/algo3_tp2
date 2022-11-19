@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.vida.Salud;
 
 public abstract class Racita {
     protected Salud vida;
-
     protected Posicion posicion;
     protected static int costoEnMinerales;
     protected static int costoEnGas;
@@ -34,5 +33,9 @@ public abstract class Racita {
     public int obtenerCostoMinerales(){return costoEnMinerales;}
 
     public int obtenerCostoGas(){return costoEnGas;}
+
+    public Posicion obtenerPosicion(){
+        return posicion;
+    }
 
 }

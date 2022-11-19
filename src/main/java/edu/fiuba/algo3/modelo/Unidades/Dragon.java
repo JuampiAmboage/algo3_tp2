@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
-public class Dragon extends Unidad {
+public class Dragon extends Tropa {
 
     public Dragon() {
         ataque = new AtacarTierraYAire();

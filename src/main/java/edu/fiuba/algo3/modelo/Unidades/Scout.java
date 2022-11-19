@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
-public class Scout extends Unidad {
+public class Scout extends Tropa {
     public Scout(){
         ataque = new AtacarTierraYAire();
         superficie = "aire";

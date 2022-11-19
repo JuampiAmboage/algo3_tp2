@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.vida.Vida;
 
-public class Hidralisco extends Unidad {
+public class Hidralisco extends Tropa {
     public Hidralisco(){
         ataque = new AtacarTierraYAire();
         superficie = "tierra";
