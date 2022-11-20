@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Raza.Evolucionador;
+import edu.fiuba.algo3.modelo.Razas.Evolucionador;
 import edu.fiuba.algo3.modelo.Unidades.Zerling;
 import edu.fiuba.algo3.modelo.vida.Vida;
 
@@ -19,16 +19,10 @@ public class ReservaDeReproduccion extends Edificio{
     }
     @Override
     public void pasarTurno(){
-        if(!estaConstruido)
-            controlEstadoConstruccion();
-        else{
-            vida.pasarTurno();
-        }
+        vida.pasarTurno();
     }
     public void generarZerling(){
-        evolucionador.evolucionarLarva(new Zerling());
+        evolucionador.evolucionarLarvaATropa(new Zerling());
     }
-    public boolean estaOperativo(){return estaConstruido;}
-
 }
 

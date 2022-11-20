@@ -5,11 +5,10 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
-import edu.fiuba.algo3.modelo.Raza.Zangano;
+import edu.fiuba.algo3.modelo.Razas.Zangano;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
-import edu.fiuba.algo3.modelo.vida.Salud;
 import edu.fiuba.algo3.modelo.vida.Vida;
 
 import java.util.ArrayList;
@@ -18,29 +17,17 @@ public class Extractor extends Edificio implements Construible {
 
     private int cantidadMaximaDeTrabajadores = 3;
     private ArrayList<Zangano> trabajadores = new ArrayList<Zangano>(0);
-    private final Salud vida = new Vida(750);
 
     public Extractor(){
         this.tiempoDeConstruccion = 6;
-    }
-
-    public Extractor(int tiempoDeConstruccion) {
-        this.tiempoDeConstruccion = tiempoDeConstruccion;
+        vida = new Vida(750);
     }
 
     @Override
     public void construirEn(Celda celda) {}
 
-
-    public boolean estaOperativo() {
-        return this.tiempoDeConstruccion <= 0;
-    }
     public void pasarTurno(){
-        if(!this.estaOperativo())
-            this.tiempoDeConstruccion--;
-        else{
-            vida.pasarTurno();
-        }
+        vida.pasarTurno();
     }
 
     public void agregarTrabajador(Zangano trabajador) {

@@ -42,12 +42,12 @@ public class Mapa {
         return celdaBuscada;
     }
 
-    public ArrayList<Celda> obtenerCeldasAdyacentes(int celdaX, int celdaY) {
+    /*public ArrayList<Celda> obtenerCeldasAdyacentes(int celdaX, int celdaY) {
         return this.obtenerCeldasEnRadio(celdaX, celdaY, 1);
     }
 
     public ArrayList<Celda> obtenerCeldasEnRadio(int celdaX, int celdaY, int radio) {
-        /*
+
          * La estructura para encontrar a las celdas en radio sería
          *
          * [x-1, y-1]   [x, y-1]   [x+1, y-1]
@@ -57,7 +57,7 @@ public class Mapa {
          * */
         ArrayList<Celda> enRadio = new ArrayList<>();
 
-        for (int x = celdaX - radio; x <= celdaX + radio; x++) {
+       /* for (int x = celdaX - radio; x <= celdaX + radio; x++) {
             for (int y = celdaY - radio; y <= celdaY + radio; y++) {
                 if (x < 0 || x >= tam || y < 0 || y >= tam || (x == celdaX && y == celdaY)) {
                     continue;
@@ -89,5 +89,5 @@ public class Mapa {
                 this.celdas[i][j].pasarTurno();
             }
         }
-    }
+    }*/
 }

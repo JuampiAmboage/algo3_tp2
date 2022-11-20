@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
-import edu.fiuba.algo3.modelo.Racita;
+import edu.fiuba.algo3.modelo.Raza;
 import edu.fiuba.algo3.modelo.Edificios.Construible;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Unidades.Tropa;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Celda {
     protected ArrayList<Celda> celdasAdyacentes;
-    protected Racita ocupante;
+    protected Raza ocupante;
     protected Tropa ocupanteAereo;
     protected TipoCelda tipo;
     protected Recurso recurso;
@@ -25,7 +25,7 @@ public class Celda {
         this.tipo = new CeldaLibre(this);
     }
 
-    public void ocupar(Racita ocupante){
+    public void ocupar(Raza ocupante){
         if(!estaOcupada())
             this.ocupante = ocupante;
         else{
@@ -40,8 +40,8 @@ public class Celda {
             throw new IllegalArgumentException();
         }
     }
-    public Racita desocupar(){
-        Racita u = this.ocupante;
+    public Raza desocupar(){
+        Raza u = this.ocupante;
         this.ocupante = null;
         return u;
     }
@@ -77,7 +77,7 @@ public class Celda {
         this.tipo.quiereConstruir(construible);
     }
 
-    public Racita obtenerOcupante(){
+    public Raza obtenerOcupante(){
         return ocupante;
     }
 }

@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.vida.Salud;
 
-public abstract class Racita {
+public abstract class Raza {
     protected Salud vida;
     protected Posicion posicion;
     protected static int costoEnMinerales;

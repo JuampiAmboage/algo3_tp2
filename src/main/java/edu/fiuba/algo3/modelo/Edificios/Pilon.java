@@ -12,38 +12,24 @@ import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
 public class Pilon extends Edificio implements Construible {
     RangoExpansible rango;
-    Posicion posicionPilon;
-    private final Salud vida = new VidaConEscudo(300, 300);
-
     public Pilon(){
         this.tiempoDeConstruccion = 5;
+        vida =  new VidaConEscudo(300, 300);
         rango = new RangoExpansible(3);
         energizarCeldasEnRango();
     }
-    public Pilon(int tiempoDeConstruccion) {
-        this.tiempoDeConstruccion = tiempoDeConstruccion;
-    }
-
     @Override
     public void construirEn(Celda celda) {}
 
     public void energizarCeldasEnRango(){
-        rango.expandir(new CeldaEnergizada(),posicionPilon.obtenerPosicionX(), posicionPilon.obtenerPosicionY());
+        rango.expandir(new CeldaEnergizada(),posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
     }
 
     public void desernegizar(){
-        rango.expandir(new CeldaLibre(),posicionPilon.obtenerPosicionX(), posicionPilon.obtenerPosicionY());
-    }
-
-    public boolean estaOperativo() {
-        return this.tiempoDeConstruccion <= 0;
+        rango.expandir(new CeldaLibre(),posicion.obtenerPosicionX(), posicion.obtenerPosicionY());
     }
     public void pasarTurno(){
-        if(!this.estaOperativo())
-            this.tiempoDeConstruccion--;
-        else{
-            vida.pasarTurno();
-        }
+        vida.pasarTurno();
     }
     public int obtenerEscudo(){ return vida.getEscudoActual();}
 

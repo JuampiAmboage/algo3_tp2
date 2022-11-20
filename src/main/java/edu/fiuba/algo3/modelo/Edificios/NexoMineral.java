@@ -15,14 +15,8 @@ public class NexoMineral extends Edificio{
     }
     @Override
     public void pasarTurno(){
-        if(!estaConstruido)
-            controlEstadoConstruccion();
-        else{
-            vida.pasarTurno();
-        }
+        vida.pasarTurno();
     }
     public int obtenerEscudo(){ return vida.getEscudoActual();}
-
-    public boolean estaOperativo(){return estaConstruido;}
 
 }

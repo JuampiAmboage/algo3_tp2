@@ -5,7 +5,7 @@ import org.junit.jupiter.api.function.Executable;
 
 import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Recursos.*;
-import edu.fiuba.algo3.modelo.Raza.Zangano;
+import edu.fiuba.algo3.modelo.Razas.Zangano;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

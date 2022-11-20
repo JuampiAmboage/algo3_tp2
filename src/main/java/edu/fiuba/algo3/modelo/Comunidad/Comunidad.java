@@ -1,25 +1,24 @@
 package edu.fiuba.algo3.modelo.Comunidad;
 
-import edu.fiuba.algo3.modelo.Racita;
-import edu.fiuba.algo3.modelo.Raza.*;
+import edu.fiuba.algo3.modelo.Raza;
 import edu.fiuba.algo3.modelo.Almacenamiento.Almacenamiento;
 import edu.fiuba.algo3.modelo.Edificios.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Comunidad {
-    private ArrayList<Racita> pueblo;
+    private ArrayList<Raza> pueblo;
     private ArrayList<Edificio> edificios;
     private Almacenamiento almacenamiento;
 
     public Comunidad(){ //este constructor solo lo creé para correr tests, desp se arregla bien
         almacenamiento = new Almacenamiento();
     }
-    public Comunidad(Racita[] raza) {
-        Racita[] lista_inicial = new Racita[0];
+    public Comunidad(Raza[] raza) {
+        Raza[] lista_inicial = new Raza[0];
         this.almacenamiento = new Almacenamiento();
 
-        this.pueblo = new ArrayList<Racita>(0);
+        this.pueblo = new ArrayList<Raza>(0);
         this.pueblo.addAll(Arrays.asList(raza));
     }
 
@@ -49,7 +48,7 @@ public class Comunidad {
             throw new RuntimeException("No tenes recursos suficientes.");
         }
     }
-    public void generarUnidad(Racita unidadAGenerar){
+    public void generarUnidad(Raza unidadAGenerar){
         if (recursosSuficientes(unidadAGenerar.obtenerCostoMinerales(),unidadAGenerar.obtenerCostoGas())) {
             this.pueblo.add(unidadAGenerar);
             this.almacenamiento.retirarGasVespeno(unidadAGenerar.obtenerCostoGas());

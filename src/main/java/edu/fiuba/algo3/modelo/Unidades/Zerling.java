@@ -14,7 +14,7 @@ public class Zerling extends Tropa
         danioTerrestre = 4;
         danioAereo = 0;
         vida = new Vida(35);
-        rangoAtaque = new RangoAtaque(1);
+        rangoAtaque = new RangoAtaque(1,posicion);
     }
     @Override
     public void pasarTurno() {

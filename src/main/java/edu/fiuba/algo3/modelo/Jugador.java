@@ -8,7 +8,7 @@ public class Jugador {
     private String nombre, color;
     Comunidad comunidad;
 
-    public Jugador(String nombre, Racita[] raza) {
+    public Jugador(String nombre, Raza[] raza) {
         this.nombre = nombre;
         this.comunidad = new Comunidad(raza);
     }

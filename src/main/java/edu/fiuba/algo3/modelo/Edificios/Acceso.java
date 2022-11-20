@@ -16,28 +16,17 @@ public class Acceso extends Edificio implements Construible {
     public static boolean existeAlMenosUnaInstancia(){
         return conteoInstancias > 0;
     }
-    private final Salud vida = new VidaConEscudo(500, 500);
+    private Salud vida;
     public Acceso(){
         this.tiempoDeConstruccion = 8;
         conteoInstancias++;
+        vida = new VidaConEscudo(500, 500);
     }
-    public Acceso(int tiempoDeConstruccion) {
-        this.tiempoDeConstruccion = tiempoDeConstruccion;
-        conteoInstancias++;
-    }
-
     public void construirEn(Celda celda) {
     }
 
-    public boolean estaOperativo() {
-        return this.tiempoDeConstruccion <= 0;
-    }
     public void pasarTurno(){
-        if(!this.estaOperativo())
-            this.tiempoDeConstruccion--;
-        else{
-            vida.pasarTurno();
-        }
+        vida.pasarTurno();
     }
 
     @Override
