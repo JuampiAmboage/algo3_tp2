@@ -4,9 +4,13 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
+import edu.fiuba.algo3.modelo.ComunidadNueva.Comunidad;
+import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
+import edu.fiuba.algo3.modelo.Raza.Evolucionador;
 import edu.fiuba.algo3.modelo.Raza.Larva;
+import edu.fiuba.algo3.modelo.Raza.Zangano;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
@@ -16,27 +20,26 @@ import java.util.ArrayList;
 import java.lang.RuntimeException;
 
 public class Criadero extends Edificio implements Construible {
-    private int cantidadMaxDeLarvas = 3;
     private int tiempoDeConstruccion = 3;
-    private final Salud vida = new Vida(500);
-    ArrayList<Larva> larvas;
 
+    private int cantidadLarvasEnEspera = 0;
+    private final Salud vida = new Vida(500);
+    Evolucionador evolucionador;
     RangoExpansible rangoExpansible;
     public Criadero(){
-        this.larvas = new ArrayList<Larva>(cantidadMaxDeLarvas);
-        for (int i = 0; i < 3; i++) {
-            agregarLarvas();
-        }
+        ComunidadZerg comunidad = ComunidadZerg.getInstance();
+        for(int i=0;i<3;i++)
+            comunidad.agregarLarva();
         this.tiempoDeConstruccion = 4;
         this.rangoExpansible = new RangoExpansible(5);
         rangoExpansible.expandir(new CeldaConMoho(),posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
     }
 
     public Criadero(int tiempoDeConstruccion) {
-        this.larvas = new ArrayList<Larva>(cantidadMaxDeLarvas);
+        /*viejo metodo this.larvas = new ArrayList<Larva>(cantidadMaxDeLarvas);
         for (int i = 0; i < 3; i++) {
             agregarLarvas();
-        }
+        }*/
         this.tiempoDeConstruccion = tiempoDeConstruccion;
     }
 
@@ -55,27 +58,25 @@ public class Criadero extends Edificio implements Construible {
         if(!this.estaOperativo())
             this.tiempoDeConstruccion--;
         else{
+            if(cantidadLarvasEnEspera < 3) {
+                ComunidadZerg comunidadZerg = ComunidadZerg.getInstance();
+                comunidadZerg.agregarLarva();
+                cantidadLarvasEnEspera++;
+            }
             vida.pasarTurno();
         }
         rangoExpansible.expandir(new CeldaConMoho(),posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
     }
 
     public int cantidadDeLarvas(){
-        return this.larvas.size();
+        return cantidadLarvasEnEspera;
     }
 
     public void engendrar() {
         if (this.estaOperativo()) {
-            this.larvas.remove(0);
+            cantidadLarvasEnEspera--;
+            evolucionador.evolucionarLarvaAZangano();
         }else{
-            throw (new RuntimeException());
-        }
-    }
-
-    private void agregarLarvas() {
-        if (cantidadDeLarvas() < 3) {
-        this.larvas.add(new Larva());
-       }else{
             throw (new RuntimeException());
         }
     }

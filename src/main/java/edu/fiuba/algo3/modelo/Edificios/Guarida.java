@@ -5,9 +5,11 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Raza.Evolucionador;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
+import edu.fiuba.algo3.modelo.Unidades.Hidralisco;
 import edu.fiuba.algo3.modelo.vida.Salud;
 import edu.fiuba.algo3.modelo.vida.Vida;
 
@@ -17,9 +19,12 @@ public class Guarida extends Edificio implements Construible {
         return conteoInstancias > 0;
     }
     private final Salud vida = new Vida(1250);
+
+    private Evolucionador evolucionador;
     public Guarida(){
         this.tiempoDeConstruccion = 12;
         conteoInstancias++;
+        evolucionador = new Evolucionador();
     }
     public Guarida(int tiempoDeConstruccion) {
         this.tiempoDeConstruccion = tiempoDeConstruccion;
@@ -39,6 +44,10 @@ public class Guarida extends Edificio implements Construible {
         else{
             vida.pasarTurno();
         }
+    }
+
+    public void generarHidralisco(){
+        evolucionador.evolucionarLarva(new Hidralisco());
     }
 
     @Override

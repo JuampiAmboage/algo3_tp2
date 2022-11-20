@@ -11,17 +11,15 @@ public class Almacenamiento {
 
     public Almacenamiento(){
         this.gasVespeno = 0;
-        this.mineral = 0;
+        this.mineral = 200;
     }
 
     public void almacenarGasVespeno(int cantidadEntrante) {
         this.gasVespeno += cantidadEntrante;
     }
-
     public void almacenarMinerales(int cantidadEntrante) {
         this.mineral += cantidadEntrante;
     }
-
     public void retirarGasVespeno(int cantidadARetirar){
         gasVespeno -= cantidadARetirar;
     }

@@ -29,4 +29,6 @@ public abstract class Edificio extends Racita {
         }
     }
     public abstract boolean estaOperativo();
+
+    public int obtenerTiempoConstruccion(){ return tiempoDeConstruccion;}
 }

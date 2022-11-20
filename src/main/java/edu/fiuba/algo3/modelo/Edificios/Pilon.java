@@ -11,9 +11,7 @@ import edu.fiuba.algo3.modelo.vida.Salud;
 import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
 public class Pilon extends Edificio implements Construible {
-
     RangoExpansible rango;
-
     Posicion posicionPilon;
     private final Salud vida = new VidaConEscudo(300, 300);
 

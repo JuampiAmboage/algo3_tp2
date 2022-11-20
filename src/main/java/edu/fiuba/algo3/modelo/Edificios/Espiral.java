@@ -5,9 +5,11 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Raza.Evolucionador;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
+import edu.fiuba.algo3.modelo.Unidades.Mutalisco;
 import edu.fiuba.algo3.modelo.vida.Salud;
 import edu.fiuba.algo3.modelo.vida.Vida;
 import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
@@ -15,6 +17,7 @@ import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 public class Espiral extends Edificio implements Construible {
     private final Salud vida = new Vida(1300);
 
+    private Evolucionador evolucionador;
     public Espiral(){
         this.tiempoDeConstruccion = 10;
     }
@@ -40,6 +43,10 @@ public class Espiral extends Edificio implements Construible {
         else{
             vida.pasarTurno();
         }
+    }
+
+    public void generarMutalisco(){
+        evolucionador.evolucionarLarva(new Mutalisco());
     }
 
     @Override

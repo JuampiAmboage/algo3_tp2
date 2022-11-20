@@ -9,15 +9,13 @@ import java.util.Arrays;
 
 public class Comunidad {
     private ArrayList<Racita> pueblo;
-    private Almacenamiento almacenamiento;
-
     private ArrayList<Edificio> edificios;
+    private Almacenamiento almacenamiento;
 
     public Comunidad(){ //este constructor solo lo creé para correr tests, desp se arregla bien
         almacenamiento = new Almacenamiento();
     }
     public Comunidad(Racita[] raza) {
-
         Racita[] lista_inicial = new Racita[0];
         this.almacenamiento = new Almacenamiento();
 
@@ -40,6 +38,7 @@ public class Comunidad {
     public boolean recursosSuficientes(int cantidadMineralRequerido, int cantidadGasRequerido){
         return (cantidadMineralRequerido <= almacenamiento.obtenerCantidadGasAlmacenado() && cantidadGasRequerido <= almacenamiento.obtenerCantidadGasAlmacenado());
     }
+
     public void agregarEdificio(Edificio edificio){
         if (recursosSuficientes(edificio.obtenerCostoMinerales(),edificio.obtenerCostoGas())) {
             this.edificios.add(edificio);

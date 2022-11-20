@@ -1,40 +1,45 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Mapa {
-    private static Mapa mapa;
-    private Celda[][] celdas;
-    private int tam; // Tamaño del mapa
-    Mapa(){ mapa = null; celdas = null;}
-
+    private static Mapa singletonMapa;
+    private static HashMap<Posicion,Celda> mapaJuego;
+    private int longitudFilas; //alto mapa
+    private int longitudColumnas;//ancho mapa
+    private Mapa(){ mapaJuego = new HashMap<Posicion,Celda>();}
     public static Mapa getInstance(){
-        if(mapa == null)
-            mapa = new Mapa();
-        return mapa;
+        if(singletonMapa == null)
+            singletonMapa = new Mapa();
+        return singletonMapa;
     }
-    public void instanciarMapa(int tamTotal) {
-        this.tam = tamTotal;
-        this.celdas = new Celda[tam][tam];
+    public void instanciarMapa(int longitudFilas, int longitudColumnas) {
+        this.longitudFilas = longitudFilas;
+        this.longitudColumnas = longitudColumnas;
 
-        // cambio las posiciones de NULL a Celda
-        for (int i = 0; i < this.tam; i++) {
-            for (int j = 0; j < this.tam; j++) {
-                this.celdas[i][j] = new Celda();
+        for (int i = 0; i < this.longitudFilas; i++) {
+            for (int j = 0; j < this.longitudColumnas; j++) {
+                Posicion posicionActual = new Posicion(i,j);
+                mapaJuego.put(posicionActual,new Celda());
             }
         }
         // establezco las celdas en radio
-        for (int i = 0; i < this.tam; i++) {
+        /*for (int i = 0; i < this.tam; i++) {
             for (int j = 0; j < this.tam; j++) {
-                this.celdas[i][j].setAdyacentes(this.obtenerCeldasAdyacentes(i, j));
+                this.mapaJuego.setAdyacentes(this.obtenerCeldasAdyacentes(i, j));
             }
-        }
+        }*/
     }
 
-    public Celda obtenerCelda(int x, int y) {
-        return celdas[x][y];
+    public Celda obtenerCelda(Posicion posicion) {
+        Celda celdaBuscada = mapaJuego.get(posicion);
+        if(celdaBuscada == null)
+            throw new RuntimeException();
+        return celdaBuscada;
     }
 
     public ArrayList<Celda> obtenerCeldasAdyacentes(int celdaX, int celdaY) {

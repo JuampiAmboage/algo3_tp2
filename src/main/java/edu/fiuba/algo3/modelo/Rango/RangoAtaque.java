@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.Rango;
 
-import edu.fiuba.algo3.modelo.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Racita;
 
@@ -17,24 +16,8 @@ public class RangoAtaque {
         if(posicion.obtenerDistanciaA(Xvictima,Yvictima) <= radio){
             victima.daniar(puntosAtaque);
         }
-    }
-    //FUNCION OBSOLETA
-    public void localizarTropaEnRangoVieja(Racita victima, int puntosAtaque, int X, int Y){
-        Mapa mapa = Mapa.getInstance();
-        int radioRecorrido = 1;
-        boolean tropaLocalizada = false;
-        while(radioRecorrido <= radio && !tropaLocalizada){
-            if (mapa.obtenerCelda(X + radioRecorrido, Y).obtenerOcupante() == victima ||
-            mapa.obtenerCelda(X - radioRecorrido, Y).obtenerOcupante() == victima ||
-            mapa.obtenerCelda(X, Y + radioRecorrido).obtenerOcupante() == victima ||
-            mapa.obtenerCelda(X, Y - radioRecorrido).obtenerOcupante() == victima) {
-                victima.daniar(puntosAtaque);
-                tropaLocalizada = true;
-            }
-            else
-                radioRecorrido++;
+        else{
+            throw new RuntimeException(); //throw new EnemigoFueraDeRango()
         }
-        /*if(!tropaLocalizada)
-            throw new //tropaFueraDeRangoDeAtaque*/
     }
 }
