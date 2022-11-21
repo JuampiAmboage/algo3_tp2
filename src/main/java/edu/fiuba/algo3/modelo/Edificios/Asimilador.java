@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.ComunidadNueva.Comunidad;
+import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
@@ -23,8 +24,7 @@ public class Asimilador extends Edificio implements Construible {
     public void construirEn(Celda celda) {}
 
     public void pasarTurno(){
-        Comunidad comunidad = Comunidad.getInstance();
-        comunidad.añadirGasVespeno(extraerGas());
+        ComunidadProtoss.obtenerInstanciaDeClase().aniadirGasVespeno(extraerGas());
         vida.pasarTurno();
     }
     public int extraerGas(){

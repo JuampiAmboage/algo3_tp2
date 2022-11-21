@@ -5,10 +5,11 @@ import edu.fiuba.algo3.modelo.Posicion.Posicion;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 public class Mapa {
     private static Mapa singletonMapa;
-    private static HashMap<Posicion,Celda> mapaJuego;
+    private HashMap<Posicion,Celda> mapaJuego;
     private int longitudFilas; //alto mapa
     private int longitudColumnas;//ancho mapa
     private Mapa(){ mapaJuego = new HashMap<Posicion,Celda>();}
@@ -23,23 +24,33 @@ public class Mapa {
 
         for (int i = 0; i < this.longitudFilas; i++) {
             for (int j = 0; j < this.longitudColumnas; j++) {
-                Posicion posicionActual = new Posicion(i,j);
-                mapaJuego.put(posicionActual,new Celda());
+                mapaJuego.put(new Posicion(i,j),new Celda());
             }
         }
-        // establezco las celdas en radio
-        /*for (int i = 0; i < this.tam; i++) {
-            for (int j = 0; j < this.tam; j++) {
-                this.mapaJuego.setAdyacentes(this.obtenerCeldasAdyacentes(i, j));
-            }
-        }*/
     }
 
-    public Celda obtenerCelda(Posicion posicion) {
+    /*public Celda obtenerCelda(Posicion posicion) {
         Celda celdaBuscada = mapaJuego.get(posicion);
         if(celdaBuscada == null)
             throw new RuntimeException();
         return celdaBuscada;
+    }*/
+
+    public Celda obtenerCelda(int x, int y){
+        Set<Posicion> setPosiciones = mapaJuego.keySet();
+        for (Posicion posicion : setPosiciones) {
+            if (x == posicion.obtenerPosicionX() && y == posicion.obtenerPosicionY())
+                return mapaJuego.get(posicion);
+        }
+        throw new RuntimeException();
+    }
+
+    public int obtenerLongitudFilas(){
+        return longitudFilas;
+    }
+
+    public int obtenerLongitudColumnas(){
+        return longitudColumnas;
     }
 
     /*public ArrayList<Celda> obtenerCeldasAdyacentes(int celdaX, int celdaY) {

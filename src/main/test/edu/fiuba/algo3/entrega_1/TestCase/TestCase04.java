@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
 
+import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadProtoss;
+import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadZerg;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
@@ -66,7 +68,6 @@ public class TestCase04 { //A todos les falta probar con test y terminados de co
     @Test
     public void elAsimiladorSoloPuedeExtraerGasPasadoElTiempoEstipulado() {
         Asimilador a = new Asimilador();
-
         assertEquals(20, a.extraerGas());
     }
 

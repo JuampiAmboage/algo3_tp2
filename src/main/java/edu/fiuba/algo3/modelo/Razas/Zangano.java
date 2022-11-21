@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.vida.Vida;
 
 public class Zangano extends Raza {
 
+
     public Zangano(){
         costoEnGas = 0;
         costoEnMinerales = 25;

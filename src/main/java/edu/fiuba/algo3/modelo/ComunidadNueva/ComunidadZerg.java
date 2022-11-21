@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.ComunidadNueva;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.EdificioEnConstruccion;
+import edu.fiuba.algo3.modelo.Mapa;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Larva;
 import edu.fiuba.algo3.modelo.Razas.Zangano;
 import edu.fiuba.algo3.modelo.Unidades.Tropa;
@@ -13,21 +15,20 @@ public class ComunidadZerg extends Comunidad {
     private static ComunidadZerg comunidadZerg;
     private ArrayList<Larva> larvas;
     private ArrayList<Zangano> zanganos;
-
-    public static ComunidadZerg getInstance() {
-        if (comunidadZerg == null)
-            comunidadZerg = new ComunidadZerg();
-        return comunidadZerg;
-    }
-
     private ComunidadZerg() {
         super();
         larvas = new ArrayList<Larva>();
         zanganos = new ArrayList<Zangano>();
-        existenciasIniciales();
+    }
+
+    public static ComunidadZerg obtenerInstanciaDeClase(){
+        if(comunidadZerg == null)
+            comunidadZerg = new ComunidadZerg();
+        return comunidadZerg;
     }
 
     private void existenciasIniciales() {
+        Mapa mapa = Mapa.getInstance();
         for (int i = 0; i < 3; i++)
             agregarLarva();
         edificiosConstruidos.add(new Criadero());
@@ -55,7 +56,7 @@ public class ComunidadZerg extends Comunidad {
     @Override
     public void construirEdificio(Edificio nuevoEdificio){
         administrarRecursos(nuevoEdificio.obtenerCostoGas(),nuevoEdificio.obtenerCostoMinerales());
-        EdificioEnConstruccion construccion = new EdificioEnConstruccion(nuevoEdificio);
+        EdificioEnConstruccion construccion = new EdificioEnConstruccion(nuevoEdificio,this);
         edificiosEnConstruccion.add(construccion);
         quitarZangano();
     }

@@ -1,4 +1,7 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
+import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadZerg;
+import edu.fiuba.algo3.modelo.Mapa;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import org.junit.jupiter.api.Test;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,7 +11,7 @@ public class TestCase10 {
 
     @Test
     public void alDaniarUnCriaderoYPasarUnTurnoRecuperaSuVidaMaxima(){
-       Criadero criadero = new Criadero(); //empieza con 500 de vida
+        Criadero criadero = new Criadero(); //empieza con 500 de vida
        criadero.daniar(50);
        criadero.pasarTurno(); //en cada turno regenera 20% de su vida maxima, es decir 100
 

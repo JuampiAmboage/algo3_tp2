@@ -10,8 +10,6 @@ import edu.fiuba.algo3.modelo.Unidades.Tropa;
 import java.util.ArrayList;
 
 public class Comunidad {
-    private static Comunidad comunidad;
-
     protected ArrayList<Edificio> edificiosConstruidos;
 
     protected ArrayList<EdificioEnConstruccion> edificiosEnConstruccion;
@@ -21,12 +19,8 @@ public class Comunidad {
     private ArrayList<Larva> larvas;
     private ArrayList<Zangano> zanganos;
 
-    public static Comunidad getInstance(){
-        if(comunidad == null)
-            comunidad = new Comunidad();
-        return comunidad;
-    }
-    protected Comunidad(){
+    public Comunidad(){
+        almacenamiento = new Almacenamiento();
         tropas = new ArrayList<Tropa>();
         edificiosEnConstruccion = new ArrayList<EdificioEnConstruccion>();
         edificiosConstruidos = new ArrayList<Edificio>();
@@ -34,7 +28,7 @@ public class Comunidad {
 
     public void construirEdificio(Edificio nuevoEdificio){
         administrarRecursos(nuevoEdificio.obtenerCostoGas(),nuevoEdificio.obtenerCostoMinerales());
-        EdificioEnConstruccion construccion = new EdificioEnConstruccion(nuevoEdificio);
+        EdificioEnConstruccion construccion = new EdificioEnConstruccion(nuevoEdificio,this);
         edificiosEnConstruccion.add(construccion);
     }
 
@@ -62,11 +56,11 @@ public class Comunidad {
         }
     }
 
-    public void añadirGasVespeno(int cantidadGasEntrante){
+    public void aniadirGasVespeno(int cantidadGasEntrante){
         almacenamiento.almacenarGasVespeno(cantidadGasEntrante);
     }
 
-    public void añadirMineral(int cantidadMineralEntrante){
+    public void aniadirMineral(int cantidadMineralEntrante){
         almacenamiento.almacenarMinerales(cantidadMineralEntrante);
     }
 }

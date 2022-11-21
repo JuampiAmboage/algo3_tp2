@@ -6,10 +6,12 @@ public class EdificioEnConstruccion {
     int turnosNecesariosParaConstruir;
     int turnosTranscurridos;
 
+    Comunidad comunidad;
     Edificio futuroEdificio;
 
-    public EdificioEnConstruccion(Edificio edificioAConstruir){
+    public EdificioEnConstruccion(Edificio edificioAConstruir,Comunidad comunidadQueConstruye){
         futuroEdificio = edificioAConstruir;
+        comunidad = comunidadQueConstruye;
         turnosNecesariosParaConstruir = edificioAConstruir.obtenerTiempoConstruccion();
         turnosTranscurridos = 0;
     }
@@ -17,7 +19,6 @@ public class EdificioEnConstruccion {
         if(turnosTranscurridos < turnosNecesariosParaConstruir)
             turnosTranscurridos++;
         else{
-            Comunidad comunidad = Comunidad.getInstance();
             comunidad.finalizarConstruccionEdificio(futuroEdificio,this);
         }
     }

@@ -18,8 +18,8 @@ public class TestClass23 {
         Raza dragon = new Dragon(); //dragon empieza con 80 de escudo y 100 de vida
 
         mapa.instanciarMapa(6,6);
-        Celda celdaZerling = mapa.obtenerCelda(new Posicion(2,3));
-        Celda celdaDragon = mapa.obtenerCelda(new Posicion(2,3));  //el dragon esta "abajo" del zerling
+        Celda celdaZerling = mapa.obtenerCelda(2,3);
+        Celda celdaDragon = mapa.obtenerCelda(2,3);  //el dragon esta "abajo" del zerling
         celdaZerling.ocupar(zerling);
         zerling.localizarEnMapa(2,2);
         dragon.localizarEnMapa(2,3);
@@ -35,8 +35,8 @@ public class TestClass23 {
         Dragon dragon = new Dragon(); //dragon empieza con 80 de escudo y 100 de vida
 
         mapa.instanciarMapa(6,6);
-        Celda celdaZerling = mapa.obtenerCelda(new Posicion(2,3));
-        Celda celdaDragon = mapa.obtenerCelda(new Posicion(2,2));
+        Celda celdaZerling = mapa.obtenerCelda(2,3);
+        Celda celdaDragon = mapa.obtenerCelda(2,2);
         celdaZerling.ocupar(zerling);
         zerling.localizarEnMapa(2,2);
         dragon.localizarEnMapa(0,0);

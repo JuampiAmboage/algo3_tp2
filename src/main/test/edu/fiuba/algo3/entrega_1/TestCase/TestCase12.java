@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
 
+import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadProtoss;
+import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Asimilador;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestCase12 {
 
     @Test void alSacarleTodoElEscudoAUnAsimiladorYSeguirDaniandoloPierdeVida(){
+
         Asimilador asimilador = new Asimilador(); //empieza con 450 de vida y 450 de escudo
 
         asimilador.daniar(450); //aca pierde todo el escudo
@@ -19,6 +22,7 @@ public class TestCase12 {
 
     @Test
     public void alSacarleTodoElEscudoYParteDeLaVidaAUnAsimiladorSoloRecuperaEscudo(){
+
         Asimilador asimilador = new Asimilador(); //empieza con 450 de vida y 450 de escudo
 
         asimilador.daniar(450); //aca pierde todo el escudo

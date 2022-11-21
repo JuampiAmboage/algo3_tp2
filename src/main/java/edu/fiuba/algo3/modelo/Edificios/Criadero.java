@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 import edu.fiuba.algo3.modelo.Razas.Evolucionador;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
@@ -19,16 +20,19 @@ public class Criadero extends Edificio implements Construible {
     Evolucionador evolucionador;
     RangoExpansible rangoExpansible;
     public Criadero(){
-        ComunidadZerg comunidad = ComunidadZerg.getInstance();
         for(int i=0;i<3;i++)
-            comunidad.agregarLarva();
+            ComunidadZerg.obtenerInstanciaDeClase().agregarLarva();
         this.tiempoDeConstruccion = 4;
         vida = new Vida(500);
+        evolucionador = new Evolucionador();
         this.cantidadLarvasEnEspera = 3;
         this.rangoExpansible = new RangoExpansible(5);
-        rangoExpansible.expandir(new CeldaConMoho(),posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
     }
 
+    public void instanciacionInicial(Posicion posicionALocalizar){
+        posicion = posicionALocalizar;
+        rangoExpansible.expandir(new CeldaConMoho(),posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
+    }
     @Override
     public void construirEn(Celda celda) {
         //verificacion de que se puede construir en esa celda
@@ -36,8 +40,7 @@ public class Criadero extends Edificio implements Construible {
 
     public void pasarTurno(){
         if(cantidadLarvasEnEspera < 3) {
-            ComunidadZerg comunidadZerg = ComunidadZerg.getInstance();
-            comunidadZerg.agregarLarva();
+            ComunidadZerg.obtenerInstanciaDeClase().agregarLarva();
             cantidadLarvasEnEspera++;
         }
         vida.pasarTurno();

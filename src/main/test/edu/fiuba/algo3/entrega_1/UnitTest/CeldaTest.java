@@ -40,7 +40,7 @@ public class CeldaTest {
     public void unaCeldaConMohoInfectaASusCeldasAdyacentes() {
         Mapa m = Mapa.getInstance();
         m.instanciarMapa(3,3);
-        Celda c = m.obtenerCelda(new Posicion(3,3));
+        Celda c = m.obtenerCelda(3,3);
         c.cambiarTipo(new CeldaConMoho(c));
         c.pasarTurno(); // todo esto lo debería hacer Mapa, y bajar en cascada
         // Todas las celdas del mapa deberían tener moho

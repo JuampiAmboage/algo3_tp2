@@ -41,14 +41,11 @@ public class Extractor extends Edificio implements Construible {
     public int extraerGas() {
         int gasExtraido = 0;
 
-        if (this.trabajadores.size() == 0 ) {
-            return gasExtraido;
-        } else {
+        if (this.trabajadores.size() != 0 ) {
             for (Zangano trabajador :this.trabajadores) {
                 gasExtraido += 10;
             }
         }
-
         return gasExtraido;
 
     }
