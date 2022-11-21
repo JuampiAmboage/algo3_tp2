@@ -5,15 +5,23 @@ import edu.fiuba.algo3.modelo.Mapa;
 public class Partida {
     private Mapa mapa;
     private Turno turno;
-    private Jugador jugador_uno;
-    private Jugador jugador_dos;
+    private Jugador primerJugador;
+    private Jugador segundoJugador;
 
-    public Partida(int tamanio_del_mapa, String[] nombre_de_los_jugadores, Racita[] razas) {
+    public Partida(int dimensionMapa) {
         this.mapa = new Mapa();
-        this.mapa.instanciarMapa(tamanio_del_mapa);
+        this.mapa.instanciarMapa(dimensionMapa);
         this.turno = new Turno();
-
-        this.jugador_uno = new Jugador(nombre_de_los_jugadores[0], razas);
-        this.jugador_dos = new Jugador(nombre_de_los_jugadores[1], razas);
     }
+
+    public void agregarJugador(String nombreJugador, String color,Racita[] razas){
+        if(primerJugador != null)
+            primerJugador = new Jugador(nombreJugador,razas);
+        else
+            segundoJugador = new Jugador(nombreJugador,razas);
+    }
+
+
+
+
 }

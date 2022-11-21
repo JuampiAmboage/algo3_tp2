@@ -6,7 +6,7 @@ public class Posicion {
     private int X;
     private int Y;
 
-    public Posicion(int posicionX, int posicionY, int longitudEjeX, int longitudEjeY,){
+    public Posicion(int posicionX, int posicionY){
         X = posicionX;
         Y = posicionY;
     }
@@ -22,5 +22,13 @@ public class Posicion {
 
     public int obtenerPosicionY(){
         return Y;
+    }
+
+    public int obtenerDistanciaA(int posicionXDestino, int posicionYDestino){
+        return Math.abs((posicionXDestino+posicionYDestino)-(X+Y));
+    }
+
+    public boolean sonCoolineales(int posicionXDestino, int posicionYDestino){
+        return X == posicionXDestino || Y == posicionYDestino;
     }
 }

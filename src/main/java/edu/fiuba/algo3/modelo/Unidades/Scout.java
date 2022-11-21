@@ -2,16 +2,15 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
-public class Scout extends Unidad {
+public class Scout extends Tropa {
     public Scout(){
         ataque = new AtacarTierraYAire();
         superficie = "aire";
         costoMinerales = 300;
         costoGas = 150;
-        tiempo_constuccion = 9;
+        tiempoConstruccion = 9;
         danioTerrestre = 8;
         danioAereo = 14;
-        rango_ataque = 4;
         vida = new VidaConEscudo(150,100);
     }
 
@@ -19,4 +18,7 @@ public class Scout extends Unidad {
     public void pasarTurno() {
         vida.pasarTurno();
     }
+
+    public int obtenerEscudo(){return vida.getEscudoActual();}
+
 }

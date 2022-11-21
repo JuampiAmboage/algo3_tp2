@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.Comunidad;
 
-import edu.fiuba.algo3.modelo.Excepciones.SinRecursosSuficientes;
 import edu.fiuba.algo3.modelo.Racita;
 import edu.fiuba.algo3.modelo.Raza.*;
 import edu.fiuba.algo3.modelo.Almacenamiento.Almacenamiento;

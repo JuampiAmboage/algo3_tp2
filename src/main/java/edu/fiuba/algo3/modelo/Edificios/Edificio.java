@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.vida.Salud;
 public abstract class Edificio extends Racita {
     protected int tiempoDeConstruccion;
 
+    protected Salud vida;
     public Edificio() {}
     public Edificio(int tiempoDeConstruccion) {
         this.tiempoDeConstruccion = tiempoDeConstruccion;
@@ -27,6 +28,5 @@ public abstract class Edificio extends Racita {
             this.estaConstruido = true;
         }
     }
-    public abstract void pasarTurno();
     public abstract boolean estaOperativo();
 }

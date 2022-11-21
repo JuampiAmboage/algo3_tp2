@@ -21,4 +21,8 @@ public class ReservaDeReproduccion extends Edificio{
             vida.pasarTurno();
         }
     }
+
+    public boolean estaOperativo(){return estaConstruido;}
+
 }
+
