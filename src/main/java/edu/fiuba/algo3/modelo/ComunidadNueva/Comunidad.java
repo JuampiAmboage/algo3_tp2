@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.ComunidadNueva;
 import edu.fiuba.algo3.modelo.Almacenamiento.Almacenamiento;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.EdificioEnConstruccion;
+import edu.fiuba.algo3.modelo.Raza;
 import edu.fiuba.algo3.modelo.Razas.Larva;
 import edu.fiuba.algo3.modelo.Razas.Zangano;
 import edu.fiuba.algo3.modelo.Unidades.Tropa;
@@ -13,15 +14,12 @@ public class Comunidad {
     protected ArrayList<Edificio> edificiosConstruidos;
 
     protected ArrayList<EdificioEnConstruccion> edificiosEnConstruccion;
-    protected ArrayList<Tropa> tropas;
+    protected ArrayList<Raza> unidades;
     Almacenamiento almacenamiento;
-
-    private ArrayList<Larva> larvas;
-    private ArrayList<Zangano> zanganos;
 
     public Comunidad(){
         almacenamiento = new Almacenamiento();
-        tropas = new ArrayList<Tropa>();
+        unidades = new ArrayList<Raza>();
         edificiosEnConstruccion = new ArrayList<EdificioEnConstruccion>();
         edificiosConstruidos = new ArrayList<Edificio>();
     }
@@ -37,13 +35,13 @@ public class Comunidad {
         edificiosEnConstruccion.remove(exConstruccion);
     }
 
-    public void agregarTropa(Tropa nuevaTropa){
-        administrarRecursos(nuevaTropa.obtenerCostoGas(),nuevaTropa.obtenerCostoMinerales());
-        tropas.add(nuevaTropa);
+    public void agregarUnidad(Raza unidadNueva){
+        administrarRecursos(unidadNueva.obtenerCostoGas(),unidadNueva.obtenerCostoMinerales());
+        unidades.add(unidadNueva);
     }
 
-    public void quitarTropa(Tropa tropaAQuitar){
-        tropas.remove(tropaAQuitar);
+    public void quitarTropa(Raza unidadSaliente){
+        unidades.remove(unidadSaliente);
     }
     public void administrarRecursos(int costoGasUnidadAGenerar, int costoMineralUnidadAGenerar){
         if(costoGasUnidadAGenerar <= almacenamiento.obtenerCantidadGasAlmacenado() &&

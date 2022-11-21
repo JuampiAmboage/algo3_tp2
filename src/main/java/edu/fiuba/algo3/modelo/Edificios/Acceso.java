@@ -30,7 +30,7 @@ public class Acceso extends Edificio implements Construible {
     }
 
     @Override
-    public void construirSobreRecurso(NoRecurso tipoRecurso) {}
+    public void construirSobreRecurso(NoRecurso tipoRecurso) {throw  new ConstruccionProhibida();}
     @Override
     public void construirSobreRecurso(NodoMineral tipoRecurso) {
         throw new ConstruccionProhibida();
