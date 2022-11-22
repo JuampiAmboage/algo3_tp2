@@ -1,13 +1,11 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.Interfaz.controladores.VistaJugadorControlador;
+//import VistaJugadorControlador;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,6 +23,7 @@ public class App extends Application {
         this.escenario.setTitle("El mejor juego del mundo");
 
         initRootLayout();
+        mostrarLayoutJugador();
     }
 
     public void initRootLayout() {
@@ -47,7 +46,7 @@ public class App extends Application {
 
     //Todavia no se usa.
     //Solo se va a usar cuando ya los jugadores  este "registrados" y se ppueda armar la partida correctamente
-    public void initLayoutJugador() {
+    public void mostrarLayoutJugador() {
         try {
 
             FXMLLoader cargador = new FXMLLoader();
