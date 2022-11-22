@@ -27,8 +27,9 @@ public class Celda {
     }
 
     public void ocupar(Raza ocupante){
-        if(!estaOcupada())
+        if(!estaOcupada()) {
             this.ocupante = ocupante;
+        }
         else{
             throw new CeldaOcupada();
         }

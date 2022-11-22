@@ -25,14 +25,10 @@ public class Guarida extends Edificio {
     public Guarida(){
         costoEnGas = 100;
         costoEnMinerales = 200;
-        this.tiempoDeConstruccion = 12;
+        this.tiempoConstruccion = 12;
         conteoInstancias++;
         vida = new Vida(1250);
         evolucionador = new Evolucionador();
-    }
-    public Guarida(int tiempoDeConstruccion) {
-        this.tiempoDeConstruccion = tiempoDeConstruccion;
-        conteoInstancias++;
     }
     public void pasarTurno(){
         vida.pasarTurno();

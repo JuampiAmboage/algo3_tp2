@@ -20,7 +20,7 @@ public class Extractor extends Edificio{
     private ArrayList<Zangano> trabajadores = new ArrayList<Zangano>(0);
 
     public Extractor(){
-        this.tiempoDeConstruccion = 6;
+        this.tiempoConstruccion = 6;
         vida = new Vida(750);
     }
     public void pasarTurno(){

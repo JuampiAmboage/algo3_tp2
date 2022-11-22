@@ -8,6 +8,7 @@ public abstract class Raza {
     protected Posicion posicion;
     protected int costoEnMinerales;
     protected int costoEnGas;
+    protected int tiempoConstruccion;
     public abstract void pasarTurno();
 
     public void daniar(int puntosAtaque){
@@ -23,6 +24,7 @@ public abstract class Raza {
 
     public int obtenerCostoGas(){return costoEnGas;}
 
+    public int obtenerTiempoConstruccion(){return tiempoConstruccion;}
     public Posicion obtenerPosicion(){
         return posicion;
     }

@@ -14,9 +14,8 @@ import edu.fiuba.algo3.modelo.vida.Salud;
 import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
 public class Asimilador extends Edificio {
-    private Salud vida;
     public Asimilador() {
-        this.tiempoDeConstruccion = 6;
+        this.tiempoConstruccion = 6;
         vida = new VidaConEscudo(450, 450);
     }
     public void pasarTurno(){

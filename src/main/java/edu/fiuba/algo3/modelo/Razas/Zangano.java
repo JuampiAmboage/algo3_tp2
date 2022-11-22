@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Razas;
 
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
+import edu.fiuba.algo3.modelo.Mapa;
 import edu.fiuba.algo3.modelo.Raza;
 import edu.fiuba.algo3.modelo.vida.Vida;
 
@@ -10,6 +11,7 @@ public class Zangano extends Raza {
     public Zangano(){
         costoEnGas = 0;
         costoEnMinerales = 25;
+        tiempoConstruccion = 1;
         vida = new Vida(25);
 
     }

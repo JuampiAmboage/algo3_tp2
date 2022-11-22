@@ -18,7 +18,7 @@ public class Acceso extends Edificio implements Construible {
     }
     private Salud vida;
     public Acceso(){
-        this.tiempoDeConstruccion = 8;
+        this.tiempoConstruccion = 8;
         conteoInstancias++;
         vida = new VidaConEscudo(500, 500);
     }
@@ -26,6 +26,7 @@ public class Acceso extends Edificio implements Construible {
     public void pasarTurno(){
         vida.pasarTurno();
     }
+
 
     @Override
     public void construirSobreRecurso(NoRecurso tipoRecurso) {throw  new ConstruccionProhibida();}

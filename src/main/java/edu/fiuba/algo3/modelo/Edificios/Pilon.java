@@ -14,7 +14,7 @@ import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 public class Pilon extends Edificio {
     RangoExpansible rango;
     public Pilon(){
-        this.tiempoDeConstruccion = 5;
+        this.tiempoConstruccion = 5;
         vida =  new VidaConEscudo(300, 300);
         rango = new RangoExpansible(3);
     }
@@ -34,7 +34,6 @@ public class Pilon extends Edificio {
     }
     public void pasarTurno(){
         vida.pasarTurno();
-        energizarCeldasEnRango();
     }
     public int obtenerEscudo(){ return vida.getEscudoActual();}
 

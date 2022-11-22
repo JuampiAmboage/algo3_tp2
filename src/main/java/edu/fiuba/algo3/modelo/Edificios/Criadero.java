@@ -41,7 +41,6 @@ public class Criadero extends Edificio {
             cantidadLarvasEnEspera++;
         }
         vida.pasarTurno();
-        rangoExpansible.expandir(new CeldaConMoho(),posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
     }
 
     public int obtenerCantidadDeLarvas(){

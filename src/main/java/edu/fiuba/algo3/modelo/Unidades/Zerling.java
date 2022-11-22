@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.vida.Vida;
 
@@ -14,7 +15,12 @@ public class Zerling extends Tropa
         danioTerrestre = 4;
         danioAereo = 0;
         vida = new Vida(35);
+    }
+
+    public void instanciacionInicial(Posicion posicionALocalizar){
+        posicion = posicionALocalizar;
         rangoAtaque = new RangoAtaque(1,posicion);
+
     }
     @Override
     public void pasarTurno() {

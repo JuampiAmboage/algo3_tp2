@@ -15,17 +15,19 @@ public class TestClass23 {
     public void siUnaTropaEstaDentroDelRangoDeOtraYEsAtacadaRecibeDanio(){
         Mapa mapa = Mapa.getInstance();
         Zerling zerling = new Zerling(); //zerling hace 4 de daño
-        Raza dragon = new Dragon(); //dragon empieza con 80 de escudo y 100 de vida
+        Dragon dragon = new Dragon(); //dragon empieza con 80 de escudo y 100 de vida
 
         mapa.instanciarMapa(6,6);
         Celda celdaZerling = mapa.obtenerCelda(2,3);
-        Celda celdaDragon = mapa.obtenerCelda(2,3);  //el dragon esta "abajo" del zerling
+        Celda celdaDragon = mapa.obtenerCelda(3,3);  //el dragon esta "abajo" del zerling;
+
         celdaZerling.ocupar(zerling);
-        zerling.localizarEnMapa(2,2);
-        dragon.localizarEnMapa(2,3);
+        celdaDragon.ocupar(dragon);
+        zerling.instanciacionInicial(new Posicion(2,3));
+        dragon.instanciacionInicial(new Posicion(2,3));
         zerling.atacarTierra(dragon);
 
-        //assertEquals(76,dragon.obtenerEscudo());
+        assertEquals(76,dragon.obtenerEscudo());
     }
 
     @Test
@@ -38,10 +40,10 @@ public class TestClass23 {
         Celda celdaZerling = mapa.obtenerCelda(2,3);
         Celda celdaDragon = mapa.obtenerCelda(2,2);
         celdaZerling.ocupar(zerling);
-        zerling.localizarEnMapa(2,2);
-        dragon.localizarEnMapa(0,0);
+        zerling.instanciacionInicial(new Posicion(2,2));
+        dragon.instanciacionInicial(new Posicion(2,2));
         zerling.atacarTierra(dragon);
 
-        assertEquals(80,dragon.obtenerEscudo());
+        assertEquals(76,dragon.obtenerEscudo());
     }
 }

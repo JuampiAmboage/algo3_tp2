@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
 public class Dragon extends Tropa {
@@ -13,6 +15,11 @@ public class Dragon extends Tropa {
         danioTerrestre = 20;
         danioAereo = 20;
         vida = new VidaConEscudo(100,80);
+    }
+
+    public void instanciacionInicial(Posicion posicionAColocar){
+        posicion = posicionAColocar;
+        rangoAtaque = new RangoAtaque(4,posicion);
     }
 
     @Override

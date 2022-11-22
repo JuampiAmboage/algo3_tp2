@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class PuertaEstelar extends Edificio{
 
     public PuertaEstelar(){
-        this.tiempoDeConstruccion = 10;
+        this.tiempoConstruccion = 10;
         vida = new VidaConEscudo(600, 600);
     }
 

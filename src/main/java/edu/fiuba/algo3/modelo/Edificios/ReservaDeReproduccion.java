@@ -18,7 +18,7 @@ public class ReservaDeReproduccion extends Edificio{
     Evolucionador evolucionador;
 
     public ReservaDeReproduccion(){
-        tiempoDeConstruccion = 12;
+        tiempoConstruccion = 12;
         vida = new Vida(1000);
         evolucionador = new Evolucionador();
     }
@@ -26,10 +26,6 @@ public class ReservaDeReproduccion extends Edificio{
     public void pasarTurno(){
         vida.pasarTurno();
     }
-    public void generarZerling(Larva larva){
-        evolucionador.evolucionarUnidad(new Zerling(),larva);
-    }
-
     @Override
     public void construirSobreRecurso(NoRecurso tipoRecurso) {}
     @Override

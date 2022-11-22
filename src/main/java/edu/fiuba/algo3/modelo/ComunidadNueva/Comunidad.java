@@ -3,23 +3,20 @@ package edu.fiuba.algo3.modelo.ComunidadNueva;
 import edu.fiuba.algo3.modelo.Almacenamiento.Almacenamiento;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Edificios.EdificioEnConstruccion;
+import edu.fiuba.algo3.modelo.Edificios.UnidadEnConstruccion;
 import edu.fiuba.algo3.modelo.Raza;
-import edu.fiuba.algo3.modelo.Razas.Larva;
-import edu.fiuba.algo3.modelo.Razas.Zangano;
-import edu.fiuba.algo3.modelo.Unidades.Tropa;
 
 import java.util.ArrayList;
 
 public class Comunidad {
-    protected ArrayList<EdificioEnConstruccion> edificiosEnConstruccion;
+    protected ArrayList<UnidadEnConstruccion> unidadesEnConstruccion;
     protected ArrayList<Raza> unidades;
     Almacenamiento almacenamiento;
 
     public Comunidad(){
         almacenamiento = new Almacenamiento();
         unidades = new ArrayList<Raza>();
-        edificiosEnConstruccion = new ArrayList<EdificioEnConstruccion>();
+        unidadesEnConstruccion = new ArrayList<UnidadEnConstruccion>();
     }
 
     public void construirEdificio(Celda celda, Edificio nuevoEdificio){
@@ -27,18 +24,17 @@ public class Comunidad {
         nuevoEdificio.construirSobre(celda);
         almacenamiento.retirarGasVespeno(nuevoEdificio.obtenerCostoGas());
         almacenamiento.retirarMinerales(nuevoEdificio.obtenerCostoMinerales());
-        EdificioEnConstruccion construccion = new EdificioEnConstruccion(nuevoEdificio,this);
-        edificiosEnConstruccion.add(construccion);
+        unidadesEnConstruccion.add(new UnidadEnConstruccion(nuevoEdificio,this));
     }
 
-    public void finalizarConstruccionEdificio(Edificio edificioTerminado, EdificioEnConstruccion exConstruccion){
-        unidades.add(edificioTerminado);
-        edificiosEnConstruccion.remove(exConstruccion);
+    public void finalizarUnidadEnConstruccion(Raza unidadTerminada, UnidadEnConstruccion exConstruccion){
+        unidades.add(unidadTerminada);
+        unidadesEnConstruccion.remove(exConstruccion);
     }
 
     public void agregarUnidad(Raza unidadNueva){
         administrarRecursos(unidadNueva.obtenerCostoGas(),unidadNueva.obtenerCostoMinerales());
-        unidades.add(unidadNueva);
+        unidadesEnConstruccion.add(new UnidadEnConstruccion(unidadNueva,this));
     }
     public void quitarUnidad(Raza unidadSaliente){
         unidades.remove(unidadSaliente);
@@ -56,5 +52,22 @@ public class Comunidad {
 
     public void aniadirMineral(int cantidadMineralEntrante){
         almacenamiento.almacenarMinerales(cantidadMineralEntrante);
+    }
+
+    public void pasarTurno(){
+        if(!unidades.isEmpty())
+            unidadesEnConstruccion.forEach(unidadEnConstruccion -> unidadEnConstruccion.pasarTurno());
+        /*for (Raza unidad: unidades)
+            unidad.pasarTurno();*/
+    }
+    public Raza buscarUnidad(Raza unidadBuscada){
+        int conteoUnidades = 0;
+        if(unidades.contains(unidadBuscada)){
+            while(unidades.get(conteoUnidades) != unidadBuscada)
+                conteoUnidades++;
+            return unidades.get(conteoUnidades);
+        }
+        else
+            throw new RuntimeException();
     }
 }

@@ -13,8 +13,12 @@ import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 public class NexoMineral extends Edificio implements Construible{
 
     public NexoMineral(){
-        tiempoDeConstruccion = 4;
+        tiempoConstruccion = 4;
         vida = new VidaConEscudo(250,250);
+    }
+
+    public void extraerMineral(){
+
     }
     @Override
     public void pasarTurno(){

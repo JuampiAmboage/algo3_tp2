@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.ComunidadNueva;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Edificios.EdificioEnConstruccion;
+import edu.fiuba.algo3.modelo.Edificios.UnidadEnConstruccion;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Mapa;
 import edu.fiuba.algo3.modelo.Razas.Larva;
@@ -36,8 +36,8 @@ public class ComunidadZerg extends Comunidad {
     public void construirEdificio(Celda celda, Edificio nuevoEdificio){
         if(celda.obtenerOcupante() instanceof Zangano) {
             administrarRecursos(nuevoEdificio.obtenerCostoGas(), nuevoEdificio.obtenerCostoMinerales());
-            EdificioEnConstruccion construccion = new EdificioEnConstruccion(nuevoEdificio, this);
-            edificiosEnConstruccion.add(construccion);
+            UnidadEnConstruccion construccion = new UnidadEnConstruccion(nuevoEdificio, this);
+            unidadesEnConstruccion.add(construccion);
             quitarUnidad(celda.obtenerOcupante());
         }
         else{

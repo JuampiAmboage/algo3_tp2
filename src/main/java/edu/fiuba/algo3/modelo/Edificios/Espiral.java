@@ -16,7 +16,7 @@ import edu.fiuba.algo3.modelo.vida.Vida;
 public class Espiral extends Edificio {
     private Evolucionador evolucionador;
     public Espiral(){
-        this.tiempoDeConstruccion = 10;
+        this.tiempoConstruccion = 10;
         vida = new Vida(1300);
     }
     public void construirEn(Celda celda) {
@@ -29,10 +29,6 @@ public class Espiral extends Edificio {
     }
     public void pasarTurno(){
         vida.pasarTurno();
-    }
-
-    public void generarMutalisco(Zangano zangano){
-        evolucionador.evolucionarUnidad(new Mutalisco(),zangano);
     }
 
     @Override
