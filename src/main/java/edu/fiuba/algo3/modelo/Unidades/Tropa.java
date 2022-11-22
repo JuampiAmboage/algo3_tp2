@@ -5,8 +5,6 @@ import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 
 public abstract class Tropa extends Raza {
     protected String superficie;
-    protected int costoMinerales;
-    protected int costoGas;
     protected int tiempoConstruccion;
     protected int danioTerrestre;
     protected int danioAereo;

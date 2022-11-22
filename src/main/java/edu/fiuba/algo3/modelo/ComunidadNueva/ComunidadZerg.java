@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.ComunidadNueva;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.EdificioEnConstruccion;
@@ -26,26 +27,21 @@ public class ComunidadZerg extends Comunidad {
         Mapa mapa = Mapa.getInstance();
         for (int i = 0; i < 3; i++)
             agregarUnidad(new Larva());
-        edificiosConstruidos.add(new Criadero());
+        unidades.add(new Criadero());
     }
-
-    public void quitarZangano(Zangano zangano) {
-        zangano.revisarEstadoLaboral();
-        unidades.remove(zangano);
-    }
-
     public void darTrabajoAZangano(Zangano zangano, Extractor extractor){
-        int iterador = 0;
-        while (unidades.get(iterador) != zangano){
-            iterador++;
-        }
         zangano.asignarTrabajo(extractor);
     }
 
-    public void construirEdificio(Edificio nuevoEdificio, Zangano zanganoQueVaAEvolucionar){
-        administrarRecursos(nuevoEdificio.obtenerCostoGas(),nuevoEdificio.obtenerCostoMinerales());
-        EdificioEnConstruccion construccion = new EdificioEnConstruccion(nuevoEdificio,this);
-        edificiosEnConstruccion.add(construccion);
-        quitarZangano(zanganoQueVaAEvolucionar);
+    public void construirEdificio(Celda celda, Edificio nuevoEdificio){
+        if(celda.obtenerOcupante() instanceof Zangano) {
+            administrarRecursos(nuevoEdificio.obtenerCostoGas(), nuevoEdificio.obtenerCostoMinerales());
+            EdificioEnConstruccion construccion = new EdificioEnConstruccion(nuevoEdificio, this);
+            edificiosEnConstruccion.add(construccion);
+            quitarUnidad(celda.obtenerOcupante());
+        }
+        else{
+            throw new RuntimeException();
+        }
     }
 }

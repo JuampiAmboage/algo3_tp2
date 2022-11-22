@@ -9,19 +9,21 @@ import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 import edu.fiuba.algo3.modelo.Razas.Evolucionador;
+import edu.fiuba.algo3.modelo.Razas.Larva;
+import edu.fiuba.algo3.modelo.Razas.Zangano;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.vida.Vida;
 
-public class Criadero extends Edificio implements Construible {
+public class Criadero extends Edificio {
     private int tiempoDeConstruccion;
     private int cantidadLarvasEnEspera;
     Evolucionador evolucionador;
     RangoExpansible rangoExpansible;
     public Criadero(){
         for(int i=0;i<3;i++)
-            ComunidadZerg.obtenerInstanciaDeClase().agregarLarva();
+            ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(new Larva());
         this.tiempoDeConstruccion = 4;
         vida = new Vida(500);
         evolucionador = new Evolucionador();
@@ -33,14 +35,9 @@ public class Criadero extends Edificio implements Construible {
         posicion = posicionALocalizar;
         rangoExpansible.expandir(new CeldaConMoho(),posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
     }
-    @Override
-    public void construirEn(Celda celda) {
-        //verificacion de que se puede construir en esa celda
-    }
-
     public void pasarTurno(){
         if(cantidadLarvasEnEspera < 3) {
-            ComunidadZerg.obtenerInstanciaDeClase().agregarLarva();
+            ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(new Larva());
             cantidadLarvasEnEspera++;
         }
         vida.pasarTurno();
@@ -53,7 +50,7 @@ public class Criadero extends Edificio implements Construible {
 
     public void engendrar() {
         cantidadLarvasEnEspera--;
-        evolucionador.evolucionarLarvaAZangano();
+        evolucionador.evolucionarUnidad(new Zangano(),new Larva());
     }
 
     @Override

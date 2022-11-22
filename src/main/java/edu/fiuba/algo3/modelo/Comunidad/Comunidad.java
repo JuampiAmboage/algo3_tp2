@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Comunidad;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Raza;
 import edu.fiuba.algo3.modelo.Almacenamiento.Almacenamiento;
 import edu.fiuba.algo3.modelo.Edificios.*;
@@ -38,8 +39,9 @@ public class Comunidad {
         return (cantidadMineralRequerido <= almacenamiento.obtenerCantidadGasAlmacenado() && cantidadGasRequerido <= almacenamiento.obtenerCantidadGasAlmacenado());
     }
 
-    public void agregarEdificio(Edificio edificio){
+    public void construirEdificio(Celda celda, Edificio edificio){
         if (recursosSuficientes(edificio.obtenerCostoMinerales(),edificio.obtenerCostoGas())) {
+            celda.quiereConstruir(edificio);
             this.edificios.add(edificio);
             this.almacenamiento.retirarGasVespeno(edificio.obtenerCostoGas());
             this.almacenamiento.retirarMinerales(edificio.obtenerCostoMinerales());

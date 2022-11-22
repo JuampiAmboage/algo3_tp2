@@ -7,8 +7,8 @@ public class Zealot extends Tropa {
     public Zealot(){
         ataque = new AtacarTierra();
         superficie = "tierra";
-        costoMinerales = 100;
-        costoGas = 0;
+        costoEnMinerales = 100;
+        costoEnGas = 0;
         tiempoConstruccion = 4;
         danioTerrestre = 8;
         danioAereo = 0;

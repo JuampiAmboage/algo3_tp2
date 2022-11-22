@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
+import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Razas.Zangano;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
@@ -13,7 +14,7 @@ import edu.fiuba.algo3.modelo.vida.Vida;
 
 import java.util.ArrayList;
 
-public class Extractor extends Edificio implements Construible {
+public class Extractor extends Edificio{
 
     private int cantidadMaximaDeTrabajadores = 3;
     private ArrayList<Zangano> trabajadores = new ArrayList<Zangano>(0);
@@ -22,12 +23,9 @@ public class Extractor extends Edificio implements Construible {
         this.tiempoDeConstruccion = 6;
         vida = new Vida(750);
     }
-
-    @Override
-    public void construirEn(Celda celda) {}
-
     public void pasarTurno(){
         vida.pasarTurno();
+        ComunidadZerg.obtenerInstanciaDeClase().aniadirGasVespeno(extraerGas());
     }
 
     public void agregarTrabajador(Zangano trabajador) {
@@ -39,15 +37,13 @@ public class Extractor extends Edificio implements Construible {
     }
 
     public int extraerGas() {
-        int gasExtraido = 0;
-
+        int cantidadGasExtraido = 0;
         if (this.trabajadores.size() != 0 ) {
             for (Zangano trabajador :this.trabajadores) {
-                gasExtraido += 10;
+                cantidadGasExtraido += 10;
             }
         }
-        return gasExtraido;
-
+        return cantidadGasExtraido;
     }
 
     @Override

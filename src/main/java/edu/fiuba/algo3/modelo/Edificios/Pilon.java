@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Edificios;
 
 import edu.fiuba.algo3.modelo.Celdas.*;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
@@ -10,26 +11,30 @@ import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.vida.Salud;
 import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
-public class Pilon extends Edificio implements Construible {
+public class Pilon extends Edificio {
     RangoExpansible rango;
     public Pilon(){
         this.tiempoDeConstruccion = 5;
         vida =  new VidaConEscudo(300, 300);
         rango = new RangoExpansible(3);
+    }
+    public void instanciacionInicial(Posicion posicionALocalizar){
+        posicion = posicionALocalizar;
         energizarCeldasEnRango();
     }
-    @Override
-    public void construirEn(Celda celda) {}
 
-    public void energizarCeldasEnRango(){
+    private void energizarCeldasEnRango(){
+        //Celda celda = Mapa.getInstance().obtenerCelda(posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
         rango.expandir(new CeldaEnergizada(),posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
     }
 
     public void desernegizar(){
+        //Celda celda = Mapa.getInstance().obtenerCelda(posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
         rango.expandir(new CeldaLibre(),posicion.obtenerPosicionX(), posicion.obtenerPosicionY());
     }
     public void pasarTurno(){
         vida.pasarTurno();
+        energizarCeldasEnRango();
     }
     public int obtenerEscudo(){ return vida.getEscudoActual();}
 

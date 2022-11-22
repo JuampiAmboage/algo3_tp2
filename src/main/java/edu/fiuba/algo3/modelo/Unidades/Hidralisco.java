@@ -6,8 +6,8 @@ public class Hidralisco extends Tropa {
     public Hidralisco(){
         ataque = new AtacarTierraYAire();
         superficie = "tierra";
-        costoMinerales = 75;
-        costoGas = 25;
+        costoEnMinerales = 75;
+        costoEnGas = 25;
         tiempoConstruccion = 4;
         danioTerrestre = 10;
         danioAereo = 10;

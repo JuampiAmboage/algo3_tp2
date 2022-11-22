@@ -22,8 +22,6 @@ public class Acceso extends Edificio implements Construible {
         conteoInstancias++;
         vida = new VidaConEscudo(500, 500);
     }
-    public void construirEn(Celda celda) {
-    }
 
     public void pasarTurno(){
         vida.pasarTurno();

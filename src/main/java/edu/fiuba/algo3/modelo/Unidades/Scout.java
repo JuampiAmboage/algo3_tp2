@@ -6,8 +6,8 @@ public class Scout extends Tropa {
     public Scout(){
         ataque = new AtacarTierraYAire();
         superficie = "aire";
-        costoMinerales = 300;
-        costoGas = 150;
+        costoEnMinerales = 300;
+        costoEnGas = 150;
         tiempoConstruccion = 9;
         danioTerrestre = 8;
         danioAereo = 14;

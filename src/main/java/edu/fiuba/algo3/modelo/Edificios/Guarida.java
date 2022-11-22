@@ -8,13 +8,14 @@ import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Razas.Evolucionador;
+import edu.fiuba.algo3.modelo.Razas.Larva;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Unidades.Hidralisco;
 import edu.fiuba.algo3.modelo.vida.Vida;
 
-public class Guarida extends Edificio implements Construible {
+public class Guarida extends Edificio {
     static int conteoInstancias = 0;
     public static boolean existeAlMenosUnaInstancia(){
         return conteoInstancias > 0;
@@ -22,6 +23,8 @@ public class Guarida extends Edificio implements Construible {
 
     private Evolucionador evolucionador;
     public Guarida(){
+        costoEnGas = 100;
+        costoEnMinerales = 200;
         this.tiempoDeConstruccion = 12;
         conteoInstancias++;
         vida = new Vida(1250);
@@ -31,17 +34,12 @@ public class Guarida extends Edificio implements Construible {
         this.tiempoDeConstruccion = tiempoDeConstruccion;
         conteoInstancias++;
     }
-
-    public void construirEn(Celda celda) {
-        celda.ocupar(this);
-    }
-
     public void pasarTurno(){
         vida.pasarTurno();
     }
 
-    public void generarHidralisco(){
-        evolucionador.evolucionarLarvaATropa(new Hidralisco());
+    public void generarHidralisco(Larva larva){
+        evolucionador.evolucionarUnidad(new Hidralisco(),larva);
     }
 
     @Override

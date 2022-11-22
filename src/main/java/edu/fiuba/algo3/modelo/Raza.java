@@ -6,15 +6,8 @@ import edu.fiuba.algo3.modelo.vida.Salud;
 public abstract class Raza {
     protected Salud vida;
     protected Posicion posicion;
-    protected static int costoEnMinerales;
-    protected static int costoEnGas;
-
-    public static void setCostoEnMinerales(int costo){
-        costoEnMinerales = costo;
-    }
-    public static void setCostoEnGas(int costo){
-        costoEnGas = costo;
-    }
+    protected int costoEnMinerales;
+    protected int costoEnGas;
     public abstract void pasarTurno();
 
     public void daniar(int puntosAtaque){
@@ -25,10 +18,6 @@ public abstract class Raza {
         posicion = new Posicion(coordenadaX,coordenadaY);
     }
     public int obtenerVida(){return vida.getVidaActual();}
-
-    public static int obtenerCostoEnMinerales(){return costoEnMinerales;}
-
-    public static int obtenerCostoEnGas(){return costoEnGas;}
 
     public int obtenerCostoMinerales(){return costoEnMinerales;}
 

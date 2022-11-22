@@ -13,16 +13,12 @@ import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.vida.Salud;
 import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
-public class Asimilador extends Edificio implements Construible {
+public class Asimilador extends Edificio {
     private Salud vida;
     public Asimilador() {
         this.tiempoDeConstruccion = 6;
         vida = new VidaConEscudo(450, 450);
     }
-
-    @Override
-    public void construirEn(Celda celda) {}
-
     public void pasarTurno(){
         ComunidadProtoss.obtenerInstanciaDeClase().aniadirGasVespeno(extraerGas());
         vida.pasarTurno();

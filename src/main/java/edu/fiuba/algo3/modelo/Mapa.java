@@ -65,9 +65,9 @@ public class Mapa {
          *  [x-1, y]     [x,y]      [x+1, y]
          * [x-1, y+1]   [x, y+1]   [x+1, y+1]
          *
-         * */
+         *
         ArrayList<Celda> enRadio = new ArrayList<>();
-
+*/
        /* for (int x = celdaX - radio; x <= celdaX + radio; x++) {
             for (int y = celdaY - radio; y <= celdaY + radio; y++) {
                 if (x < 0 || x >= tam || y < 0 || y >= tam || (x == celdaX && y == celdaY)) {

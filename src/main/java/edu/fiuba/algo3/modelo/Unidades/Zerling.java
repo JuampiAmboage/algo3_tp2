@@ -8,8 +8,8 @@ public class Zerling extends Tropa
     public Zerling(){
         ataque = new AtacarTierra();
         superficie = "tierra";
-        costoMinerales = 25;
-        costoGas = 0;
+        costoEnMinerales = 25;
+        costoEnGas = 0;
         tiempoConstruccion = 2;
         danioTerrestre = 4;
         danioAereo = 0;

@@ -13,7 +13,7 @@ import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class PuertaEstelar extends Edificio implements Construible {
+public class PuertaEstelar extends Edificio{
 
     public PuertaEstelar(){
         this.tiempoDeConstruccion = 10;

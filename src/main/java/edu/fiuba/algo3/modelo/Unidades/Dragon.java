@@ -7,8 +7,8 @@ public class Dragon extends Tropa {
     public Dragon() {
         ataque = new AtacarTierraYAire();
         superficie = "tierra";
-        costoMinerales = 125;
-        costoGas = 50;
+        costoEnMinerales = 125;
+        costoEnGas = 50;
         tiempoConstruccion = 6;
         danioTerrestre = 20;
         danioAereo = 20;

@@ -6,8 +6,8 @@ public class Mutalisco extends Tropa {
     public Mutalisco(){
         ataque = new AtacarTierraYAire();
         superficie = "aire";
-        costoMinerales = 75;
-        costoGas = 25;
+        costoEnMinerales = 75;
+        costoEnGas = 25;
         tiempoConstruccion = 4;
         danioTerrestre = 9;
         danioAereo = 9;

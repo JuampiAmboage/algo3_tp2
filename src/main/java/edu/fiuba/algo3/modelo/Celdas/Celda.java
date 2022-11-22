@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
 import edu.fiuba.algo3.modelo.Raza;
@@ -61,6 +62,7 @@ public class Celda {
         this.tipo.pasarTurno();
     }
     public void cambiarTipo(TipoCelda t) {
+        t.setCelda(this);
         this.tipo.cambiarTipo(t);
     }
     public boolean esMismoTipo(TipoCelda t) {
@@ -72,9 +74,10 @@ public class Celda {
     public int extraer(int cantidad) {
         return this.recurso.extraer(cantidad);
     }
-    public void quiereConstruir(Construible construible) {
+    public void quiereConstruir(Edificio construible) {
         this.recurso.quiereConstruir(construible);
         this.tipo.quiereConstruir(construible);
+        ocupar(construible);
     }
 
     public Raza obtenerOcupante(){

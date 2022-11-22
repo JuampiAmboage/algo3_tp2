@@ -23,6 +23,7 @@ public class CeldaConMoho extends TipoCelda {
             }
         }
     }
+
     @Override
     public void setCelda(Celda celda) {
         this.celda = celda;

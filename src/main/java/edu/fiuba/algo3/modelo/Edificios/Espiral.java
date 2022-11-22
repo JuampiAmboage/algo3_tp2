@@ -6,13 +6,14 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Razas.Evolucionador;
+import edu.fiuba.algo3.modelo.Razas.Zangano;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Unidades.Mutalisco;
 import edu.fiuba.algo3.modelo.vida.Vida;
 
-public class Espiral extends Edificio implements Construible {
+public class Espiral extends Edificio {
     private Evolucionador evolucionador;
     public Espiral(){
         this.tiempoDeConstruccion = 10;
@@ -30,8 +31,8 @@ public class Espiral extends Edificio implements Construible {
         vida.pasarTurno();
     }
 
-    public void generarMutalisco(){
-        evolucionador.evolucionarLarvaATropa(new Mutalisco());
+    public void generarMutalisco(Zangano zangano){
+        evolucionador.evolucionarUnidad(new Mutalisco(),zangano);
     }
 
     @Override
