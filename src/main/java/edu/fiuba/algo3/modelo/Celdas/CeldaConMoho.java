@@ -56,4 +56,11 @@ public class CeldaConMoho extends TipoCelda {
     public void quiereConstruir(Construible construible) {
         construible.construirSobreTipo(this);
     }
+    @Override
+    public Celda agregarTipoA(Celda c) {
+        CeldaConMoho tipo = new CeldaConMoho();
+        tipo.setCelda(c);
+        c.tipo.cambiarTipo(tipo);
+        return c;
+    }
 }

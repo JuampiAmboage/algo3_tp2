@@ -18,6 +18,7 @@ public class CeldaLibre extends TipoCelda {
     public boolean esMismoTipo(Object objeto) {
         return objeto instanceof CeldaLibre;
     }
+
     @Override
     protected void cambiarTipoA(CeldaLibre nuevoTipo) {
         this.celda.tipo = nuevoTipo;
@@ -35,8 +36,16 @@ public class CeldaLibre extends TipoCelda {
         CeldaLibre tipo = new CeldaLibre(c);
         c.tipo.cambiarTipoA(tipo);
     }
+
+
     @Override
     public void quiereConstruir(Construible construible) {
         construible.construirSobreTipo(this);
+    }
+    public Celda agregarTipoA(Celda c) {
+        CeldaLibre tipo = new CeldaLibre();
+        tipo.setCelda(c);
+        c.tipo.cambiarTipo(tipo);
+        return c;
     }
 }
