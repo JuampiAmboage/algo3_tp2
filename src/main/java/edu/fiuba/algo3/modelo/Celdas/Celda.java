@@ -1,13 +1,11 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Excepciones.PosicionesDiferentes;
-import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
-import edu.fiuba.algo3.modelo.Razas.Raza;
+import edu.fiuba.algo3.modelo.Raza;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
+import edu.fiuba.algo3.modelo.Unidades.Tropa;
 
 import java.util.ArrayList;
 
@@ -17,21 +15,14 @@ public class Celda {
     protected Tropa ocupanteAereo;
     protected TipoCelda tipo;
     protected Recurso recurso;
-    protected Posicion posicion;
 
     static public boolean esCelda(Object objeto) {
         return objeto instanceof Celda;
     }
 
-    public Celda(int posicionX, int posicionY){
+    public Celda(){
         this.recurso = new NoRecurso();
         this.tipo = new CeldaLibre(this);
-        this.posicion = new Posicion(posicionX,posicionY);
-    }
-
-    public Celda compararPosiciones(Posicion posicion) throws PosicionesDiferentes {
-        posicion.compararPosiciones(posicion);
-        return this;
     }
     public void ocupar(Raza ocupante){
         if(!estaOcupada()) {
@@ -54,7 +45,6 @@ public class Celda {
         this.ocupante = null;
         return u;
     }
-
     public int cantidadAdyacentes() {
         return celdasAdyacentes.size();
     }
@@ -71,8 +61,9 @@ public class Celda {
         this.tipo.pasarTurno();
     }
     public void cambiarTipo(TipoCelda t) {
-        t.setCelda(this);
-        this.tipo.cambiarTipo(t);
+        t.cambiarTipoDe(this);
+        //t.setCelda(this);
+        //this.tipo.cambiarTipo(t);
     }
     public boolean esMismoTipo(TipoCelda t) {
         return this.tipo.esMismoTipo(t);

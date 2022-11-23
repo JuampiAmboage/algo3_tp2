@@ -23,12 +23,14 @@ public class Mutalisco extends Tropa {
         evolucionador = new Evolucionador();
         rangoAtaque = new RangoAtaque(3,posicion);
     }
+    /*
     public void evolucionarAGuardian(){
         evolucionador.evolucionarUnidad(this,new Guardian());
     }
     public void evolucionarADevorador(){
         evolucionador.evolucionarUnidad(this,new Devorador());
     }
+    */
     @Override
     public void pasarTurno() {
         vida.pasarTurno();
