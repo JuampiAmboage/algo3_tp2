@@ -1,43 +1,37 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Edificios.Asimilador;
+import edu.fiuba.algo3.modelo.Edificios.Extractor;
+import edu.fiuba.algo3.modelo.Edificios.NexoMineral;
+import edu.fiuba.algo3.modelo.Razas.Zangano;
+import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestCase07 {
 
-    //Caso de uso #7: Verificar la recolección de minerales para ambas razas.
-/*    //Recoleccion de gas
-    public void caso07_1(){
-        int extraido;
 
-        Zangano zangano = new Zangano();
-        Zangano[] zanganosTrabajadores = new Zangano[3];
+    @Test
+    public void siInstancioUnRecolectorConTresZanganosGeneroLaCantidadDeGasCorrecta(){
+        Extractor extractor = new Extractor();
+        for(int i=0;i<3;i++)
+            extractor.agregarTrabajador(new Zangano());
 
-        Partida partida = new partida();
-
-        //Extractor extractor = zangano.construirExtractor();
-
-        zanganosTrabajadores[0] = zangano;
-
-        for (int i = 0; i == 3; i++) {
-            partida.pasarTurno();
-            extraido = extractor.extraerGas(zanganosTrabajadores);
-        }
-
-        assertEquals(30, extraido);
+        assertEquals(30, extractor.extraerGas());
 
     }
 
     //Recoleccion de minerales (Nexo mineral)
     @Test
-    public void caso07_2() {
-        NexoMineral nexo = new NexoMineral();
-        Partida partida = new Partida();
+    public void siInstancioUnAsimiladorYExtraigoCincoVecesTengoLaCantidadDeGasCorrecta() {
+        Asimilador asimilador = new Asimilador();
+        int cantidadExtraida = 0;
+        for(int i=0;i<5;i++)
+            cantidadExtraida += asimilador.extraerGas(); //extra 20 por vez
 
-        partida.pasarTurno();
-
-        assertEquals(5, nexo.minar());
+        assertEquals(100, cantidadExtraida);
     }
-*/
+
 }

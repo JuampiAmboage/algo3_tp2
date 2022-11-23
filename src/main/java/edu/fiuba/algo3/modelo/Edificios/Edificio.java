@@ -1,32 +1,15 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
-import edu.fiuba.algo3.modelo.Almacenamiento.Almacenamiento;
-import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Racita;
-import edu.fiuba.algo3.modelo.vida.Salud;
+import edu.fiuba.algo3.modelo.Razas.Raza;
 
-public abstract class Edificio extends Racita {
-    protected int tiempoDeConstruccion;
-
-    protected Salud vida;
-    public Edificio() {}
+public abstract class Edificio extends Raza implements Construible{
+    protected EstadoConstruccion estado;
+    public Edificio() {
+        this.estado = new EdificioConstruido(this);
+    }
     public Edificio(int tiempoDeConstruccion) {
-        this.tiempoDeConstruccion = tiempoDeConstruccion;
+        this.estado = new EdificioEnConstruccion(this, tiempoDeConstruccion);
     }
-    public String nombre;
-    protected int turnosPasadosParaConstruccion = -1;
-    protected boolean estaConstruido = false;
-
-    public abstract void construirEn(Celda celda);
     public abstract void pasarTurno();
-    public void controlEstadoConstruccion(){
-        if (this.turnosPasadosParaConstruccion != this.tiempoDeConstruccion) {
-
-            this.turnosPasadosParaConstruccion++;
-
-        } else {
-            this.estaConstruido = true;
-        }
-    }
-    public abstract boolean estaOperativo();
+    public abstract void accionarTurno();
 }

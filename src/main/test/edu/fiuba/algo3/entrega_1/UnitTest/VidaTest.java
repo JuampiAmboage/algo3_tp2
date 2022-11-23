@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1.UnitTest;
 
-import edu.fiuba.algo3.modelo.vida.Vida;
+import edu.fiuba.algo3.modelo.Salud.Vida;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

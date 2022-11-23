@@ -5,23 +5,18 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Razas.Evolucionador;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
-import edu.fiuba.algo3.modelo.vida.Salud;
-import edu.fiuba.algo3.modelo.vida.Vida;
-import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
+import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class Espiral extends Edificio implements Construible {
-    private final Salud vida = new Vida(1300);
-
+public class Espiral extends Edificio {
+    private Evolucionador evolucionador;
     public Espiral(){
-        this.tiempoDeConstruccion = 10;
+        this.tiempoConstruccion = 10;
+        vida = new Vida(1300);
     }
-    public Espiral(int tiempoDeConstruccion) {
-        this.tiempoDeConstruccion = tiempoDeConstruccion;
-    }
-
     public void construirEn(Celda celda) {
         if (Guarida.existeAlMenosUnaInstancia()){
             celda.ocupar(this);
@@ -30,16 +25,8 @@ public class Espiral extends Edificio implements Construible {
             throw new RuntimeException("Requiere un acceso para ser construido.");
         }
     }
-
-    public boolean estaOperativo() {
-        return this.tiempoDeConstruccion <= 0;
-    }
     public void pasarTurno(){
-        if(!this.estaOperativo())
-            this.tiempoDeConstruccion--;
-        else{
-            vida.pasarTurno();
-        }
+        vida.pasarTurno();
     }
 
     @Override

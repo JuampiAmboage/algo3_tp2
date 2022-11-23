@@ -1,65 +1,65 @@
 package edu.fiuba.algo3.modelo.Comunidad;
 
-import edu.fiuba.algo3.modelo.Racita;
-import edu.fiuba.algo3.modelo.Raza.*;
-import edu.fiuba.algo3.modelo.Almacenamiento.Almacenamiento;
-import edu.fiuba.algo3.modelo.Edificios.*;
+import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Edificios.UnidadEnConstruccion;
+import edu.fiuba.algo3.modelo.Razas.Raza;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Comunidad {
-    private ArrayList<Racita> pueblo;
-    private Almacenamiento almacenamiento;
+    protected ArrayList<UnidadEnConstruccion> unidadesEnConstruccion;
+    protected ArrayList<Raza> unidades;
+    Almacenamiento almacenamiento;
 
-    private ArrayList<Edificio> edificios;
-
-    public Comunidad(){ //este constructor solo lo creé para correr tests, desp se arregla bien
+    public Comunidad(){
         almacenamiento = new Almacenamiento();
-    }
-    public Comunidad(Racita[] raza) {
-
-        Racita[] lista_inicial = new Racita[0];
-        this.almacenamiento = new Almacenamiento();
-
-        this.pueblo = new ArrayList<Racita>(0);
-        this.pueblo.addAll(Arrays.asList(raza));
+        unidades = new ArrayList<Raza>();
+        unidadesEnConstruccion = new ArrayList<UnidadEnConstruccion>();
     }
 
-    public void almacenarMinerales(int cantidad) {
-        this.almacenamiento.almacenarMinerales(cantidad);
-    }
-    public void almacenarGasVespeno(int cantidad) {
-        this.almacenamiento.almacenarGasVespeno(cantidad);
-    }
-
-    public void restarRecursos(int restaMinerales, int restaGas){
-        almacenamiento.retirarMinerales(restaMinerales);
-        almacenamiento.retirarGasVespeno(restaGas);
+    public void construirEdificio(Celda celda, Edificio nuevoEdificio){
+        almacenamiento.administrarRecursos(nuevoEdificio.obtenerCostoGas(),nuevoEdificio.obtenerCostoMinerales());
+        nuevoEdificio.construirSobre(celda);
+        almacenamiento.retirarGasVespeno(nuevoEdificio.obtenerCostoGas());
+        almacenamiento.retirarMinerales(nuevoEdificio.obtenerCostoMinerales());
+        unidadesEnConstruccion.add(new UnidadEnConstruccion(nuevoEdificio,this));
     }
 
-    public boolean recursosSuficientes(int cantidadMineralRequerido, int cantidadGasRequerido){
-        return (cantidadMineralRequerido <= almacenamiento.obtenerCantidadGasAlmacenado() && cantidadGasRequerido <= almacenamiento.obtenerCantidadGasAlmacenado());
+    public void finalizarUnidadEnConstruccion(Raza unidadTerminada, UnidadEnConstruccion exConstruccion){
+        unidades.add(unidadTerminada);
+        unidadesEnConstruccion.remove(exConstruccion);
     }
-    public void agregarEdificio(Edificio edificio){
-        if (recursosSuficientes(edificio.obtenerCostoMinerales(),edificio.obtenerCostoGas())) {
-            this.edificios.add(edificio);
-            this.almacenamiento.retirarGasVespeno(edificio.obtenerCostoGas());
-            this.almacenamiento.retirarMinerales(edificio.obtenerCostoMinerales());
+
+    public void agregarUnidad(Raza unidadNueva){
+        almacenamiento.administrarRecursos(unidadNueva.obtenerCostoGas(),unidadNueva.obtenerCostoMinerales());
+        unidadesEnConstruccion.add(new UnidadEnConstruccion(unidadNueva,this));
+    }
+    public void quitarUnidad(Raza unidadSaliente){
+        unidades.remove(unidadSaliente);
+    }
+    public void aniadirGasVespeno(int cantidadGasEntrante){
+        almacenamiento.almacenarGasVespeno(cantidadGasEntrante);
+    }
+
+    public void aniadirMineral(int cantidadMineralEntrante){
+        almacenamiento.almacenarMinerales(cantidadMineralEntrante);
+    }
+
+    public void pasarTurno(){
+        if(!unidades.isEmpty())
+            unidadesEnConstruccion.forEach(unidadEnConstruccion -> unidadEnConstruccion.pasarTurno());
+        /*for (Raza unidad: unidades)
+            unidad.pasarTurno();*/
+    }
+    public Raza buscarUnidad(Raza unidadBuscada){
+        int conteoUnidades = 0;
+        if(unidades.contains(unidadBuscada)){
+            while(unidades.get(conteoUnidades) != unidadBuscada)
+                conteoUnidades++;
+            return unidades.get(conteoUnidades);
         }
-        else{
-            throw new RuntimeException("No tenes recursos suficientes.");
-        }
+        else
+            throw new RuntimeException();
     }
-    public void generarUnidad(Racita unidadAGenerar){
-        if (recursosSuficientes(unidadAGenerar.obtenerCostoMinerales(),unidadAGenerar.obtenerCostoGas())) {
-            this.pueblo.add(unidadAGenerar);
-            this.almacenamiento.retirarGasVespeno(unidadAGenerar.obtenerCostoGas());
-            this.almacenamiento.retirarMinerales(unidadAGenerar.obtenerCostoMinerales());
-        }
-        else{
-            throw new RuntimeException("No tenes recursos suficientes");
-        }
-    }
-
-
 }

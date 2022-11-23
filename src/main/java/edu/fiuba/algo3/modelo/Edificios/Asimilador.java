@@ -4,34 +4,21 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
-import edu.fiuba.algo3.modelo.vida.Salud;
-import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
+import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
-public class Asimilador extends Edificio implements Construible {
-    private final Salud vida = new VidaConEscudo(450, 450);
+public class Asimilador extends Edificio {
     public Asimilador() {
-        this.tiempoDeConstruccion = 6;
-    }
-    public Asimilador(int tiempoDeConstruccion) {
-        this.tiempoDeConstruccion = tiempoDeConstruccion;
-    }
-
-    @Override
-    public void construirEn(Celda celda) {}
-
-    public boolean estaOperativo() {
-        return this.tiempoDeConstruccion <= 0;
+        this.tiempoConstruccion = 6;
+        vida = new VidaConEscudo(450, 450);
     }
     public void pasarTurno(){
-        if(!this.estaOperativo())
-            this.tiempoDeConstruccion--;
-        else{
-            vida.pasarTurno();
-        }
+        ComunidadProtoss.obtenerInstanciaDeClase().aniadirGasVespeno(extraerGas());
+        vida.pasarTurno();
     }
     public int extraerGas(){
         return 20;

@@ -4,43 +4,28 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
-import edu.fiuba.algo3.modelo.Raza.Zangano;
+import edu.fiuba.algo3.modelo.Razas.Zangano;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
-import edu.fiuba.algo3.modelo.vida.Salud;
-import edu.fiuba.algo3.modelo.vida.Vida;
+import edu.fiuba.algo3.modelo.Salud.Vida;
 
 import java.util.ArrayList;
 
-public class Extractor extends Edificio implements Construible {
+public class Extractor extends Edificio{
 
     private int cantidadMaximaDeTrabajadores = 3;
     private ArrayList<Zangano> trabajadores = new ArrayList<Zangano>(0);
-    private final Salud vida = new Vida(750);
 
     public Extractor(){
-        this.tiempoDeConstruccion = 6;
-    }
-
-    public Extractor(int tiempoDeConstruccion) {
-        this.tiempoDeConstruccion = tiempoDeConstruccion;
-    }
-
-    @Override
-    public void construirEn(Celda celda) {}
-
-
-    public boolean estaOperativo() {
-        return this.tiempoDeConstruccion <= 0;
+        this.tiempoConstruccion = 6;
+        vida = new Vida(750);
     }
     public void pasarTurno(){
-        if(!this.estaOperativo())
-            this.tiempoDeConstruccion--;
-        else{
-            vida.pasarTurno();
-        }
+        vida.pasarTurno();
+        ComunidadZerg.obtenerInstanciaDeClase().aniadirGasVespeno(extraerGas());
     }
 
     public void agregarTrabajador(Zangano trabajador) {
@@ -52,18 +37,13 @@ public class Extractor extends Edificio implements Construible {
     }
 
     public int extraerGas() {
-        int gasExtraido = 0;
-
-        if (this.trabajadores.size() == 0 ) {
-            return gasExtraido;
-        } else {
+        int cantidadGasExtraido = 0;
+        if (this.trabajadores.size() != 0 ) {
             for (Zangano trabajador :this.trabajadores) {
-                gasExtraido += 10;
+                cantidadGasExtraido += 10;
             }
         }
-
-        return gasExtraido;
-
+        return cantidadGasExtraido;
     }
 
     @Override

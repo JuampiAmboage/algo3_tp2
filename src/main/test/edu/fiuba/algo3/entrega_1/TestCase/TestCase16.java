@@ -5,8 +5,9 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Edificios.Asimilador;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Edificios.NexoMineral;
+import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
-import edu.fiuba.algo3.modelo.Unidades.Dragon;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Dragon;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -22,7 +23,7 @@ public class TestCase16 {
         celda.agregarRecurso(volcan);
         celda.ocupar(extractor);
 
-        assertThrows(IllegalArgumentException.class, () -> celda.ocupar(asimilador));
+        assertThrows(CeldaOcupada.class, () -> celda.ocupar(asimilador));
     }
 
     @Test
@@ -35,7 +36,7 @@ public class TestCase16 {
         celda.cambiarTipo(energizada);
         celda.ocupar(dragon);
 
-        assertThrows(IllegalArgumentException.class, () -> celda.ocupar(nexoMineral));
+        assertThrows(CeldaOcupada.class, () -> celda.ocupar(nexoMineral));
     }
 
     @Test
@@ -48,6 +49,6 @@ public class TestCase16 {
         celda.cambiarTipo(energizada);
         celda.ocupar(nexoMineral);
 
-        assertThrows(IllegalArgumentException.class, () -> celda.ocupar(dragon));
+        assertThrows(CeldaOcupada.class, () -> celda.ocupar(dragon));
     }
 }

@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
-import edu.fiuba.algo3.modelo.Edificios.Criadero;
 
+import edu.fiuba.algo3.modelo.Edificios.Criadero;
+import Mapa;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,41 +10,54 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestCase01 {
     @Test
     public void unCriaderoSeIniciaConTresLarvas() {
-        Criadero c = new Criadero(0);
-        assertEquals(3, c.cantidadDeLarvas());
+        Criadero criadero = new Criadero();
+        assertEquals(3, criadero.obtenerCantidadDeLarvas());
     }
 
     @Test
     public void elCriaderoEngendraUnaLarvaYReduceSuCantidad() {
-        Criadero c = new Criadero(0);
-        c.engendrar();
-
-        assertEquals(2, c.cantidadDeLarvas());
+        Criadero criadero = new Criadero();
+        criadero.engendrar();
+        assertEquals(2, criadero.obtenerCantidadDeLarvas());
     }
 
     @Test
     public void alEngendrarUnaLarvaYPasarTurnoElCriaderoVuelveATenerTresLarvas() {
-        Criadero c = new Criadero(0);
-        c.engendrar();
-        c.pasarTurno();
-        assertEquals(3, c.cantidadDeLarvas());
+        Mapa mapa = Mapa.getInstance();
+        Criadero criadero = new Criadero();
+
+        mapa.instanciarMapa(10,10);
+        criadero.instanciacionInicial(new Posicion(4,4));
+        criadero.engendrar();
+        criadero.pasarTurno();
+
+        assertEquals(3, criadero.obtenerCantidadDeLarvas());
     }
 
     @Test
     public void alEngendrarDosLarvasYPasarTurnoElCriaderoTerminaConDosLarvas() {
-        Criadero c = new Criadero(0);
-        c.engendrar();
-        c.engendrar();
-        c.pasarTurno();
-        assertEquals(2, c.cantidadDeLarvas());
+        Mapa mapa = Mapa.getInstance();
+        Criadero criadero = new Criadero();
+
+        mapa.instanciarMapa(10,10);
+        criadero.instanciacionInicial(new Posicion(4,4));
+        criadero.engendrar();
+        criadero.engendrar();
+        criadero.pasarTurno();
+        assertEquals(2, criadero.obtenerCantidadDeLarvas());
     }
 
     @Test
     public void unCriaderoRecienCreadoSeQuedaSinLarvasAlEngendrarTresVeces() {
-        Criadero c = new Criadero(0);
+        Mapa mapa = Mapa.getInstance();
+        Criadero criadero = new Criadero();
+
+        mapa.instanciarMapa(10,10);
+        criadero.instanciacionInicial(new Posicion(4,4));
+        Criadero c = new Criadero();
         c.engendrar();
         c.engendrar();
         c.engendrar();
-        assertEquals(0, c.cantidadDeLarvas());
+        assertEquals(0, c.obtenerCantidadDeLarvas());
     }
 }

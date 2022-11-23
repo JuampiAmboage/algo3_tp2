@@ -1,26 +1,20 @@
 package edu.fiuba.algo3.modelo.Rango;
 
 import edu.fiuba.algo3.modelo.Celdas.TipoCelda;
-import edu.fiuba.algo3.modelo.Mapa;
+import edu.fiuba.algo3.modelo.Partida.Mapa;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
 
-public class RangoExpansible {
+public class RangoExpansible extends Rango {
     int radio;
 
-    public RangoExpansible(int radio) {
-        this.radio = radio;
+    public RangoExpansible(Posicion posicionOrigen, int radio) {
+        super(posicionOrigen, radio);
     }
 
-    public void modificarRadio(int nuevoRadio) {
-        radio = nuevoRadio;
-    }
-
-    public void expandir(TipoCelda tipoCeldaAConvertir,int posicionXCeldaActual, int posicionYCeldaActual) {
+    public void expandir(TipoCelda unTipoDeCelda) {
         Mapa mapa = Mapa.getInstance();
-        for (int i = 0; i < radio; i++) {
-            mapa.obtenerCelda(posicionXCeldaActual + i, posicionYCeldaActual).cambiarTipo(tipoCeldaAConvertir);
-            mapa.obtenerCelda(posicionXCeldaActual - i, posicionYCeldaActual).cambiarTipo(tipoCeldaAConvertir);
-            mapa.obtenerCelda(posicionXCeldaActual, posicionYCeldaActual + i).cambiarTipo(tipoCeldaAConvertir);
-            mapa.obtenerCelda(posicionXCeldaActual, posicionYCeldaActual - i).cambiarTipo(tipoCeldaAConvertir);
+        for(Posicion unaPosicion : posicionesEnRango) {
+            mapa.obtenerCelda(unaPosicion).cambiarTipo(unTipoDeCelda);
         }
     }
 }

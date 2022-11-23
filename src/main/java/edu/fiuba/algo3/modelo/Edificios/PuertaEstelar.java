@@ -8,19 +8,13 @@ import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
-import edu.fiuba.algo3.modelo.vida.Salud;
-import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
+import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
-public class PuertaEstelar extends Edificio implements Construible {
-    private final Salud vida = new VidaConEscudo(600, 600);
+public class PuertaEstelar extends Edificio{
 
     public PuertaEstelar(){
-        this.tiempoDeConstruccion = 10;
-    }
-    public PuertaEstelar(int tiempoDeConstruccion) {
-        this.tiempoDeConstruccion = tiempoDeConstruccion;
+        this.tiempoConstruccion = 10;
+        vida = new VidaConEscudo(600, 600);
     }
 
     public void construirEn(Celda celda) {
@@ -32,15 +26,8 @@ public class PuertaEstelar extends Edificio implements Construible {
         }
     }
 
-    public boolean estaOperativo() {
-        return this.tiempoDeConstruccion <= 0;
-    }
     public void pasarTurno(){
-        if(!this.estaOperativo())
-            this.tiempoDeConstruccion--;
-        else{
-            vida.pasarTurno();
-        }
+        vida.pasarTurno();
     }
 
     @Override

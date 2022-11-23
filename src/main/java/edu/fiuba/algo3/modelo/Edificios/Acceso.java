@@ -8,40 +8,28 @@ import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
-import edu.fiuba.algo3.modelo.vida.Salud;
-import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
+import edu.fiuba.algo3.modelo.Salud.Salud;
+import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class Acceso extends Edificio implements Construible {
     static int conteoInstancias = 0;
     public static boolean existeAlMenosUnaInstancia(){
         return conteoInstancias > 0;
     }
-    private final Salud vida = new VidaConEscudo(500, 500);
+    private Salud vida;
     public Acceso(){
-        this.tiempoDeConstruccion = 8;
+        this.tiempoConstruccion = 8;
         conteoInstancias++;
-    }
-    public Acceso(int tiempoDeConstruccion) {
-        this.tiempoDeConstruccion = tiempoDeConstruccion;
-        conteoInstancias++;
+        vida = new VidaConEscudo(500, 500);
     }
 
-    public void construirEn(Celda celda) {
-    }
-
-    public boolean estaOperativo() {
-        return this.tiempoDeConstruccion <= 0;
-    }
     public void pasarTurno(){
-        if(!this.estaOperativo())
-            this.tiempoDeConstruccion--;
-        else{
-            vida.pasarTurno();
-        }
+        vida.pasarTurno();
     }
+
 
     @Override
-    public void construirSobreRecurso(NoRecurso tipoRecurso) {}
+    public void construirSobreRecurso(NoRecurso tipoRecurso) {throw  new ConstruccionProhibida();}
     @Override
     public void construirSobreRecurso(NodoMineral tipoRecurso) {
         throw new ConstruccionProhibida();

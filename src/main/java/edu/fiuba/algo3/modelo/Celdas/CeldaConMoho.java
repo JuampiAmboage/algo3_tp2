@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 public class CeldaConMoho extends TipoCelda {
     private int delayExpandir = 2;
 
-    private RangoExpansible rango;
     public CeldaConMoho() {
         super();
     }
@@ -23,6 +22,7 @@ public class CeldaConMoho extends TipoCelda {
             }
         }
     }
+
     @Override
     public void setCelda(Celda celda) {
         this.celda = celda;
@@ -40,12 +40,18 @@ public class CeldaConMoho extends TipoCelda {
         return objeto instanceof CeldaConMoho;
     }
     @Override
-    public void cambiarTipo(TipoCelda t) {
-        // No se puede energizar una celda con moho
-        // No se puede volver a poner moho en una celda con moho
-        if (t instanceof CeldaEnergizada || t instanceof CeldaConMoho) return;
-        this.celda.tipo = t;
+    protected void cambiarTipoA(CeldaLibre nuevoTipo) {}
+    @Override
+    protected void cambiarTipoA(CeldaEnergizada nuevoTipo) {}
+    @Override
+    protected void cambiarTipoA(CeldaConMoho nuevoTipo) {}
+
+    @Override
+    public void cambiarTipoDe(Celda c) {
+        CeldaConMoho tipo = new CeldaConMoho(c);
+        c.tipo.cambiarTipoA(tipo);
     }
+
     @Override
     public void quiereConstruir(Construible construible) {
         construible.construirSobreTipo(this);
