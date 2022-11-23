@@ -40,17 +40,16 @@ public class CeldaConMoho extends TipoCelda {
         return objeto instanceof CeldaConMoho;
     }
     @Override
-    protected void cambiarTipo(TipoCelda t) {
-        // No se puede energizar una celda con moho
-        // No se puede volver a poner moho en una celda con moho
-        if (t instanceof CeldaEnergizada || t instanceof CeldaConMoho) return;
-        this.celda.tipo = t;
-    }
+    protected void cambiarTipoA(CeldaLibre nuevoTipo) {}
+    @Override
+    protected void cambiarTipoA(CeldaEnergizada nuevoTipo) {}
+    @Override
+    protected void cambiarTipoA(CeldaConMoho nuevoTipo) {}
 
     @Override
     public void cambiarTipoDe(Celda c) {
         CeldaConMoho tipo = new CeldaConMoho(c);
-        c.tipo.cambiarTipo(tipo);
+        c.tipo.cambiarTipoA(tipo);
     }
 
     @Override

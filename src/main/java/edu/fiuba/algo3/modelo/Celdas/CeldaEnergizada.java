@@ -24,23 +24,24 @@ public class CeldaEnergizada extends TipoCelda{
         return objeto instanceof CeldaEnergizada;
     }
     @Override
-    protected void cambiarTipo(TipoCelda t) {
-        if (t instanceof CeldaEnergizada) {
-            this.energia++;
-        } else if (t instanceof CeldaLibre){
-            this.energia--;
-        } else {
-            this.celda.tipo = t;
+    protected void cambiarTipoA(CeldaLibre nuevoTipo) {
+        this.energia--;
+        if (energia <= 0) {
+            this.celda.tipo = nuevoTipo;
         }
-        // Si la celda se queda sin energía
-        if (this.energia <= 0) {
-            this.celda.tipo = new CeldaLibre(this.celda);
-        }
+    }
+    @Override
+    protected void cambiarTipoA(CeldaEnergizada nuevoTipo) {
+        this.energia++;
+    }
+    @Override
+    protected void cambiarTipoA(CeldaConMoho nuevoTipo) {
+        this.celda.tipo = nuevoTipo;
     }
     @Override
     public void cambiarTipoDe(Celda c) {
         CeldaEnergizada tipo = new CeldaEnergizada(c);
-        c.tipo.cambiarTipo(tipo);
+        c.tipo.cambiarTipoA(tipo);
     }
     @Override
     public void quiereConstruir(Construible construible) {
