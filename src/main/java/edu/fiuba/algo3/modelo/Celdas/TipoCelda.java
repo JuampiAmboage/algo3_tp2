@@ -12,6 +12,7 @@ public abstract class TipoCelda {
     public abstract void setCelda(Celda celda);
     public abstract void pasarTurno();
     public abstract boolean esMismoTipo(Object objeto);
-    public abstract void cambiarTipo(TipoCelda t);
+    protected abstract void cambiarTipo(TipoCelda t);
+    public abstract void cambiarTipoDe(Celda c);
     public abstract void quiereConstruir(Construible construible);
 }

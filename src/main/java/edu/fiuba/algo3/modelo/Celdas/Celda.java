@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
 import edu.fiuba.algo3.modelo.Raza;
-import edu.fiuba.algo3.modelo.Edificios.Construible;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Unidades.Tropa;
 
@@ -25,7 +24,6 @@ public class Celda {
         this.recurso = new NoRecurso();
         this.tipo = new CeldaLibre(this);
     }
-
     public void ocupar(Raza ocupante){
         if(!estaOcupada()) {
             this.ocupante = ocupante;
@@ -63,8 +61,9 @@ public class Celda {
         this.tipo.pasarTurno();
     }
     public void cambiarTipo(TipoCelda t) {
-        t.setCelda(this);
-        this.tipo.cambiarTipo(t);
+        t.cambiarTipoDe(this);
+        //t.setCelda(this);
+        //this.tipo.cambiarTipo(t);
     }
     public boolean esMismoTipo(TipoCelda t) {
         return this.tipo.esMismoTipo(t);

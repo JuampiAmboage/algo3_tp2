@@ -19,8 +19,13 @@ public class CeldaLibre extends TipoCelda {
         return objeto instanceof CeldaLibre;
     }
     @Override
-    public void cambiarTipo(TipoCelda t) {
+    protected void cambiarTipo(TipoCelda t) {
         this.celda.tipo = t;
+    }
+    @Override
+    public void cambiarTipoDe(Celda c) {
+        CeldaLibre tipo = new CeldaLibre(c);
+        c.tipo.cambiarTipo(tipo);
     }
     @Override
     public void quiereConstruir(Construible construible) {
