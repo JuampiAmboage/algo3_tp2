@@ -4,13 +4,13 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
-import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadZerg;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Razas.Zangano;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
-import edu.fiuba.algo3.modelo.vida.Vida;
+import edu.fiuba.algo3.modelo.Salud.Vida;
 
 import java.util.ArrayList;
 

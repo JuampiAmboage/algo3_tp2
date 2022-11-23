@@ -2,14 +2,12 @@ package edu.fiuba.algo3.entrega_1.TestCase;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
-import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadProtoss;
-import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Asimilador;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Edificios.NexoMineral;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
-import edu.fiuba.algo3.modelo.Unidades.Dragon;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Dragon;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;

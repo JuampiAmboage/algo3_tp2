@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
 
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
-import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadZerg;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.UnidadEnConstruccion;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;

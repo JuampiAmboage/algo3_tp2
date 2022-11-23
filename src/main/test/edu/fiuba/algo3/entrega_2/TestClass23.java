@@ -1,11 +1,10 @@
 package edu.fiuba.algo3.entrega_2;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Mapa;
+import Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import edu.fiuba.algo3.modelo.Raza;
-import edu.fiuba.algo3.modelo.Unidades.Dragon;
-import edu.fiuba.algo3.modelo.Unidades.Zerling;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Dragon;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Zerling;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

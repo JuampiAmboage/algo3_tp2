@@ -1,9 +1,7 @@
 package edu.fiuba.algo3.modelo.Razas;
 
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
-import edu.fiuba.algo3.modelo.Mapa;
-import edu.fiuba.algo3.modelo.Raza;
-import edu.fiuba.algo3.modelo.vida.Vida;
+import edu.fiuba.algo3.modelo.Salud.Vida;
 
 public class Zangano extends Raza {
     Extractor extractorDondeTrabaja;

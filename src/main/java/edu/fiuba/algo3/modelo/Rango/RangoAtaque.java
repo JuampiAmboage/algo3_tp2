@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Rango;
 
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import edu.fiuba.algo3.modelo.Raza;
+import edu.fiuba.algo3.modelo.Razas.Raza;
 
 public class RangoAtaque {
     Posicion posicion;

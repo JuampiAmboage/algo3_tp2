@@ -1,18 +1,12 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
 
-import com.tngtech.archunit.lang.ArchRule;
 import edu.fiuba.algo3.modelo.Celdas.*;
-import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
 import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
-import edu.fiuba.algo3.modelo.Mapa;
-import edu.fiuba.algo3.modelo.Opciones_de_raza;
+import Mapa;
 
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
-
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 

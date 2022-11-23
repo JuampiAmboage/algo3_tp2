@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
-import edu.fiuba.algo3.modelo.ComunidadNueva.Comunidad;
-import edu.fiuba.algo3.modelo.Raza;
+import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
+import edu.fiuba.algo3.modelo.Razas.Raza;
 
 public class UnidadEnConstruccion {
     int turnosNecesariosParaConstruir;

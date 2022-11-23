@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
 
-import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadProtoss;
-import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadZerg;
-import edu.fiuba.algo3.modelo.Unidades.Dragon;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Dragon;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 

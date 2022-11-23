@@ -2,14 +2,12 @@ package edu.fiuba.algo3.modelo.Edificios;
 
 import edu.fiuba.algo3.modelo.Celdas.*;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
-import edu.fiuba.algo3.modelo.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
-import edu.fiuba.algo3.modelo.vida.Salud;
-import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
+import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class Pilon extends Edificio {
     RangoExpansible rango;

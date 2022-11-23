@@ -1,13 +1,10 @@
 package edu.fiuba.algo3.entrega_1.UnitTest;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Mapa;
+import Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import javafx.geometry.Pos;
 import org.junit.jupiter.api.Test;
 
-
-import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -17,7 +14,7 @@ public class MapaTest {
     public void elMapaSeCreaConCeldasAdentro() {
         Mapa mapa = Mapa.getInstance();
         mapa.instanciarMapa(5,5);
-        Celda celdaRandom = mapa.obtenerCelda(3,3);
+        Celda celdaRandom = mapa.obtenerCelda(new Posicion(3,3));
 
         assertTrue(Celda.esCelda(celdaRandom));
     }

@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.modelo.Rango;
 
 import edu.fiuba.algo3.modelo.Celdas.TipoCelda;
-import edu.fiuba.algo3.modelo.Mapa;
-import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import Mapa;
 
 public class RangoExpansible {
     int radio;

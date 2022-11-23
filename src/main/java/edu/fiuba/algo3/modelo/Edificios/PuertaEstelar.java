@@ -8,10 +8,7 @@ import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
-import edu.fiuba.algo3.modelo.vida.Salud;
-import edu.fiuba.algo3.modelo.vida.VidaConEscudo;
-
-import java.util.concurrent.atomic.AtomicInteger;
+import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class PuertaEstelar extends Edificio{
 

@@ -3,8 +3,7 @@ package edu.fiuba.algo3.entrega_1.UnitTest;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
-import edu.fiuba.algo3.modelo.Mapa;
-import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import Mapa;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

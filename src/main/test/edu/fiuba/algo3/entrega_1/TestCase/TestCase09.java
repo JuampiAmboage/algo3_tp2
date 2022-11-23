@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
 
-import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Edificios.Pilon;
-import edu.fiuba.algo3.modelo.Mapa;
+import Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import org.junit.jupiter.api.Test;
 

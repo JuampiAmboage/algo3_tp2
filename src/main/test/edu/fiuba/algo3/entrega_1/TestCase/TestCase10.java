@@ -1,8 +1,5 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
-import edu.fiuba.algo3.modelo.ComunidadNueva.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Guarida;
-import edu.fiuba.algo3.modelo.Mapa;
-import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import org.junit.jupiter.api.Test;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import static org.junit.jupiter.api.Assertions.assertEquals;
