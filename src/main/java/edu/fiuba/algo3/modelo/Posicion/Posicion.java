@@ -33,4 +33,8 @@ public class Posicion {
     public int obtenerPosicionY(){
         return Y;
     }
+
+    public boolean estaEnLimites(int maxLongitudX, int maxLongitudY) {
+        return this.X > 0 && this.X < maxLongitudX && this.Y > 0 && this.Y < maxLongitudY;
+    }
 }

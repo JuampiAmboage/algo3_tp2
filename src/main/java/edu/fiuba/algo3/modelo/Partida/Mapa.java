@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public class Mapa {
     private static Mapa singletonMapa;
-
     private ArrayList<ArrayList<Celda>> mapaJuego;
     private int longitudFilas; //alto mapa
     private int longitudColumnas;//ancho mapa
@@ -44,5 +43,9 @@ public class Mapa {
                 }
             }
         throw new RuntimeException();
+    }
+
+    public boolean estaPosicionEnLimites(Posicion unaPosicion) {
+        return unaPosicion.estaEnLimites(longitudFilas, longitudColumnas);
     }
 }
