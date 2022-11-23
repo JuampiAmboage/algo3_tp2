@@ -36,16 +36,8 @@ public class CeldaLibre extends TipoCelda {
         CeldaLibre tipo = new CeldaLibre(c);
         c.tipo.cambiarTipoA(tipo);
     }
-
-
     @Override
     public void quiereConstruir(Construible construible) {
         construible.construirSobreTipo(this);
-    }
-    public Celda agregarTipoA(Celda c) {
-        CeldaLibre tipo = new CeldaLibre();
-        tipo.setCelda(c);
-        c.tipo.cambiarTipo(tipo);
-        return c;
     }
 }

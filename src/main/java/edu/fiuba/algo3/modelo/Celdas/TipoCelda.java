@@ -18,5 +18,4 @@ public abstract class TipoCelda {
     protected abstract void cambiarTipoA(CeldaEnergizada t);
     public abstract void cambiarTipoDe(Celda c);
     public abstract void quiereConstruir(Construible construible);
-    public abstract Celda agregarTipoA(Celda c);
 }

@@ -47,11 +47,4 @@ public class CeldaEnergizada extends TipoCelda{
     public void quiereConstruir(Construible construible) {
         construible.construirSobreTipo(this);
     }
-    @Override
-    public Celda agregarTipoA(Celda c) {
-        CeldaEnergizada tipo = new CeldaEnergizada();
-        tipo.setCelda(c);
-        c.tipo.cambiarTipo(tipo);
-        return c;
-    }
 }

@@ -9,16 +9,13 @@ import edu.fiuba.algo3.modelo.Razas.Raza;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 
-import java.util.ArrayList;
 
 public class Celda {
-    protected ArrayList<Celda> celdasAdyacentes;
     protected Raza ocupante;
     protected Tropa ocupanteAereo;
     protected TipoCelda tipo;
     protected Recurso recurso;
     protected Posicion posicion;
-
     static public boolean esCelda(Object objeto) {
         return objeto instanceof Celda;
     }
@@ -27,6 +24,12 @@ public class Celda {
         this.recurso = new NoRecurso();
         this.tipo = new CeldaLibre(this);
         this.posicion = new Posicion(posicionX,posicionY);
+    }
+    public Celda(Recurso unRecurso, TipoCelda unTipo, Posicion unaPosicion) {
+        this.recurso = unRecurso;
+        unTipo.setCelda(this);
+        this.tipo = unTipo;
+        this.posicion = unaPosicion;
     }
 
     public Celda compararPosiciones(Posicion posicion) throws PosicionesDiferentes {
@@ -54,13 +57,6 @@ public class Celda {
         this.ocupante = null;
         return u;
     }
-
-    public int cantidadAdyacentes() {
-        return celdasAdyacentes.size();
-    }
-    public void setAdyacentes(ArrayList<Celda> adyacentes){
-        celdasAdyacentes = adyacentes;
-    }
     public boolean estaOcupada() {
         return this.ocupante != null;
     }
@@ -71,8 +67,7 @@ public class Celda {
         this.tipo.pasarTurno();
     }
     public void cambiarTipo(TipoCelda t) {
-        t.setCelda(this);
-        this.tipo.cambiarTipo(t);
+        t.cambiarTipoDe(this);
     }
     public boolean esMismoTipo(TipoCelda t) {
         return this.tipo.esMismoTipo(t);
