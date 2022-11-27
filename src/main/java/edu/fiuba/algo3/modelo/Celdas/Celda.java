@@ -78,10 +78,10 @@ public class Celda {
     public int extraer(int cantidad) {
         return this.recurso.extraer(cantidad);
     }
-    public void quiereConstruir(Edificio construible) {
-        this.recurso.quiereConstruir(construible);
-        this.tipo.quiereConstruir(construible);
-        ocupar(construible);
+    public void quiereConstruir(Edificio unEdificio) {
+        this.recurso.quiereConstruir(unEdificio);
+        this.tipo.quiereConstruir(unEdificio);
+        ocupar(unEdificio);
     }
 
     public Raza obtenerOcupante(){

@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.UnidadEnConstruccion;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
-import Mapa;
 import edu.fiuba.algo3.modelo.Razas.Larva;
 import edu.fiuba.algo3.modelo.Razas.Zangano;
 
@@ -21,16 +20,6 @@ public class ComunidadZerg extends Comunidad {
         if(comunidadZerg == null)
             comunidadZerg = new ComunidadZerg();
         return comunidadZerg;
-    }
-
-    private void existenciasIniciales() {
-        Mapa mapa = Mapa.getInstance();
-        for (int i = 0; i < 3; i++)
-            agregarUnidad(new Larva());
-        unidades.add(new Criadero());
-    }
-    public void darTrabajoAZangano(Zangano zangano, Extractor extractor){
-        zangano.asignarTrabajo(extractor);
     }
 
     public void construirEdificio(Celda celda, Edificio nuevoEdificio){

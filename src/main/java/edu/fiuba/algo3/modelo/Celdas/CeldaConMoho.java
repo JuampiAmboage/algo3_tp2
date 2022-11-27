@@ -14,13 +14,8 @@ public class CeldaConMoho extends TipoCelda {
     }
 
     private void expandir() {
-        for(int i = 0; i < this.celda.celdasAdyacentes.size(); i++) {
-            // Contagia de moho a las celdas que no están ocupadas
-            Celda celdaActual = this.celda.celdasAdyacentes.get(i);
-            if (!celdaActual.estaOcupada()) {
-                celdaActual.cambiarTipo(new CeldaConMoho(celdaActual));
-            }
-        }
+        RangoExpansible rango = new RangoExpansible(this.celda.posicion, 1);
+        rango.expandir(new CeldaConMoho());
     }
 
     @Override

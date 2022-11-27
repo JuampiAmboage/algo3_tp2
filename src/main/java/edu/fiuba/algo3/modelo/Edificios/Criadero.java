@@ -17,39 +17,39 @@ import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
 public class Criadero extends Edificio {
-    private int tiempoDeConstruccion;
     private int cantidadLarvasEnEspera;
-    Evolucionador evolucionador;
-    RangoExpansible rangoExpansible;
+    private final Evolucionador evolucionador;
     public Criadero(){
-        for(int i=0;i<3;i++)
-            ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(new Larva());
-        this.tiempoDeConstruccion = 4;
-        vida = new Vida(500);
-        evolucionador = new Evolucionador();
+        super(4);
+        this.vida = new Vida(500);
+        this.evolucionador = new Evolucionador();
         this.cantidadLarvasEnEspera = 3;
-        this.rangoExpansible = new RangoExpansible(5);
+    }
+    public Criadero(int tiempoDeConstruccion) {
+        super(tiempoDeConstruccion);
+        this.vida = new Vida(500);
+        this.evolucionador = new Evolucionador();
+        this.cantidadLarvasEnEspera = 3;
     }
 
-    public void instanciacionInicial(Posicion posicionALocalizar){
-        posicion = posicionALocalizar;
-        rangoExpansible.expandir(new CeldaConMoho(),posicion);
-    }
+    @Override
     public void pasarTurno(){
+        this.estado.pasarTurno();
+    }
+    @Override
+    public void accionarTurno() {
         if(cantidadLarvasEnEspera < 3) {
-            ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(new Larva());
             cantidadLarvasEnEspera++;
         }
         vida.pasarTurno();
     }
-
     public int obtenerCantidadDeLarvas(){
         return cantidadLarvasEnEspera;
     }
 
     public void engendrar() {
         cantidadLarvasEnEspera--;
-        evolucionador.evolucionarUnidad(new Zangano(),new Larva());
+        //evolucionador.evolucionarUnidad(new Zangano(),new Larva());
     }
 
     @Override

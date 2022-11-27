@@ -9,16 +9,19 @@ public class EdificioEnConstruccion implements EstadoConstruccion {
     public EdificioEnConstruccion(Edificio unEdificio, int tiempoDeConstruccion) {
         this.edificio = unEdificio;
         this.tiempoDeConstruccion = tiempoDeConstruccion;
+        this.analizarTiempoDeConstruccion();
     }
 
-    @Override
-    public void pasarTurno() {
-        this.tiempoDeConstruccion--;
+    private void analizarTiempoDeConstruccion() {
         if (this.tiempoDeConstruccion <= 0) {
             this.edificio.estado = new EdificioConstruido(this.edificio);
         }
     }
-
+    @Override
+    public void pasarTurno() {
+        this.tiempoDeConstruccion--;
+        this.analizarTiempoDeConstruccion();
+    }
     @Override
     public void esUsable() {
         throw new EdificioNoTerminado();

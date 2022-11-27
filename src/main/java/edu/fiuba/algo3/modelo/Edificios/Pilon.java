@@ -10,11 +10,9 @@ import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class Pilon extends Edificio {
-    RangoExpansible rango;
     public Pilon(){
         this.tiempoConstruccion = 5;
         vida =  new VidaConEscudo(300, 300);
-        rango = new RangoExpansible(3);
     }
     public void instanciacionInicial(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
@@ -23,16 +21,22 @@ public class Pilon extends Edificio {
 
     private void energizarCeldasEnRango(){
         //Celda celda = Mapa.getInstance().obtenerCelda(posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
-        rango.expandir(new CeldaEnergizada(),posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
+        //rango.expandir(new CeldaEnergizada(),posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
     }
 
     public void desernegizar(){
         //Celda celda = Mapa.getInstance().obtenerCelda(posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
-        rango.expandir(new CeldaLibre(),posicion.obtenerPosicionX(), posicion.obtenerPosicionY());
+        //rango.expandir(new CeldaLibre(),posicion.obtenerPosicionX(), posicion.obtenerPosicionY());
     }
     public void pasarTurno(){
+        this.estado.pasarTurno();
+    }
+
+    @Override
+    public void accionarTurno() {
         vida.pasarTurno();
     }
+
     public int obtenerEscudo(){ return vida.getEscudoActual();}
 
     @Override
