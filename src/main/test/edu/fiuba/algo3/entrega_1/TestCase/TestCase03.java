@@ -16,7 +16,7 @@ public class TestCase03 {
 
     @Test
     public void noSePuedeCrearUnCriaderoEnUnVolcan() {
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         celda.cambiarTipo(new CeldaConMoho(celda));
         celda.agregarRecurso(new Volcan());
         Criadero criadero = new Criadero();
@@ -30,7 +30,7 @@ public class TestCase03 {
 
     @Test
     public void sePuedeCrearUnAsimiladorSobreUnVolcan() {
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         celda.cambiarTipo(new CeldaConMoho(celda));
         celda.agregarRecurso(new Volcan());
         Asimilador asimilador = new Asimilador();
@@ -44,7 +44,7 @@ public class TestCase03 {
 
     @Test
     public void sePuedeConstruirUnExtractorSobreUnVolcan() {
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         celda.cambiarTipo(new CeldaConMoho(celda));
         celda.agregarRecurso(new Volcan());
         Extractor extractor = new Extractor();

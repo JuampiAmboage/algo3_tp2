@@ -10,7 +10,7 @@ import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
-public class PuertaEstelar extends Edificio{
+public class PuertaEstelar extends Edificio {
 
     public PuertaEstelar(){
         this.tiempoConstruccion = 10;
@@ -27,6 +27,11 @@ public class PuertaEstelar extends Edificio{
     }
 
     public void pasarTurno(){
+        this.estado.pasarTurno();
+    }
+
+    @Override
+    public void accionarTurno() {
         vida.pasarTurno();
     }
 

@@ -29,6 +29,11 @@ public class Guarida extends Edificio {
         evolucionador = new Evolucionador();
     }
     public void pasarTurno(){
+        this.estado.pasarTurno();
+    }
+
+    @Override
+    public void accionarTurno() {
         vida.pasarTurno();
     }
 

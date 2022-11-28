@@ -26,6 +26,11 @@ public class Espiral extends Edificio {
         }
     }
     public void pasarTurno(){
+        this.estado.pasarTurno();
+    }
+
+    @Override
+    public void accionarTurno() {
         vida.pasarTurno();
     }
 

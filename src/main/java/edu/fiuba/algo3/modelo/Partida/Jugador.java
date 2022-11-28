@@ -11,7 +11,7 @@ public class Jugador {
 
     public Jugador(String nombre, Raza[] raza) {
         this.nombre = nombre;
-        this.comunidad = new Comunidad(raza);
+        this.comunidad = new Comunidad();
     }
 
     public void construir(Edificio edificioAConstruir, Celda celda){

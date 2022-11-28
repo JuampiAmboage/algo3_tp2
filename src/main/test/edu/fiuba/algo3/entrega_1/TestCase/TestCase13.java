@@ -12,7 +12,7 @@ public class TestCase13 {
     public void siSeDistruyeUnCriaderoSePuedeSeguirConstruyendoEnElMoho() {
         Criadero criadero = new Criadero();
         Criadero otroCriadero = new Criadero();
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         CeldaConMoho celdaConMoho = new CeldaConMoho(celda);
 
         celda.cambiarTipo(celdaConMoho);

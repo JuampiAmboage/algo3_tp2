@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class TestCase16 {
     @Test
     public void noSePuedeConstruirSobreUnVolcanConUnEdificioExistente() {
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         Volcan volcan = new Volcan();
         Extractor extractor = new Extractor();
         Asimilador asimilador = new Asimilador();
@@ -28,7 +28,7 @@ public class TestCase16 {
 
     @Test
     public void noSePuedeConstruirUnEdificioDondeHayUnaUnidad() {
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         CeldaEnergizada energizada = new CeldaEnergizada(celda);
         Dragon dragon = new Dragon();
         NexoMineral nexoMineral = new NexoMineral();
@@ -41,7 +41,7 @@ public class TestCase16 {
 
     @Test
     public void noSePuedeTrasladarUnaUnidadDondeHayUnEdificio() {
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         CeldaEnergizada energizada = new CeldaEnergizada(celda);
         NexoMineral nexoMineral = new NexoMineral();
         Dragon dragon = new Dragon();

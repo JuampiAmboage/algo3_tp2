@@ -24,6 +24,11 @@ public class Acceso extends Edificio implements Construible {
     }
 
     public void pasarTurno(){
+        this.estado.pasarTurno();
+    }
+
+    @Override
+    public void accionarTurno() {
         vida.pasarTurno();
     }
 

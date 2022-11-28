@@ -14,7 +14,7 @@ import edu.fiuba.algo3.modelo.Salud.Vida;
 
 import java.util.ArrayList;
 
-public class Extractor extends Edificio{
+public class Extractor extends Edificio {
 
     private int cantidadMaximaDeTrabajadores = 3;
     private ArrayList<Zangano> trabajadores = new ArrayList<Zangano>(0);
@@ -24,6 +24,11 @@ public class Extractor extends Edificio{
         vida = new Vida(750);
     }
     public void pasarTurno(){
+        this.estado.pasarTurno();
+    }
+
+    @Override
+    public void accionarTurno() {
         vida.pasarTurno();
         ComunidadZerg.obtenerInstanciaDeClase().aniadirGasVespeno(extraerGas());
     }

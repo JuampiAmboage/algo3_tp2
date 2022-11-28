@@ -24,7 +24,7 @@ public class ComunidadZerg extends Comunidad {
 
     public void construirEdificio(Celda celda, Edificio nuevoEdificio){
         if(celda.obtenerOcupante() instanceof Zangano) {
-            administrarRecursos(nuevoEdificio.obtenerCostoGas(), nuevoEdificio.obtenerCostoMinerales());
+            //administrarRecursos(nuevoEdificio.obtenerCostoGas(), nuevoEdificio.obtenerCostoMinerales());
             UnidadEnConstruccion construccion = new UnidadEnConstruccion(nuevoEdificio, this);
             unidadesEnConstruccion.add(construccion);
             quitarUnidad(celda.obtenerOcupante());

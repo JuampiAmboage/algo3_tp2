@@ -25,7 +25,7 @@ public class TestCase02 {
     @Test
     public void unCriaderoDebeEsperar4TurnosParaPoderUsarse() {
         Criadero c = new Criadero();
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         celda.cambiarTipo(new CeldaConMoho(celda));
 
         c.construirSobre(celda);

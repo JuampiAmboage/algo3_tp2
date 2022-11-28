@@ -11,7 +11,7 @@ import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class ReservaDeReproduccion extends Edificio{
+public class ReservaDeReproduccion extends Edificio {
     Evolucionador evolucionador;
 
     public ReservaDeReproduccion(){
@@ -21,8 +21,14 @@ public class ReservaDeReproduccion extends Edificio{
     }
     @Override
     public void pasarTurno(){
+        this.estado.pasarTurno();
+    }
+
+    @Override
+    public void accionarTurno() {
         vida.pasarTurno();
     }
+
     @Override
     public void construirSobreRecurso(NoRecurso tipoRecurso) {}
     @Override

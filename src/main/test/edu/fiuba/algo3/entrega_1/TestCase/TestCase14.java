@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class TestCase14 {
     @Test
     public void unaCeldaCubiertaPorMohoNoPuedeEnergizarse() {
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         CeldaConMoho celdaConMoho = new CeldaConMoho(celda);
         CeldaEnergizada celdaEnergizada = new CeldaEnergizada(celda);
 
@@ -24,7 +24,7 @@ public class TestCase14 {
 
     @Test
     public void unaCeldaEnergizadaPuedeInfectarseConMoho(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         CeldaEnergizada celdaEnergizada = new CeldaEnergizada(celda);
         CeldaConMoho celdaConMoho = new CeldaConMoho(celda);
 

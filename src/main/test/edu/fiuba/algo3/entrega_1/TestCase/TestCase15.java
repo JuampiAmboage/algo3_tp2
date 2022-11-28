@@ -12,7 +12,7 @@ public class TestCase15 {
 
     @Test
     public void siUnVolcanSeQuedaSinGasNoSePuedeSeguirRecolectando(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         Volcan volcan = new Volcan();
         celda.agregarRecurso(volcan); //volcan arranca con 5000 de gas
         celda.extraer(2500);
@@ -22,7 +22,7 @@ public class TestCase15 {
 
     @Test
     public void siUnNodoMineralSeQuedaSinMineralNoSePuedeSeguirRecolectando(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         NodoMineral nodoMineral = new NodoMineral(); //nodo mineral empieza con 2000 de mineral
         celda.agregarRecurso(nodoMineral);
         celda.extraer(1500);
@@ -31,7 +31,7 @@ public class TestCase15 {
 
     @Test
     public void puedoExtraerGasDeUnVolcanHastaQueSuGasSeaCero(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         Volcan volcan = new Volcan();
         celda.agregarRecurso(volcan); //volcan arranca con 5000 de gas
         for(int i =0;i <4; i++){
@@ -43,7 +43,7 @@ public class TestCase15 {
 
     @Test
     public void puedoExtraerMineralDeUnNodoHastaQueSuMineralSeaCero(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         NodoMineral nodoMineral = new NodoMineral();
         celda.agregarRecurso(nodoMineral); //nodo mineral arranca con 2000
         for(int i =0;i <3; i++){

@@ -17,9 +17,15 @@ public class Asimilador extends Edificio {
         vida = new VidaConEscudo(450, 450);
     }
     public void pasarTurno(){
+        this.estado.pasarTurno();
+    }
+
+    @Override
+    public void accionarTurno() {
         ComunidadProtoss.obtenerInstanciaDeClase().aniadirGasVespeno(extraerGas());
         vida.pasarTurno();
     }
+
     public int extraerGas(){
         return 20;
     }

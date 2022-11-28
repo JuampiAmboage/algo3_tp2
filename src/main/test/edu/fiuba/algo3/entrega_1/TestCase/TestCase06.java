@@ -2,7 +2,8 @@ package edu.fiuba.algo3.entrega_1.TestCase;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
-import Mapa;
+import edu.fiuba.algo3.modelo.Partida.Mapa;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -15,7 +16,7 @@ public class TestCase06 {
     public void unaCeldaConMohoInfectaASusCeldasAdyacentesPasados2Turnos() {
         Mapa m = Mapa.getInstance();
         m.instanciarMapa(3,3);
-        Celda centro = m.obtenerCelda(3,3);
+        Celda centro = m.obtenerCelda(new Posicion(3,3));
         centro.cambiarTipo(new CeldaConMoho(centro));
     }
         // todas las celdas del mapa deberían tener moho

@@ -19,7 +19,7 @@ public class TestCase08 {
 */
     @Test
     public void conLosMineralesInicialesPuedoConstruirUnAsimilador(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         celda.cambiarTipo(new CeldaConMoho(celda));
         Extractor extractor = new Extractor();
         celda.ocupar(new Zangano());
@@ -28,7 +28,7 @@ public class TestCase08 {
 
     @Test
     public void sinRecursosNoPuedoConstruirUnaGuarida(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         Guarida guarida = new Guarida();
         celda.ocupar(new Zangano());
         celda.cambiarTipo(new CeldaConMoho(celda));
@@ -37,7 +37,7 @@ public class TestCase08 {
 
     @Test
     public void sinRecursosNoPuedoConstruirUnAcceso(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         celda.cambiarTipo(new CeldaConMoho(celda));
         Acceso acceso = new Acceso();
         assertThrows(RuntimeException.class,()->ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda,acceso));
