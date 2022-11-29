@@ -17,26 +17,8 @@ public class Rango {
     }
 
     protected ArrayList<Posicion> crearPosiciones() {
-        ArrayList<Posicion> posiciones = new ArrayList<>();
         Mapa mapa = Mapa.getInstance();
-
-        for(
-            int i = posicionOrigen.obtenerPosicionX() - radio;
-            i <= posicionOrigen.obtenerPosicionX() + radio;
-            i++
-        ) {
-            for(
-                int j = posicionOrigen.obtenerPosicionY() - radio;
-                j <= posicionOrigen.obtenerPosicionY();
-                j++
-            ) {
-                Posicion unaPosicion = new Posicion(i,j);
-                if (mapa.estaPosicionEnLimites(unaPosicion)) {
-                    posiciones.add(unaPosicion);
-                }
-            }
-        }
-        return posiciones;
+        return this.posicionOrigen.obtenerPosicionesEnRadio(this.radio, mapa);
     }
 
 }
