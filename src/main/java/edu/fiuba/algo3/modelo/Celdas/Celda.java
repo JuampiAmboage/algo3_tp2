@@ -31,6 +31,11 @@ public class Celda {
         this.tipo = unTipo;
         this.posicion = unaPosicion;
     }
+    public Celda(){
+        this.recurso = new NoRecurso();
+        this.tipo = new CeldaLibre(this);
+        this.posicion = new Posicion(0,0);
+    }
 
     public Celda compararPosiciones(Posicion posicion) throws PosicionesDiferentes {
         posicion.compararPosiciones(posicion);

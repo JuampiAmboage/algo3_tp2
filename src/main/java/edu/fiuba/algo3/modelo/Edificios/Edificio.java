@@ -8,7 +8,11 @@ public abstract class Edificio extends Raza implements Construible{
         this.estado = new EdificioConstruido(this);
     }
     public Edificio(int tiempoDeConstruccion) {
-        this.estado = new EdificioEnConstruccion(this, tiempoDeConstruccion);
+        if (tiempoDeConstruccion == 0) {
+            this.estado = new EdificioConstruido(this);
+        } else {
+            this.estado = new EdificioEnConstruccion(this, tiempoDeConstruccion);
+        }
     }
     public abstract void pasarTurno();
     public abstract void accionarTurno();

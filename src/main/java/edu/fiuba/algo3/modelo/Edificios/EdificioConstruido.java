@@ -8,7 +8,7 @@ public class EdificioConstruido implements EstadoConstruccion {
 
     @Override
     public void pasarTurno() {
-        this.edificio.pasarTurno();
+        this.edificio.accionarTurno();
     }
     @Override
     public void esUsable() {}

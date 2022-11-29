@@ -48,6 +48,7 @@ public class Criadero extends Edificio {
     }
 
     public void engendrar() {
+        this.estado.esUsable();
         cantidadLarvasEnEspera--;
         //evolucionador.evolucionarUnidad(new Zangano(),new Larva());
     }
