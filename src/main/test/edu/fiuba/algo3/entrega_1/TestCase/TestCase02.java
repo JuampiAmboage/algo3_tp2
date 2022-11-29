@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
 
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
+import edu.fiuba.algo3.modelo.Edificios.UnidadEnConstruccion;
+import edu.fiuba.algo3.modelo.Excepciones.EdificioNoTerminado;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -13,28 +16,20 @@ public class TestCase02 {
 
     @Test
     public void unCriaderoQueTarda4TurnosEnConstruirseLanzaUnErrorCuandoSeLoQuiereUsar() {
-        Criadero c = new Criadero();
-        Executable task = c::engendrar;
+        Criadero criadero = new Criadero(4);
+        Executable task = criadero::engendrar;
 
-        assertThrows(RuntimeException.class, task);
+        assertThrows(EdificioNoTerminado.class, task);
     }
 
     @Test
     public void unCriaderoDebeEsperar4TurnosParaPoderUsarse() {
-        Criadero c = new Criadero();
-        Celda celda = new Celda();
-        celda.cambiarTipo(new CeldaConMoho(celda));
-
-        c.construirSobre(celda);
-
-
+        Criadero c = new Criadero(4);
         c.pasarTurno();
         c.pasarTurno();
         c.pasarTurno();
         c.pasarTurno();
-
         Executable task = c::engendrar;
-
         assertDoesNotThrow(task);
     }
 

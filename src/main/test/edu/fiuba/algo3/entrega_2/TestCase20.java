@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.entrega_2;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Unidades.Mutalisco;
-import edu.fiuba.algo3.modelo.Unidades.Zerling;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Mutalisco;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Zerling;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -12,14 +12,14 @@ public class TestCase20 {
 
     @Test
     public void soloUnidadesVoladorasPuedenIrPorCeldasAereas(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         Mutalisco mutalisco = new Mutalisco();
         assertDoesNotThrow(()->celda.ocuparPorAire(mutalisco));
     }
 
     @Test
     public void unaUnidadTerrestreNoPuedeIrPorUnaCeldaAerea(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         Zerling zerling = new Zerling();
         assertThrows(IllegalArgumentException.class,()->celda.ocuparPorAire(zerling));
     }

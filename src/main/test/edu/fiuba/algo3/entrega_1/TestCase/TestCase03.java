@@ -3,6 +3,7 @@ package edu.fiuba.algo3.entrega_1.TestCase;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
@@ -16,9 +17,7 @@ public class TestCase03 {
 
     @Test
     public void noSePuedeCrearUnCriaderoEnUnVolcan() {
-        Celda celda = new Celda();
-        celda.cambiarTipo(new CeldaConMoho(celda));
-        celda.agregarRecurso(new Volcan());
+        Celda celda = new Celda(new Volcan(), new CeldaConMoho(), new Posicion(0,0));
         Criadero criadero = new Criadero();
 
         Executable construir = () -> {
@@ -30,9 +29,7 @@ public class TestCase03 {
 
     @Test
     public void sePuedeCrearUnAsimiladorSobreUnVolcan() {
-        Celda celda = new Celda();
-        celda.cambiarTipo(new CeldaConMoho(celda));
-        celda.agregarRecurso(new Volcan());
+        Celda celda = new Celda(new Volcan(), new CeldaConMoho(), new Posicion(0,0));
         Asimilador asimilador = new Asimilador();
 
         Executable construir = () -> {
@@ -44,9 +41,7 @@ public class TestCase03 {
 
     @Test
     public void sePuedeConstruirUnExtractorSobreUnVolcan() {
-        Celda celda = new Celda();
-        celda.cambiarTipo(new CeldaConMoho(celda));
-        celda.agregarRecurso(new Volcan());
+        Celda celda = new Celda(new Volcan(), new CeldaConMoho(), new Posicion(0,0));
         Extractor extractor = new Extractor();
 
         Executable construir = () -> {

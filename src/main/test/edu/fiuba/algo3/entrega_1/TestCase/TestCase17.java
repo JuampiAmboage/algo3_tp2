@@ -17,7 +17,7 @@ public class TestCase17 {
 
     @Test
     public void siNoHayAlMenosUnAccesoUnaPuertaEstelarNoPuedeConstruirse(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         CeldaEnergizada energizada = new CeldaEnergizada(celda); //para poder construir una estructura Protoss
         PuertaEstelar puertaEstelar = new PuertaEstelar();
 
@@ -27,7 +27,7 @@ public class TestCase17 {
 
     @Test
     public void siExisteUnAccesoPuedeConstruirseUnaPuertaEstelar(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         CeldaEnergizada energizada = new CeldaEnergizada(celda);
         Acceso acceso = new Acceso();
         PuertaEstelar puertaEstelar = new PuertaEstelar();
@@ -40,7 +40,7 @@ public class TestCase17 {
 
     @Test
     public void siNoHayAlMenosUnaGuaridaUnEspiralNoPuedeConstruirse(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         CeldaConMoho celdaConMoho = new CeldaConMoho(celda); //para poder construir una estructura Zerg
         Espiral espiral = new Espiral();
 
@@ -50,7 +50,7 @@ public class TestCase17 {
 
     @Test
     public void siExisteUnaGuaridaPuedeConstruirseUnEspiral(){
-        Celda celda = new Celda();
+        Celda celda = new Celda(0,0);
         CeldaConMoho celdaConMoho = new CeldaConMoho(celda);
         Guarida guarida = new Guarida();
         Espiral espiral = new Espiral();

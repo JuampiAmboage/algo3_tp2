@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestCase12 {
 
     @Test void alSacarleTodoElEscudoAUnAsimiladorYSeguirDaniandoloPierdeVida(){
+
         Asimilador asimilador = new Asimilador(); //empieza con 450 de vida y 450 de escudo
 
         asimilador.daniar(450); //aca pierde todo el escudo
@@ -19,6 +20,7 @@ public class TestCase12 {
 
     @Test
     public void alSacarleTodoElEscudoYParteDeLaVidaAUnAsimiladorSoloRecuperaEscudo(){
+
         Asimilador asimilador = new Asimilador(); //empieza con 450 de vida y 450 de escudo
 
         asimilador.daniar(450); //aca pierde todo el escudo

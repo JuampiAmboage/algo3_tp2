@@ -1,12 +1,13 @@
 package edu.fiuba.algo3;
 
-//import VistaJugadorControlador;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+
+import edu.fiuba.algo3.vistas.*;
 
 import java.io.IOException;
 
@@ -32,7 +33,7 @@ public class App extends Application {
             FXMLLoader cargador = new FXMLLoader();
 
             cargador.setLocation(
-                    App.class.getResource("VistaRaiz.fxml")
+                    App.class.getResource("VentanaRaiz.fxml")
             );
 
             rootLayout = (BorderPane) cargador.load();
@@ -52,15 +53,15 @@ public class App extends Application {
             FXMLLoader cargador = new FXMLLoader();
 
             cargador.setLocation(
-                    App.class.getResource("VistaJugador.fxml")
+                    App.class.getResource("VentanaJuego.fxml")
             );
 
             AnchorPane layoutJugador = (AnchorPane) cargador.load();
 
             rootLayout.setCenter(layoutJugador);
 
-            VistaJugadorControlador controlador = cargador.getController();
-            controlador.setApp(this);
+            VistaJugador vistaJugador = cargador.getController();
+            vistaJugador.setApp(this);
 
         } catch (IOException e) { e.printStackTrace(); }
     }

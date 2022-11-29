@@ -5,40 +5,40 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Razas.Evolucionador;
+import edu.fiuba.algo3.modelo.Razas.Larva;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
-import edu.fiuba.algo3.modelo.vida.Salud;
-import edu.fiuba.algo3.modelo.vida.Vida;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Hidralisco;
+import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class Guarida extends Edificio implements Construible {
+public class Guarida extends Edificio {
     static int conteoInstancias = 0;
     public static boolean existeAlMenosUnaInstancia(){
         return conteoInstancias > 0;
     }
-    private final Salud vida = new Vida(1250);
+
+    private Evolucionador evolucionador;
     public Guarida(){
-        this.tiempoDeConstruccion = 12;
+        costoEnGas = 100;
+        costoEnMinerales = 200;
+        this.tiempoConstruccion = 12;
         conteoInstancias++;
-    }
-    public Guarida(int tiempoDeConstruccion) {
-        this.tiempoDeConstruccion = tiempoDeConstruccion;
-        conteoInstancias++;
-    }
-
-    public void construirEn(Celda celda) {
-        celda.ocupar(this);
-    }
-
-    public boolean estaOperativo() {
-        return this.tiempoDeConstruccion <= 0;
+        vida = new Vida(1250);
+        evolucionador = new Evolucionador();
     }
     public void pasarTurno(){
-        if(!this.estaOperativo())
-            this.tiempoDeConstruccion--;
-        else{
-            vida.pasarTurno();
-        }
+        this.estado.pasarTurno();
+    }
+
+    @Override
+    public void accionarTurno() {
+        vida.pasarTurno();
+    }
+
+    public void generarHidralisco(Larva larva){
+        evolucionador.evolucionarUnidad(new Hidralisco(),larva);
     }
 
     @Override
