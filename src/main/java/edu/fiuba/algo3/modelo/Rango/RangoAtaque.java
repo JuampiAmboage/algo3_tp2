@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Rango;
 
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import edu.fiuba.algo3.modelo.Razas.Raza;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 public class RangoAtaque {
     Posicion posicion;
@@ -10,7 +10,7 @@ public class RangoAtaque {
         this.radio = radio;
         posicion = posicionObjetoConRango;
     }
-    public void localizarTropaEnRango(Raza victima, int puntosAtaque){
+    public void localizarTropaEnRango(Unidad victima, int puntosAtaque){
         int Xvictima = victima.obtenerPosicion().obtenerPosicionX();
         int Yvictima = victima.obtenerPosicion().obtenerPosicionY();
         if(posicion.obtenerDistanciaA(Xvictima,Yvictima) <= radio){

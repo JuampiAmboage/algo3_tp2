@@ -37,7 +37,7 @@ public class Criadero extends Edificio {
         this.estado.pasarTurno();
     }
     @Override
-    public void accionarTurno() {
+    public void realizarAccionesTurno() {
         if(cantidadLarvasEnEspera < 3) {
             cantidadLarvasEnEspera++;
         }

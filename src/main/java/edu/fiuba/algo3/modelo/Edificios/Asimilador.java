@@ -21,7 +21,7 @@ public class Asimilador extends Edificio {
     }
 
     @Override
-    public void accionarTurno() {
+    public void realizarAccionesTurno() {
         ComunidadProtoss.obtenerInstanciaDeClase().aniadirGasVespeno(extraerGas());
         vida.pasarTurno();
     }

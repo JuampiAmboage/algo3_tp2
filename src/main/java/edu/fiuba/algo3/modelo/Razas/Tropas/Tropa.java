@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
-import edu.fiuba.algo3.modelo.Razas.Raza;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 
-public abstract class Tropa extends Raza {
+public abstract class Tropa extends Unidad {
     protected String superficie;
     protected int tiempoConstruccion;
     protected int danioTerrestre;
@@ -15,10 +15,10 @@ public abstract class Tropa extends Raza {
         return danioTerrestre;
     }
     public int obtenerDanioAereo(){ return danioAereo;}
-    public void atacarTierra(Raza unidadAtacable){
+    public void atacarTierra(Unidad unidadAtacable){
         ataque.atacarTierra(rangoAtaque,unidadAtacable,danioTerrestre);
     }
-    public void atacarAire(Raza unidadAtacable){ ataque.atacarAire(rangoAtaque,unidadAtacable,danioAereo);}
+    public void atacarAire(Unidad unidadAtacable){ ataque.atacarAire(rangoAtaque,unidadAtacable,danioAereo);}
     public abstract void pasarTurno();
     public String obtenerSuperficie() {
         return superficie;

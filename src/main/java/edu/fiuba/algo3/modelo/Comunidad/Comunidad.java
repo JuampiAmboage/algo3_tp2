@@ -1,65 +1,38 @@
 package edu.fiuba.algo3.modelo.Comunidad;
 
-import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Edificios.UnidadEnConstruccion;
-import edu.fiuba.algo3.modelo.Razas.Raza;
-
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 import java.util.ArrayList;
 
 public class Comunidad {
-    protected ArrayList<UnidadEnConstruccion> unidadesEnConstruccion;
-    protected ArrayList<Raza> unidades;
+    protected ArrayList<Unidad> unidades;
     Almacenamiento almacenamiento;
 
     public Comunidad(){
         almacenamiento = new Almacenamiento();
-        unidades = new ArrayList<Raza>();
-        unidadesEnConstruccion = new ArrayList<UnidadEnConstruccion>();
+        unidades = new ArrayList<Unidad>();
     }
-
-    public void construirEdificio(Celda celda, Edificio nuevoEdificio){
-        almacenamiento.administrarRecursos(nuevoEdificio.obtenerCostoGas(),nuevoEdificio.obtenerCostoMinerales());
-        nuevoEdificio.construirSobre(celda);
-        almacenamiento.retirarGasVespeno(nuevoEdificio.obtenerCostoGas());
-        almacenamiento.retirarMinerales(nuevoEdificio.obtenerCostoMinerales());
-        unidadesEnConstruccion.add(new UnidadEnConstruccion(nuevoEdificio,this));
+    public void agregarUnidad(Unidad unidadNueva){
+        unidadNueva.suficientesRecursosParaConstruirme(almacenamiento);
+        unidades.add(unidadNueva);
     }
-
-    public void finalizarUnidadEnConstruccion(Raza unidadTerminada, UnidadEnConstruccion exConstruccion){
-        unidades.add(unidadTerminada);
-        unidadesEnConstruccion.remove(exConstruccion);
-    }
-
-    public void agregarUnidad(Raza unidadNueva){
-        almacenamiento.administrarRecursos(unidadNueva.obtenerCostoGas(),unidadNueva.obtenerCostoMinerales());
-        unidadesEnConstruccion.add(new UnidadEnConstruccion(unidadNueva,this));
-    }
-    public void quitarUnidad(Raza unidadSaliente){
+    public void quitarUnidad(Unidad unidadSaliente){
         unidades.remove(unidadSaliente);
     }
     public void aniadirGasVespeno(int cantidadGasEntrante){
         almacenamiento.almacenarGasVespeno(cantidadGasEntrante);
     }
-
     public void aniadirMineral(int cantidadMineralEntrante){
         almacenamiento.almacenarMinerales(cantidadMineralEntrante);
     }
-
     public void pasarTurno(){
         if(!unidades.isEmpty())
-            unidadesEnConstruccion.forEach(unidadEnConstruccion -> unidadEnConstruccion.pasarTurno());
-        /*for (Raza unidad: unidades)
-            unidad.pasarTurno();*/
+            unidades.forEach(unidadEnConstruccion -> unidadEnConstruccion.pasarTurno());
     }
-    public Raza buscarUnidad(Raza unidadBuscada){
-        int conteoUnidades = 0;
-        if(unidades.contains(unidadBuscada)){
-            while(unidades.get(conteoUnidades) != unidadBuscada)
-                conteoUnidades++;
-            return unidades.get(conteoUnidades);
+    public Unidad buscarUnidad(Unidad unidadBuscada) {
+        for (Unidad unidad : unidades) {
+            if (unidad.getClass().equals(unidad.getClass()))
+                return unidad;
         }
-        else
-            throw new RuntimeException();
+        throw new RuntimeException();
     }
 }

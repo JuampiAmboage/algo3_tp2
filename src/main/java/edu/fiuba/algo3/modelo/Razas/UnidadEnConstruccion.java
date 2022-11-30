@@ -1,20 +1,20 @@
-package edu.fiuba.algo3.modelo.Edificios;
+package edu.fiuba.algo3.modelo.Razas;
 
 import edu.fiuba.algo3.modelo.Excepciones.EdificioNoTerminado;
 
-public class EdificioEnConstruccion implements EstadoConstruccion {
-    private final Edificio edificio;
+public class UnidadEnConstruccion implements EstadoConstruccion {
+    private final Unidad futuraUnidad;
     private int tiempoDeConstruccion;
 
-    public EdificioEnConstruccion(Edificio unEdificio, int tiempoDeConstruccion) {
-        this.edificio = unEdificio;
-        this.tiempoDeConstruccion = tiempoDeConstruccion;
-        this.analizarTiempoDeConstruccion();
+    public UnidadEnConstruccion(Unidad unidadACrear) {
+        this.futuraUnidad = unidadACrear;
+        tiempoDeConstruccion = futuraUnidad.obtenerTiempoConstruccion();
+        analizarTiempoDeConstruccion();
     }
 
     private void analizarTiempoDeConstruccion() {
         if (this.tiempoDeConstruccion <= 0) {
-            this.edificio.estado = new EdificioConstruido(this.edificio);
+            this.futuraUnidad.cambiarEstado(new UnidadConstruida(this.futuraUnidad));
         }
     }
     @Override
@@ -22,6 +22,7 @@ public class EdificioEnConstruccion implements EstadoConstruccion {
         this.tiempoDeConstruccion--;
         this.analizarTiempoDeConstruccion();
     }
+
     @Override
     public void esUsable() {
         throw new EdificioNoTerminado();

@@ -28,7 +28,7 @@ public class Extractor extends Edificio {
     }
 
     @Override
-    public void accionarTurno() {
+    public void realizarAccionesTurno() {
         vida.pasarTurno();
         ComunidadZerg.obtenerInstanciaDeClase().aniadirGasVespeno(extraerGas());
     }

@@ -33,14 +33,9 @@ public class Guarida extends Edificio {
     }
 
     @Override
-    public void accionarTurno() {
+    public void realizarAccionesTurno() {
         vida.pasarTurno();
     }
-
-    public void generarHidralisco(Larva larva){
-        evolucionador.evolucionarUnidad(new Hidralisco(),larva);
-    }
-
     @Override
     public void construirSobreRecurso(NoRecurso tipoRecurso) {}
     @Override

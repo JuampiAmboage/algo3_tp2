@@ -11,7 +11,7 @@ public class Evolucionador {
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
     }
 
-    public void evolucionarUnidad(Raza tropaEvolucionable, Raza tropaEvolucionada){
+    public void evolucionarUnidad(Unidad tropaEvolucionable, Unidad tropaEvolucionada){
         comunidad.agregarUnidad(tropaEvolucionada);
         comunidad.quitarUnidad(tropaEvolucionable);
     }

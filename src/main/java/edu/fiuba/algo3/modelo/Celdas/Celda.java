@@ -3,15 +3,15 @@ package edu.fiuba.algo3.modelo.Celdas;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Excepciones.PosicionesDiferentes;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
-import edu.fiuba.algo3.modelo.Razas.Raza;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 
 
 public class Celda {
-    protected Raza ocupante;
+    protected Unidad ocupante;
     protected Tropa ocupanteAereo;
     protected TipoCelda tipo;
     protected Recurso recurso;
@@ -41,7 +41,7 @@ public class Celda {
         posicion.compararPosiciones(posicion);
         return this;
     }
-    public void ocupar(Raza ocupante){
+    public void ocupar(Unidad ocupante){
         if(!estaOcupada()) {
             this.ocupante = ocupante;
         }
@@ -57,8 +57,8 @@ public class Celda {
             throw new IllegalArgumentException();
         }
     }
-    public Raza desocupar(){
-        Raza u = this.ocupante;
+    public Unidad desocupar(){
+        Unidad u = this.ocupante;
         this.ocupante = null;
         return u;
     }
@@ -89,7 +89,7 @@ public class Celda {
         ocupar(unEdificio);
     }
 
-    public Raza obtenerOcupante(){
+    public Unidad obtenerOcupante(){
         return ocupante;
     }
 }
