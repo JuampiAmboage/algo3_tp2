@@ -28,11 +28,11 @@ public class Comunidad {
         if(!unidades.isEmpty())
             unidades.forEach(unidadEnConstruccion -> unidadEnConstruccion.pasarTurno());
     }
-    public Unidad buscarUnidad(Unidad unidadBuscada) {
+    public boolean existeUnidad(Unidad unidadBuscada) {
         for (Unidad unidad : unidades) {
-            if (unidad.getClass().equals(unidad.getClass()))
-                return unidad;
+            if (unidad.getClass().equals(unidadBuscada.getClass()))
+                return true;
         }
-        throw new RuntimeException();
+        return false;
     }
 }

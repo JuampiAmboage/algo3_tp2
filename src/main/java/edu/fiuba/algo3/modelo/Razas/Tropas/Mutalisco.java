@@ -18,6 +18,7 @@ public class Mutalisco extends Tropa {
         vida = new Vida(80);
     }
 
+    public void realizarAccionesTurno(){}
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
         evolucionador = new Evolucionador();

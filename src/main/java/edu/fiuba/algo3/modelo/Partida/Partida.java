@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Partida;
 
-import edu.fiuba.algo3.modelo.Razas.Raza;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 public class Partida {
     private Mapa mapa;
@@ -14,7 +14,7 @@ public class Partida {
         this.turno = new Turno();
     }
 
-    public void agregarJugador(String nombreJugador, String color, Raza[] razas){
+    public void agregarJugador(String nombreJugador, String color, Unidad[] razas){
         if(primerJugador != null)
             primerJugador = new Jugador(nombreJugador,razas);
         else

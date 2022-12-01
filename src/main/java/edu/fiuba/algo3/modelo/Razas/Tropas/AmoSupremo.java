@@ -18,6 +18,8 @@ public class AmoSupremo extends Tropa {
     public void instanciacionInicial(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
     }
+    public void realizarAccionesTurno(){}
+
     @Override
     public void pasarTurno() {
         vida.pasarTurno();

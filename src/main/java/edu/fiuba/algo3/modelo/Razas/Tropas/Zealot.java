@@ -21,6 +21,7 @@ public class Zealot extends Tropa {
         vida.pasarTurno();
     }
 
+    public void realizarAccionesTurno(){}
     public int obtenerEscudo(){return vida.getEscudoActual();}
 
 }

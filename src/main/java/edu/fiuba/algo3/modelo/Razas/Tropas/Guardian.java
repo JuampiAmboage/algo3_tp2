@@ -13,6 +13,8 @@ public class Guardian extends Tropa{
         danioAereo = 0;
         vida = new Vida(100);
     }
+    public void realizarAccionesTurno(){}
+
 
     @Override
     public void pasarTurno() {

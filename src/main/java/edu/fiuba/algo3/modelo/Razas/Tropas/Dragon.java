@@ -16,6 +16,8 @@ public class Dragon extends Tropa {
         danioAereo = 20;
         vida = new VidaConEscudo(100,80);
     }
+    public void realizarAccionesTurno(){}
+
 
     public void instanciacionInicial(Posicion posicionAColocar){
         posicion = posicionAColocar;

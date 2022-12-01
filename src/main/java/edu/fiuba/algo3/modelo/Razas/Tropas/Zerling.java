@@ -22,6 +22,7 @@ public class Zerling extends Tropa
         rangoAtaque = new RangoAtaque(1,posicion);
 
     }
+    public void realizarAccionesTurno(){}
     @Override
     public void pasarTurno() {
         vida.pasarTurno();

@@ -13,6 +13,7 @@ public class Hidralisco extends Tropa {
         danioAereo = 10;
         vida = new Vida(80);
     }
+    public void realizarAccionesTurno(){}
 
     @Override
     public void pasarTurno() {

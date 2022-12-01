@@ -16,7 +16,7 @@ public class Evolucionador {
         comunidad.quitarUnidad(tropaEvolucionable);
     }
     public void evolucionarZangano(Celda celda, Edificio edificioEvolucionado, Zangano zangano){
-        comunidad.construirEdificio(celda, edificioEvolucionado);
+        comunidad.agregarUnidad(edificioEvolucionado);
         comunidad.quitarUnidad(zangano);
     }
 

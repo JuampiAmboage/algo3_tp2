@@ -23,7 +23,7 @@ public class TestCase08 {
         celda.cambiarTipo(new CeldaConMoho(celda));
         Extractor extractor = new Extractor();
         celda.ocupar(new Zangano());
-        assertDoesNotThrow(()->ComunidadZerg.obtenerInstanciaDeClase().construirEdificio(celda,extractor));
+        assertDoesNotThrow(()->ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(extractor));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class TestCase08 {
         Guarida guarida = new Guarida();
         celda.ocupar(new Zangano());
         celda.cambiarTipo(new CeldaConMoho(celda));
-        assertThrows(RuntimeException.class,()->ComunidadZerg.obtenerInstanciaDeClase().construirEdificio(celda,guarida));
+        assertThrows(RuntimeException.class,()->ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(guarida));
     }
 
     @Test
@@ -40,6 +40,6 @@ public class TestCase08 {
         Celda celda = new Celda(0,0);
         celda.cambiarTipo(new CeldaConMoho(celda));
         Acceso acceso = new Acceso();
-        assertThrows(RuntimeException.class,()->ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda,acceso));
+        assertThrows(RuntimeException.class,()->ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(acceso));
     }
 }

@@ -15,6 +15,8 @@ public class Devorador extends Tropa{
         danioAereo = 15;
         vida = new Vida(200);
     }
+    public void realizarAccionesTurno(){}
+
 
     public void instanciacionInicial(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
