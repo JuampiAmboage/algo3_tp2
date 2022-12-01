@@ -19,8 +19,7 @@ public class TestCase04 { //A todos les falta probar con test y terminados de co
     //que el Asimilador recoge gas una vez construido según lo estipulado
     @Test
     public void unExtractorSinZanganosNoGeneraGas() {
-        Extractor e = new Extractor();
-        ComunidadZerg.obtenerInstanciaDeClase();
+        Extractor e = new Extractor(0);
 
         assertEquals(0, e.extraerGas());
     }

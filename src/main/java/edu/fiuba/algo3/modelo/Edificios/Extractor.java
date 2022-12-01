@@ -6,6 +6,8 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Excepciones.ExtractorLleno;
+import edu.fiuba.algo3.modelo.Razas.UnidadEnConstruccion;
 import edu.fiuba.algo3.modelo.Razas.Zangano;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
@@ -23,6 +25,10 @@ public class Extractor extends Edificio {
         this.tiempoConstruccion = 6;
         vida = new Vida(750);
     }
+    public Extractor(int tiempoDeConstruccion) {
+        this.tiempoConstruccion = tiempoDeConstruccion;
+        this.vida = new Vida(750);
+    }
     public void pasarTurno(){
         this.estado.pasarTurno();
     }
@@ -37,7 +43,7 @@ public class Extractor extends Edificio {
         if (this.trabajadores.size() != cantidadMaximaDeTrabajadores) {
             this.trabajadores.add(trabajador);
         } else {
-            throw (new RuntimeException());
+            throw (new ExtractorLleno());
         }
     }
 
@@ -74,5 +80,6 @@ public class Extractor extends Edificio {
     @Override
     public void construirSobre(Celda celda) {
         celda.quiereConstruir(this);
+        this.estado = new UnidadEnConstruccion(this);
     }
 }
