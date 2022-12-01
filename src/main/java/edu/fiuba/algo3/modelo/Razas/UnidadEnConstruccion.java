@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Razas;
 
-import edu.fiuba.algo3.modelo.Excepciones.EdificioNoTerminado;
+import edu.fiuba.algo3.modelo.Excepciones.UnidadNoTerminada;
 
 public class UnidadEnConstruccion implements EstadoConstruccion {
     private final Unidad futuraUnidad;
@@ -25,6 +25,6 @@ public class UnidadEnConstruccion implements EstadoConstruccion {
 
     @Override
     public void esUsable() {
-        throw new EdificioNoTerminado();
+        throw new UnidadNoTerminada();
     }
 }
