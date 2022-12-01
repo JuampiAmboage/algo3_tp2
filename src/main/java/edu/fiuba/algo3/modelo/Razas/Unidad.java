@@ -12,6 +12,7 @@ public abstract class Unidad {
     protected int costoEnMinerales;
     protected int costoEnGas;
     protected int tiempoConstruccion;
+    protected int suministro;
     public abstract void pasarTurno();
     public abstract void realizarAccionesTurno();
 

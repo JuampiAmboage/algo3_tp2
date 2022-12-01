@@ -1,9 +1,12 @@
-package edu.fiuba.algo3.modelo.Razas.Tropas;
+package edu.fiuba.algo3.modelo.Razas;
 
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.*;
-import edu.fiuba.algo3.modelo.Razas.Unidad;
-import edu.fiuba.algo3.modelo.Razas.Zangano;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Guardian;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Hidralisco;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Mutalisco;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Zerling;
+
 
 public class GeneradorUnidadesZerg {
     public static Unidad crearTropaZerg(String tipoUnidad) {
@@ -19,6 +22,9 @@ public class GeneradorUnidadesZerg {
         } else if (tipoUnidad.equals("mutalisco")){
             if(comunidadZerg.existeUnidad(new Hidralisco()))
                 return new Mutalisco();
+        } else if(tipoUnidad.equals("guardian")){
+            if(comunidadZerg.existeUnidad(new Mutalisco()))
+                return new Guardian();
         }
         throw new IllegalArgumentException();
     }

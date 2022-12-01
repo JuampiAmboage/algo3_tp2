@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class Scout extends Tropa {
@@ -11,7 +13,10 @@ public class Scout extends Tropa {
         tiempoConstruccion = 9;
         danioTerrestre = 8;
         danioAereo = 14;
+        suministro = 4;
         vida = new VidaConEscudo(150,100);
+        ComunidadProtoss.obtenerInstanciaDeClase().aniadirSuministro(suministro);
+
     }
 
     @Override

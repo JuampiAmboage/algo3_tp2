@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Comunidad;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Razas.GeneradorUnidadesZerg;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 import edu.fiuba.algo3.modelo.Razas.UnidadEnConstruccion;
 import edu.fiuba.algo3.modelo.Razas.Zangano;
@@ -28,8 +29,22 @@ public class ComunidadZerg extends Comunidad {
         }
         throw new RuntimeException();
     }
-    public void crearUnidadZerg(String tipoUnidad){
+    public void crearUnidad(String tipoUnidad){
         this.obtenerCriadero().engendrar(tipoUnidad);
+    }
+
+    public void mutarTropa(Unidad unidadMutable, String mutacion){
+        if(this.existeUnidad(unidadMutable)){
+            this.agregarUnidad(GeneradorUnidadesZerg.crearTropaZerg(mutacion));
+            this.quitarUnidad(unidadMutable);
+        }
+    }
+
+    public void construirEdificio(Zangano zanganoEvolucionable, String edificioACrear){
+        if(this.existeUnidad(zanganoEvolucionable)){
+            this.agregarUnidad(GeneradorUnidadesZerg.crearEdificioZerg(edificioACrear));
+            this.quitarUnidad(zanganoEvolucionable);
+        }
     }
 
 
