@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class Guardian extends Tropa{
+public class Guardian extends Tropa implements TropaAerea{
     public Guardian(){
         ataque = new AtacarTierra();
         superficie = "aire";

@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
-public class Scout extends Tropa {
+public class Scout extends Tropa implements TropaAerea{
     public Scout(){
         ataque = new AtacarTierraYAire();
         superficie = "aire";

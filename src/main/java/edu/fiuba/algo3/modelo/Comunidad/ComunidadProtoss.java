@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Comunidad;
 
-import edu.fiuba.algo3.modelo.Razas.GeneradorUnidadesProtoss;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Zealot;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 public class ComunidadProtoss extends Comunidad{
 
@@ -18,4 +20,10 @@ public class ComunidadProtoss extends Comunidad{
     public void crearUnidad(String unidadACrear){
         this.agregarUnidad(GeneradorUnidadesProtoss.crearUnidadProtoo(unidadACrear));
     }
+
+    public void agregarTropaDetectoraAZealotsInvisibles(Tropa tropaDetectora){
+        for (Unidad unidad : unidades) {
+            if (unidad.getClass().equals(Zealot.class))
+                ((Zealot) unidad).agregarTropaDetectora(tropaDetectora);
+        }
 }

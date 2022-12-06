@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Comunidad;
 
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Excepciones.PoblacionMaximaAlcanzada;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 import java.util.ArrayList;
@@ -11,9 +12,11 @@ public class Comunidad {
     protected  int cantidadPoblacionHabilitada;
     protected  int cantidadPoblacionActual;
 
+    protected ArrayList<Edificio> edificiosQuePermitenCorrelativas;
     public Comunidad(){
         almacenamiento = new Almacenamiento();
         unidades = new ArrayList<Unidad>();
+        edificiosQuePermitenCorrelativas = new ArrayList<Edificio>();
         cantidadPoblacionHabilitada = 200;
         cantidadPoblacionActual = 0;
     }
@@ -27,6 +30,10 @@ public class Comunidad {
     public void quitarUnidad(Unidad unidadSaliente){
         unidades.remove(unidadSaliente);
         cantidadPoblacionActual--;
+    }
+
+    public void agregarEdificioCorrelativo(Edificio nuevoEdificio){
+        edificiosQuePermitenCorrelativas.add(nuevoEdificio);
     }
     public void aniadirGasVespeno(int cantidadGasEntrante){
         almacenamiento.almacenarGasVespeno(cantidadGasEntrante);

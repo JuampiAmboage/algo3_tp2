@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Celdas;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Excepciones.PosicionesDiferentes;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
@@ -12,7 +13,7 @@ import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 
 public class Celda {
     protected Unidad ocupante;
-    protected Tropa ocupanteAereo;
+    protected TropaAerea ocupanteAereo;
     protected TipoCelda tipo;
     protected Recurso recurso;
     protected Posicion posicion;
@@ -50,12 +51,8 @@ public class Celda {
         }
     }
 
-    public void ocuparPorAire(Tropa ocupanteAereoNuevo){
-        if(this.ocupanteAereo == null && ocupanteAereoNuevo.obtenerSuperficie().equals("aire"))
-            this.ocupanteAereo = ocupanteAereoNuevo;
-        else{
-            throw new IllegalArgumentException();
-        }
+    public void ocuparPorAire(TropaAerea ocupanteAereoNuevo){
+        this.ocupanteAereo = ocupanteAereoNuevo;
     }
     public Unidad desocupar(){
         Unidad u = this.ocupante;

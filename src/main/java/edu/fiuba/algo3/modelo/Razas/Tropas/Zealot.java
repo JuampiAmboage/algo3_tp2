@@ -4,7 +4,8 @@ import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
-public class Zealot extends Tropa {
+public class Zealot extends Tropa implements TropaTerrestre {
+    Invisibilidad invisible;
     int bajasGeneradas;
     public Zealot(){
         ataque = new AtacarTierra();
@@ -23,8 +24,16 @@ public class Zealot extends Tropa {
     @Override
     public void pasarTurno() {
         vida.pasarTurno();
+        if(!esInvisible() && bajasGeneradas >= 3)
+            invisible = new Invisibilidad();
     }
 
+    public void agregarTropaDetectora(Tropa tropaDetectoraCreada){
+        if(esInvisible())
+            invisible.agregarTropaDetectora(tropaDetectoraCreada);
+    }
+
+    public boolean esInvisible(){return invisible != null;}
     public void realizarAccionesTurno(){}
     public int obtenerEscudo(){return vida.getEscudoActual();}
 

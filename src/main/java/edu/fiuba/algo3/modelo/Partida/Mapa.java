@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Partida;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Edificios.Criadero;
+import edu.fiuba.algo3.modelo.Edificios.Pilon;
 import edu.fiuba.algo3.modelo.Excepciones.PosicionesDiferentes;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 
@@ -43,6 +45,15 @@ public class Mapa {
                 }
             }
         throw new RuntimeException();
+    }
+
+    public void generarBases(){
+        Pilon baseInicialProtoss = new Pilon();
+        Criadero baseInicialZerg = new Criadero();
+        int posicionInicialPilon = (int) (Math.random() * longitudFilas);
+        int posicionInicialCriadero = (int) (Math.random() * longitudFilas);
+        mapaJuego.get(0).get(posicionInicialPilon).ocupar(baseInicialProtoss);
+        mapaJuego.get(longitudColumnas-1).get(posicionInicialCriadero).ocupar(baseInicialZerg);
     }
 
     public boolean estaPosicionEnLimites(Posicion unaPosicion) {

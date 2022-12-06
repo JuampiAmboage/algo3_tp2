@@ -1,12 +1,14 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Excepciones.EvolucionIncompatibleConTropaEvolucionableActual;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Razas.Evolucionador;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class Mutalisco extends Tropa {
+public class Mutalisco extends Tropa implements TropaAerea, UnidadEvolucionable {
     Evolucionador evolucionador;
     public Mutalisco(){
         ataque = new AtacarTierraYAire();
@@ -20,6 +22,18 @@ public class Mutalisco extends Tropa {
         vida = new Vida(80);
         ComunidadZerg.obtenerInstanciaDeClase().aniadirSuministro(suministro);
 
+    }
+
+    public void mutar(Tropa unidadPostMutacion){
+        if(unidadPostMutacion.getClass().equals(Guardian.class) || unidadPostMutacion.getClass().equals(Devorador.class)) {
+            ComunidadZerg comunidadZerg = ComunidadZerg.obtenerInstanciaDeClase();
+            comunidadZerg.agregarUnidad(unidadPostMutacion);
+            comunidadZerg.quitarUnidad(this);
+        }
+    }
+
+    public void evolucionarAEdificio(Edificio edificioNuevo){
+        throw new EvolucionIncompatibleConTropaEvolucionableActual();
     }
 
     public void realizarAccionesTurno(){}

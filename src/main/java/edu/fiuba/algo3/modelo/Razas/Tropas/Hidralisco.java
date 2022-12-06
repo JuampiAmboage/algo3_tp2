@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class Hidralisco extends Tropa {
+public class Hidralisco extends Tropa implements TropaTerrestre{
     public Hidralisco(){
         ataque = new AtacarTierraYAire();
         superficie = "tierra";

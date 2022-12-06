@@ -39,8 +39,7 @@ public abstract class Unidad {
 
     public void suficientesRecursosParaConstruirme(Almacenamiento almacenamiento) throws RecursosInsuficientes{
         if(almacenamiento.suficientesRecursos(costoEnGas,costoEnMinerales)){
-            almacenamiento.retirarGasVespeno(costoEnGas);
-            almacenamiento.retirarMinerales(costoEnMinerales);
+            almacenamiento.descontarRecursos(costoEnGas,costoEnMinerales);
         }
         else throw new RecursosInsuficientes();
     }

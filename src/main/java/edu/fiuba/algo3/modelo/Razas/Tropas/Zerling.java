@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class Zerling extends Tropa
+public class Zerling extends Tropa implements TropaTerrestre
 {
     public Zerling(){
         ataque = new AtacarTierra();

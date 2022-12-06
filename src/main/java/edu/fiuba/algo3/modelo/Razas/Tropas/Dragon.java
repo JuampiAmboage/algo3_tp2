@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
-public class Dragon extends Tropa {
+public class Dragon extends Tropa implements TropaTerrestre{
 
     public Dragon() {
         ataque = new AtacarTierraYAire();

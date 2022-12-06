@@ -6,7 +6,8 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
-import edu.fiuba.algo3.modelo.Razas.GeneradorUnidadesZerg;
+import edu.fiuba.algo3.modelo.Excepciones.EdificioHabilitadorNoCreado;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
@@ -41,11 +42,14 @@ public class Criadero extends Edificio {
         return cantidadLarvasEnEspera;
     }
 
-    public void engendrar(String tipoUnidad) {
+    public void engendrar(Tropa tipoUnidad) {
         this.estado.esUsable();
-        Unidad unidadACrear = GeneradorUnidadesZerg.crearTropaZerg(tipoUnidad);
-        ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(unidadACrear);
-        cantidadLarvasEnEspera--;
+        if(tipoUnidad.existeEdificioNecesario()) {
+            ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(unidadACrear);
+            cantidadLarvasEnEspera--;
+        }
+        else
+            throw new EdificioHabilitadorNoCreado();
     }
 
     @Override
