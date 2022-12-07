@@ -1,12 +1,13 @@
 package edu.fiuba.algo3.modelo.Salud;
 
+import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
+
 public abstract class Salud {
-    Regenerable regenerable;
+    protected Regenerable regenerable;
+    protected Comunidad comunidad;
     public abstract boolean estaSinVida();
 
     public void pasarTurno() {
-        if (estaSinVida()) return;
-        // regenerar la vida
         regenerable.regenerar(10);
     }
     public abstract void recibirAtaque(int ataque);

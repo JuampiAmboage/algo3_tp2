@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Edificios.Acceso;
 import edu.fiuba.algo3.modelo.Edificios.Espiral;
 import edu.fiuba.algo3.modelo.Edificios.Guarida;
-import edu.fiuba.algo3.modelo.Edificios.PuertaEstelar;
+import edu.fiuba.algo3.modelo.Edificios.PuertoEstelar;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -19,7 +19,7 @@ public class TestCase17 {
     public void siNoHayAlMenosUnAccesoUnaPuertaEstelarNoPuedeConstruirse(){
         Celda celda = new Celda(0,0);
         CeldaEnergizada energizada = new CeldaEnergizada(celda); //para poder construir una estructura Protoss
-        PuertaEstelar puertaEstelar = new PuertaEstelar();
+        PuertoEstelar puertaEstelar = new PuertoEstelar();
 
         celda.cambiarTipo(energizada);
         assertThrows(RuntimeException.class, () -> puertaEstelar.construirEn(celda));
@@ -30,7 +30,7 @@ public class TestCase17 {
         Celda celda = new Celda(0,0);
         CeldaEnergizada energizada = new CeldaEnergizada(celda);
         Acceso acceso = new Acceso();
-        PuertaEstelar puertaEstelar = new PuertaEstelar();
+        PuertoEstelar puertaEstelar = new PuertoEstelar();
 
         celda.cambiarTipo(energizada);
 

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
 import edu.fiuba.algo3.modelo.Celdas.*;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
@@ -13,6 +14,7 @@ public class Pilon extends Edificio {
     public Pilon(){
         this.tiempoConstruccion = 5;
         vida =  new VidaConEscudo(300, 300);
+        comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
     }
     public void instanciacionInicial(Posicion posicionALocalizar){
         posicion = posicionALocalizar;

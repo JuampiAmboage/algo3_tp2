@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
+import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Razas.Evolucionador;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
@@ -18,6 +20,7 @@ public class ReservaDeReproduccion extends Edificio {
         tiempoConstruccion = 12;
         vida = new Vida(1000);
         evolucionador = new Evolucionador();
+        comunidad = ComunidadZerg.obtenerInstanciaDeClase();
     }
     @Override
     public void pasarTurno(){

@@ -16,11 +16,6 @@ public class ComunidadProtoss extends Comunidad{
             comunidadProtoss = new ComunidadProtoss();
         return comunidadProtoss;
     }
-
-    public void crearUnidad(String unidadACrear){
-        this.agregarUnidad(GeneradorUnidadesProtoss.crearUnidadProtoo(unidadACrear));
-    }
-
     public void agregarTropaDetectoraAZealotsInvisibles(Tropa tropaDetectora){
         for (Unidad unidad : unidades) {
             if (unidad.getClass().equals(Zealot.class))

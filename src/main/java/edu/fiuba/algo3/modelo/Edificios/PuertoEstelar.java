@@ -4,26 +4,30 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
-public class PuertaEstelar extends Edificio {
+public class PuertoEstelar extends Edificio {
+    private Edificio edificioNecesario;
 
-    public PuertaEstelar(){
+    public PuertoEstelar(){
         this.tiempoConstruccion = 10;
+        edificioNecesario = new Acceso();
         vida = new VidaConEscudo(600, 600);
+        comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
     }
 
     public void construirEn(Celda celda) {
-        if (Acceso.existeAlMenosUnaInstancia()){
-            celda.ocupar(this);
-        }
-        else{
-            throw new RuntimeException("Requiere un acceso para ser construido.");
-        }
+        celda.ocupar(this);
+    }
+
+    public boolean existeEdificioNecesario() {
+        return comunidad.existeUnidad(edificioNecesario);
     }
 
     public void pasarTurno(){

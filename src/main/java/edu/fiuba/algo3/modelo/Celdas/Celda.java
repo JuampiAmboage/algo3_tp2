@@ -1,18 +1,16 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Excepciones.PosicionesDiferentes;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 
 
 public class Celda {
-    protected Unidad ocupante;
+    protected Unidad ocupanteTerrestre;
     protected TropaAerea ocupanteAereo;
     protected TipoCelda tipo;
     protected Recurso recurso;
@@ -38,13 +36,12 @@ public class Celda {
         this.posicion = new Posicion(0,0);
     }
 
-    public Celda compararPosiciones(Posicion posicion) throws PosicionesDiferentes {
-        posicion.compararPosiciones(posicion);
-        return this;
+    public boolean esMismaPosicion(Posicion posicion){
+        return this.posicion.esMismaPosicion(posicion);
     }
-    public void ocupar(Unidad ocupante){
-        if(!estaOcupada()) {
-            this.ocupante = ocupante;
+    public void ocuparPorTierra(Unidad ocupante){
+        if(!estaOcupadaPorTierra()) {
+            this.ocupanteTerrestre = ocupante;
         }
         else{
             throw new CeldaOcupada();
@@ -55,17 +52,22 @@ public class Celda {
         this.ocupanteAereo = ocupanteAereoNuevo;
     }
     public Unidad desocupar(){
-        Unidad u = this.ocupante;
-        this.ocupante = null;
+        Unidad u = this.ocupanteTerrestre;
+        this.ocupanteTerrestre = null;
         return u;
     }
-    public boolean estaOcupada() {
-        return this.ocupante != null;
+    public boolean estaOcupadaPorTierra() {
+        return this.ocupanteTerrestre != null;
     }
+    public boolean estaOcupadaPorAire() {
+        return this.ocupanteAereo != null;
+    }
+
     public void pasarTurno(){
-        if (this.estaOcupada()) {
-            this.ocupante.pasarTurno();
-        }
+        if (this.estaOcupadaPorTierra())
+            this.ocupanteTerrestre.pasarTurno();
+        if(this.estaOcupadaPorAire())
+            this.ocupanteAereo.pasarTurno();
         this.tipo.pasarTurno();
     }
     public void cambiarTipo(TipoCelda t) {
@@ -83,10 +85,10 @@ public class Celda {
     public void quiereConstruir(Edificio unEdificio) {
         this.recurso.quiereConstruir(unEdificio);
         this.tipo.quiereConstruir(unEdificio);
-        ocupar(unEdificio);
+        ocuparPorTierra(unEdificio);
     }
 
     public Unidad obtenerOcupante(){
-        return ocupante;
+        return ocupanteTerrestre;
     }
 }

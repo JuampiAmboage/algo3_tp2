@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Salud;
 
+
 public class VidaConEscudo extends Salud {
 
     private final int vidaMaxima;
@@ -16,13 +17,10 @@ public class VidaConEscudo extends Salud {
     }
 
     public void pasarTurno() {
-        if (estaSinVida()) return;
-        // regenerar la vida
         regenerable.regenerar(10);
     }
 
     public void recibirAtaque(int ataque) {
-        if (this.estaSinVida()) return;
         int ataqueRestante = this.regenerable.recibirAtaque(ataque);
         if (ataqueRestante > 0) {
             this.vidaActual -= ataqueRestante;

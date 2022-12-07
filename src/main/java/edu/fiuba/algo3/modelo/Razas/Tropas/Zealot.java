@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
+import edu.fiuba.algo3.modelo.Edificios.Acceso;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class Zealot extends Tropa implements TropaTerrestre {
@@ -9,7 +10,6 @@ public class Zealot extends Tropa implements TropaTerrestre {
     int bajasGeneradas;
     public Zealot(){
         ataque = new AtacarTierra();
-        superficie = "tierra";
         costoEnMinerales = 100;
         costoEnGas = 0;
         tiempoConstruccion = 4;
@@ -18,7 +18,9 @@ public class Zealot extends Tropa implements TropaTerrestre {
         suministro = 2;
         vida = new VidaConEscudo(100,60);
         bajasGeneradas = 0;
-        ComunidadProtoss.obtenerInstanciaDeClase().aniadirSuministro(suministro);
+        edificioNecesario = new Acceso();
+        comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
+        comunidad.aniadirSuministro(suministro);
     }
 
     @Override
@@ -31,6 +33,12 @@ public class Zealot extends Tropa implements TropaTerrestre {
     public void agregarTropaDetectora(Tropa tropaDetectoraCreada){
         if(esInvisible())
             invisible.agregarTropaDetectora(tropaDetectoraCreada);
+    }
+
+    public boolean esVisiblePara(Tropa tropa){
+        if (this.esInvisible() && !this.invisible.soyVisiblePara(tropa))
+            return false;
+        return true;
     }
 
     public boolean esInvisible(){return invisible != null;}

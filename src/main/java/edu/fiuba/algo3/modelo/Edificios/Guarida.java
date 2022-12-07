@@ -4,7 +4,9 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Razas.Correlatividad;
 import edu.fiuba.algo3.modelo.Razas.Evolucionador;
 import edu.fiuba.algo3.modelo.Razas.Larva;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
@@ -13,20 +15,21 @@ import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Hidralisco;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class Guarida extends Edificio {
-    static int conteoInstancias = 0;
-    public static boolean existeAlMenosUnaInstancia(){
-        return conteoInstancias > 0;
-    }
-
-    private Evolucionador evolucionador;
+public class Guarida extends Edificio implements Correlatividad {
+    private Edificio edificioNecesario;
     public Guarida(){
-        costoEnGas = 100;
-        costoEnMinerales = 200;
+        this.costoEnGas = 100;
+        this.costoEnMinerales = 200;
         this.tiempoConstruccion = 12;
-        conteoInstancias++;
-        vida = new Vida(1250);
-        evolucionador = new Evolucionador();
+        this.vida = new Vida(1250);
+        this.edificioNecesario = new ReservaDeReproduccion();
+        this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
+
+    }
+    public void construirEn(Celda celda) {celda.ocupar(this);}
+
+    public boolean existeEdificioNecesario() {
+        return comunidad.existeUnidad(edificioNecesario);
     }
     public void pasarTurno(){
         this.estado.pasarTurno();

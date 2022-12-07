@@ -29,13 +29,12 @@ public class Zangano extends Tropa{
 
     public void evolucionarAEdificio(Edificio edificioNuevo){
         ComunidadZerg comunidadZerg = ComunidadZerg.obtenerInstanciaDeClase();
+        if(edificioNuevo instanceof Correlatividad){
+            ((Correlatividad) edificioNuevo).existeEdificioNecesario();
+        }
         comunidadZerg.agregarUnidad(edificioNuevo);
         comunidadZerg.quitarUnidad(this);
     }
-    public void mutar(Tropa tropaPostMutacion){
-        throw new EvolucionIncompatibleConTropaEvolucionableActual();
-    }
-
     public void revisarEstadoLaboral(){
         if(extractorDondeTrabaja != null) {
             throw new RuntimeException();

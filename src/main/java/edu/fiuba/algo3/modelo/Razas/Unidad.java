@@ -1,11 +1,13 @@
 package edu.fiuba.algo3.modelo.Razas;
 
 import edu.fiuba.algo3.modelo.Comunidad.Almacenamiento;
+import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
 import edu.fiuba.algo3.modelo.Excepciones.RecursosInsuficientes;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Salud.Salud;
 
 public abstract class Unidad {
+    protected Comunidad comunidad;
     protected Salud vida;
     protected Posicion posicion;
     protected EstadoConstruccion estado;
@@ -21,6 +23,8 @@ public abstract class Unidad {
     }
     public void daniar(int puntosAtaque){
         vida.recibirAtaque(puntosAtaque);
+        if(vida.estaSinVida())
+            comunidad.quitarUnidad(this);
     }
 
     public void localizarEnMapa(int coordenadaX, int coordenadaY){
@@ -33,8 +37,8 @@ public abstract class Unidad {
     public int obtenerCostoGas(){return costoEnGas;}
 
     public int obtenerTiempoConstruccion(){return tiempoConstruccion;}
-    public Posicion obtenerPosicion(){
-        return posicion;
+    public int obtenerDistanciaA(int coordenadaX, int coordenadaY){
+        posicion.obtenerDistanciaA(coordenadaX,coordenadaY);
     }
 
     public void suficientesRecursosParaConstruirme(Almacenamiento almacenamiento) throws RecursosInsuficientes{
@@ -43,5 +47,4 @@ public abstract class Unidad {
         }
         else throw new RecursosInsuficientes();
     }
-
 }

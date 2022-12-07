@@ -1,12 +1,13 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
+import edu.fiuba.algo3.modelo.Razas.Correlatividad;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 
-public abstract class Tropa extends Unidad {
-    protected String superficie;
+public abstract class Tropa extends Unidad implements Correlatividad {
     protected int tiempoConstruccion;
     protected int danioTerrestre;
     protected int danioAereo;
@@ -22,13 +23,15 @@ public abstract class Tropa extends Unidad {
         ataque.atacarTierra(rangoAtaque,unidadAtacable,danioTerrestre);
     }
     public void atacarAire(TropaAerea unidadAtacable){ ataque.atacarAire(rangoAtaque,unidadAtacable,danioAereo);}
-    public boolean existeEdificioNecesario(){
+    public abstract void pasarTurno();
+
+    public boolean existeEdificioNecesario() {
         return ComunidadZerg.obtenerInstanciaDeClase().existeUnidad(edificioNecesario);
     }
-    public abstract void pasarTurno();
-    public String obtenerSuperficie() {
-        return superficie;
-    }
+    public abstract void moverArriba();
 
+    public abstract void moverAbajo();
+    public abstract void moverDerecha();
 
+    public abstract void moverIzquierda();
 }

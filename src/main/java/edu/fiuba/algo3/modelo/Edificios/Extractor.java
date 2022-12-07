@@ -24,6 +24,7 @@ public class Extractor extends Edificio {
     public Extractor(){
         this.tiempoConstruccion = 6;
         vida = new Vida(750);
+        comunidad = ComunidadZerg.obtenerInstanciaDeClase();
     }
     public Extractor(int tiempoDeConstruccion) {
         this.tiempoConstruccion = tiempoDeConstruccion;
@@ -36,7 +37,7 @@ public class Extractor extends Edificio {
     @Override
     public void realizarAccionesTurno() {
         vida.pasarTurno();
-        ComunidadZerg.obtenerInstanciaDeClase().aniadirGasVespeno(extraerGas());
+        comunidad.aniadirGasVespeno(extraerGas());
     }
 
     public void agregarTrabajador(Zangano trabajador) {

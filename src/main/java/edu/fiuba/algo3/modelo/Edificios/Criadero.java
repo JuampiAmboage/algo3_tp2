@@ -20,6 +20,7 @@ public class Criadero extends Edificio {
         super(4);
         this.vida = new Vida(500);
         this.cantidadLarvasEnEspera = 3;
+        this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
     }
     public Criadero(int tiempoDeConstruccion) {
         super(tiempoDeConstruccion);
@@ -45,7 +46,7 @@ public class Criadero extends Edificio {
     public void engendrar(Tropa tipoUnidad) {
         this.estado.esUsable();
         if(tipoUnidad.existeEdificioNecesario()) {
-            ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(unidadACrear);
+            comunidad.agregarUnidad(tipoUnidad);
             cantidadLarvasEnEspera--;
         }
         else

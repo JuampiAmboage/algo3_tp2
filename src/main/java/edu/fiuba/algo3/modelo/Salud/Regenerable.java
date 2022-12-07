@@ -18,6 +18,10 @@ public class Regenerable {
         this.vidaActual += cantidad;
     }
 
+    public boolean estaSinVida() {
+        return this.vidaActual <= 0;
+    }
+
     public int recibirAtaque(int ataque) {
         int ataqueRestante = ataque - this.vidaActual;
         this.vidaActual -= ataque;

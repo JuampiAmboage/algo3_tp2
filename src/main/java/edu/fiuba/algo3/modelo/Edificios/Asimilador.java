@@ -15,6 +15,7 @@ public class Asimilador extends Edificio {
     public Asimilador() {
         this.tiempoConstruccion = 6;
         vida = new VidaConEscudo(450, 450);
+        comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
     }
     public void pasarTurno(){
         this.estado.pasarTurno();
@@ -22,7 +23,7 @@ public class Asimilador extends Edificio {
 
     @Override
     public void realizarAccionesTurno() {
-        ComunidadProtoss.obtenerInstanciaDeClase().aniadirGasVespeno(extraerGas());
+        comunidad.aniadirGasVespeno(extraerGas());
         vida.pasarTurno();
     }
 

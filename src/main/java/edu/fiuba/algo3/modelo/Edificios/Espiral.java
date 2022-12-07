@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Razas.Evolucionador;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
@@ -12,19 +13,19 @@ import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
 public class Espiral extends Edificio {
-    private Evolucionador evolucionador;
+    private Edificio edificioNecesario;
     public Espiral(){
         this.tiempoConstruccion = 10;
-        vida = new Vida(1300);
+        this.edificioNecesario = new Guarida();
+        this.vida = new Vida(1300);
+        this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
     }
-    public void construirEn(Celda celda) {
-        if (Guarida.existeAlMenosUnaInstancia()){
-            celda.ocupar(this);
-        }
-        else{
-            throw new RuntimeException("Requiere un acceso para ser construido.");
-        }
+    public void construirEn(Celda celda) { celda.ocupar(this);}
+
+    public boolean existeEdificioNecesario() {
+        return comunidad.existeUnidad(edificioNecesario);
     }
+
     public void pasarTurno(){
         this.estado.pasarTurno();
     }

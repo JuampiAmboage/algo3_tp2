@@ -12,11 +12,9 @@ public class Comunidad {
     protected  int cantidadPoblacionHabilitada;
     protected  int cantidadPoblacionActual;
 
-    protected ArrayList<Edificio> edificiosQuePermitenCorrelativas;
     public Comunidad(){
         almacenamiento = new Almacenamiento();
         unidades = new ArrayList<Unidad>();
-        edificiosQuePermitenCorrelativas = new ArrayList<Edificio>();
         cantidadPoblacionHabilitada = 200;
         cantidadPoblacionActual = 0;
     }
@@ -31,10 +29,6 @@ public class Comunidad {
         unidades.remove(unidadSaliente);
         cantidadPoblacionActual--;
     }
-
-    public void agregarEdificioCorrelativo(Edificio nuevoEdificio){
-        edificiosQuePermitenCorrelativas.add(nuevoEdificio);
-    }
     public void aniadirGasVespeno(int cantidadGasEntrante){
         almacenamiento.almacenarGasVespeno(cantidadGasEntrante);
     }
@@ -46,7 +40,7 @@ public class Comunidad {
     }
     public void pasarTurno(){
         if(!unidades.isEmpty())
-            unidades.forEach(unidadEnConstruccion -> unidadEnConstruccion.pasarTurno());
+            unidades.forEach(unidad -> unidad.pasarTurno());
     }
     public boolean existeUnidad(Unidad unidadBuscada) {
         for (Unidad unidad : unidades) {

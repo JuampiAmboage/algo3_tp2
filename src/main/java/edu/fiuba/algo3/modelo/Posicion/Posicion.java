@@ -4,9 +4,11 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Excepciones.CoordenadaFueraDeRango;
 import edu.fiuba.algo3.modelo.Excepciones.PosicionesDiferentes;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 import javafx.geometry.Pos;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Posicion {
     private int X;
@@ -17,18 +19,14 @@ public class Posicion {
         Y = posicionY;
     }
 
-    public void compararPosiciones(Posicion posicionDeBusqueda) throws PosicionesDiferentes{
-        if (X != posicionDeBusqueda.obtenerPosicionX() || Y != posicionDeBusqueda.obtenerPosicionY())
-            throw new PosicionesDiferentes();
+    public boolean esMismaPosicion(Posicion posicionDeBusqueda){
+        return posicionDeBusqueda.obtenerDistanciaA(X, Y) == 0;
+    }
+    public int solicitarDistanciaA(Unidad unidadParaSolicitar){
+        return unidadParaSolicitar.obtenerDistanciaA(X,Y);
     }
     public int obtenerDistanciaA(int posicionXDestino, int posicionYDestino){
         return Math.abs((posicionXDestino+posicionYDestino)-(X+Y));
-    }
-    public int obtenerPosicionX(){
-        return X;
-    }
-    public int obtenerPosicionY(){
-        return Y;
     }
     public boolean estaEnLimites(int maxLongitudX, int maxLongitudY) {
         return this.X > 0 && this.X < maxLongitudX && this.Y > 0 && this.Y < maxLongitudY;
@@ -45,4 +43,21 @@ public class Posicion {
         }
         return posiciones;
     }
+    public Celda obtenerUnaCeldaLimitrofe(int desplazamientoX, int desplazamientoY){
+        return Mapa.getInstance().obtenerCelda(new Posicion(this.X+desplazamientoX,this.Y+desplazamientoY));
+    }
+
+    public void movimientoSuperior(){
+        this.X -= 1;
+    }
+    public void movimientoInferior(){
+        this.X += 1;
+    }
+    public void movimientoDerecha(){
+        this.Y += 1;
+    }
+    public void movimientoIzquierda(){
+        this.Y -= 1;
+    }
+
 }

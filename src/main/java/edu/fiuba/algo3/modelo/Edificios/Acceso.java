@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
@@ -12,15 +13,11 @@ import edu.fiuba.algo3.modelo.Salud.Salud;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class Acceso extends Edificio implements Construible {
-    static int conteoInstancias = 0;
-    public static boolean existeAlMenosUnaInstancia(){
-        return conteoInstancias > 0;
-    }
     private Salud vida;
     public Acceso(){
         this.tiempoConstruccion = 8;
-        conteoInstancias++;
         vida = new VidaConEscudo(500, 500);
+        comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
     }
 
     public void pasarTurno(){
@@ -31,7 +28,6 @@ public class Acceso extends Edificio implements Construible {
     public void realizarAccionesTurno() {
         vida.pasarTurno();
     }
-
 
     @Override
     public void construirSobreRecurso(NoRecurso tipoRecurso) {throw  new ConstruccionProhibida();}

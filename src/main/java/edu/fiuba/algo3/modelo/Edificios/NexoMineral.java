@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
@@ -15,6 +16,7 @@ public class NexoMineral extends Edificio implements Construible{
     public NexoMineral(){
         tiempoConstruccion = 4;
         vida = new VidaConEscudo(250,250);
+        comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
     }
 
     public void extraerMineral(){

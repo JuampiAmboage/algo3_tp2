@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Pilon;
+import edu.fiuba.algo3.modelo.Excepciones.CoordenadaFueraDeRango;
 import edu.fiuba.algo3.modelo.Excepciones.PosicionesDiferentes;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 
@@ -38,13 +39,10 @@ public class Mapa {
         Celda celdaBuscada;
         for (ArrayList<Celda> fila : mapaJuego)
             for (Celda celda : fila) {
-                try {
-                    celdaBuscada = celda.compararPosiciones(posicionDeBusqueda);
-                    return celdaBuscada;
-                } catch (PosicionesDiferentes posicionesDiferentes) {
-                }
+                if (celda.esMismaPosicion(posicionDeBusqueda))
+                    return celda;
             }
-        throw new RuntimeException();
+        throw new CoordenadaFueraDeRango();
     }
 
     public void generarBases(){

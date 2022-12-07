@@ -9,9 +9,9 @@ public class AmoSupremo extends Tropa implements TropaAerea {
     public AmoSupremo(){
         ataque = new AtacarAire();
         vida = new Vida(200);
-        ComunidadZerg.obtenerInstanciaDeClase().aniadirSuministro(suministro);
+        comunidad = ComunidadZerg.obtenerInstanciaDeClase();
+        comunidad.aniadirSuministro(suministro);
         ComunidadProtoss.obtenerInstanciaDeClase().agregarTropaDetectoraAZealotsInvisibles(this);
-        superficie = "tierra";
         costoEnMinerales = 50;
         costoEnGas = 0;
         tiempoConstruccion = 5;
