@@ -9,14 +9,14 @@ public class Jugador {
     private String nombre;
     Comunidad comunidad;
 
-    public Jugador(String nombre, Unidad raza) {
+    public Jugador(String nombre, Edificio edificio) {
         this.nombre = nombre;
-        crearComunidad(raza);
+        crearComunidad(edificio);
     }
 
     private void crearComunidad(Unidad raza) {
         this.comunidad = new Comunidad();
-        // TODO: armar constructor de comunidad para que se le asigne la raza
+        // TODO: armar constructor de comunidad y mandar a la mapa a agregar un edificio en pos aleatoria
     }
 
     public void construir(Edificio edificioAConstruir, Celda celda){

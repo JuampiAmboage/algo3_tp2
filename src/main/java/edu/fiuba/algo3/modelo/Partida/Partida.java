@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.Partida;
 
-import edu.fiuba.algo3.modelo.Razas.Unidad;
-
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
 public class Partida {
     private Mapa mapa;
     private Turno turno;
@@ -17,9 +16,9 @@ public class Partida {
         this.turno = new Turno();
     }
 
-    public void agregarJugadores(String[] nombreJugador, Unidad[] unidad){
-        primerJugador = new Jugador(nombreJugador[0],unidad[0]);
-        segundoJugador = new Jugador(nombreJugador[1],unidad[1]);
+    public void agregarJugadores(String[] nombreJugador, Edificio[] edificios){
+        primerJugador = new Jugador(nombreJugador[0], edificios[0]);
+        segundoJugador = new Jugador(nombreJugador[1], edificios[1]);
     }
 
 

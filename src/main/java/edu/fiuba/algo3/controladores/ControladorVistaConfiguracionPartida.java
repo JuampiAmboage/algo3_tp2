@@ -32,7 +32,7 @@ public class ControladorVistaConfiguracionPartida {
     private App app;
 
     private Partida partida;
-    private Unidad[] unidades = new Unidad[2];
+    private Edificio[] edificios = new Edificio[2];
     private String[] nombreDeJugadores = new String[2];
 
     public void setApp(App app) {
@@ -67,7 +67,7 @@ public class ControladorVistaConfiguracionPartida {
 
     public void gestionarPasajeDeDatosAlBackend() {
         this.partida = new Partida();
-        this.partida.agregarJugadores(this.nombreDeJugadores, this.unidades);
+        this.partida.agregarJugadores(this.nombreDeJugadores, this.edificios);
     }
 
     public void gestionarSeleccionDeRaza() {
