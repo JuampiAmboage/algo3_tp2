@@ -2,8 +2,10 @@ package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.App;
 
+import edu.fiuba.algo3.modelo.Edificios.Criadero;
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Edificios.Pilon;
 import edu.fiuba.algo3.modelo.Partida.Partida;
-import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -72,34 +74,34 @@ public class ControladorVistaConfiguracionPartida {
 
     public void gestionarSeleccionDeRaza() {
         //Jugador uno
-        if ( !this.zergJugadorUno.isSelected() && !this.protossJugadorUno.isSelected() ) { //No eligio ninguno
+        if ( !this.zergJugadorUno.isSelected() && !this.protossJugadorUno.isSelected() ) { // No eligio ninguno se elije por defecto
             this.protossJugadorUno.setVisible(true);
             this.zergJugadorUno.setVisible(true);
-            this.unidades[0] = new ; //Se asigan una comunidad Zerg por defecto
+            this.edificios[0] = new Criadero(); // Por defecto Zerg
 
         } else if (this.zergJugadorUno.isSelected()){ //Elije Zerg
             this.protossJugadorUno.setVisible(false);
-            this.unidades[0] = new ; // Se asigna una comunidad Zerg
+            this.edificios[0] = new Criadero();
 
         } else { //Elije Protoss
             this.zergJugadorUno.setVisible(false);
-            this.unidades[0] = new ;
+            this.edificios[0] = new Pilon();
 
         }
 
         //Jugador dos
-        if ( !this.zergJugadorDos.isSelected() && !this.protossJugadorDos.isSelected() ) { //No elije nada
+        if ( !this.zergJugadorDos.isSelected() && !this.protossJugadorDos.isSelected() ) { // No eligio ninguno se elije por defecto
             this.protossJugadorDos.setVisible(true);
             this.zergJugadorDos.setVisible(true);
-            this.unidades[1] = new ; //Se asigan una comunidad Protoss por defecto
+            this.edificios[1] = new Pilon(); // Por defecto Protoss
 
         } else if (this.zergJugadorDos.isSelected()){ //Elije Zerg
             this.protossJugadorDos.setVisible(false);
-            this.unidades[1] = new ;
+            this.edificios[1] = new Criadero();
 
         } else {
             this.zergJugadorDos.setVisible(false);
-            this.unidades[1] = new ;
+            this.edificios[1] = new Pilon();
 
         }
     }
