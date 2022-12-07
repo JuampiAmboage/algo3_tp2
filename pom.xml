@@ -16,11 +16,14 @@
         <main-class>edu.fiuba.algo3.Main</main-class>
     </properties>
     <dependencies>
+
         <dependency>
             <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
+            <artifactId>javafx-media</artifactId>
             <version>${javafx-version}</version>
+            <type>pom</type>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>

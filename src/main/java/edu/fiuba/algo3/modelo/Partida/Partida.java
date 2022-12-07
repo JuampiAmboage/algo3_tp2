@@ -14,10 +14,10 @@ public class Partida {
         this.turno = new Turno();
     }
 
-    public void agregarJugador(String nombreJugador, String color, Unidad[] razas){
-
-        primerJugador = new Jugador(nombreJugador,razas);
-        segundoJugador = new Jugador(nombreJugador,razas);
+    public void agregarJugador(String nombreJugador, String color, Unidad[] unidad){
+        // TODO: Pasar razas a unidad para mandarle las unidades a jugador
+        primerJugador = new Jugador(nombreJugador,unidad[0]);
+        segundoJugador = new Jugador(nombreJugador,unidad[1]);
     }
 
 

@@ -9,9 +9,10 @@ public class Jugador {
     private String nombre, color;
     Comunidad comunidad;
 
-    public Jugador(String nombre, Unidad[] raza) {
+    public Jugador(String nombre, Unidad raza) {
         this.nombre = nombre;
         this.comunidad = new Comunidad();
+        // TODO: Agregar la/s unidad/es a la comunidad
     }
 
     public void construir(Edificio edificioAConstruir, Celda celda){
