@@ -93,6 +93,7 @@ public class App extends Application {
         } catch (IOException e) { e.printStackTrace(); }
     }
 
+    public void mostrarVistaJuego() {}
 
     public void pantallaCompleta() {
         this.escenarioPrimario.setFullScreen(true);

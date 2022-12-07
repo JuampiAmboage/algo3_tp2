@@ -8,16 +8,18 @@ public class Partida {
     private Jugador primerJugador;
     private Jugador segundoJugador;
 
-    public Partida(int dimensionFilasMapa,int dimensionColumnasMapa) {
+    private int dimensionFilasMapa;
+    private int dimensionColumnasMapa;
+
+    public Partida() {
         this.mapa = Mapa.getInstance();
-        this.mapa.instanciarMapa(dimensionFilasMapa,dimensionFilasMapa);
+        this.mapa.instanciarMapa(this.dimensionFilasMapa, this.dimensionFilasMapa);
         this.turno = new Turno();
     }
 
-    public void agregarJugador(String nombreJugador, String color, Unidad[] unidad){
-        // TODO: Pasar razas a unidad para mandarle las unidades a jugador
-        primerJugador = new Jugador(nombreJugador,unidad[0]);
-        segundoJugador = new Jugador(nombreJugador,unidad[1]);
+    public void agregarJugadores(String[] nombreJugador, Unidad[] unidad){
+        primerJugador = new Jugador(nombreJugador[0],unidad[0]);
+        segundoJugador = new Jugador(nombreJugador[1],unidad[1]);
     }
 
 

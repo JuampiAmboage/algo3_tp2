@@ -2,6 +2,9 @@ package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.App;
 
+import edu.fiuba.algo3.modelo.Partida.Partida;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -26,10 +29,11 @@ public class ControladorVistaConfiguracionPartida {
     private Button botonIniciarPartida;
 
     private Alert warning = new Alert(Alert.AlertType.WARNING);
-    private Alert error = new Alert(Alert.AlertType.ERROR);
     private App app;
 
-    private String[] raza = new String[2];
+    private Partida partida;
+    private Unidad[] unidades = new Unidad[2];
+    private String[] nombreDeJugadores = new String[2];
 
     public void setApp(App app) {
         this.app = app;
@@ -39,45 +43,10 @@ public class ControladorVistaConfiguracionPartida {
         this.botonIniciarPartida.setVisible(false);
 
         if (!validarInformacionObligatoria()) {
-            // TODO: incializar la ventana de juego.
             gestionarPasajeDeDatosAlBackend();
-        }
-
-        this.botonIniciarPartida.setVisible(true);
-
-    }
-
-    public void gestionarSeleccionDeRaza() {
-        //Jugador uno
-        if ( !this.zergJugadorUno.isSelected() && !this.protossJugadorUno.isSelected() ) { //No eligio ninguno
-            this.protossJugadorUno.setVisible(true);
-            this.zergJugadorUno.setVisible(true);
-            this.raza[0] = "Zerg"; //Se asigan una comunidad Zerg por defecto
-
-        } else if (this.zergJugadorUno.isSelected()){ //Elije Zerg
-            this.protossJugadorUno.setVisible(false);
-            this.raza[0] = "Zerg"; //Por ahora String[] despues se va a cambiar a Raza[] (una instancia de un raza)
-
-        } else { //Elije Protoss
-            this.zergJugadorUno.setVisible(false);
-            this.raza[1] = "Protoss";
-
-        }
-
-        //Jugador dos
-        if ( !this.zergJugadorDos.isSelected() && !this.protossJugadorDos.isSelected() ) { //No elije nada
-            this.protossJugadorDos.setVisible(true);
-            this.zergJugadorDos.setVisible(true);
-            this.raza[1] = "Protoss"; //Se asigan una comunidad Protoss por defecto
-
-        } else if (this.zergJugadorDos.isSelected()){ //Elije Zerg
-            this.protossJugadorDos.setVisible(false);
-            this.raza[1] = "Zerg";
-
+            mostrarVistaJuego();
         } else {
-            this.zergJugadorDos.setVisible(false);
-            this.raza[1] = "Protoss";
-
+            this.botonIniciarPartida.setVisible(true);
         }
     }
 
@@ -97,7 +66,46 @@ public class ControladorVistaConfiguracionPartida {
     }
 
     public void gestionarPasajeDeDatosAlBackend() {
-        // TODO: Gestionar el pasaje de datos al "backend".
+        this.partida = new Partida();
+        this.partida.agregarJugadores(this.nombreDeJugadores, this.unidades);
+    }
+
+    public void gestionarSeleccionDeRaza() {
+        //Jugador uno
+        if ( !this.zergJugadorUno.isSelected() && !this.protossJugadorUno.isSelected() ) { //No eligio ninguno
+            this.protossJugadorUno.setVisible(true);
+            this.zergJugadorUno.setVisible(true);
+            this.unidades[0] = new ; //Se asigan una comunidad Zerg por defecto
+
+        } else if (this.zergJugadorUno.isSelected()){ //Elije Zerg
+            this.protossJugadorUno.setVisible(false);
+            this.unidades[0] = new ; // Se asigna una comunidad Zerg
+
+        } else { //Elije Protoss
+            this.zergJugadorUno.setVisible(false);
+            this.unidades[0] = new ;
+
+        }
+
+        //Jugador dos
+        if ( !this.zergJugadorDos.isSelected() && !this.protossJugadorDos.isSelected() ) { //No elije nada
+            this.protossJugadorDos.setVisible(true);
+            this.zergJugadorDos.setVisible(true);
+            this.unidades[1] = new ; //Se asigan una comunidad Protoss por defecto
+
+        } else if (this.zergJugadorDos.isSelected()){ //Elije Zerg
+            this.protossJugadorDos.setVisible(false);
+            this.unidades[1] = new ;
+
+        } else {
+            this.zergJugadorDos.setVisible(false);
+            this.unidades[1] = new ;
+
+        }
+    }
+
+    public void mostrarVistaJuego() {
+        app.mostrarVistaJuego();
     }
 
 }
