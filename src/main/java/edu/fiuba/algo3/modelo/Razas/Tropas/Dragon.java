@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
@@ -14,8 +16,13 @@ public class Dragon extends Tropa {
         tiempoConstruccion = 6;
         danioTerrestre = 20;
         danioAereo = 20;
+        suministro = 3;
         vida = new VidaConEscudo(100,80);
+        ComunidadProtoss.obtenerInstanciaDeClase().aniadirSuministro(suministro);
+
     }
+    public void realizarAccionesTurno(){}
+
 
     public void instanciacionInicial(Posicion posicionAColocar){
         posicion = posicionAColocar;

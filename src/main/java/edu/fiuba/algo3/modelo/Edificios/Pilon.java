@@ -33,7 +33,7 @@ public class Pilon extends Edificio {
     }
 
     @Override
-    public void accionarTurno() {
+    public void realizarAccionesTurno() {
         vida.pasarTurno();
     }
 

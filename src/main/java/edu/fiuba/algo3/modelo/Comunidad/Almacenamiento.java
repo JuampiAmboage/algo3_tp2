@@ -13,11 +13,8 @@ public class Almacenamiento {
         this.gasVespeno = 0;
         this.mineral = 200;
     }
-    public void administrarRecursos(int costoGasUnidadAGenerar, int costoMineralUnidadAGenerar) {
-        if (costoGasUnidadAGenerar > gasVespeno ||
-                costoMineralUnidadAGenerar > mineral) {
-            throw new RuntimeException();
-        }
+    public boolean suficientesRecursos(int costoGasUnidadAGenerar, int costoMineralUnidadAGenerar) {
+        return (costoGasUnidadAGenerar <= gasVespeno || costoMineralUnidadAGenerar <= mineral);
     }
     public void almacenarGasVespeno(int cantidadEntrante) {
         this.gasVespeno += cantidadEntrante;

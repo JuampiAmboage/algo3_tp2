@@ -1,65 +1,51 @@
 package edu.fiuba.algo3.modelo.Comunidad;
 
-import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Edificios.UnidadEnConstruccion;
-import edu.fiuba.algo3.modelo.Razas.Raza;
-
+import edu.fiuba.algo3.modelo.Excepciones.PoblacionMaximaAlcanzada;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 import java.util.ArrayList;
 
 public class Comunidad {
-    protected ArrayList<UnidadEnConstruccion> unidadesEnConstruccion;
-    protected ArrayList<Raza> unidades;
-    Almacenamiento almacenamiento;
+    protected ArrayList<Unidad> unidades;
+    protected Almacenamiento almacenamiento;
+
+    protected  int cantidadPoblacionHabilitada;
+    protected  int cantidadPoblacionActual;
 
     public Comunidad(){
         almacenamiento = new Almacenamiento();
-        unidades = new ArrayList<Raza>();
-        unidadesEnConstruccion = new ArrayList<UnidadEnConstruccion>();
+        unidades = new ArrayList<Unidad>();
+        cantidadPoblacionHabilitada = 200;
+        cantidadPoblacionActual = 0;
     }
-
-    public void construirEdificio(Celda celda, Edificio nuevoEdificio){
-        almacenamiento.administrarRecursos(nuevoEdificio.obtenerCostoGas(),nuevoEdificio.obtenerCostoMinerales());
-        nuevoEdificio.construirSobre(celda);
-        almacenamiento.retirarGasVespeno(nuevoEdificio.obtenerCostoGas());
-        almacenamiento.retirarMinerales(nuevoEdificio.obtenerCostoMinerales());
-        unidadesEnConstruccion.add(new UnidadEnConstruccion(nuevoEdificio,this));
+    public void agregarUnidad(Unidad unidadNueva){
+        if(cantidadPoblacionActual++ <= cantidadPoblacionHabilitada) {
+            unidadNueva.suficientesRecursosParaConstruirme(almacenamiento);
+            unidades.add(unidadNueva);
+        }
+        else throw new PoblacionMaximaAlcanzada();
     }
-
-    public void finalizarUnidadEnConstruccion(Raza unidadTerminada, UnidadEnConstruccion exConstruccion){
-        unidades.add(unidadTerminada);
-        unidadesEnConstruccion.remove(exConstruccion);
-    }
-
-    public void agregarUnidad(Raza unidadNueva){
-        almacenamiento.administrarRecursos(unidadNueva.obtenerCostoGas(),unidadNueva.obtenerCostoMinerales());
-        unidadesEnConstruccion.add(new UnidadEnConstruccion(unidadNueva,this));
-    }
-    public void quitarUnidad(Raza unidadSaliente){
+    public void quitarUnidad(Unidad unidadSaliente){
         unidades.remove(unidadSaliente);
+        cantidadPoblacionActual--;
     }
     public void aniadirGasVespeno(int cantidadGasEntrante){
         almacenamiento.almacenarGasVespeno(cantidadGasEntrante);
     }
-
     public void aniadirMineral(int cantidadMineralEntrante){
         almacenamiento.almacenarMinerales(cantidadMineralEntrante);
     }
-
+    public void aniadirSuministro(int cantidadSuministroExpansible){
+        cantidadPoblacionHabilitada += cantidadPoblacionHabilitada;
+    }
     public void pasarTurno(){
         if(!unidades.isEmpty())
-            unidadesEnConstruccion.forEach(unidadEnConstruccion -> unidadEnConstruccion.pasarTurno());
-        /*for (Raza unidad: unidades)
-            unidad.pasarTurno();*/
+            unidades.forEach(unidadEnConstruccion -> unidadEnConstruccion.pasarTurno());
     }
-    public Raza buscarUnidad(Raza unidadBuscada){
-        int conteoUnidades = 0;
-        if(unidades.contains(unidadBuscada)){
-            while(unidades.get(conteoUnidades) != unidadBuscada)
-                conteoUnidades++;
-            return unidades.get(conteoUnidades);
+    public boolean existeUnidad(Unidad unidadBuscada) {
+        for (Unidad unidad : unidades) {
+            if (unidad.getClass().equals(unidadBuscada.getClass()))
+                return true;
         }
-        else
-            throw new RuntimeException();
+        return false;
     }
 }

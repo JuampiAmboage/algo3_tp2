@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class Zealot extends Tropa {
@@ -12,8 +14,10 @@ public class Zealot extends Tropa {
         tiempoConstruccion = 4;
         danioTerrestre = 8;
         danioAereo = 0;
+        suministro = 2;
         vida = new VidaConEscudo(100,60);
         bajasGeneradas = 0;
+        ComunidadProtoss.obtenerInstanciaDeClase().aniadirSuministro(suministro);
     }
 
     @Override
@@ -21,6 +25,7 @@ public class Zealot extends Tropa {
         vida.pasarTurno();
     }
 
+    public void realizarAccionesTurno(){}
     public int obtenerEscudo(){return vida.getEscudoActual();}
 
 }

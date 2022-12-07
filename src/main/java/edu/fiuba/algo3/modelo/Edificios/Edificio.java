@@ -1,19 +1,20 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
-import edu.fiuba.algo3.modelo.Razas.Raza;
+import edu.fiuba.algo3.modelo.Razas.EstadoConstruccion;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
+import edu.fiuba.algo3.modelo.Razas.UnidadConstruida;
+import edu.fiuba.algo3.modelo.Razas.UnidadEnConstruccion;
 
-public abstract class Edificio extends Raza implements Construible{
+public abstract class Edificio extends Unidad implements Construible{
     protected EstadoConstruccion estado;
     public Edificio() {
-        this.estado = new EdificioConstruido(this);
+        this.estado = new UnidadConstruida(this);
     }
     public Edificio(int tiempoDeConstruccion) {
         if (tiempoDeConstruccion == 0) {
-            this.estado = new EdificioConstruido(this);
+            this.estado = new UnidadConstruida(this);
         } else {
-            this.estado = new EdificioEnConstruccion(this, tiempoDeConstruccion);
+            this.estado = new UnidadEnConstruccion(this);
         }
     }
-    public abstract void pasarTurno();
-    public abstract void accionarTurno();
 }

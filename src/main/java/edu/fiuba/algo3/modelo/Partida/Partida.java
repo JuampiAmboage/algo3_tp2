@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Partida;
 
-import edu.fiuba.algo3.modelo.Razas.Raza;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 public class Partida {
     private Mapa mapa;
@@ -14,9 +14,10 @@ public class Partida {
         this.turno = new Turno();
     }
 
-    public void agregarJugador(String nombreJugador, String color, Raza[] razas){
-        primerJugador = new Jugador(nombreJugador,razas);
-        segundoJugador = new Jugador(nombreJugador,razas);
+    public void agregarJugador(String nombreJugador, String color, Unidad[] unidad){
+        // TODO: Pasar razas a unidad para mandarle las unidades a jugador
+        primerJugador = new Jugador(nombreJugador,unidad[0]);
+        segundoJugador = new Jugador(nombreJugador,unidad[1]);
     }
 
 

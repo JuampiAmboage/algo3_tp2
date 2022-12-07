@@ -26,7 +26,7 @@ public class NexoMineral extends Edificio implements Construible{
     }
 
     @Override
-    public void accionarTurno() {
+    public void realizarAccionesTurno() {
         vida.pasarTurno();
     }
 

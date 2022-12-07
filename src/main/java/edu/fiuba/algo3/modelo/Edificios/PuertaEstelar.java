@@ -31,7 +31,7 @@ public class PuertaEstelar extends Edificio {
     }
 
     @Override
-    public void accionarTurno() {
+    public void realizarAccionesTurno() {
         vida.pasarTurno();
     }
 

@@ -25,7 +25,7 @@ public class ReservaDeReproduccion extends Edificio {
     }
 
     @Override
-    public void accionarTurno() {
+    public void realizarAccionesTurno() {
         vida.pasarTurno();
     }
 

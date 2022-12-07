@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Razas.Evolucionador;
@@ -15,9 +16,13 @@ public class Mutalisco extends Tropa {
         tiempoConstruccion = 4;
         danioTerrestre = 9;
         danioAereo = 9;
+        suministro = 4;
         vida = new Vida(80);
+        ComunidadZerg.obtenerInstanciaDeClase().aniadirSuministro(suministro);
+
     }
 
+    public void realizarAccionesTurno(){}
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
         evolucionador = new Evolucionador();

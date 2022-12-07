@@ -11,12 +11,12 @@ public class Evolucionador {
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
     }
 
-    public void evolucionarUnidad(Raza tropaEvolucionable, Raza tropaEvolucionada){
+    public void evolucionarUnidad(Unidad tropaEvolucionable, Unidad tropaEvolucionada){
         comunidad.agregarUnidad(tropaEvolucionada);
         comunidad.quitarUnidad(tropaEvolucionable);
     }
     public void evolucionarZangano(Celda celda, Edificio edificioEvolucionado, Zangano zangano){
-        comunidad.construirEdificio(celda, edificioEvolucionado);
+        comunidad.agregarUnidad(edificioEvolucionado);
         comunidad.quitarUnidad(zangano);
     }
 

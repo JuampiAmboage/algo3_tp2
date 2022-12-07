@@ -6,11 +6,8 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
-import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
-import edu.fiuba.algo3.modelo.Razas.Evolucionador;
-import edu.fiuba.algo3.modelo.Razas.Larva;
-import edu.fiuba.algo3.modelo.Razas.Zangano;
+import edu.fiuba.algo3.modelo.Razas.GeneradorUnidadesZerg;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
@@ -18,17 +15,14 @@ import edu.fiuba.algo3.modelo.Salud.Vida;
 
 public class Criadero extends Edificio {
     private int cantidadLarvasEnEspera;
-    private final Evolucionador evolucionador;
     public Criadero(){
         super(4);
         this.vida = new Vida(500);
-        this.evolucionador = new Evolucionador();
         this.cantidadLarvasEnEspera = 3;
     }
     public Criadero(int tiempoDeConstruccion) {
         super(tiempoDeConstruccion);
         this.vida = new Vida(500);
-        this.evolucionador = new Evolucionador();
         this.cantidadLarvasEnEspera = 3;
     }
 
@@ -37,7 +31,7 @@ public class Criadero extends Edificio {
         this.estado.pasarTurno();
     }
     @Override
-    public void accionarTurno() {
+    public void realizarAccionesTurno() {
         if(cantidadLarvasEnEspera < 3) {
             cantidadLarvasEnEspera++;
         }
@@ -47,10 +41,11 @@ public class Criadero extends Edificio {
         return cantidadLarvasEnEspera;
     }
 
-    public void engendrar() {
+    public void engendrar(String tipoUnidad) {
         this.estado.esUsable();
+        Unidad unidadACrear = GeneradorUnidadesZerg.crearTropaZerg(tipoUnidad);
+        ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(unidadACrear);
         cantidadLarvasEnEspera--;
-        //evolucionador.evolucionarUnidad(new Zangano(),new Larva());
     }
 
     @Override

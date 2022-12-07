@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.Razas;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class Zangano extends Raza {
+public class Zangano extends Unidad {
     Extractor extractorDondeTrabaja;
 
     public Zangano(){
@@ -16,6 +16,7 @@ public class Zangano extends Raza {
     @Override
     public void pasarTurno(){vida.pasarTurno();}
 
+    public void realizarAccionesTurno(){}
     public void asignarTrabajo(Extractor extractorQueContrata){
         extractorDondeTrabaja = extractorQueContrata;
     }
