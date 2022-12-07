@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controladores.ControladorVistaInicio">
+    <children>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="-5.0" text="BIENVENIDO" textAlignment="CENTER">
+            <font>
+                <Font size="31.0" />
+            </font>
+        </Label>
+        <Button fx:id="botonIniciarJuego" alignment="CENTER" layoutX="50.0" layoutY="104.0" mnemonicParsing="false" onAction="#gestionarBotonEnAccionIniciarJuego" prefHeight="39.0" prefWidth="103.0" text="Iniciar juego" />
+    </children>
+</AnchorPane>
