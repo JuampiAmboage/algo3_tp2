@@ -15,10 +15,8 @@ public class Partida {
     }
 
     public void agregarJugador(String nombreJugador, String color, Raza[] razas){
-        if(primerJugador != null)
-            primerJugador = new Jugador(nombreJugador,razas);
-        else
-            segundoJugador = new Jugador(nombreJugador,razas);
+        primerJugador = new Jugador(nombreJugador,razas);
+        segundoJugador = new Jugador(nombreJugador,razas);
     }
 
 
