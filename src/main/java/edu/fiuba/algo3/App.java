@@ -26,7 +26,7 @@ public class App extends Application {
     @Override
     public void start(Stage escenario) {
         this.escenarioPrimario = escenario;
-        this.escenarioPrimario.setTitle("");
+        this.escenarioPrimario.setTitle("Conquer the universe");
         this.escenarioPrimario.setFullScreen(false);
         this.escenarioPrimario.setResizable(false);
 

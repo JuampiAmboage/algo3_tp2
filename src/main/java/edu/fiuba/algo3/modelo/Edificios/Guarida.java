@@ -23,7 +23,7 @@ public class Guarida extends Edificio implements Correlatividad {
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
 
     }
-    public void construirEn(Celda celda) {celda.ocupar(this);}
+    public void construirEn(Celda celda) {celda.ocuparPorTierra(this);}
 
     public boolean existeEdificioNecesario() {
         return comunidad.existeUnidad(edificioNecesario);
