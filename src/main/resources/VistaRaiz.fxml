@@ -9,18 +9,17 @@
     <top>
         <MenuBar fx:id="barraMenu" BorderPane.alignment="CENTER">
             <menus>
-                <Menu mnemonicParsing="false" onAction="#gestionarBotonSalir" text="Ventana">
-                    <items>
-                        <MenuItem fx:id="botonPantallaCompleta" mnemonicParsing="false" onAction="#gestionarPantallaCompleta" text="Pantalla completa" />
-                        <MenuItem fx:id="botonPantallaReducida" mnemonicParsing="false" onAction="#gestionarPantallaReducida" text="Pantalla reducida" />
-                        <MenuItem mnemonicParsing="false" onAction="#gestionarBotonSalir" text="Salir" />
-                    </items></Menu>
                 <Menu mnemonicParsing="false" text="Ir a">
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#gestionarCambioAVistaInicio" text="Ventana de bienvenida" />
                         <MenuItem mnemonicParsing="false" onAction="#gestionarCambioAVistaConfiguracionPartida" text="Ventana de configuracon de la partida" />
                     </items>
                 </Menu>
+            <Menu mnemonicParsing="false" text="Ventana">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#gestionarBotonSalir" text="Salir" />
+               </items>
+            </Menu>
             </menus>
         </MenuBar>
     </top>

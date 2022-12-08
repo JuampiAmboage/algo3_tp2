@@ -27,8 +27,8 @@ public class App extends Application {
     public void start(Stage escenario) {
         this.escenarioPrimario = escenario;
         this.escenarioPrimario.setTitle("");
-        this.escenarioPrimario.setFullScreen(true);
-        this.escenarioPrimario.setFullScreenExitHint("");
+        this.escenarioPrimario.setFullScreen(false);
+        this.escenarioPrimario.setResizable(false);
 
         inicializarlayoutRaiz();
 
@@ -52,7 +52,6 @@ public class App extends Application {
 
             ControladorVistaRaiz controlador = cargador.getController();
             controlador.setApp(this);
-            controlador.construirDatosIniciales();
 
         } catch (IOException e) { e.printStackTrace(); }
     }
@@ -95,16 +94,6 @@ public class App extends Application {
 
     public void mostrarVistaJuego() {}
 
-    public void pantallaCompleta() {
-        this.escenarioPrimario.setFullScreen(true);
-    }
-    public void pantallaReducida() {
-        this.escenarioPrimario.setFullScreen(false);
-    }
-
-    public boolean estaEnPantallaCompleta() {
-        return this.escenarioPrimario.isFullScreen();
-    }
     public void salir() {
         this.escenarioPrimario.close();
     }

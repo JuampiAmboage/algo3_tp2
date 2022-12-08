@@ -22,7 +22,7 @@ public class Devorador extends TropaAerea{
 
     public void instanciacionInicial(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
-        rangoAtaque = new RangoAtaque(5,posicion);
+        rangoAtaque = new RangoAtaque(this,5,posicion);
 
     }
     @Override

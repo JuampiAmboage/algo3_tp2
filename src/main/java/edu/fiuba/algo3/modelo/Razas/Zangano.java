@@ -6,10 +6,11 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Excepciones.EvolucionIncompatibleConTropaEvolucionableActual;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
+import edu.fiuba.algo3.modelo.Razas.Tropas.TropaTerrestre;
 import edu.fiuba.algo3.modelo.Razas.Tropas.UnidadEvolucionable;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class Zangano extends Tropa{
+public class Zangano extends TropaTerrestre {
     Extractor extractorDondeTrabaja;
 
     public Zangano(){

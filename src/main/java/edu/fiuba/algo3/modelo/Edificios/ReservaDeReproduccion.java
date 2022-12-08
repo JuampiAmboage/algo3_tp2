@@ -12,12 +12,12 @@ import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
 public class ReservaDeReproduccion extends Edificio {
-    Evolucionador evolucionador;
+    //Evolucionador evolucionador;
 
     public ReservaDeReproduccion(){
         tiempoConstruccion = 12;
         vida = new Vida(1000);
-        evolucionador = new Evolucionador();
+        //evolucionador = new Evolucionador();
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
     }
     @Override

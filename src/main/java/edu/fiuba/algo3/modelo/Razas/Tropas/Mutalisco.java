@@ -33,7 +33,7 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
     public void realizarAccionesTurno(){}
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
-        rangoAtaque = new RangoAtaque(3,posicion);
+        rangoAtaque = new RangoAtaque(this,3,posicion);
     }
 
     @Override
