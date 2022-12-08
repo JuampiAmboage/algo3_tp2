@@ -16,9 +16,9 @@ public class TestCase13 {
         CeldaConMoho celdaConMoho = new CeldaConMoho(celda);
 
         celda.cambiarTipo(celdaConMoho);
-        celda.ocupar(criadero);
+        celda.ocuparPorTierra(criadero);
         celda.desocupar();
 
-        assertDoesNotThrow(()->celda.ocupar(otroCriadero));
+        assertDoesNotThrow(()->celda.ocuparPorTierra(otroCriadero));
     }
 }

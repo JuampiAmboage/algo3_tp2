@@ -10,8 +10,6 @@ public class TestClase21 {
 
     @Test
     public void unMutaliscoNoPuedeEvolucionarAGuardianSinRecursos(){
-        Evolucionador evolucionador = new Evolucionador();
 
-        assertThrows(RuntimeException.class,()->evolucionador.evolucionarUnidad(new Guardian(),new Mutalisco()));
     }
 }

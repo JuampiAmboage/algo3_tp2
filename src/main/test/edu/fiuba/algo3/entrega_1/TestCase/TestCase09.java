@@ -19,8 +19,8 @@ public class TestCase09 {
         Pilon otroPilon = new Pilon();
         unPilon.instanciacionInicial(new Posicion(3,3));
         otroPilon.instanciacionInicial(new Posicion(3,4));
-        mapa.obtenerCelda(new Posicion(3,3)).ocupar(unPilon);
-        mapa.obtenerCelda(new Posicion(3,4)).ocupar(otroPilon);
+        mapa.obtenerCelda(new Posicion(3,3)).ocuparPorTierra(unPilon);
+        mapa.obtenerCelda(new Posicion(3,4)).ocuparPorTierra(otroPilon);
         unPilon.desernegizar();
         assertTrue(mapa.obtenerCelda(new Posicion(3,5)).esMismoTipo(new CeldaEnergizada()));
     }
@@ -31,7 +31,7 @@ public class TestCase09 {
         mapa.instanciarMapa(8,8);
         Pilon unPilon = new Pilon();
         unPilon.instanciacionInicial(new Posicion(3,3));
-        mapa.obtenerCelda(new Posicion(3,3)).ocupar(unPilon);
+        mapa.obtenerCelda(new Posicion(3,3)).ocuparPorTierra(unPilon);
         unPilon.desernegizar();
         assertTrue(mapa.obtenerCelda(new Posicion(3,5)).esMismoTipo(new CeldaLibre()));
 

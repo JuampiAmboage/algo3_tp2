@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
 
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
+import edu.fiuba.algo3.modelo.Razas.Zangano;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,14 +16,14 @@ public class TestCase01 {
     @Test
     public void elCriaderoEngendraUnaLarvaYReduceSuCantidad() {
         Criadero criadero = new Criadero(0);
-        criadero.engendrar();
+        criadero.engendrar(new Zangano());
         assertEquals(2, criadero.obtenerCantidadDeLarvas());
     }
 
     @Test
     public void alEngendrarUnaLarvaYPasarTurnoElCriaderoVuelveATenerTresLarvas() {
         Criadero criadero = new Criadero(0);
-        criadero.engendrar();
+        criadero.engendrar(new Zangano());
         criadero.pasarTurno();
         assertEquals(3, criadero.obtenerCantidadDeLarvas());
     }
@@ -30,8 +31,8 @@ public class TestCase01 {
     @Test
     public void alEngendrarDosLarvasYPasarTurnoElCriaderoTerminaConDosLarvas() {
         Criadero criadero = new Criadero(0);
-        criadero.engendrar();
-        criadero.engendrar();
+        criadero.engendrar(new Zangano());
+        criadero.engendrar(new Zangano());
         criadero.pasarTurno();
         assertEquals(2, criadero.obtenerCantidadDeLarvas());
     }
@@ -39,9 +40,9 @@ public class TestCase01 {
     @Test
     public void unCriaderoRecienCreadoSeQuedaSinLarvasAlEngendrarTresVeces() {
         Criadero criadero = new Criadero(0);
-        criadero.engendrar();
-        criadero.engendrar();
-        criadero.engendrar();
+        criadero.engendrar(new Zangano());
+        criadero.engendrar(new Zangano());
+        criadero.engendrar(new Zangano());
         assertEquals(0, criadero.obtenerCantidadDeLarvas());
     }
 }

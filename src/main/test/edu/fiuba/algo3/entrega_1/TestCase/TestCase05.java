@@ -19,7 +19,7 @@ public class TestCase05 {
         Pilon pilon = new Pilon();
 
         mapa.instanciarMapa(7, 7);
-        mapa.obtenerCelda(new Posicion(4,4)).ocupar(pilon);
+        mapa.obtenerCelda(new Posicion(4,4)).ocuparPorTierra(pilon);
         pilon.localizarEnMapa(4, 4);
         pilon.instanciacionInicial(new Posicion(4,4));
         Celda celda = mapa.obtenerCelda(new Posicion(4,5));

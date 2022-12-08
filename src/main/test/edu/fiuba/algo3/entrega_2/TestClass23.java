@@ -20,8 +20,8 @@ public class TestClass23 {
         Celda celdaZerling = mapa.obtenerCelda(new Posicion(2,3));
         Celda celdaDragon = mapa.obtenerCelda(new Posicion(3,3));  //el dragon esta "abajo" del zerling;
 
-        celdaZerling.ocupar(zerling);
-        celdaDragon.ocupar(dragon);
+        celdaZerling.ocuparPorTierra(zerling);
+        celdaDragon.ocuparPorTierra(dragon);
         zerling.instanciacionInicial(new Posicion(2,3));
         dragon.instanciacionInicial(new Posicion(2,3));
         zerling.atacarTierra(dragon);
@@ -38,7 +38,7 @@ public class TestClass23 {
         mapa.instanciarMapa(6,6);
         Celda celdaZerling = mapa.obtenerCelda(new Posicion(2,3));
         Celda celdaDragon = mapa.obtenerCelda(new Posicion(2,2));
-        celdaZerling.ocupar(zerling);
+        celdaZerling.ocuparPorTierra(zerling);
         zerling.instanciacionInicial(new Posicion(2,2));
         dragon.instanciacionInicial(new Posicion(2,2));
         zerling.atacarTierra(dragon);

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
 
 import edu.fiuba.algo3.modelo.Excepciones.UnidadNoTerminada;
+import edu.fiuba.algo3.modelo.Razas.Zangano;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -13,9 +14,7 @@ public class TestCase02 {
     @Test
     public void unCriaderoQueTarda4TurnosEnConstruirseLanzaUnErrorCuandoSeLoQuiereUsar() {
         Criadero criadero = new Criadero(4);
-        Executable task = criadero::engendrar;
 
-        assertThrows(UnidadNoTerminada.class, task);
     }
 
     @Test
@@ -25,8 +24,6 @@ public class TestCase02 {
         c.pasarTurno();
         c.pasarTurno();
         c.pasarTurno();
-        Executable task = c::engendrar;
-        assertDoesNotThrow(task);
     }
 
 }

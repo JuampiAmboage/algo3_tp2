@@ -21,9 +21,9 @@ public class TestCase16 {
         Asimilador asimilador = new Asimilador();
 
         celda.agregarRecurso(volcan);
-        celda.ocupar(extractor);
+        celda.ocuparPorTierra(extractor);
 
-        assertThrows(CeldaOcupada.class, () -> celda.ocupar(asimilador));
+        assertThrows(CeldaOcupada.class, () -> celda.ocuparPorTierra(asimilador));
     }
 
     @Test
@@ -34,9 +34,9 @@ public class TestCase16 {
         NexoMineral nexoMineral = new NexoMineral();
 
         celda.cambiarTipo(energizada);
-        celda.ocupar(dragon);
+        celda.ocuparPorTierra(dragon);
 
-        assertThrows(CeldaOcupada.class, () -> celda.ocupar(nexoMineral));
+        assertThrows(CeldaOcupada.class, () -> celda.ocuparPorTierra(nexoMineral));
     }
 
     @Test
@@ -47,8 +47,8 @@ public class TestCase16 {
         Dragon dragon = new Dragon();
 
         celda.cambiarTipo(energizada);
-        celda.ocupar(nexoMineral);
+        celda.ocuparPorTierra(nexoMineral);
 
-        assertThrows(CeldaOcupada.class, () -> celda.ocupar(dragon));
+        assertThrows(CeldaOcupada.class, () -> celda.ocuparPorTierra(dragon));
     }
 }
