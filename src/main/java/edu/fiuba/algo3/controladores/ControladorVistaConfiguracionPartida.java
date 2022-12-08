@@ -1,11 +1,13 @@
 package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.App;
-
+/*
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.Pilon;
+*/
 import edu.fiuba.algo3.modelo.Partida.Partida;
+import edu.fiuba.algo3.modelo.Comunidad.*;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -34,7 +36,7 @@ public class ControladorVistaConfiguracionPartida {
     private App app;
 
     private Partida partida;
-    private Edificio[] edificios = new Edificio[2];
+    private Comunidad[] comunidades = new Comunidad[2];
     private String[] nombreDeJugadores = new String[2];
 
     public void setApp(App app) {
@@ -69,7 +71,7 @@ public class ControladorVistaConfiguracionPartida {
 
     public void gestionarPasajeDeDatosAlBackend() {
         this.partida = new Partida();
-        this.partida.agregarJugadores(this.nombreDeJugadores, this.edificios);
+        this.partida.agregarJugadores(this.nombreDeJugadores, this.comunidades);
     }
 
     public void gestionarSeleccionDeRaza() {
@@ -77,15 +79,15 @@ public class ControladorVistaConfiguracionPartida {
         if ( !this.zergJugadorUno.isSelected() && !this.protossJugadorUno.isSelected() ) { // No eligio ninguno se elije por defecto
             this.protossJugadorUno.setVisible(true);
             this.zergJugadorUno.setVisible(true);
-            this.edificios[0] = new Criadero(); // Por defecto Zerg
+            this.comunidades[0] = ComunidadZerg.obtenerInstanciaDeClase(); // Por defecto Zerg
 
         } else if (this.zergJugadorUno.isSelected()){ //Elije Zerg
             this.protossJugadorUno.setVisible(false);
-            this.edificios[0] = new Criadero();
+            this.comunidades[0] = ComunidadZerg.obtenerInstanciaDeClase();
 
         } else { //Elije Protoss
             this.zergJugadorUno.setVisible(false);
-            this.edificios[0] = new Pilon();
+            this.comunidades[0] = ComunidadProtoss.obtenerInstanciaDeClase();
 
         }
 
@@ -93,15 +95,15 @@ public class ControladorVistaConfiguracionPartida {
         if ( !this.zergJugadorDos.isSelected() && !this.protossJugadorDos.isSelected() ) { // No eligio ninguno se elije por defecto
             this.protossJugadorDos.setVisible(true);
             this.zergJugadorDos.setVisible(true);
-            this.edificios[1] = new Pilon(); // Por defecto Protoss
+            this.comunidades[1] = ComunidadProtoss.obtenerInstanciaDeClase(); // Por defecto Protoss
 
         } else if (this.zergJugadorDos.isSelected()){ //Elije Zerg
             this.protossJugadorDos.setVisible(false);
-            this.edificios[1] = new Criadero();
+            this.comunidades[1] = ComunidadZerg.obtenerInstanciaDeClase();
 
         } else {
             this.zergJugadorDos.setVisible(false);
-            this.edificios[1] = new Pilon();
+            this.comunidades[1] = ComunidadProtoss.obtenerInstanciaDeClase();
 
         }
     }

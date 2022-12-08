@@ -27,7 +27,7 @@ public class App extends Application {
     public void start(Stage escenario) {
         this.escenarioPrimario = escenario;
         this.escenarioPrimario.setTitle("Conquer the universe");
-        this.escenarioPrimario.setFullScreen(false);
+
         this.escenarioPrimario.setResizable(false);
 
         inicializarlayoutRaiz();
@@ -41,9 +41,11 @@ public class App extends Application {
     public void inicializarlayoutRaiz() {
         try {
             FXMLLoader cargador = new FXMLLoader();
+
             cargador.setLocation(
-                    App.class.getResource("VistaRaiz.fxml")
+                    App.class.getResource("/VistaRaiz.fxml")
             );
+
             this.layoutRaiz = (BorderPane) cargador.load();
 
             Scene escena = new Scene(this.layoutRaiz);
@@ -60,7 +62,7 @@ public class App extends Application {
         try {
             FXMLLoader cargador = new FXMLLoader();
             cargador.setLocation(
-                    App.class.getResource("VistaInicio.fxml")
+                    App.class.getResource("/VistaInicio.fxml")
             );
             AnchorPane VistaInicio = (AnchorPane) cargador.load();
 
@@ -78,7 +80,7 @@ public class App extends Application {
         try {
             FXMLLoader cargador = new FXMLLoader();
             cargador.setLocation(
-                    App.class.getResource("VistaConfiguracionPartida.fxml")
+                    App.class.getResource("/VistaConfiguracionPartida.fxml")
             );
             AnchorPane vistaConfiguracionPartida = (AnchorPane) cargador.load();
 

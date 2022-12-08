@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Partida;
 
+import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 public class Partida {
     private Mapa mapa;
@@ -16,9 +17,9 @@ public class Partida {
         this.turno = new Turno();
     }
 
-    public void agregarJugadores(String[] nombreJugador, Edificio[] edificios){
-        primerJugador = new Jugador(nombreJugador[0], edificios[0]);
-        segundoJugador = new Jugador(nombreJugador[1], edificios[1]);
+    public void agregarJugadores(String[] nombreJugador, Comunidad[] comunidades){
+        primerJugador = new Jugador(nombreJugador[0], comunidades[0]);
+        segundoJugador = new Jugador(nombreJugador[1], comunidades[1]);
     }
 
 
