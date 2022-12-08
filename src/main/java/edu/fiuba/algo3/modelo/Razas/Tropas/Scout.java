@@ -4,8 +4,9 @@ import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Edificios.PuertoEstelar;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
-public class Scout extends Tropa implements TropaAerea{
+public class Scout extends TropaAerea{
     public Scout(){
+        super();
         ataque = new AtacarTierraYAire();
         costoEnMinerales = 300;
         costoEnGas = 150;

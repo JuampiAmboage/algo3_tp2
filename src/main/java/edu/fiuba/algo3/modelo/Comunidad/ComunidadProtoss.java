@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Comunidad;
 
+import edu.fiuba.algo3.modelo.Edificios.Pilon;
+import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Zealot;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
@@ -9,6 +11,9 @@ public class ComunidadProtoss extends Comunidad{
     private static ComunidadProtoss comunidadProtoss;
     private ComunidadProtoss() {
         super();
+        Pilon pilonInicial = new Pilon();
+        Mapa.getInstance().generarBase(pilonInicial);
+        unidades.add(pilonInicial);
     }
 
     public static ComunidadProtoss obtenerInstanciaDeClase(){
@@ -16,9 +21,4 @@ public class ComunidadProtoss extends Comunidad{
             comunidadProtoss = new ComunidadProtoss();
         return comunidadProtoss;
     }
-    public void agregarTropaDetectoraAZealotsInvisibles(Tropa tropaDetectora){
-        for (Unidad unidad : unidades) {
-            if (unidad.getClass().equals(Zealot.class))
-                ((Zealot) unidad).agregarTropaDetectora(tropaDetectora);
-        }
 }

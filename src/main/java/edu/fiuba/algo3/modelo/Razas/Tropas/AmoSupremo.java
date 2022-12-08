@@ -3,15 +3,16 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Rango.RangoAtaqueAmoSupremo;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class AmoSupremo extends Tropa implements TropaAerea {
+public class AmoSupremo extends TropaAerea {
     public AmoSupremo(){
+        super();
         ataque = new AtacarAire();
         vida = new Vida(200);
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         comunidad.aniadirSuministro(suministro);
-        ComunidadProtoss.obtenerInstanciaDeClase().agregarTropaDetectoraAZealotsInvisibles(this);
         costoEnMinerales = 50;
         costoEnGas = 0;
         tiempoConstruccion = 5;
@@ -22,6 +23,7 @@ public class AmoSupremo extends Tropa implements TropaAerea {
 
     public void instanciacionInicial(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
+        rangoAtaque = new RangoAtaqueAmoSupremo(this,3,posicion);
     }
     public void realizarAccionesTurno(){}
 

@@ -7,9 +7,10 @@ import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
-public class Dragon extends Tropa implements TropaTerrestre{
+public class Dragon extends TropaTerrestre{
 
     public Dragon() {
+        super();
         ataque = new AtacarTierraYAire();
         costoEnMinerales = 125;
         costoEnGas = 50;

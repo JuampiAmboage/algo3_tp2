@@ -1,14 +1,14 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
-import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Acceso;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
-public class Zealot extends Tropa implements TropaTerrestre {
-    Invisibilidad invisible;
+public class Zealot extends TropaTerrestre {
+    Invisible invisible;
     int bajasGeneradas;
     public Zealot(){
+        super();
         ataque = new AtacarTierra();
         costoEnMinerales = 100;
         costoEnGas = 0;
@@ -26,22 +26,18 @@ public class Zealot extends Tropa implements TropaTerrestre {
     @Override
     public void pasarTurno() {
         vida.pasarTurno();
-        if(!esInvisible() && bajasGeneradas >= 3)
-            invisible = new Invisibilidad();
+        if(bajasGeneradas >= 3)
+            this.volverInsvisible();
     }
-
-    public void agregarTropaDetectora(Tropa tropaDetectoraCreada){
-        if(esInvisible())
-            invisible.agregarTropaDetectora(tropaDetectoraCreada);
+    @Override
+    public void atacarTierra(TropaTerrestre unidadAtacable){
+        ataque.atacarTierra(rangoAtaque,unidadAtacable,danioTerrestre);
+        if(unidadAtacable.estaSinVida())
+            bajasGeneradas++;
     }
+    @Override
+    public void atacarAire(TropaAerea unidadAtacable){ ataque.atacarAire(rangoAtaque,unidadAtacable,danioAereo);}
 
-    public boolean esVisiblePara(Tropa tropa){
-        if (this.esInvisible() && !this.invisible.soyVisiblePara(tropa))
-            return false;
-        return true;
-    }
-
-    public boolean esInvisible(){return invisible != null;}
     public void realizarAccionesTurno(){}
     public int obtenerEscudo(){return vida.getEscudoActual();}
 

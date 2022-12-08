@@ -4,8 +4,9 @@ import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Guarida;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class Hidralisco extends Tropa implements TropaTerrestre{
+public class Hidralisco extends TropaTerrestre{
     public Hidralisco() {
+        super();
         ataque = new AtacarTierraYAire();
         costoEnMinerales = 75;
         costoEnGas = 25;

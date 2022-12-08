@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Comunidad;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Mutalisco;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 import edu.fiuba.algo3.modelo.Razas.Zangano;
@@ -13,6 +14,9 @@ public class ComunidadZerg extends Comunidad {
 
     private ComunidadZerg() {
         super();
+        Criadero criaderoInicial = new Criadero();
+        Mapa.getInstance().generarBase(criaderoInicial);
+        unidades.add(criaderoInicial);
     }
 
     public static ComunidadZerg obtenerInstanciaDeClase() {

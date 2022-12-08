@@ -2,10 +2,12 @@ package edu.fiuba.algo3.modelo.Partida;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.Pilon;
 import edu.fiuba.algo3.modelo.Excepciones.CoordenadaFueraDeRango;
 import edu.fiuba.algo3.modelo.Excepciones.PosicionesDiferentes;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 import java.util.ArrayList;
 
@@ -15,9 +17,10 @@ public class Mapa {
     private int longitudFilas; //alto mapa
     private int longitudColumnas;//ancho mapa
 
+    private GeneradorElementos generadorElementos;
+
     private Mapa() {
-        mapaJuego = new ArrayList<ArrayList<Celda>>();
-    }
+        mapaJuego = new ArrayList<ArrayList<Celda>>();}
 
     public static Mapa getInstance() {
         if (singletonMapa == null)
@@ -33,6 +36,11 @@ public class Mapa {
             for (int j = 0; j < longitudColumnas; j++)
                 mapaJuego.get(i).add(new Celda(i, j));
         }
+        generadorElementos = new GeneradorElementos(mapaJuego,longitudFilas,longitudColumnas);
+    }
+
+    public void generarBase(Edificio baseJugador){
+        generadorElementos.generarBase(baseJugador);
     }
 
     public Celda obtenerCelda(Posicion posicionDeBusqueda) {
@@ -45,14 +53,9 @@ public class Mapa {
         throw new CoordenadaFueraDeRango();
     }
 
-    public void generarBases(){
-        Pilon baseInicialProtoss = new Pilon();
-        Criadero baseInicialZerg = new Criadero();
-        int posicionInicialPilon = (int) (Math.random() * longitudFilas);
-        int posicionInicialCriadero = (int) (Math.random() * longitudFilas);
-        mapaJuego.get(0).get(posicionInicialPilon).ocupar(baseInicialProtoss);
-        mapaJuego.get(longitudColumnas-1).get(posicionInicialCriadero).ocupar(baseInicialZerg);
-    }
+    /*public void ocuparUnaCeldaPorTierra(Posicion posicionAOcupar, Unidad ocupante){
+        this.obtenerCelda(posicionAOcupar).
+    }*/
 
     public boolean estaPosicionEnLimites(Posicion unaPosicion) {
         return unaPosicion.estaEnLimites(longitudFilas, longitudColumnas);

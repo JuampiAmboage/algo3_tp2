@@ -4,11 +4,11 @@ import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Espiral;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
-import edu.fiuba.algo3.modelo.Razas.Evolucionador;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class Mutalisco extends Tropa implements TropaAerea, UnidadEvolucionable {
+public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
     public Mutalisco(){
+        super();
         ataque = new AtacarTierraYAire();
         costoEnMinerales = 75;
         costoEnGas = 25;

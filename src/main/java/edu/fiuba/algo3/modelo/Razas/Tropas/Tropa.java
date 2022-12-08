@@ -12,9 +12,11 @@ public abstract class Tropa extends Unidad implements Correlatividad {
     protected int danioTerrestre;
     protected int danioAereo;
     protected Edificio edificioNecesario;
-    protected RangoAtaque rangoAtaque;
     protected Atacar ataque;
-
+    protected RangoAtaque rangoAtaque;
+    public Tropa(){
+        visibilidad = new Visible(this);
+    }
     public int obtenerDanioTerrestre(){
         return danioTerrestre;
     }

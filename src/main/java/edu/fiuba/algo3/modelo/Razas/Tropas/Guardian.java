@@ -3,8 +3,9 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class Guardian extends Tropa implements TropaAerea{
+public class Guardian extends TropaAerea{
     public Guardian(){
+        super();
         ataque = new AtacarTierra();
         costoEnMinerales = 50;
         costoEnGas = 100;

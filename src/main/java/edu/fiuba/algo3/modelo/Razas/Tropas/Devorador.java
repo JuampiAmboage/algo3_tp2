@@ -5,8 +5,9 @@ import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class Devorador extends Tropa implements TropaAerea{
+public class Devorador extends TropaAerea{
     public Devorador(){
+        super();
         ataque = new AtacarAire();
         costoEnMinerales = 150;
         costoEnGas = 50;

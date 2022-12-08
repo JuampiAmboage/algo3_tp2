@@ -6,9 +6,9 @@ import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class Zerling extends Tropa implements TropaTerrestre
-{
+public class Zerling extends TropaTerrestre {
     public Zerling(){
+        super();
         ataque = new AtacarTierra();
         costoEnMinerales = 25;
         costoEnGas = 0;
