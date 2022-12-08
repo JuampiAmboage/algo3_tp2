@@ -1,11 +1,7 @@
 package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.App;
-/*
-import edu.fiuba.algo3.modelo.Edificios.Criadero;
-import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Edificios.Pilon;
-*/
+
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import edu.fiuba.algo3.modelo.Comunidad.*;
 
@@ -22,13 +18,13 @@ public class ControladorVistaConfiguracionPartida {
     @FXML
     private TextField nombreJugadorDos;
     @FXML
-    private CheckBox zergJugadorUno;
+    private CheckBox checkZergJugadorUno;
     @FXML
-    private CheckBox zergJugadorDos;
+    private CheckBox checkZergJugadorDos;
     @FXML
-    private CheckBox protossJugadorUno;
+    private CheckBox checkProtossJugadorUno;
     @FXML
-    private CheckBox protossJugadorDos;
+    private CheckBox checkProtossJugadorDos;
     @FXML
     private Button botonIniciarPartida;
 
@@ -75,37 +71,41 @@ public class ControladorVistaConfiguracionPartida {
     }
 
     public void gestionarSeleccionDeRaza() {
-        //Jugador uno
-        if ( !this.zergJugadorUno.isSelected() && !this.protossJugadorUno.isSelected() ) { // No eligio ninguno se elije por defecto
-            this.protossJugadorUno.setVisible(true);
-            this.zergJugadorUno.setVisible(true);
-            this.comunidades[0] = ComunidadZerg.obtenerInstanciaDeClase(); // Por defecto Zerg
+        try {
+            //Jugador uno
+            if (!this.checkZergJugadorUno.isSelected() && !this.checkProtossJugadorUno.isSelected()) { // No eligio ninguno se elije por defecto
+                this.checkProtossJugadorUno.setVisible(true);
+                this.checkZergJugadorUno.setVisible(true);
+                this.comunidades[0] = ComunidadZerg.obtenerInstanciaDeClase(); // Por defecto Zerg
 
-        } else if (this.zergJugadorUno.isSelected()){ //Elije Zerg
-            this.protossJugadorUno.setVisible(false);
-            this.comunidades[0] = ComunidadZerg.obtenerInstanciaDeClase();
+            } else if (this.checkZergJugadorUno.isSelected()) { //Elije Zerg
+                this.checkProtossJugadorUno.setVisible(false);
+                this.comunidades[0] = ComunidadZerg.obtenerInstanciaDeClase();
 
-        } else { //Elije Protoss
-            this.zergJugadorUno.setVisible(false);
-            this.comunidades[0] = ComunidadProtoss.obtenerInstanciaDeClase();
+            } else { //Elije Protoss
+                this.checkZergJugadorUno.setVisible(false);
+                this.comunidades[0] = ComunidadProtoss.obtenerInstanciaDeClase();
 
-        }
+            }
+        } catch (RuntimeException e) { System.out.println("Error en obtencion de Comunidad j1"); }
 
-        //Jugador dos
-        if ( !this.zergJugadorDos.isSelected() && !this.protossJugadorDos.isSelected() ) { // No eligio ninguno se elije por defecto
-            this.protossJugadorDos.setVisible(true);
-            this.zergJugadorDos.setVisible(true);
-            this.comunidades[1] = ComunidadProtoss.obtenerInstanciaDeClase(); // Por defecto Protoss
+        try {
+            //Jugador dos
+            if ( !this.checkZergJugadorDos.isSelected() && !this.checkProtossJugadorDos.isSelected() ) { // No eligio ninguno se elije por defecto
+                this.checkProtossJugadorDos.setVisible(true);
+                this.checkZergJugadorDos.setVisible(true);
+                this.comunidades[1] = ComunidadProtoss.obtenerInstanciaDeClase(); // Por defecto Protoss
 
-        } else if (this.zergJugadorDos.isSelected()){ //Elije Zerg
-            this.protossJugadorDos.setVisible(false);
-            this.comunidades[1] = ComunidadZerg.obtenerInstanciaDeClase();
+            } else if (this.checkZergJugadorDos.isSelected()){ //Elije Zerg
+                this.checkProtossJugadorDos.setVisible(false);
+                this.comunidades[1] = ComunidadZerg.obtenerInstanciaDeClase();
 
-        } else {
-            this.zergJugadorDos.setVisible(false);
-            this.comunidades[1] = ComunidadProtoss.obtenerInstanciaDeClase();
+            } else { //Elije Protoss
+                this.checkZergJugadorDos.setVisible(false);
+                this.comunidades[1] = ComunidadProtoss.obtenerInstanciaDeClase();
 
-        }
+            }
+        } catch (RuntimeException e) { System.out.println("Error en obtencion de Comunidad j2"); }
     }
 
     public void mostrarVistaJuego() {

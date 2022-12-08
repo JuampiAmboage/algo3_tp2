@@ -29,22 +29,22 @@
             <children>
                 <TextField fx:id="nombreJugadorUno" opacity="0.5" promptText="Nombre del jugador uno" GridPane.rowIndex="1" />
                 <TextField fx:id="nombreJugadorDos" opacity="0.5" promptText="Nombre del jugador dos" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                <CheckBox fx:id="zergJugadorUno" mnemonicParsing="false" onMouseClicked="#gestionarSeleccionDeRaza" text="Zerg" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                <CheckBox fx:id="checkZergJugadorUno" mnemonicParsing="false" onMouseClicked="#gestionarSeleccionDeRaza" text="Zerg" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </CheckBox>
-                <CheckBox fx:id="zergJugadorDos" mnemonicParsing="false" onMouseClicked="#gestionarSeleccionDeRaza" text="Zerg" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                <CheckBox fx:id="checkZergJugadorDos" mnemonicParsing="false" onMouseClicked="#gestionarSeleccionDeRaza" text="Zerg" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </CheckBox>
-                <CheckBox fx:id="protossJugadorUno" layoutX="10.0" layoutY="168.0" mnemonicParsing="false" onMouseClicked="#gestionarSeleccionDeRaza" text="Protoss" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                <CheckBox fx:id="checkProtossJugadorUno" layoutX="10.0" layoutY="168.0" mnemonicParsing="false" onMouseClicked="#gestionarSeleccionDeRaza" text="Protoss" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </CheckBox>
-                <CheckBox fx:id="protossJugadorDos" layoutX="10.0" layoutY="214.0" mnemonicParsing="false" onMouseClicked="#gestionarSeleccionDeRaza" text="Protoss" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                <CheckBox fx:id="checkProtossJugadorDos" layoutX="10.0" layoutY="214.0" mnemonicParsing="false" onMouseClicked="#gestionarSeleccionDeRaza" text="Protoss" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                     <font>
                         <Font size="15.0" />
                     </font>
