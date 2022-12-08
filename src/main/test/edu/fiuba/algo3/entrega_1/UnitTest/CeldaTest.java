@@ -19,7 +19,7 @@ public class CeldaTest {
     @Test
     public void unaCeldaSeCreaDesocupada() {
         Celda c = new Celda(0,0);
-        assertFalse(c.estaOcupada());
+        assertFalse(c.estaOcupadaPorTierra());
     }
 
     /*@Test
@@ -70,7 +70,7 @@ public class CeldaTest {
         Celda c = new Celda(0,0);
         //c.ocupar(new Zangano());
         c.desocupar();
-        assertFalse(c.estaOcupada());
+        assertFalse(c.estaOcupadaPorTierra());
     }
 
 

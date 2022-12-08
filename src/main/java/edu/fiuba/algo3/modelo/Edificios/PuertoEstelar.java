@@ -23,7 +23,7 @@ public class PuertoEstelar extends Edificio {
     }
 
     public void construirEn(Celda celda) {
-        celda.ocupar(this);
+        celda.ocuparPorTierra(this);
     }
 
     public boolean existeEdificioNecesario() {

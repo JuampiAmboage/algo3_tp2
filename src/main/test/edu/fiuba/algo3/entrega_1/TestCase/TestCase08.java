@@ -22,7 +22,7 @@ public class TestCase08 {
         Celda celda = new Celda(0,0);
         celda.cambiarTipo(new CeldaConMoho(celda));
         Extractor extractor = new Extractor();
-        celda.ocupar(new Zangano());
+        celda.ocuparPorTierra(new Zangano());
         assertDoesNotThrow(()->ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(extractor));
     }
 
@@ -30,7 +30,7 @@ public class TestCase08 {
     public void sinRecursosNoPuedoConstruirUnaGuarida(){
         Celda celda = new Celda(0,0);
         Guarida guarida = new Guarida();
-        celda.ocupar(new Zangano());
+        celda.ocuparPorTierra(new Zangano());
         celda.cambiarTipo(new CeldaConMoho(celda));
         assertThrows(RuntimeException.class,()->ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(guarida));
     }

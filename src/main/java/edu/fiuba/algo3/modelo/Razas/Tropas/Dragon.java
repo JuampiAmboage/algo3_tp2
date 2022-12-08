@@ -29,7 +29,7 @@ public class Dragon extends TropaTerrestre{
 
     public void instanciacionInicial(Posicion posicionAColocar){
         posicion = posicionAColocar;
-        rangoAtaque = new RangoAtaque(4,posicion);
+        rangoAtaque = new RangoAtaque(this,4,posicion);
     }
 
     @Override

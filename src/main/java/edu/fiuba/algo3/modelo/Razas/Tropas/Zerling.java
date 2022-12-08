@@ -24,7 +24,7 @@ public class Zerling extends TropaTerrestre {
 
     public void instanciacionInicial(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
-        rangoAtaque = new RangoAtaque(1,posicion);
+        rangoAtaque = new RangoAtaque(this,1,posicion);
 
     }
     public void realizarAccionesTurno(){}

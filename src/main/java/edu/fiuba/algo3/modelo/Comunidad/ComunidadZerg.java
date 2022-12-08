@@ -32,7 +32,7 @@ public class ComunidadZerg extends Comunidad {
     public void construirEdificio(Celda celda, Zangano zanganoAEvolucionar, Edificio nuevoEdificio) {
         celda.quiereConstruir(nuevoEdificio);
         zanganoAEvolucionar.evolucionarAEdificio(nuevoEdificio);
-        celda.ocupar(nuevoEdificio);
+        celda.ocuparPorTierra(nuevoEdificio);
     }
 
     public void mutar(Mutalisco mutaliscoAMutar, Tropa tropaPostMutacion){
