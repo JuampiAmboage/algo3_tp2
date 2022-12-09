@@ -12,6 +12,7 @@ public class Jugador {
     public Jugador(String nombre, Comunidad comunidad) {
         this.nombre = nombre;
         this.comunidad = comunidad;
+        this.comunidad.inicializarBase();
     }
 
     public void construir(Edificio edificioAConstruir, Celda celda){

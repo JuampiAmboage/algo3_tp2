@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Excepciones.PoblacionMaximaAlcanzada;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 import java.util.ArrayList;
 
-public class Comunidad {
+public abstract class Comunidad {
     protected ArrayList<Unidad> unidades;
     protected Almacenamiento almacenamiento;
 
@@ -49,4 +49,6 @@ public class Comunidad {
         }
         return false;
     }
+
+    public abstract void inicializarBase();
 }

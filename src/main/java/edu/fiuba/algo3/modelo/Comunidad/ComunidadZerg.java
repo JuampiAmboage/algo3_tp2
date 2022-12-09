@@ -14,11 +14,14 @@ public class ComunidadZerg extends Comunidad {
 
     private ComunidadZerg() {
         super();
+    }
+
+    @Override
+    public void inicializarBase() {
         Criadero criaderoInicial = new Criadero();
         Mapa.getInstance().generarBase(criaderoInicial);
         unidades.add(criaderoInicial);
     }
-
     public static ComunidadZerg obtenerInstanciaDeClase() {
         if (comunidadZerg == null)
             comunidadZerg = new ComunidadZerg();

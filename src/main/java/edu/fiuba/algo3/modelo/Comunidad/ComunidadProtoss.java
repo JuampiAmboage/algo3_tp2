@@ -11,6 +11,10 @@ public class ComunidadProtoss extends Comunidad{
     private static ComunidadProtoss comunidadProtoss;
     private ComunidadProtoss() {
         super();
+    }
+
+    @Override
+    public void inicializarBase() {
         Pilon pilonInicial = new Pilon();
         Mapa.getInstance().generarBase(pilonInicial);
         unidades.add(pilonInicial);
