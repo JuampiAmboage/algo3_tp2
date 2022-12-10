@@ -3,7 +3,10 @@ package edu.fiuba.algo3.modelo.Celdas;
 import edu.fiuba.algo3.modelo.Edificios.Construible;
 
 public class CeldaLibre extends TipoCelda {
-    public CeldaLibre() {super();}
+    public CeldaLibre() {
+        super();
+        this.sprite = "/resources/sprites/celdas/celdaLibre.png";
+    }
     public CeldaLibre(Celda celda) {
         super(celda);
     }

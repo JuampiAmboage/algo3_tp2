@@ -15,6 +15,7 @@ public class Celda {
     protected TipoCelda tipo;
     protected Recurso recurso;
     protected Posicion posicion;
+    
     static public boolean esCelda(Object objeto) {
         return objeto instanceof Celda;
     }

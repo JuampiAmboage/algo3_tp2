@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Edificios.Construible;
 
 public abstract class TipoCelda {
     protected Celda celda;
+    public String sprite;
     public TipoCelda() {}
     public TipoCelda(Celda celda) {
         this.celda = celda;
