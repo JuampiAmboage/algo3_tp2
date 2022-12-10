@@ -92,4 +92,8 @@ public class Celda {
     public Unidad obtenerOcupante(){
         return ocupanteTerrestre;
     }
+
+    public String obtenerSprite(){
+        return this.tipo.obtenerSprite();
+    }
 }

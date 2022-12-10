@@ -27,7 +27,6 @@
                         <Insets />
                     </GridPane.margin>
                 </Label>
-                <ImageView pickOnBounds="true" preserveRatio="true" />
                 <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT">
                     <GridPane.margin>
                         <Insets right="25.0" />

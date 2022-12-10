@@ -5,12 +5,15 @@ import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 
 public class CeldaConMoho extends TipoCelda {
     private int delayExpandir = 2;
+    private final String RUTA_SPRITE = "/celda.png";
 
     public CeldaConMoho() {
         super();
+        this.sprite = this.RUTA_SPRITE;
     }
     public CeldaConMoho(Celda celda) {
         super(celda);
+        this.sprite = this.RUTA_SPRITE;
     }
 
     private void expandir() {

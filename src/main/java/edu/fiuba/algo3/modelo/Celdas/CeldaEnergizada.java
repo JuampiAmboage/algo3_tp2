@@ -4,13 +4,17 @@ import edu.fiuba.algo3.modelo.Edificios.Construible;
 
 public class CeldaEnergizada extends TipoCelda{
     private int energia = 0;
+    private final String RUTA_SPRITE = "/celda.png";
+
     public CeldaEnergizada(){
         super();
         this.energia++;
+        this.sprite = this.RUTA_SPRITE;
     }
     public CeldaEnergizada(Celda celda) {
         super(celda);
         this.energia++;
+        this.sprite = this.RUTA_SPRITE;
     }
 
     @Override

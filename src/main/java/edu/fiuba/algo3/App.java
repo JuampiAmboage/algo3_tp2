@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.controladores.ControladorVistaMapa;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -37,6 +38,8 @@ public class App extends Application {
         this.tamanioDelEscenario[0] = this.layoutRaiz.getScaleX();
         this.tamanioDelEscenario[1] = this.layoutRaiz.getScaleY();
 
+        this.controladorVistaRaiz.mostrarMenuBar();
+
         mostrarVistaInicio();
     }
 
@@ -62,6 +65,7 @@ public class App extends Application {
 
     public void mostrarVistaInicio() {
         try {
+            this.controladorVistaRaiz.mostrarMenuBar();
             FXMLLoader cargador = new FXMLLoader();
             cargador.setLocation(
                     App.class.getResource("/VistaInicio.fxml")
@@ -80,6 +84,8 @@ public class App extends Application {
 
     public void mostrarVistaConfiguracionPartida() {
         try {
+            this.controladorVistaRaiz.mostrarMenuBar();
+
             FXMLLoader cargador = new FXMLLoader();
             cargador.setLocation(
                     App.class.getResource("/VistaConfiguracionPartida.fxml")
@@ -139,6 +145,9 @@ public class App extends Application {
             this.layoutRaiz.setCenter(vistaMapa);
 
             this.controladorVistaRaiz.ocultarMenuBar();
+
+            ControladorVistaMapa controladorVistaMapa = cargador.getController();
+            controladorVistaMapa.mostrarMapa();
 
         } catch (IOException e) { e.printStackTrace(); }
     }

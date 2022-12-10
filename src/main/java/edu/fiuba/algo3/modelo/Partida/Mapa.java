@@ -37,7 +37,7 @@ public class Mapa {
     }
 
     public Celda obtenerCelda(Posicion posicionDeBusqueda) {
-        Celda celdaBuscada;
+        //Celda celdaBuscada;
         for (ArrayList<Celda> fila : mapaJuego)
             for (Celda celda : fila) {
                 if (celda.esMismaPosicion(posicionDeBusqueda))
