@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -24,6 +25,9 @@ public class ControladorVistaMapa {
     @FXML
     private AnchorPane baseMapa;
 
+    @FXML
+    private GridPane grilla;
+
     public void mostrarMapa() {
 
         for (int i = 0; i < LONGITUD_FILAS_MAPA; i++) {
@@ -36,7 +40,6 @@ public class ControladorVistaMapa {
                 String rutaSprite = celda.obtenerSprite();
                 String rutaSpriteFinal = this.RUTA_A_SPRITES + rutaSprite;
 
-                crearTileSet();
                 agregarSprite(rutaSpriteFinal, i, j);
 
             }
@@ -45,19 +48,30 @@ public class ControladorVistaMapa {
 
     }
 
-    public void crearTileSet() {
-
-    }
-
     public void agregarSprite(String rutaSprite, int fila, int columna) {
 
         Image imagen = new Image(new File(rutaSprite).toURI().toString());
         ImageView sprite = new ImageView();
 
-        sprite.setFitHeight(70.0);
+        Node celda = obtenerNodoDeLaCelda(fila, columna);
+
+        sprite.setFitWidth(70.0);
         sprite.setFitHeight(70.0);
         sprite.setImage(imagen);
 
+        this.grilla.getChildren().add(0,sprite);
+    }
+
+
+    // Stack Overflow -> metodo traducido de ingles a espaniol https://stackoverflow.com/questions/20655024/javafx-gridpane-retrieve-specific-cell-content
+    private Node obtenerNodoDeLaCelda(int fila, int columna) {
+        for (Node node : this.grilla.getChildren()) {
+            if (this.grilla.getColumnIndex(node) == columna && this.grilla.getRowIndex(node) == fila) {
+                System.out.println(node);
+                return node;
+            }
+        }
+        return null;
     }
 
 

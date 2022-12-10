@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Edificios.Construible;
 
 public class CeldaLibre extends TipoCelda {
 
-    private final String RUTA_SPRITE = "/celda.png";
+    private final String RUTA_SPRITE = "/celdas/celdaLibre.png";
 
     public CeldaLibre() {
         super();
