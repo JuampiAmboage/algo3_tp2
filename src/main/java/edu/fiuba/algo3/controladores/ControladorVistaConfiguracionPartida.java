@@ -43,6 +43,7 @@ public class ControladorVistaConfiguracionPartida {
         this.botonIniciarPartida.setVisible(false);
 
         if (!validarInformacionObligatoria()) {
+            gestionarSeleccionDeRaza();
             gestionarPasajeDeDatosAlBackend();
             mostrarVistaJuego();
         } else {

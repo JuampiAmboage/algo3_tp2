@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,6 +18,7 @@ public class App extends Application {
 
     private Stage escenarioPrimario;
     private BorderPane layoutRaiz;
+    private ControladorVistaRaiz controladorVistaRaiz;
     private double[] tamanioDelEscenario = new double[2];
 
     public static void main(String[] args) {
@@ -52,8 +54,8 @@ public class App extends Application {
             this.escenarioPrimario.setScene(escena);
             this.escenarioPrimario.show();
 
-            ControladorVistaRaiz controlador = cargador.getController();
-            controlador.setApp(this);
+            this.controladorVistaRaiz = cargador.getController();
+            this.controladorVistaRaiz.setApp(this);
 
         } catch (IOException e) { e.printStackTrace(); }
     }
@@ -94,7 +96,52 @@ public class App extends Application {
         } catch (IOException e) { e.printStackTrace(); }
     }
 
-    public void mostrarVistaJuego() {}
+    public void mostrarVistaJuego() {
+        mostrarVisaJugadorUno();
+        mostrarVisaJugadorDos();
+        mostrarVistaMapa();
+    }
+
+    private void mostrarVisaJugadorUno() {
+        try {
+            FXMLLoader cargador = new FXMLLoader();
+            cargador.setLocation(
+                    App.class.getResource("/vistaJuego/VistaMenuJugadorUno.fxml")
+            );
+            VBox VistaMenuJugadorUno = (VBox) cargador.load();
+
+            this.layoutRaiz.setLeft(VistaMenuJugadorUno);
+
+        } catch (IOException e) { e.printStackTrace(); }
+    }
+
+    private void mostrarVisaJugadorDos() {
+        try {
+            FXMLLoader cargador = new FXMLLoader();
+            cargador.setLocation(
+                    App.class.getResource("/vistaJuego/VistaMenuJugadorDos.fxml")
+            );
+            VBox VistaMenuJugadorDos = (VBox) cargador.load();
+
+            this.layoutRaiz.setRight(VistaMenuJugadorDos);
+
+        } catch (IOException e) { e.printStackTrace(); }
+    }
+
+    private void mostrarVistaMapa() {
+        try {
+            FXMLLoader cargador = new FXMLLoader();
+            cargador.setLocation(
+                    App.class.getResource("/vistaJuego/VistaMapa.fxml")
+            );
+            AnchorPane vistaMapa = (AnchorPane) cargador.load();
+
+            this.layoutRaiz.setCenter(vistaMapa);
+
+            this.controladorVistaRaiz.ocultarMenuBar();
+
+        } catch (IOException e) { e.printStackTrace(); }
+    }
 
     public void salir() {
         this.escenarioPrimario.close();

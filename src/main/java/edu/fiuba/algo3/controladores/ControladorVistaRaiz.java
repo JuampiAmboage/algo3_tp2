@@ -2,9 +2,13 @@ package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.App;
 import javafx.fxml.FXML;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 
 public class ControladorVistaRaiz {
+
+    @FXML
+    private MenuBar barraMenu;
     private App app;
 
     public void setApp(App app) {
@@ -17,6 +21,10 @@ public class ControladorVistaRaiz {
         } else {
 
         }
+    }
+    
+    public void ocultarMenuBar() {
+        this.barraMenu.setVisible(false);
     }
 
     public void gestionarBotonSalir() {
