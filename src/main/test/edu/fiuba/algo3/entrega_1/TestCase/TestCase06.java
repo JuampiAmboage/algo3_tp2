@@ -15,7 +15,9 @@ public class TestCase06 {
     @Test
     public void unaCeldaConMohoInfectaASusCeldasAdyacentesPasados2Turnos() {
         Mapa m = Mapa.getInstance();
-        m.instanciarMapa(3,3);
+
+        //m.instanciarMapa(3,3);
+        m.instanciarMapa();
         Celda centro = m.obtenerCelda(new Posicion(3,3));
         centro.cambiarTipo(new CeldaConMoho(centro));
     }

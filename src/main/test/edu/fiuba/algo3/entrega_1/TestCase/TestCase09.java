@@ -14,7 +14,8 @@ public class TestCase09 {
     @Test
     public void unAccesoSigueOperativoSiLeDestruyenUnPilonQueLoEnergizaPeroEstaEnElRangoDeOtro(){
         Mapa mapa = Mapa.getInstance();
-        mapa.instanciarMapa(8,8);
+        //mapa.instanciarMapa(8,8);
+        mapa.instanciarMapa();
         Pilon unPilon = new Pilon();
         Pilon otroPilon = new Pilon();
         unPilon.instanciacionInicial(new Posicion(3,3));
@@ -28,7 +29,8 @@ public class TestCase09 {
     @Test
     public void unaCeldaNoEstaMasEnergizadaSiSeDestruyeUnPilon(){
         Mapa mapa = Mapa.getInstance();
-        mapa.instanciarMapa(8,8);
+        //mapa.instanciarMapa(8,8);
+        mapa.instanciarMapa();
         Pilon unPilon = new Pilon();
         unPilon.instanciacionInicial(new Posicion(3,3));
         mapa.obtenerCelda(new Posicion(3,3)).ocuparPorTierra(unPilon);

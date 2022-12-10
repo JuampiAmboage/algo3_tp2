@@ -1,26 +1,21 @@
 package edu.fiuba.algo3.modelo.Partida;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Edificios.Pilon;
 import edu.fiuba.algo3.modelo.Excepciones.CoordenadaFueraDeRango;
-import edu.fiuba.algo3.modelo.Excepciones.PosicionesDiferentes;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 import java.util.ArrayList;
 
 public class Mapa {
     private static Mapa singletonMapa;
     private ArrayList<ArrayList<Celda>> mapaJuego;
-    private int longitudFilas; //alto mapa
-    private int longitudColumnas;//ancho mapa
+    private final int LONGITUD_FILAS_MAPA = 10; // Alto mapa
+    private final int LONGITUD_COLUMNAS_MAPA = 10;// Ancho mapa
 
     private GeneradorElementos generadorElementos;
 
-    private Mapa() {
-        mapaJuego = new ArrayList<ArrayList<Celda>>();}
+    private Mapa() { mapaJuego = new ArrayList<ArrayList<Celda>>(); }
 
     public static Mapa getInstance() {
         if (singletonMapa == null)
@@ -28,15 +23,13 @@ public class Mapa {
         return singletonMapa;
     }
 
-    public void instanciarMapa(int longitudFilas, int longitudColumnas) {
-        this.longitudFilas = longitudFilas;
-        this.longitudColumnas = longitudColumnas;
-        for (int i = 0; i < longitudFilas; i++) {
+    public void instanciarMapa() {
+        for (int i = 0; i < LONGITUD_FILAS_MAPA; i++) {
             mapaJuego.add(new ArrayList<Celda>());
-            for (int j = 0; j < longitudColumnas; j++)
+            for (int j = 0; j < LONGITUD_COLUMNAS_MAPA; j++)
                 mapaJuego.get(i).add(new Celda(i, j));
         }
-        generadorElementos = new GeneradorElementos(mapaJuego,longitudFilas,longitudColumnas);
+        generadorElementos = new GeneradorElementos(mapaJuego,LONGITUD_FILAS_MAPA,LONGITUD_COLUMNAS_MAPA);
     }
 
     public void generarBase(Edificio baseJugador){
@@ -58,6 +51,6 @@ public class Mapa {
     }*/
 
     public boolean estaPosicionEnLimites(Posicion unaPosicion) {
-        return unaPosicion.estaEnLimites(longitudFilas, longitudColumnas);
+        return unaPosicion.estaEnLimites(this.LONGITUD_FILAS_MAPA, this.LONGITUD_COLUMNAS_MAPA);
     }
 }

@@ -5,8 +5,8 @@ import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 
 import edu.fiuba.algo3.modelo.Partida.Mapa;
+import edu.fiuba.algo3.modelo.Partida.Turno;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,7 +18,8 @@ public class TestCase05 {
         Mapa mapa = Mapa.getInstance();
         Pilon pilon = new Pilon();
 
-        mapa.instanciarMapa(7, 7);
+        //mapa.instanciarMapa(7, 7);
+        mapa.instanciarMapa();
         mapa.obtenerCelda(new Posicion(4,4)).ocuparPorTierra(pilon);
         pilon.localizarEnMapa(4, 4);
         pilon.instanciacionInicial(new Posicion(4,4));

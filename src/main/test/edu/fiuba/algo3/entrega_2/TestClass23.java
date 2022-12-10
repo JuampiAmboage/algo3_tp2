@@ -16,7 +16,7 @@ public class TestClass23 {
         Zerling zerling = new Zerling(); //zerling hace 4 de daño
         Dragon dragon = new Dragon(); //dragon empieza con 80 de escudo y 100 de vida
 
-        mapa.instanciarMapa(6,6);
+        //mapa.instanciarMapa(6,6);
         Celda celdaZerling = mapa.obtenerCelda(new Posicion(2,3));
         Celda celdaDragon = mapa.obtenerCelda(new Posicion(3,3));  //el dragon esta "abajo" del zerling;
 
@@ -35,7 +35,8 @@ public class TestClass23 {
         Zerling zerling = new Zerling(); //zerling hace 4 de daño
         Dragon dragon = new Dragon(); //dragon empieza con 80 de escudo y 100 de vida
 
-        mapa.instanciarMapa(6,6);
+        //mapa.instanciarMapa(6,6);
+        mapa.instanciarMapa();
         Celda celdaZerling = mapa.obtenerCelda(new Posicion(2,3));
         Celda celdaDragon = mapa.obtenerCelda(new Posicion(2,2));
         celdaZerling.ocuparPorTierra(zerling);

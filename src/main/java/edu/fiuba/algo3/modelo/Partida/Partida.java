@@ -4,22 +4,21 @@ import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 public class Partida {
 
-    private final int DIMENSION_FILAS_MAPA = 8;
-    private final int DIMENSION_COLUMNAS_MAPA = 8;
     private Mapa mapa;
     private Turno turno;
     private Jugador primerJugador;
     private Jugador segundoJugador;
 
-    public Partida() {
+    public Partida(String[] nombreJugadores, Comunidad[] comunidades) {
         this.mapa = Mapa.getInstance();
-        this.mapa.instanciarMapa(this.DIMENSION_FILAS_MAPA, this.DIMENSION_COLUMNAS_MAPA);
+        this.mapa.instanciarMapa();
         this.turno = new Turno();
+        agregarJugadores(nombreJugadores, comunidades);
     }
 
-    public void agregarJugadores(String[] nombreJugador, Comunidad[] comunidades){
-        this.primerJugador = new Jugador(nombreJugador[0], comunidades[0]);
-        this.segundoJugador = new Jugador(nombreJugador[1], comunidades[1]);
+    private void agregarJugadores(String[] nombreJugadores, Comunidad[] comunidades){
+        this.primerJugador = new Jugador(nombreJugadores[0], comunidades[0]);
+        this.segundoJugador = new Jugador(nombreJugadores[1], comunidades[1]);
     }
 
 
