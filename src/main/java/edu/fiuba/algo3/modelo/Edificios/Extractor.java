@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 public class Extractor extends Edificio {
 
+    //TODO: En la construccion enviar a la celda correspondiente el sprite de celda con pilon
     private int cantidadMaximaDeTrabajadores = 3;
     private ArrayList<Zangano> trabajadores = new ArrayList<Zangano>(0);
 

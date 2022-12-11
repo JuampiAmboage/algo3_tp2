@@ -19,6 +19,7 @@ public class Zangano extends TropaTerrestre {
         tiempoConstruccion = 1;
         vida = new Vida(25);
         edificioNecesario = new Criadero();
+        this.sprite = "";
     }
     @Override
     public void pasarTurno(){vida.pasarTurno();}

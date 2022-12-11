@@ -15,6 +15,7 @@ public class Celda {
     protected TipoCelda tipo;
     protected Recurso recurso;
     protected Posicion posicion;
+    public String sprite;
     
     static public boolean esCelda(Object objeto) {
         return objeto instanceof Celda;
@@ -43,6 +44,7 @@ public class Celda {
     public void ocuparPorTierra(Unidad ocupante){
         if(!estaOcupadaPorTierra()) {
             this.ocupanteTerrestre = ocupante;
+            this.sprite = ocupante.obtenerSprite();
         }
         else{
             throw new CeldaOcupada();

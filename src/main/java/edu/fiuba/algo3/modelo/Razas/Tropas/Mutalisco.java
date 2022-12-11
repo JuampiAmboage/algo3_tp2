@@ -20,6 +20,7 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
         edificioNecesario = new Espiral();
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         comunidad.aniadirSuministro(suministro);
+        this.sprite = "";
 
     }
 

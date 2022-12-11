@@ -14,6 +14,7 @@ import edu.fiuba.algo3.modelo.Salud.Vida;
 public class ReservaDeReproduccion extends Edificio {
     //Evolucionador evolucionador;
 
+    // TODO: En la construccion enviar a la celda correspondiente el sprite de celda con reserva de produccion
     public ReservaDeReproduccion(){
         tiempoConstruccion = 12;
         vida = new Vida(1000);

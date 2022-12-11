@@ -21,6 +21,7 @@ public class Zealot extends TropaTerrestre {
         edificioNecesario = new Acceso();
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         comunidad.aniadirSuministro(suministro);
+        this.sprite = "";
     }
 
     @Override

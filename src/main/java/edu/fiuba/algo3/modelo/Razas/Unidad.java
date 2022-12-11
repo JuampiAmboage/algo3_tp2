@@ -18,7 +18,9 @@ public abstract class Unidad {
     protected int costoEnMinerales;
     protected int costoEnGas;
     protected int tiempoConstruccion;
+    public String sprite;
     protected int suministro;
+
     public abstract void pasarTurno();
     public abstract void realizarAccionesTurno();
     public void cambiarEstado(EstadoConstruccion nuevoEstado){
@@ -66,4 +68,6 @@ public abstract class Unidad {
     public boolean estaSinVida(){
         return vida.estaSinVida();
     }
+
+    public String obtenerSprite() { return this.sprite; }
 }

@@ -13,6 +13,7 @@ import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class NexoMineral extends Edificio implements Construible{
 
+    // TODO: En la construccion enviar a la celda correspondiente el sprite de celda con nexo mineral
     public NexoMineral(){
         tiempoConstruccion = 4;
         vida = new VidaConEscudo(250,250);

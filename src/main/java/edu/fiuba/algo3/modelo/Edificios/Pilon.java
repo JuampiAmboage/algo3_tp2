@@ -11,6 +11,8 @@ import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class Pilon extends Edificio {
+
+    // TODO: En la construccion enviar a la celda correspondiente el sprite de celda con pilon
     public Pilon(){
         this.tiempoConstruccion = 5;
         vida =  new VidaConEscudo(300, 300);
@@ -24,11 +26,13 @@ public class Pilon extends Edificio {
     private void energizarCeldasEnRango(){
         //Celda celda = Mapa.getInstance().obtenerCelda(posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
         //rango.expandir(new CeldaEnergizada(),posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
+        // TODO: Enviar sprite de celda energizada a las celdas en el rango
     }
 
     public void desernegizar(){
         //Celda celda = Mapa.getInstance().obtenerCelda(posicion.obtenerPosicionX(),posicion.obtenerPosicionY());
         //rango.expandir(new CeldaLibre(),posicion.obtenerPosicionX(), posicion.obtenerPosicionY());
+        // TODO: Enivar Sprite de celda libre a la celda desenergizada
     }
     public void pasarTurno(){
         this.estado.pasarTurno();

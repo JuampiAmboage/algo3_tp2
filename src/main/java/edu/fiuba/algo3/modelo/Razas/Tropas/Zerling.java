@@ -20,6 +20,7 @@ public class Zerling extends TropaTerrestre {
         edificioNecesario = new ReservaDeReproduccion();
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         comunidad.aniadirSuministro(suministro);
+        this.sprite = "";
     }
 
     public void instanciacionInicial(Posicion posicionALocalizar){

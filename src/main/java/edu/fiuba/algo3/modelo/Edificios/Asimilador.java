@@ -12,6 +12,8 @@ import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class Asimilador extends Edificio {
+
+    // TODO: En la construccion enviar a la celda correspondiente el sprite de celda con asimilador
     public Asimilador() {
         this.tiempoConstruccion = 6;
         vida = new VidaConEscudo(450, 450);

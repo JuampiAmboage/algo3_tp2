@@ -18,6 +18,7 @@ public class Scout extends TropaAerea{
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         comunidad.aniadirSuministro(suministro);
         edificioNecesario = new PuertoEstelar();
+        this.sprite = "";
     }
 
     @Override
