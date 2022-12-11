@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Edificios.Construible;
 
 public class CeldaEnergizada extends TipoCelda{
     private int energia = 0;
-    private final String RUTA_SPRITE = "/celdas/protoss/celdaEnergizada.png";
+    private final String RUTA_SPRITE = "/celdas/nergizada.png";
 
     public CeldaEnergizada(){
         super();
