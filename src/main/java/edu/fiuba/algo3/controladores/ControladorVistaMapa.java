@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
 import java.io.File;
+import java.util.Random;
 
 public class ControladorVistaMapa {
 
@@ -20,8 +21,19 @@ public class ControladorVistaMapa {
     private final int LONGITUD_COLUMNAS_MAPA = 10;// Ancho mapa
     private GridPane grilla;
 
+    private final String rutaRocas = "/sprite/celdas/decoracion/";
+
+    private String[] opcionesRocas = new String[3];
+
+
     @FXML
     private BorderPane baseMapa;
+
+    private void inicializarSpriteRocas() {
+        this.opcionesRocas[0] = "rocas00.png";
+        this.opcionesRocas[1] = "rocas01.png";
+        this.opcionesRocas[2] = "rocas02.png";
+    }
 
     private void inicializarGrilla() {
         this.grilla = new GridPane();
@@ -35,6 +47,9 @@ public class ControladorVistaMapa {
         this.baseMapa.setCenter(grilla);
     }
     public void mostrarMapa() {
+
+        inicializarSpriteRocas();
+
         if (this.grilla == null) {
             inicializarGrilla();
         }
@@ -67,7 +82,45 @@ public class ControladorVistaMapa {
         sprite.setImage(imagen);
 
         this.grilla.add(sprite, fila, columna);
+
+        if (agregarRocas()) {
+            this.grilla.add(obtenerSpriteRoca(), fila, columna);
+        }
     }
 
+    public ImageView obtenerSpriteRoca() {
+
+        String rutaFinal = this.rutaRocas + elejirRutaRandom();
+
+        Image imagen = new Image(getClass().getResourceAsStream(rutaFinal));
+
+        ImageView sprite = new ImageView();
+        sprite.setFitWidth(70.0);
+        sprite.setFitHeight(70.0);
+        sprite.setImage(imagen);
+
+        return sprite;
+    }
+
+    public String elejirRutaRandom() {
+        Random random = new Random();
+        int maximo = 3;
+        int eleccionRandom = random.nextInt(maximo);
+
+        return (this.rutaRocas + this.opcionesRocas[eleccionRandom]);
+
+    }
+
+    public boolean agregarRocas() {
+
+        Random random = new Random();
+        int maximo = 2;
+        int eleccionRandom = random.nextInt(maximo);
+
+        if (eleccionRandom == 1) {
+            return true;
+        }
+        return false;
+    }
 
 }
