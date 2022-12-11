@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controladores.ControladorVistaMenuJugadorUno">
    <children>
       <GridPane alignment="TOP_CENTER" prefHeight="750.0" VBox.vgrow="ALWAYS">
         <columnConstraints>
@@ -19,21 +19,24 @@
           <RowConstraints maxHeight="669.0" minHeight="-Infinity" prefHeight="669.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="jugador uno" GridPane.halignment="CENTER">
+            <Label fx:id="nombrePerfil" alignment="CENTER" contentDisplay="CENTER" GridPane.halignment="LEFT">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <GridPane.margin>
-                  <Insets />
+                  <Insets left="50.0" />
                </GridPane.margin>
             </Label>
-            <ImageView pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT">
+            <ImageView fx:id="imagenPerfil" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="25.0" />
                </GridPane.margin>
             </ImageView>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1" />
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
       </GridPane>
    </children>
 </VBox>

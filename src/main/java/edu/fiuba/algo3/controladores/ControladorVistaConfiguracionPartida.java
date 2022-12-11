@@ -34,6 +34,10 @@ public class ControladorVistaConfiguracionPartida {
     private Partida partida;
     private Comunidad[] comunidades = new Comunidad[2];
     private String[] nombreDeJugadores = new String[2];
+    private String[] perfiles = new String[2];
+
+    private String perfilZerg = "zerg";
+    private String perfilProtoss = "protoss";
 
     public void setApp(App app) {
         this.app = app;
@@ -42,27 +46,29 @@ public class ControladorVistaConfiguracionPartida {
     public void gestionarBotonIniciarPartida() {
         this.botonIniciarPartida.setVisible(false);
 
-        if (!validarInformacionObligatoria()) {
+        if (validarInformacionObligatoria()) {
             gestionarSeleccionDeRaza();
             gestionarPasajeDeDatosAlBackend();
-            mostrarVistaJuego();
+            mostrarVistaJuego(this.perfiles);
         } else {
             this.botonIniciarPartida.setVisible(true);
         }
     }
 
     private boolean validarInformacionObligatoria() {
-        boolean fallo = false;
 
-        if ( this.nombreJugadorUno.getLength() == 0 || this.nombreJugadorDos.getLength() == 0 ) {
+        if ( (this.nombreJugadorUno.getLength() == 0) || (this.nombreJugadorDos.getLength() == 0) ) {
             warning.setHeaderText(null);
             warning.setTitle("Atencion");
             warning.setContentText("Se debe ingresar al menos un caracter para el nombre de los jugadores.");
             warning.showAndWait();
-            fallo = true;
+            return false;
         }
 
-        return fallo;
+        this.nombreDeJugadores[0] = this.nombreJugadorUno.getText();
+        this.nombreDeJugadores[1] = this.nombreJugadorDos.getText();
+
+        return true;
 
     }
 
@@ -73,39 +79,64 @@ public class ControladorVistaConfiguracionPartida {
     public void gestionarSeleccionDeRaza() {
         //Jugador uno
         if (!this.checkZergJugadorUno.isSelected() && !this.checkProtossJugadorUno.isSelected()) { // No eligio ninguno se elije por defecto
+
             this.checkProtossJugadorUno.setVisible(true);
             this.checkZergJugadorUno.setVisible(true);
+
             this.comunidades[0] = ComunidadZerg.obtenerInstanciaDeClase(); // Por defecto Zerg
 
+            this.perfiles[0] = this.perfilZerg;
+
         } else if (this.checkZergJugadorUno.isSelected()) { //Elije Zerg
+
             this.checkProtossJugadorUno.setVisible(false);
+
             this.comunidades[0] = ComunidadZerg.obtenerInstanciaDeClase();
 
+            this.perfiles[0] = this.perfilZerg;
+
         } else { //Elije Protoss
+
             this.checkZergJugadorUno.setVisible(false);
+
             this.comunidades[0] = ComunidadProtoss.obtenerInstanciaDeClase();
+
+            this.perfiles[0] = this.perfilProtoss;
 
         }
 
         //Jugador dos
         if ( !this.checkZergJugadorDos.isSelected() && !this.checkProtossJugadorDos.isSelected() ) { // No eligio ninguno se elije por defecto
+
             this.checkProtossJugadorDos.setVisible(true);
+
             this.checkZergJugadorDos.setVisible(true);
+
             this.comunidades[1] = ComunidadProtoss.obtenerInstanciaDeClase(); // Por defecto Protoss
 
+            this.perfiles[1] = this.perfilProtoss;
+
         } else if (this.checkZergJugadorDos.isSelected()){ //Elije Zerg
+
             this.checkProtossJugadorDos.setVisible(false);
+
             this.comunidades[1] = ComunidadZerg.obtenerInstanciaDeClase();
 
+            this.perfiles[1] = this.perfilZerg;
+
         } else { //Elije Protoss
+
             this.checkZergJugadorDos.setVisible(false);
+
             this.comunidades[1] = ComunidadProtoss.obtenerInstanciaDeClase();
+
+            this.perfiles[1] = this.perfilProtoss;
 
         }
     }
 
-    public void mostrarVistaJuego() {
-        app.mostrarVistaJuego();
+    public void mostrarVistaJuego(String[] perfiles) {
+        app.mostrarVistaJuego(perfiles, this.nombreDeJugadores);
     }
 
 }
