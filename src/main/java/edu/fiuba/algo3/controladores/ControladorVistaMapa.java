@@ -6,12 +6,10 @@ import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
-import java.io.File;
 import java.util.Random;
 
 public class ControladorVistaMapa {
@@ -21,7 +19,7 @@ public class ControladorVistaMapa {
     private final int LONGITUD_COLUMNAS_MAPA = 10;// Ancho mapa
     private GridPane grilla;
 
-    private final String rutaRocas = "/sprite/celdas/decoracion/";
+    private final String rutaRocas = "/sprites/celdas/decoracion/";
 
     private String[] opcionesRocas = new String[3];
 
@@ -90,7 +88,7 @@ public class ControladorVistaMapa {
 
     public ImageView obtenerSpriteRoca() {
 
-        String rutaFinal = this.rutaRocas + elejirRutaRandom();
+        String rutaFinal = elejirRutaRandom();
 
         Image imagen = new Image(getClass().getResourceAsStream(rutaFinal));
 
@@ -114,7 +112,7 @@ public class ControladorVistaMapa {
     public boolean agregarRocas() {
 
         Random random = new Random();
-        int maximo = 2;
+        int maximo = 3;
         int eleccionRandom = random.nextInt(maximo);
 
         if (eleccionRandom == 1) {
