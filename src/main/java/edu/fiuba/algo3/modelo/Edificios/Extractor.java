@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Excepciones.ExtractorLleno;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Visible;
 import edu.fiuba.algo3.modelo.Razas.UnidadEnConstruccion;
 import edu.fiuba.algo3.modelo.Razas.Zangano;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
@@ -26,11 +27,13 @@ public class Extractor extends Edificio {
         vida = new Vida(750);
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.volcan = volcan;
+        this.visibilidad = new Visible(this);
     }
     public Extractor(Volcan volcan, int tiempoDeConstruccion) {
         this.tiempoConstruccion = tiempoDeConstruccion;
         this.vida = new Vida(750);
         this.volcan = volcan;
+        this.visibilidad = new Visible(this);
     }
     public void pasarTurno(){
         this.estado.pasarTurno();

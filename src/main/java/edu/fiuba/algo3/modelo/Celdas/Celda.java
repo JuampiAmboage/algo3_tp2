@@ -15,6 +15,8 @@ public class Celda {
     protected TipoCelda tipo;
     protected Recurso recurso;
     protected Posicion posicion;
+    protected String spriteEntidadSobreCelda;
+
     static public boolean esCelda(Object objeto) {
         return objeto instanceof Celda;
     }
@@ -36,6 +38,13 @@ public class Celda {
         this.posicion = new Posicion(0,0);
     }
 
+    public void aplicarSpriteOcupante(String spriteOcupante){
+        this.spriteEntidadSobreCelda = spriteOcupante;
+
+    }
+    public void restablecerSpriteOriginal(){
+        this.spriteEntidadSobreCelda = null;
+    }
     public boolean esMismaPosicion(Posicion posicion){
         return this.posicion.esMismaPosicion(posicion);
     }
@@ -100,6 +109,9 @@ public class Celda {
     }
 
     public String obtenerSprite() {
-        return this.tipo.obtenerSprite();
+        if(this.spriteEntidadSobreCelda != null)
+            return this.tipo.obtenerSprite();
+        else
+            return this.spriteEntidadSobreCelda;
     }
 }

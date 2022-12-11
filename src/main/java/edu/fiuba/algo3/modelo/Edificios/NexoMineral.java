@@ -9,12 +9,13 @@ import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Excepciones.GasEnVolcanAgotado;
 import edu.fiuba.algo3.modelo.Excepciones.MineralEnNodoAgotado;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Visible;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
-public class NexoMineral extends Edificio implements Construible{
+public class NexoMineral extends EdificioProtoss implements Construible{
     NodoMineral nodoMineral;
 
     public NexoMineral(NodoMineral nodoMineral){
@@ -22,6 +23,7 @@ public class NexoMineral extends Edificio implements Construible{
         vida = new VidaConEscudo(250,250);
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         this.nodoMineral = nodoMineral;
+        this.visibilidad = new Visible(this);
     }
 
     public int extraerMineral(){

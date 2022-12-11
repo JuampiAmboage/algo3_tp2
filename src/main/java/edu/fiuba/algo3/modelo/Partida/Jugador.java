@@ -24,26 +24,26 @@ public class Jugador {
     public void crearTropaZerg(Tropa unidadACrear, Celda celdaALocalizar, Criadero criaderoQueGenera,String png) {
         ComunidadZerg.obtenerInstanciaDeClase().crearUnidad(criaderoQueGenera,unidadACrear);
         unidadACrear.ocuparCelda(celdaALocalizar);
+        unidadACrear.modificarSpriteEnCeldaContenedora(celdaALocalizar);
         celdaALocalizar.instanciarUnidad(unidadACrear);
-        //celdaALocalizar.cargarSrite(png); //esto no hace nada, no defini el atributo
 
     }
     public void construirEdificioZerg(Celda celda, Edificio edificioAConstruir, Zangano zanganoQueEvoluciona,String png){
        ComunidadZerg.obtenerInstanciaDeClase().construirEdificio(celda,zanganoQueEvoluciona,edificioAConstruir);
-       celda.instanciarUnidad(edificioAConstruir);
-       //celdaALocalizar.cargarSrite(png);
+        edificioAConstruir.modificarSpriteEnCeldaContenedora(celda);
+        celda.instanciarUnidad(edificioAConstruir);
     }
 
     public void crearTropaProtoss(Tropa unidadACrear, Celda celdaALocalizar, String png){
         ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(unidadACrear);
         unidadACrear.ocuparCelda(celdaALocalizar);
+        unidadACrear.modificarSpriteEnCeldaContenedora(celdaALocalizar);
         celdaALocalizar.instanciarUnidad(unidadACrear);
-        //celdaALocalizar.cargarSrite(png);
     }
 
     public void construirEdificioProtoss(Celda celda, Edificio edificioAConstruir,String png){
         ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda,edificioAConstruir);
         celda.instanciarUnidad(edificioAConstruir);
-        //celdaALocalizar.cargarSrite(png);
+        edificioAConstruir.modificarSpriteEnCeldaContenedora(celda);
     }
 }

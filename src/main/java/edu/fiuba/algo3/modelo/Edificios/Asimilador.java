@@ -12,9 +12,10 @@ import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
-public class Asimilador extends Edificio {
+public class Asimilador extends EdificioProtoss {
     Volcan volcan;
     public Asimilador(Volcan volcan) {
+        super();
         this.tiempoConstruccion = 6;
         this.vida = new VidaConEscudo(450, 450);
         this.comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
