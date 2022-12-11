@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Razas;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.Almacenamiento;
 import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
 import edu.fiuba.algo3.modelo.Excepciones.RecursosInsuficientes;
@@ -25,6 +26,9 @@ public abstract class Unidad {
     }
     public abstract void realizarAccionesTurno();
 
+    public void modificarSpriteEnCeldaContenedora(Celda celdaAOcupar){
+        celdaAOcupar.aplicarSpriteOcupante(this.sprite);
+    }
     public void instanciacionesIniciales(Posicion posicionALocalizar){ this.posicion =posicionALocalizar;
         this.aplicarPesoEnSuministro();
     }
