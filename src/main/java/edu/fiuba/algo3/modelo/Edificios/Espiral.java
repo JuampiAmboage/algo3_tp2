@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Excepciones.EdificioHabilitadorNoCreado;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Visible;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
@@ -21,6 +22,7 @@ public class Espiral extends Edificio {
         this.edificioNecesario = new Guarida();
         this.vida = new Vida(1300);
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
+        this.visibilidad = new Visible(this);
     }
     public void construirEn(Celda celda) { celda.ocuparPorTierra(this);}
 

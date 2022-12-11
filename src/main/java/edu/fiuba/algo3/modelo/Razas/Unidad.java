@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.Almacenamiento;
 import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
 import edu.fiuba.algo3.modelo.Excepciones.RecursosInsuficientes;
+import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Invisible;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Visibilidad;
@@ -72,6 +73,7 @@ public abstract class Unidad {
         if(vida.estaSinVida()) {
             comunidad.restarPesoEnSuministro(suministro);
             comunidad.quitarUnidad(this);
+            Mapa.getInstance().obtenerCelda(this.posicion).restablecerSpriteOriginal();
         }
     }
 

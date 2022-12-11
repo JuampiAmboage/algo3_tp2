@@ -15,9 +15,10 @@ import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
-public class Pilon extends Edificio implements UnidadConAmpliacionDeSuministro {
+public class Pilon extends EdificioProtoss implements UnidadConAmpliacionDeSuministro {
     private RangoExpansible rangoExpansible;
     public Pilon(){
+        super();
         this.tiempoConstruccion = 5;
         this.vida =  new VidaConEscudo(300, 300);
         this.comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
@@ -30,6 +31,9 @@ public class Pilon extends Edificio implements UnidadConAmpliacionDeSuministro {
         this.energizarCeldasEnRango();
         this.aniadirSuministro();
     }
+    @Override public void energizar(){}
+    @Override
+    public void desenergizar(){}
     public void aniadirSuministro(){
         comunidad.aniadirCapacidadSuministro(5);
     }
@@ -46,8 +50,7 @@ public class Pilon extends Edificio implements UnidadConAmpliacionDeSuministro {
         }
     }
     public void desernegizar(){
-        Celda celda = Mapa.getInstance().obtenerCelda(posicion);
-        rangoExpansible.liberar();
+        rangoExpansible.desenergizar();
     }
     public void pasarTurno(){
         this.estado.pasarTurno();

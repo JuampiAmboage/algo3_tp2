@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Excepciones.EdificioHabilitadorNoCreado;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Visible;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
@@ -19,10 +20,12 @@ public class PuertoEstelar extends Edificio {
     private Edificio edificioNecesario;
 
     public PuertoEstelar(){
+        super();
         this.tiempoConstruccion = 10;
-        edificioNecesario = new Acceso();
-        vida = new VidaConEscudo(600, 600);
-        comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
+        this.edificioNecesario = new Acceso();
+        this.vida = new VidaConEscudo(600, 600);
+        this.comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
+        this.visibilidad = new Visible(this);
     }
 
     public void construirEn(Celda celda) {

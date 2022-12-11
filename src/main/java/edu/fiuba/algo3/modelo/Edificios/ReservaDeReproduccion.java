@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Visible;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
@@ -16,11 +17,12 @@ public class ReservaDeReproduccion extends Edificio {
 
     // TODO: En la construccion enviar a la celda correspondiente el sprite de celda con reserva de produccion
     public ReservaDeReproduccion(){
-        tiempoConstruccion = 12;
-        vida = new Vida(1000);
+        this.tiempoConstruccion = 12;
+        this.vida = new Vida(1000);
         this.costoEnGas = 0;
         this.costoEnMinerales = 150;
-        comunidad = ComunidadZerg.obtenerInstanciaDeClase();
+        this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
+        this.visibilidad = new Visible(this);
     }
     @Override
     public void pasarTurno(){
