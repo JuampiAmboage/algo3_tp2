@@ -3,10 +3,13 @@ package edu.fiuba.algo3.entrega_1.TestCase;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaConMoho;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Acceso;
 import edu.fiuba.algo3.modelo.Edificios.Espiral;
 import edu.fiuba.algo3.modelo.Edificios.Guarida;
 import edu.fiuba.algo3.modelo.Edificios.PuertoEstelar;
+import edu.fiuba.algo3.modelo.Excepciones.EdificioHabilitadorNoCreado;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -22,7 +25,7 @@ public class TestCase17 {
         PuertoEstelar puertaEstelar = new PuertoEstelar();
 
         celda.cambiarTipo(energizada);
-        assertThrows(RuntimeException.class, () -> puertaEstelar.construirEn(celda));
+        assertThrows(EdificioHabilitadorNoCreado.class, () -> celda.quiereConstruir(puertaEstelar));
     }
 
     @Test
@@ -33,8 +36,8 @@ public class TestCase17 {
         PuertoEstelar puertaEstelar = new PuertoEstelar();
 
         celda.cambiarTipo(energizada);
-
-        assertDoesNotThrow(()->puertaEstelar.construirEn(celda));
+        ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(acceso);
+        assertDoesNotThrow(()->celda.quiereConstruir(puertaEstelar));
 
     }
 
@@ -45,18 +48,20 @@ public class TestCase17 {
         Espiral espiral = new Espiral();
 
         celda.cambiarTipo(celdaConMoho);
-        assertThrows(RuntimeException.class, () -> espiral.construirEn(celda));
+        assertThrows(EdificioHabilitadorNoCreado.class, () -> celda.quiereConstruir(espiral));
     }
 
     @Test
     public void siExisteUnaGuaridaPuedeConstruirseUnEspiral(){
         Celda celda = new Celda(0,0);
+        ComunidadZerg.obtenerInstanciaDeClase().aniadirGasVespeno(100);
         CeldaConMoho celdaConMoho = new CeldaConMoho(celda);
         Guarida guarida = new Guarida();
         Espiral espiral = new Espiral();
 
         celda.cambiarTipo(celdaConMoho);
+        ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(guarida);
 
-        assertDoesNotThrow(()->espiral.construirEn(celda));
+        assertDoesNotThrow(()->celda.quiereConstruir(espiral));
     }
 }

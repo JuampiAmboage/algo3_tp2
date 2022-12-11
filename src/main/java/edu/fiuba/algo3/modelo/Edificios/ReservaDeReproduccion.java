@@ -17,8 +17,8 @@ public class ReservaDeReproduccion extends Edificio {
     public ReservaDeReproduccion(){
         tiempoConstruccion = 12;
         vida = new Vida(1000);
-
-        //evolucionador = new Evolucionador();
+        this.costoEnGas = 0;
+        this.costoEnMinerales = 150;
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
     }
     @Override

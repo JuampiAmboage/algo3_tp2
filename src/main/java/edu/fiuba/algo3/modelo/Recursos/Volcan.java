@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Edificios.Asimilador;
 import edu.fiuba.algo3.modelo.Edificios.Construible;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
+import edu.fiuba.algo3.modelo.Excepciones.GasEnVolcanAgotado;
 
 public class Volcan extends Recurso {
     public Volcan() {
@@ -17,7 +18,7 @@ public class Volcan extends Recurso {
             this.cantidad -= c;
             return c;
         } else {
-            throw new RuntimeException("El gas de este volcan ha sido agotado.");
+            throw new GasEnVolcanAgotado();
         }
     }
     @Override

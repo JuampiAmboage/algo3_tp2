@@ -22,19 +22,20 @@ public class Posicion {
     public boolean esMismaPosicion(Posicion posicionDeBusqueda){
         return posicionDeBusqueda.obtenerDistanciaA(X, Y) == 0;
     }
-    public int solicitarDistanciaA(Unidad unidadParaSolicitar){
+    public double solicitarDistanciaA(Unidad unidadParaSolicitar){
         return unidadParaSolicitar.obtenerDistanciaA(X,Y);
     }
-    public int obtenerDistanciaA(int posicionXDestino, int posicionYDestino){
-        return Math.abs((posicionXDestino+posicionYDestino)-(X+Y));
+    public double obtenerDistanciaA(int posicionXDestino, int posicionYDestino){
+        return Math.sqrt(Math.pow((posicionXDestino-X),2)+Math.pow((posicionYDestino-Y),2));
     }
     public boolean estaEnLimites(int maxLongitudX, int maxLongitudY) {
-        return this.X > 0 && this.X < maxLongitudX && this.Y > 0 && this.Y < maxLongitudY;
+        return this.X >= 0 && this.X < maxLongitudX && this.Y >= 0 && this.Y < maxLongitudY;
     }
-    public ArrayList<Posicion> obtenerPosicionesEnRadio(int radio, Mapa mapa) {
+    public ArrayList<Posicion> obtenerPosicionesEnRadio(int radio) {
+        Mapa mapa = Mapa.getInstance();
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        for(int i = this.X - radio; i <= this.X + radio; i++) {
-            for(int j = this.Y - radio; j <= this.Y + radio; j++) {
+        for(int i = (this.X - radio); i <= (this.X + radio); i++) {
+            for(int j = (this.Y - radio); j <= (this.Y + radio); j++) {
                 Posicion unaPosicion = new Posicion(i,j);
                 if (mapa.estaPosicionEnLimites(unaPosicion)) {
                     posiciones.add(unaPosicion);

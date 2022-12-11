@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Comunidad;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.Pilon;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
@@ -24,5 +26,11 @@ public class ComunidadProtoss extends Comunidad{
         if(comunidadProtoss == null)
             comunidadProtoss = new ComunidadProtoss();
         return comunidadProtoss;
+    }
+
+    public void construirEdificio(Celda celda, Edificio nuevoEdificio) {
+        celda.quiereConstruir(nuevoEdificio);
+        this.agregarUnidad(nuevoEdificio);
+        celda.ocuparPorTierra(nuevoEdificio);
     }
 }

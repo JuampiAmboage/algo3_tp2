@@ -21,20 +21,16 @@ public class Dragon extends TropaTerrestre{
         edificioNecesario = new Acceso();
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         vida = new VidaConEscudo(100,80);
-        ComunidadProtoss.obtenerInstanciaDeClase().aniadirSuministro(suministro);
 
     }
-    public void realizarAccionesTurno(){}
+    public void realizarAccionesTurno(){
+        vida.pasarTurno();
+    }
 
 
     public void instanciacionInicial(Posicion posicionAColocar){
         posicion = posicionAColocar;
         rangoAtaque = new RangoAtaque(this,4,posicion);
-    }
-
-    @Override
-    public void pasarTurno() {
-        vida.pasarTurno();
     }
 
     public int obtenerEscudo(){return vida.getEscudoActual();}

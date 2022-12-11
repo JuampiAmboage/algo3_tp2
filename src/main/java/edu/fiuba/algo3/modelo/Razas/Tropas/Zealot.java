@@ -2,9 +2,11 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Edificios.Acceso;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
-public class Zealot extends TropaTerrestre {
+public class Zealot extends TropaTerrestre implements VisibilidadCambiante{
     Invisible invisible;
     int bajasGeneradas;
     public Zealot(){
@@ -20,25 +22,30 @@ public class Zealot extends TropaTerrestre {
         bajasGeneradas = 0;
         edificioNecesario = new Acceso();
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
-        comunidad.aniadirSuministro(suministro);
     }
 
     @Override
-    public void pasarTurno() {
+    public void instanciacionesIniciales(Posicion posicionALocalizar){
+        this.posicion = posicionALocalizar;
+        this.rangoAtaque = new RangoAtaque(this,1,posicion);
+    }
+
+    public void realizarAccionesTurno() {
         vida.pasarTurno();
-        if(bajasGeneradas >= 3)
-            this.volverInsvisible();
     }
     @Override
     public void atacarTierra(TropaTerrestre unidadAtacable){
         ataque.atacarTierra(rangoAtaque,unidadAtacable,danioTerrestre);
-        if(unidadAtacable.estaSinVida())
-            bajasGeneradas++;
+        if(unidadAtacable.estaSinVida()) {
+            this.bajasGeneradas++;
+            if(bajasGeneradas == 3)
+                this.volverInsvisible();
+        }
     }
-    @Override
-    public void atacarAire(TropaAerea unidadAtacable){ ataque.atacarAire(rangoAtaque,unidadAtacable,danioAereo);}
-
-    public void realizarAccionesTurno(){}
+    public void volverVisible(){ visibilidad = new Visible(this);}
+    public void volverInsvisible(){
+        visibilidad = new Invisible(this);
+    }
     public int obtenerEscudo(){return vida.getEscudoActual();}
 
 }

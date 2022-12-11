@@ -13,13 +13,10 @@ import edu.fiuba.algo3.modelo.Razas.Zangano;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestCase04 { //A todos les falta probar con test y terminados de construir
-
-    //Verificar que extractor sin zánganos trabajando no genera gas. Verificar que con 1 saca
-    //10, con 2 20, con 3 30 y que no puede recibir a un 4to zángano porque está lleno. Verificar
-    //que el Asimilador recoge gas una vez construido según lo estipulado
     @Test
     public void unExtractorSinZanganosNoGeneraGas() {
-        Extractor e = new Extractor(0);
+        Volcan volcan = new Volcan();
+        Extractor e = new Extractor(volcan,0);
 
         assertEquals(0, e.extraerGas());
     }
@@ -27,7 +24,7 @@ public class TestCase04 { //A todos les falta probar con test y terminados de co
     @Test
     public void unExtractorConUnZanganoGenera10DeGas() {
         Volcan v = new Volcan();
-        Extractor e = new Extractor();
+        Extractor e = new Extractor(v);
 
         e.agregarTrabajador(new Zangano());
 
@@ -36,7 +33,8 @@ public class TestCase04 { //A todos les falta probar con test y terminados de co
 
     @Test
     public void unExtractorConDosZanganosGenera20DeGas() {
-        Extractor e = new Extractor();
+        Volcan volcan =new Volcan();
+        Extractor e = new Extractor(volcan);
 
         e.agregarTrabajador(new Zangano());
         e.agregarTrabajador(new Zangano());
@@ -46,7 +44,8 @@ public class TestCase04 { //A todos les falta probar con test y terminados de co
 
     @Test
     public void unExtractorConTresZanganosGenera30DeGas() {
-        Extractor e = new Extractor();
+        Volcan volcan = new Volcan();
+        Extractor e = new Extractor(volcan);
         e.agregarTrabajador(new Zangano());
         e.agregarTrabajador(new Zangano());
         e.agregarTrabajador(new Zangano());
@@ -55,7 +54,8 @@ public class TestCase04 { //A todos les falta probar con test y terminados de co
 
     @Test
     public void unExtractorNoPuedeRecibirUnCuartoZangano() {
-        Extractor e = new Extractor();
+        Volcan volcan = new Volcan();
+        Extractor e = new Extractor(volcan);
         e.agregarTrabajador(new Zangano());
         e.agregarTrabajador(new Zangano());
         e.agregarTrabajador(new Zangano());
@@ -67,13 +67,15 @@ public class TestCase04 { //A todos les falta probar con test y terminados de co
 
     @Test
     public void elAsimiladorSoloPuedeExtraerGasPasadoElTiempoEstipulado() {
-        Asimilador a = new Asimilador();
+        Volcan volcan = new Volcan();
+        Asimilador a = new Asimilador(volcan);
         assertEquals(20, a.extraerGas());
     }
 
     @Test
     public void siExtraigoMineralDeUnAsimiladorCincoVecesPuedoGenerarUnDragon(){
-        Asimilador a = new Asimilador();
+        Volcan volcan = new Volcan();
+        Asimilador a = new Asimilador(volcan);
         Dragon dragon = new Dragon();
         for(int i=0;i<3;i++)
             a.pasarTurno();

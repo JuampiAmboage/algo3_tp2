@@ -40,7 +40,7 @@ public class Celda {
         return this.posicion.esMismaPosicion(posicion);
     }
     public void ocuparPorTierra(Unidad ocupante){
-        if(!estaOcupadaPorTierra()) {
+        if(!this.estaOcupadaPorTierra()) {
             this.ocupanteTerrestre = ocupante;
         }
         else{
@@ -49,7 +49,11 @@ public class Celda {
     }
 
     public void ocuparPorAire(TropaAerea ocupanteAereoNuevo){
-        this.ocupanteAereo = ocupanteAereoNuevo;
+        if(!this.estaOcupadaPorAire()) {
+            this.ocupanteAereo = ocupanteAereoNuevo;
+        }else{
+            throw new CeldaOcupada();
+        }
     }
     public Unidad desocupar(){
         Unidad u = this.ocupanteTerrestre;
@@ -85,10 +89,13 @@ public class Celda {
     public void quiereConstruir(Edificio unEdificio) {
         this.recurso.quiereConstruir(unEdificio);
         this.tipo.quiereConstruir(unEdificio);
-        ocuparPorTierra(unEdificio);
     }
 
     public Unidad obtenerOcupante(){
         return ocupanteTerrestre;
+    }
+
+    public void instanciarUnidad(Unidad unidad){
+        unidad.instanciacionesIniciales(posicion);
     }
 }

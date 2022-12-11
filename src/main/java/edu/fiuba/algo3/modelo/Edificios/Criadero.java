@@ -6,9 +6,10 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
-import edu.fiuba.algo3.modelo.Excepciones.EdificioHabilitadorNoCreado;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
-import edu.fiuba.algo3.modelo.Razas.Unidad;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Visible;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
@@ -16,18 +17,44 @@ import edu.fiuba.algo3.modelo.Salud.Vida;
 
 public class Criadero extends Edificio {
     private int cantidadLarvasEnEspera;
+    protected RangoExpansible rangoExpansible;
     public Criadero(){
-        super(4);
+        this.tiempoConstruccion = 4;
         this.vida = new Vida(500);
         this.cantidadLarvasEnEspera = 3;
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
+        this.visibilidad = new Visible(this);
+        this.costoEnGas = 0;
+        this.costoEnMinerales = 200;
     }
     public Criadero(int tiempoDeConstruccion) {
         super(tiempoDeConstruccion);
         this.vida = new Vida(500);
         this.cantidadLarvasEnEspera = 3;
+        this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
     }
 
+    public void instanciacionesIniciales(Posicion posicionALocalizar){
+        this.posicion = posicionALocalizar;
+        this.aniadirSuministro();
+        this.rangoExpansible = new RangoExpansible(posicion,5);
+        this.infectarCeldasEnRango();
+
+    }
+    private void infectarCeldasEnRango(){
+        rangoExpansible.expandirMoho();
+    }
+    public void aniadirSuministro(){
+        comunidad.aniadirCapacidadSuministro(5);
+    }
+
+    public void disminuirVida(int puntosAtaque){
+        vida.recibirAtaque(puntosAtaque);
+        if(vida.estaSinVida()) {
+            comunidad.restarCapacidadSuministro(5);
+            comunidad.quitarUnidad(this);
+        }
+    }
     @Override
     public void pasarTurno(){
         this.estado.pasarTurno();
@@ -45,12 +72,9 @@ public class Criadero extends Edificio {
 
     public void engendrar(Tropa tipoUnidad) {
         this.estado.esUsable();
-        if(tipoUnidad.existeEdificioNecesario()) {
-            comunidad.agregarUnidad(tipoUnidad);
-            cantidadLarvasEnEspera--;
-        }
-        else
-            throw new EdificioHabilitadorNoCreado();
+        tipoUnidad.existeEdificioNecesario();
+        comunidad.agregarUnidad(tipoUnidad);
+        cantidadLarvasEnEspera--;
     }
 
     @Override

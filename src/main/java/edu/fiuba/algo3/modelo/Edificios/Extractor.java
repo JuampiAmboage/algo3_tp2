@@ -17,18 +17,20 @@ import edu.fiuba.algo3.modelo.Salud.Vida;
 import java.util.ArrayList;
 
 public class Extractor extends Edificio {
-
+    Volcan volcan;
     private int cantidadMaximaDeTrabajadores = 3;
     private ArrayList<Zangano> trabajadores = new ArrayList<Zangano>(0);
 
-    public Extractor(){
+    public Extractor(Volcan volcan){
         this.tiempoConstruccion = 6;
         vida = new Vida(750);
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
+        this.volcan = volcan;
     }
-    public Extractor(int tiempoDeConstruccion) {
+    public Extractor(Volcan volcan, int tiempoDeConstruccion) {
         this.tiempoConstruccion = tiempoDeConstruccion;
         this.vida = new Vida(750);
+        this.volcan = volcan;
     }
     public void pasarTurno(){
         this.estado.pasarTurno();
@@ -52,9 +54,10 @@ public class Extractor extends Edificio {
         int cantidadGasExtraido = 0;
         if (this.trabajadores.size() != 0 ) {
             for (Zangano trabajador :this.trabajadores) {
-                cantidadGasExtraido += 10;
+                cantidadGasExtraido += volcan.extraer(10);
             }
         }
+        ComunidadZerg.obtenerInstanciaDeClase().aniadirGasVespeno(cantidadGasExtraido);
         return cantidadGasExtraido;
     }
 
@@ -69,15 +72,13 @@ public class Extractor extends Edificio {
     @Override
     public void construirSobreRecurso(Volcan tipoRecurso) {}
     @Override
-    public void construirSobreTipo(CeldaConMoho tipo) {}
+    public void construirSobreTipo(CeldaConMoho tipo) {throw new ConstruccionProhibida();}
     @Override
     public void construirSobreTipo(CeldaEnergizada tipo) {
         throw new ConstruccionProhibida();
     }
     @Override
-    public void construirSobreTipo(CeldaLibre tipo) {
-        throw new ConstruccionProhibida();
-    }
+    public void construirSobreTipo(CeldaLibre tipo) {}
     @Override
     public void construirSobre(Celda celda) {
         celda.quiereConstruir(this);

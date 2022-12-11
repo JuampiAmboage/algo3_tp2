@@ -4,18 +4,22 @@ import edu.fiuba.algo3.modelo.Edificios.Construible;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 
 public class CeldaConMoho extends TipoCelda {
+    RangoExpansible rangoExpansible;
     private int delayExpandir = 2;
 
     public CeldaConMoho() {
         super();
+        rangoExpansible = new RangoExpansible(this.celda.posicion, 1);
+
     }
     public CeldaConMoho(Celda celda) {
         super(celda);
+        rangoExpansible = new RangoExpansible(this.celda.posicion, 1);
+
     }
 
     private void expandir() {
-        RangoExpansible rango = new RangoExpansible(this.celda.posicion, 1);
-        rango.expandir(new CeldaConMoho());
+        rangoExpansible.expandirMoho();
     }
 
     @Override
@@ -24,11 +28,7 @@ public class CeldaConMoho extends TipoCelda {
     }
     @Override
     public void pasarTurno() {
-        this.delayExpandir--;
-        if (this.delayExpandir == 0) {
-            this.expandir();
-            this.delayExpandir = 2;
-        }
+        this.expandir();
     }
     @Override
     public boolean esMismoTipo(Object objeto) {

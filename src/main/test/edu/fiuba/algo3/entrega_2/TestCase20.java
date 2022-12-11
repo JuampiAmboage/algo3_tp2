@@ -17,10 +17,4 @@ public class TestCase20 {
         assertDoesNotThrow(()->celda.ocuparPorAire(mutalisco));
     }
 
-    @Test
-    public void unaUnidadTerrestreNoPuedeIrPorUnaCeldaAerea(){
-        Celda celda = new Celda(0,0);
-        Zerling zerling = new Zerling();
-        //assertThrows(IllegalArgumentException.class,()->celda.ocuparPorAire(zerling));
-    }
 }

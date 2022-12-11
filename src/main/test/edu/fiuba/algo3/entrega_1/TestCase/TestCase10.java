@@ -10,7 +10,7 @@ public class TestCase10 {
     public void alDaniarUnaGuaridaYPasarUnTurnoRecuperaSuVidaMaxima(){
         Guarida guarida = new Guarida(); //empieza con 500 de vida
         guarida.daniar(125);
-        guarida.pasarTurno(); //en cada turno regenera 20% de su vida maxima, es decir 100
+        guarida.realizarAccionesTurno(); //en cada turno regenera 20% de su vida maxima, es decir 100
         assertEquals(1250,guarida.obtenerVida());
     }
 
@@ -21,7 +21,7 @@ public class TestCase10 {
         criadero.daniar(450);
 
         for(int i=0; i<8;i++)
-            criadero.pasarTurno(); //tras 4 turnos recuperando de a 100 queda en 450
+            criadero.realizarAccionesTurno(); //tras 4 turnos recuperando de a 100 queda en 450
 
         assertEquals(450,criadero.obtenerVida());
     }

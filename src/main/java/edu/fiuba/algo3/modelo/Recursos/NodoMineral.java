@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Recursos;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
+import edu.fiuba.algo3.modelo.Excepciones.MineralEnNodoAgotado;
 
 public class NodoMineral extends Recurso {
     public NodoMineral() {
@@ -13,7 +14,7 @@ public class NodoMineral extends Recurso {
             this.cantidad -= c;
             return c;
         } else {
-            throw new RuntimeException("No quedan minerales suficientes en este nodo para cumplir con la extracción.");
+            throw new MineralEnNodoAgotado();
         }
     }
     @Override

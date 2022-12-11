@@ -11,19 +11,15 @@ import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Salud.Salud;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
+import javafx.geometry.Pos;
 
 public class Acceso extends Edificio implements Construible {
     private Salud vida;
     public Acceso(){
         this.tiempoConstruccion = 8;
-        vida = new VidaConEscudo(500, 500);
-        comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
+        this.vida = new VidaConEscudo(500, 500);
+        this.comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
     }
-
-    public void pasarTurno(){
-        this.estado.pasarTurno();
-    }
-
     @Override
     public void realizarAccionesTurno() {
         vida.pasarTurno();

@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Guarida;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
 public class Hidralisco extends TropaTerrestre{
@@ -17,12 +19,14 @@ public class Hidralisco extends TropaTerrestre{
         edificioNecesario = new Guarida();
         vida = new Vida(80);
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-        comunidad.aniadirSuministro(suministro);
     }
-    public void realizarAccionesTurno(){}
 
     @Override
-    public void pasarTurno() {
-        vida.pasarTurno();
+    public void instanciacionesIniciales(Posicion posicionALocalizar){
+        posicion = posicionALocalizar;
+        rangoAtaque = new RangoAtaque(this,4,posicion);
+
     }
-}
+    public void realizarAccionesTurno(){vida.pasarTurno();}
+
+    }

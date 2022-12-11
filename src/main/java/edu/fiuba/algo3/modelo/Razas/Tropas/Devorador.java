@@ -3,9 +3,10 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
+import edu.fiuba.algo3.modelo.Rango.RangoDetector;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
-public class Devorador extends TropaAerea{
+public class Devorador extends TropaAerea implements UnidadEvolucionada{
     public Devorador(){
         super();
         ataque = new AtacarAire();
@@ -16,17 +17,20 @@ public class Devorador extends TropaAerea{
         danioAereo = 15;
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         vida = new Vida(200);
+        suministro = 0;
     }
-    public void realizarAccionesTurno(){}
+    public void realizarAccionesTurno(){
+        vida.pasarTurno();
+    }
 
-
-    public void instanciacionInicial(Posicion posicionALocalizar){
+    @Override
+    public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
         rangoAtaque = new RangoAtaque(this,5,posicion);
 
     }
     @Override
     public void pasarTurno() {
-        vida.pasarTurno();
+        estado.pasarTurno();
     }
 }

@@ -6,21 +6,26 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Excepciones.GasEnVolcanAgotado;
+import edu.fiuba.algo3.modelo.Excepciones.MineralEnNodoAgotado;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class NexoMineral extends Edificio implements Construible{
+    NodoMineral nodoMineral;
 
-    public NexoMineral(){
+    public NexoMineral(NodoMineral nodoMineral){
         tiempoConstruccion = 4;
         vida = new VidaConEscudo(250,250);
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
+        this.nodoMineral = nodoMineral;
     }
 
-    public void extraerMineral(){
-
+    public int extraerMineral(){
+        return nodoMineral.extraer(10);
     }
     @Override
     public void pasarTurno() {
@@ -30,6 +35,7 @@ public class NexoMineral extends Edificio implements Construible{
     @Override
     public void realizarAccionesTurno() {
         vida.pasarTurno();
+        comunidad.aniadirMineral(extraerMineral());
     }
 
     public int obtenerEscudo(){ return vida.getEscudoActual();}
@@ -49,9 +55,7 @@ public class NexoMineral extends Edificio implements Construible{
         throw new ConstruccionProhibida();
     }
     @Override
-    public void construirSobreTipo(CeldaLibre tipo) {
-        throw new ConstruccionProhibida();
-    }
+    public void construirSobreTipo(CeldaLibre tipo) {}
     @Override
     public void construirSobre(Celda celda) throws ConstruccionProhibida{
         celda.quiereConstruir(this);

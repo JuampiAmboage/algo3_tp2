@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Edificios.Asimilador;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Edificios.NexoMineral;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
+import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Dragon;
 import org.junit.jupiter.api.Test;
@@ -17,8 +18,8 @@ public class TestCase16 {
     public void noSePuedeConstruirSobreUnVolcanConUnEdificioExistente() {
         Celda celda = new Celda(0,0);
         Volcan volcan = new Volcan();
-        Extractor extractor = new Extractor();
-        Asimilador asimilador = new Asimilador();
+        Extractor extractor = new Extractor(volcan);
+        Asimilador asimilador = new Asimilador(volcan);
 
         celda.agregarRecurso(volcan);
         celda.ocuparPorTierra(extractor);
@@ -31,7 +32,7 @@ public class TestCase16 {
         Celda celda = new Celda(0,0);
         CeldaEnergizada energizada = new CeldaEnergizada(celda);
         Dragon dragon = new Dragon();
-        NexoMineral nexoMineral = new NexoMineral();
+        NexoMineral nexoMineral = new NexoMineral(new NodoMineral());
 
         celda.cambiarTipo(energizada);
         celda.ocuparPorTierra(dragon);
@@ -43,7 +44,7 @@ public class TestCase16 {
     public void noSePuedeTrasladarUnaUnidadDondeHayUnEdificio() {
         Celda celda = new Celda(0,0);
         CeldaEnergizada energizada = new CeldaEnergizada(celda);
-        NexoMineral nexoMineral = new NexoMineral();
+        NexoMineral nexoMineral = new NexoMineral(new NodoMineral());
         Dragon dragon = new Dragon();
 
         celda.cambiarTipo(energizada);

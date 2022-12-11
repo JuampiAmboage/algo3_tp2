@@ -19,17 +19,12 @@ public class Zerling extends TropaTerrestre {
         vida = new Vida(35);
         edificioNecesario = new ReservaDeReproduccion();
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-        comunidad.aniadirSuministro(suministro);
     }
 
-    public void instanciacionInicial(Posicion posicionALocalizar){
+    public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
         rangoAtaque = new RangoAtaque(this,1,posicion);
 
     }
-    public void realizarAccionesTurno(){}
-    @Override
-    public void pasarTurno() {
-        vida.pasarTurno();
-    }
+    public void realizarAccionesTurno(){vida.pasarTurno();}
 }

@@ -13,7 +13,7 @@ public class UnidadEnConstruccion implements EstadoConstruccion {
     }
 
     private void analizarTiempoDeConstruccion() {
-        if (this.tiempoDeConstruccion <= 0) {
+        if (this.tiempoDeConstruccion == 0) {
             this.futuraUnidad.cambiarEstado(new UnidadConstruida(this.futuraUnidad));
         }
     }

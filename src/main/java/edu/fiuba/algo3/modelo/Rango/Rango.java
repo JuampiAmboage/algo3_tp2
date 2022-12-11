@@ -18,7 +18,7 @@ public class Rango {
 
     protected ArrayList<Posicion> crearPosiciones() {
         Mapa mapa = Mapa.getInstance();
-        return this.posicionOrigen.obtenerPosicionesEnRadio(this.radio, mapa);
+        return this.posicionOrigen.obtenerPosicionesEnRadio(this.radio);
     }
 
 }

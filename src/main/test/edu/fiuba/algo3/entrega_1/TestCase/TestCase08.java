@@ -7,7 +7,9 @@ import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Acceso;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Edificios.Guarida;
+import edu.fiuba.algo3.modelo.Excepciones.RecursosInsuficientes;
 import edu.fiuba.algo3.modelo.Razas.Zangano;
+import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -21,7 +23,7 @@ public class TestCase08 {
     public void conLosMineralesInicialesPuedoConstruirUnAsimilador(){
         Celda celda = new Celda(0,0);
         celda.cambiarTipo(new CeldaConMoho(celda));
-        Extractor extractor = new Extractor();
+        Extractor extractor = new Extractor(new Volcan());
         celda.ocuparPorTierra(new Zangano());
         assertDoesNotThrow(()->ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(extractor));
     }
@@ -32,14 +34,14 @@ public class TestCase08 {
         Guarida guarida = new Guarida();
         celda.ocuparPorTierra(new Zangano());
         celda.cambiarTipo(new CeldaConMoho(celda));
-        assertThrows(RuntimeException.class,()->ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(guarida));
+        assertThrows(RecursosInsuficientes.class,()->ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(guarida));
     }
 
     @Test
-    public void sinRecursosNoPuedoConstruirUnAcceso(){
+    public void conElMineralDefaultEnAlmacenamientoPuedoConstruirUnAcceso(){
         Celda celda = new Celda(0,0);
         celda.cambiarTipo(new CeldaConMoho(celda));
         Acceso acceso = new Acceso();
-        assertThrows(RuntimeException.class,()->ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(acceso));
+        assertDoesNotThrow(()->ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(acceso));
     }
 }

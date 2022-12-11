@@ -5,5 +5,5 @@ import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 public interface UnidadEvolucionable {
 
-    public void mutar(Tropa unidadPostMutacion);
+    public void mutar(UnidadEvolucionada unidadPostMutacion);
 }

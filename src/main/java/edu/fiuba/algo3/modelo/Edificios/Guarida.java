@@ -6,7 +6,9 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Excepciones.EdificioHabilitadorNoCreado;
 import edu.fiuba.algo3.modelo.Razas.Correlatividad;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Visible;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
@@ -21,12 +23,16 @@ public class Guarida extends Edificio implements Correlatividad {
         this.vida = new Vida(1250);
         this.edificioNecesario = new ReservaDeReproduccion();
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
+        this.visibilidad = new Visible(this);
 
     }
-    public void construirEn(Celda celda) {celda.ocuparPorTierra(this);}
+    public void construirEn(Celda celda) {
+        celda.ocuparPorTierra(this);}
 
-    public boolean existeEdificioNecesario() {
-        return comunidad.existeUnidad(edificioNecesario);
+    public void existeEdificioNecesario() {
+        if(!comunidad.existeUnidad(edificioNecesario)) {
+            throw new EdificioHabilitadorNoCreado();
+        }
     }
     public void pasarTurno(){
         this.estado.pasarTurno();
@@ -37,7 +43,7 @@ public class Guarida extends Edificio implements Correlatividad {
         vida.pasarTurno();
     }
     @Override
-    public void construirSobreRecurso(NoRecurso tipoRecurso) {}
+    public void construirSobreRecurso(NoRecurso tipoRecurso) {this.existeEdificioNecesario();}
     @Override
     public void construirSobreRecurso(NodoMineral tipoRecurso) {
         throw new ConstruccionProhibida();
@@ -47,7 +53,7 @@ public class Guarida extends Edificio implements Correlatividad {
         throw new ConstruccionProhibida();
     }
     @Override
-    public void construirSobreTipo(CeldaConMoho tipo) {}
+    public void construirSobreTipo(CeldaConMoho tipo) {this.existeEdificioNecesario();}
     @Override
     public void construirSobreTipo(CeldaEnergizada tipo) {
         throw new ConstruccionProhibida();

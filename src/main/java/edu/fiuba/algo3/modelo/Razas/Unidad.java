@@ -19,8 +19,17 @@ public abstract class Unidad {
     protected int costoEnGas;
     protected int tiempoConstruccion;
     protected int suministro;
-    public abstract void pasarTurno();
+    public void pasarTurno(){
+        estado.pasarTurno();
+    }
     public abstract void realizarAccionesTurno();
+
+    public void instanciacionesIniciales(Posicion posicionALocalizar){ this.posicion =posicionALocalizar;
+        this.aplicarPesoEnSuministro();
+    }
+    public void iniciarConstruccion(){
+        this.estado = new UnidadEnConstruccion(this);
+    }
     public void cambiarEstado(EstadoConstruccion nuevoEstado){
         this.estado = nuevoEstado;
     }
@@ -33,12 +42,13 @@ public abstract class Unidad {
 
     public int obtenerCostoGas(){return costoEnGas;}
 
+
     public int obtenerTiempoConstruccion(){return tiempoConstruccion;}
-    public int obtenerDistanciaA(int coordenadaX, int coordenadaY){
+    public double obtenerDistanciaA(int coordenadaX, int coordenadaY){
         return posicion.obtenerDistanciaA(coordenadaX,coordenadaY);
     }
 
-    public void suficientesRecursosParaConstruirme(Almacenamiento almacenamiento) throws RecursosInsuficientes{
+    public void suficientesRecursosParaConstruirme(Almacenamiento almacenamiento){
         if(almacenamiento.suficientesRecursos(costoEnGas,costoEnMinerales)){
             almacenamiento.descontarRecursos(costoEnGas,costoEnMinerales);
         }
@@ -52,18 +62,24 @@ public abstract class Unidad {
     public void daniarIgnorandoVisibilidad(int puntosAtaque){
         visibilidad.recibirDanioIgnorandoVisibilidad(puntosAtaque);
     }
-
-    public void volverVisible(){ visibilidad = new Visible(this);}
-    public void volverInsvisible(){
-        visibilidad = new Invisible(this);
-    }
     public void disminuirVida(int puntosAtaque){
         vida.recibirAtaque(puntosAtaque);
-        if(vida.estaSinVida())
+        if(vida.estaSinVida()) {
+            comunidad.restarPesoEnSuministro(suministro);
             comunidad.quitarUnidad(this);
+        }
     }
 
+    public void aplicarPesoEnSuministro(){
+        comunidad.aniadirPesoEnSuministro(suministro);
+    }
+
+    public void esUsable(){
+        estado.esUsable();
+    }
     public boolean estaSinVida(){
         return vida.estaSinVida();
     }
+
+    public void cargarSrite(String ruta){}
 }

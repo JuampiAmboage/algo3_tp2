@@ -9,7 +9,7 @@ public class TestCase11 {
     public void alDaniarUnPilonYPasarUnTurnoRecuperaSuEscudo(){
         Pilon pilon = new Pilon(); //un pilon tiene 300 de vida y 300 de escudo
         pilon.daniar(30);
-        pilon.pasarTurno(); //recupera 10% de su vida maxima por turno, es decir 30
+        pilon.realizarAccionesTurno(); //recupera 10% de su vida maxima por turno, es decir 30
 
         assertEquals(300,pilon.obtenerEscudo());
     }
@@ -18,7 +18,7 @@ public class TestCase11 {
         Pilon pilon = new Pilon(); //un pilon tiene 300 de vida y 300 de escudo
         pilon.daniar(270);
         for(int i=0; i<5;i++)
-            pilon.pasarTurno();
+            pilon.realizarAccionesTurno();
         assertEquals(180,pilon.obtenerEscudo());
     }
 }

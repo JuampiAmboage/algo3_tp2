@@ -4,14 +4,15 @@ import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Espiral;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
 public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
     public Mutalisco(){
         super();
         ataque = new AtacarTierraYAire();
-        costoEnMinerales = 75;
-        costoEnGas = 25;
+        costoEnMinerales = 100;
+        costoEnGas = 100;
         tiempoConstruccion = 4;
         danioTerrestre = 9;
         danioAereo = 9;
@@ -19,21 +20,20 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
         vida = new Vida(80);
         edificioNecesario = new Espiral();
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-        comunidad.aniadirSuministro(suministro);
 
     }
-
-    public void mutar(Tropa unidadPostMutacion){
-        if(unidadPostMutacion.getClass().equals(Guardian.class) || unidadPostMutacion.getClass().equals(Devorador.class)) {
-            ComunidadZerg comunidadZerg = ComunidadZerg.obtenerInstanciaDeClase();
-            comunidadZerg.agregarUnidad(unidadPostMutacion);
-            comunidadZerg.quitarUnidad(this);
-        }
-    }
-    public void realizarAccionesTurno(){}
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
         rangoAtaque = new RangoAtaque(this,3,posicion);
+    }
+
+    public void mutar(UnidadEvolucionada unidadPostMutacion){
+        ComunidadZerg comunidadZerg = ComunidadZerg.obtenerInstanciaDeClase();
+        comunidadZerg.agregarUnidad((Unidad) unidadPostMutacion);
+        comunidadZerg.quitarUnidad(this);
+    }
+    public void realizarAccionesTurno(){
+        vida.pasarTurno();
     }
 
     @Override

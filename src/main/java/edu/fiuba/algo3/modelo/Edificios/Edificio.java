@@ -6,10 +6,8 @@ import edu.fiuba.algo3.modelo.Razas.UnidadConstruida;
 import edu.fiuba.algo3.modelo.Razas.UnidadEnConstruccion;
 
 public abstract class Edificio extends Unidad implements Construible{
-    protected EstadoConstruccion estado;
-    public Edificio() {
-        this.estado = new UnidadConstruida(this);
-    }
+
+    public Edificio(){}
     public Edificio(int tiempoDeConstruccion) {
         if (tiempoDeConstruccion == 0) {
             this.estado = new UnidadConstruida(this);

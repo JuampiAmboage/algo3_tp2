@@ -6,8 +6,9 @@ import edu.fiuba.algo3.modelo.Posicion.Posicion;
 
 public abstract class TropaTerrestre extends Tropa{
 
-    public abstract void pasarTurno();
-
+    public void ocuparCelda(Celda celda){
+        celda.ocuparPorTierra(this);
+    }
     public void moverArriba(){
         Celda celda = posicion.obtenerUnaCeldaLimitrofe(0,-1);
         if(!celda.estaOcupadaPorTierra()){

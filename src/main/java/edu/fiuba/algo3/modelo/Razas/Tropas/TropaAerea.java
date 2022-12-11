@@ -3,8 +3,9 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 
 public abstract class TropaAerea extends Tropa {
-    public abstract void pasarTurno();
-
+    public void ocuparCelda(Celda celda){
+        celda.ocuparPorAire(this);
+    }
     public void moverArriba(){
         Celda celda = posicion.obtenerUnaCeldaLimitrofe(-1,0);
         if(!celda.estaOcupadaPorAire()){

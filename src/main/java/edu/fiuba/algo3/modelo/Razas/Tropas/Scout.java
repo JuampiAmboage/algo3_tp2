@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Edificios.PuertoEstelar;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class Scout extends TropaAerea{
@@ -16,16 +18,13 @@ public class Scout extends TropaAerea{
         suministro = 4;
         vida = new VidaConEscudo(150,100);
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
-        comunidad.aniadirSuministro(suministro);
         edificioNecesario = new PuertoEstelar();
     }
-
-    @Override
-    public void pasarTurno() {
-        vida.pasarTurno();
+    public void instanciacionesIniciales(Posicion posicionALocalizar){
+        posicion = posicionALocalizar;
+        rangoAtaque = new RangoAtaque(this,4,posicion);
     }
-
-    public void realizarAccionesTurno(){}
+    public void realizarAccionesTurno(){vida.pasarTurno();}
     public int obtenerEscudo(){return vida.getEscudoActual();}
 
 }

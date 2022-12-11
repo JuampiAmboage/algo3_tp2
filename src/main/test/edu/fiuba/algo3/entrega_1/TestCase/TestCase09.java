@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Edificios.Pilon;
@@ -17,12 +18,13 @@ public class TestCase09 {
         mapa.instanciarMapa(8,8);
         Pilon unPilon = new Pilon();
         Pilon otroPilon = new Pilon();
-        unPilon.instanciacionInicial(new Posicion(3,3));
-        otroPilon.instanciacionInicial(new Posicion(3,4));
+        unPilon.instanciacionesIniciales(new Posicion(3,3));
+        otroPilon.instanciacionesIniciales(new Posicion(3,4));
         mapa.obtenerCelda(new Posicion(3,3)).ocuparPorTierra(unPilon);
         mapa.obtenerCelda(new Posicion(3,4)).ocuparPorTierra(otroPilon);
         unPilon.desernegizar();
-        assertTrue(mapa.obtenerCelda(new Posicion(3,5)).esMismoTipo(new CeldaEnergizada()));
+        Celda celdaEnRangoDePilones = mapa.obtenerCelda(new Posicion(3,5));
+        assertTrue(celdaEnRangoDePilones.esMismoTipo(new CeldaEnergizada(celdaEnRangoDePilones)));
     }
 
     @Test
@@ -30,10 +32,11 @@ public class TestCase09 {
         Mapa mapa = Mapa.getInstance();
         mapa.instanciarMapa(8,8);
         Pilon unPilon = new Pilon();
-        unPilon.instanciacionInicial(new Posicion(3,3));
-        mapa.obtenerCelda(new Posicion(3,3)).ocuparPorTierra(unPilon);
+        unPilon.instanciacionesIniciales(new Posicion(5,5));
+        mapa.obtenerCelda(new Posicion(5,5)).ocuparPorTierra(unPilon);
         unPilon.desernegizar();
-        assertTrue(mapa.obtenerCelda(new Posicion(3,5)).esMismoTipo(new CeldaLibre()));
+        Celda celdaDesernegizada = mapa.obtenerCelda(new Posicion(5,7));
+        assertTrue(celdaDesernegizada.esMismoTipo(new CeldaLibre(celdaDesernegizada)));
 
     }
 }

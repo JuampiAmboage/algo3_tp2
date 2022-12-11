@@ -53,6 +53,13 @@ public class Mapa {
         throw new CoordenadaFueraDeRango();
     }
 
+    public void pasarTurno(){
+        for (ArrayList<Celda> fila : mapaJuego){
+            for (Celda celda : fila) {
+                celda.pasarTurno();
+            }
+        }
+    }
     /*public void ocuparUnaCeldaPorTierra(Posicion posicionAOcupar, Unidad ocupante){
         this.obtenerCelda(posicionAOcupar).
     }*/

@@ -1,8 +1,9 @@
-package edu.fiuba.algo3.entrega_2;
+package edu.fiuba.algo3.entrega_1.UnitTest;
 
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
+import edu.fiuba.algo3.modelo.Edificios.ReservaDeReproduccion;
 import edu.fiuba.algo3.modelo.Razas.Zangano;
 import org.junit.jupiter.api.Test;
 
@@ -34,11 +35,11 @@ public class TestComunidad {
     @Test
     public void siBuscoUnEdificioQueJamasFueCreadoNoLoEncuentra(){
         ComunidadZerg unaComunidadZerg = ComunidadZerg.obtenerInstanciaDeClase();
-        Extractor extractor = new Extractor();
+        ReservaDeReproduccion reservaDeReproduccion = new ReservaDeReproduccion();
         Criadero criaderoDeBusqueda = new Criadero(0);
         unaComunidadZerg.aniadirGasVespeno(300);
         unaComunidadZerg.aniadirMineral(400);
-        unaComunidadZerg.agregarUnidad(extractor);
+        unaComunidadZerg.agregarUnidad(reservaDeReproduccion);
         assertFalse(unaComunidadZerg.existeUnidad(criaderoDeBusqueda));
     }
 }
