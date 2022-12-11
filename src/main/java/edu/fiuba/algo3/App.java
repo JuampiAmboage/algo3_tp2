@@ -140,7 +140,7 @@ public class App extends Application {
             cargador.setLocation(
                     App.class.getResource("/vistaJuego/VistaMapa.fxml")
             );
-            AnchorPane vistaMapa = (AnchorPane) cargador.load();
+            BorderPane vistaMapa = (BorderPane) cargador.load();
 
             this.layoutRaiz.setCenter(vistaMapa);
 

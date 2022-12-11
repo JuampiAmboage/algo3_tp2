@@ -5,11 +5,11 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.*;
 
 import java.io.File;
 
@@ -19,16 +19,26 @@ public class ControladorVistaMapa {
     private final String RUTA_A_SPRITES = "/sprites";
     private final int LONGITUD_FILAS_MAPA = 10; // Alto mapa;
     private final int LONGITUD_COLUMNAS_MAPA = 10;// Ancho mapa
-
-    private double Siguienteubcacion = 0;
-
-    @FXML
-    private AnchorPane baseMapa;
-
-    @FXML
     private GridPane grilla;
 
+    @FXML
+    private BorderPane baseMapa;
+
+    private void inicializarGrilla() {
+        this.grilla = new GridPane();
+        this.grilla.setGridLinesVisible(true);
+
+        this.grilla.setMaxSize(700.0, 700.0);
+        this.grilla.setMinSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
+        this.grilla.setPrefSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
+
+        this.grilla.setAlignment(Pos.CENTER);
+        this.baseMapa.setCenter(grilla);
+    }
     public void mostrarMapa() {
+        if (this.grilla == null) {
+            inicializarGrilla();
+        }
 
         for (int i = 0; i < LONGITUD_FILAS_MAPA; i++) {
 
@@ -50,28 +60,14 @@ public class ControladorVistaMapa {
 
     public void agregarSprite(String rutaSprite, int fila, int columna) {
 
-        Image imagen = new Image(new File(rutaSprite).toURI().toString());
+        Image imagen = new Image(getClass().getResourceAsStream(rutaSprite));
+
         ImageView sprite = new ImageView();
-
-        Node celda = obtenerNodoDeLaCelda(fila, columna);
-
         sprite.setFitWidth(70.0);
         sprite.setFitHeight(70.0);
         sprite.setImage(imagen);
 
-        this.grilla.getChildren().add(0,sprite);
-    }
-
-
-    // Stack Overflow -> metodo traducido de ingles a espaniol https://stackoverflow.com/questions/20655024/javafx-gridpane-retrieve-specific-cell-content
-    private Node obtenerNodoDeLaCelda(int fila, int columna) {
-        for (Node node : this.grilla.getChildren()) {
-            if (this.grilla.getColumnIndex(node) == columna && this.grilla.getRowIndex(node) == fila) {
-                System.out.println(node);
-                return node;
-            }
-        }
-        return null;
+        this.grilla.add(sprite, fila, columna);
     }
 
 
