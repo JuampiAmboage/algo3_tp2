@@ -2,17 +2,21 @@ package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
 
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class CeldaLibre extends TipoCelda {
 
-    private final String RUTA_SPRITE = "/celdas/celdaLibre.png";
+    private final String[] opcionSprite = new String[3];
 
     public CeldaLibre() {
         super();
-        this.sprite = this.RUTA_SPRITE;
     }
     public CeldaLibre(Celda celda) {
         super(celda);
-        this.sprite = this.RUTA_SPRITE;
+        this.opcionSprite[0] = "celdaLibre00.png";
+        this.opcionSprite[1] = "celdaLibre01.png";
+        this.opcionSprite[2] = "celdaLibre02.png";
     }
 
     @Override
@@ -46,5 +50,15 @@ public class CeldaLibre extends TipoCelda {
     @Override
     public void quiereConstruir(Construible construible) {
         construible.construirSobreTipo(this);
+    }
+
+    @Override
+    public String obtenerSprite() {
+        int maximo = 3;
+        Random random = new Random();
+
+        int eleccionRandom = random.nextInt(maximo);
+
+        return (this.sprite + this.opcionSprite[eleccionRandom]);
     }
 }

@@ -51,4 +51,9 @@ public class CeldaEnergizada extends TipoCelda{
     public void quiereConstruir(Construible construible) {
         construible.construirSobreTipo(this);
     }
+
+    @Override
+    public String obtenerSprite() {
+        return (this.sprite + "celdaEnergizada.png");
+    }
 }
