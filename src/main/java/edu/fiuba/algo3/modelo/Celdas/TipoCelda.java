@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Edificios.Construible;
 
 public abstract class TipoCelda {
     protected Celda celda;
+    public String sprite;
     public TipoCelda() {}
     public TipoCelda(Celda celda) {
         this.celda = celda;
@@ -18,4 +19,6 @@ public abstract class TipoCelda {
     protected abstract void cambiarTipoA(CeldaEnergizada t);
     public abstract void cambiarTipoDe(Celda c);
     public abstract void quiereConstruir(Construible construible);
+
+    public String obtenerSprite() { return sprite; }
 }

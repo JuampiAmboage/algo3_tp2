@@ -43,6 +43,7 @@ public class ControladorVistaConfiguracionPartida {
         this.botonIniciarPartida.setVisible(false);
 
         if (!validarInformacionObligatoria()) {
+            gestionarSeleccionDeRaza();
             gestionarPasajeDeDatosAlBackend();
             mostrarVistaJuego();
         } else {
@@ -66,8 +67,7 @@ public class ControladorVistaConfiguracionPartida {
     }
 
     public void gestionarPasajeDeDatosAlBackend() {
-        this.partida = new Partida();
-        this.partida.agregarJugadores(this.nombreDeJugadores, this.comunidades);
+        this.partida = new Partida(this.nombreDeJugadores, this.comunidades);
     }
 
     public void gestionarSeleccionDeRaza() {

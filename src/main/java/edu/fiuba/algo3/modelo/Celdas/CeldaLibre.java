@@ -3,9 +3,16 @@ package edu.fiuba.algo3.modelo.Celdas;
 import edu.fiuba.algo3.modelo.Edificios.Construible;
 
 public class CeldaLibre extends TipoCelda {
-    public CeldaLibre() {super();}
+
+    private final String RUTA_SPRITE = "/celdas/celdaLibre.png";
+
+    public CeldaLibre() {
+        super();
+        this.sprite = this.RUTA_SPRITE;
+    }
     public CeldaLibre(Celda celda) {
         super(celda);
+        this.sprite = this.RUTA_SPRITE;
     }
 
     @Override

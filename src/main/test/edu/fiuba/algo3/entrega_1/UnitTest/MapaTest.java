@@ -13,7 +13,8 @@ public class MapaTest {
     @Test
     public void elMapaSeCreaConCeldasAdentro() {
         Mapa mapa = Mapa.getInstance();
-        mapa.instanciarMapa(5,5);
+        //mapa.instanciarMapa(5,5);
+        mapa.instanciarMapa();
         Celda celdaRandom = mapa.obtenerCelda(new Posicion(3,3));
 
         assertTrue(Celda.esCelda(celdaRandom));
@@ -31,7 +32,8 @@ public class MapaTest {
     @Test
     public void elMapaEsUnaSolaInstancia(){
         Mapa mapa = Mapa.getInstance();
-        mapa.instanciarMapa(8,8);
+        //mapa.instanciarMapa(8,8);
+        mapa.instanciarMapa();
 
         Mapa unaInstancia = Mapa.getInstance();
         Mapa otraInstancia = Mapa.getInstance();
