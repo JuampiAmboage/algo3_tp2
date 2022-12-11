@@ -16,7 +16,6 @@ import java.io.File;
 public class ControladorVistaMapa {
 
     private final Mapa mapa = Mapa.getInstance();
-    private final String RUTA_A_SPRITES = "/sprites";
     private final int LONGITUD_FILAS_MAPA = 10; // Alto mapa;
     private final int LONGITUD_COLUMNAS_MAPA = 10;// Ancho mapa
     private GridPane grilla;
@@ -48,7 +47,7 @@ public class ControladorVistaMapa {
                 Celda celda = mapa.obtenerCelda(posicion);
 
                 String rutaSprite = celda.obtenerSprite();
-                String rutaSpriteFinal = this.RUTA_A_SPRITES + rutaSprite;
+                String rutaSpriteFinal = rutaSprite;
 
                 agregarSprite(rutaSpriteFinal, i, j);
 

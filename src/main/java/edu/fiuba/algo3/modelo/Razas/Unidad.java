@@ -19,6 +19,7 @@ public abstract class Unidad {
     protected int costoEnGas;
     protected int tiempoConstruccion;
     protected int suministro;
+    protected String sprite;
     public void pasarTurno(){
         estado.pasarTurno();
     }

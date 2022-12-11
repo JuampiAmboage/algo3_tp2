@@ -98,4 +98,8 @@ public class Celda {
     public void instanciarUnidad(Unidad unidad){
         unidad.instanciacionesIniciales(posicion);
     }
+
+    public String obtenerSprite() {
+        return this.tipo.obtenerSprite();
+    }
 }

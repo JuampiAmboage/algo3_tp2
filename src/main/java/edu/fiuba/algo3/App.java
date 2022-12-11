@@ -1,6 +1,7 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.controladores.ControladorVistaMapa;
+import edu.fiuba.algo3.controladores.*;
+import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,10 +11,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
-import edu.fiuba.algo3.controladores.ControladorVistaRaiz;
-import edu.fiuba.algo3.controladores.ControladorVistaInicio;
-import edu.fiuba.algo3.controladores.ControladorVistaConfiguracionPartida;
 
 public class App extends Application {
 
@@ -102,13 +99,13 @@ public class App extends Application {
         } catch (IOException e) { e.printStackTrace(); }
     }
 
-    public void mostrarVistaJuego() {
-        mostrarVisaJugadorUno();
-        mostrarVisaJugadorDos();
+    public void mostrarVistaJuego(String[] perfiles, String[] nombresDeJugadores) {
+        mostrarVistaJugadorUno(perfiles[0], nombresDeJugadores[0]);
+        mostrarVistaJugadorDos(perfiles[1], nombresDeJugadores[1]);
         mostrarVistaMapa();
     }
 
-    private void mostrarVisaJugadorUno() {
+    private void mostrarVistaJugadorUno(String perfil, String nombre) {
         try {
             FXMLLoader cargador = new FXMLLoader();
             cargador.setLocation(
@@ -116,18 +113,24 @@ public class App extends Application {
             );
             VBox VistaMenuJugadorUno = (VBox) cargador.load();
 
+            ControladorVistaMenuJugadores controladorVistaMenuJugadorUno = cargador.getController();
+            controladorVistaMenuJugadorUno.establecerPerfil(perfil, nombre);
+
             this.layoutRaiz.setLeft(VistaMenuJugadorUno);
 
         } catch (IOException e) { e.printStackTrace(); }
     }
 
-    private void mostrarVisaJugadorDos() {
+    private void mostrarVistaJugadorDos(String perfil, String nombre) {
         try {
             FXMLLoader cargador = new FXMLLoader();
             cargador.setLocation(
                     App.class.getResource("/vistaJuego/VistaMenuJugadorDos.fxml")
             );
             VBox VistaMenuJugadorDos = (VBox) cargador.load();
+
+            ControladorVistaMenuJugadores controladorVistaMenuJugadorDos = cargador.getController();
+            controladorVistaMenuJugadorDos.establecerPerfil(perfil, nombre);
 
             this.layoutRaiz.setRight(VistaMenuJugadorDos);
 
