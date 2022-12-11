@@ -7,15 +7,15 @@ public class CeldaConMoho extends TipoCelda {
     RangoExpansible rangoExpansible;
     private int delayExpandir = 2;
 
+    private final String RUTA_SPRITE = "estado/moho.png";
+
     public CeldaConMoho() {
         super();
         rangoExpansible = new RangoExpansible(this.celda.posicion, 1);
-
     }
     public CeldaConMoho(Celda celda) {
         super(celda);
         rangoExpansible = new RangoExpansible(this.celda.posicion, 1);
-
     }
 
     private void expandir() {
@@ -54,6 +54,6 @@ public class CeldaConMoho extends TipoCelda {
 
     @Override
     public String obtenerSprite() {
-        return (this.sprite + "celdaConMoho.png");
+        return (this.sprite + this.RUTA_SPRITE);
     }
 }
