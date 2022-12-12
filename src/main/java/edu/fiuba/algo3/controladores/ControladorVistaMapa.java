@@ -52,29 +52,35 @@ public class ControladorVistaMapa {
 
     public void mostrarMapa() {
 
-        inicializarSpriteRocas();
-
         if (this.grilla == null) {
             inicializarGrilla();
         }
 
-        for (int i = 0; i < LONGITUD_FILAS_MAPA; i++) {
+        for (int fila = 0; fila < LONGITUD_FILAS_MAPA; fila++) {
 
-            for (int j = 0; j < LONGITUD_COLUMNAS_MAPA; j++) {
+            for (int columna = 0; columna < LONGITUD_COLUMNAS_MAPA; columna++) {
 
-                Posicion posicion = new Posicion(i, j);
+                Posicion posicion = new Posicion(fila, columna);
                 Celda celda = mapa.obtenerCelda(posicion);
 
                 String rutaSprite = celda.obtenerSprite();
                 String rutaSpriteFinal = rutaSprite;
 
-                agregarSprite(rutaSpriteFinal, i, j);
-                agregarBoton(i,j);
+                inicializarSpriteRocas();
+                agregarSprite(rutaSpriteFinal, fila, columna);
+                agregarBoton(fila,columna);
+
+                guardarCeldaEnGrilla(celda, fila, columna);
 
             }
 
         }
 
+    }
+
+    private void guardarCeldaEnGrilla(Celda celda, int fila, int columna) {
+
+        this.grilla.add(celda, fila, columna);
     }
 
     public void agregarSprite(String rutaSprite, int fila, int columna) {
@@ -131,9 +137,11 @@ public class ControladorVistaMapa {
 
     public void agregarBoton(int fila, int columna) {
 
-        Boton boton = new Boton(fila, columna);
+        Boton boton = new Boton(fila, columna, this);
 
         this.grilla.add(boton.obtenerBoton(), fila, columna);
     }
+
+    public void gestionarClickEnCelda(int fila, int columna) {}
 
 }
