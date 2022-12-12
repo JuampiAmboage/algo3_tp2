@@ -15,8 +15,6 @@ public abstract class ControladorVistaMenuJugadores {
     protected String perfil;
     protected String nombre;
     protected Accordion acordeon;
-    protected TitledPane[] titledPane;
-    //protected AnchorPane[] anchorPane;
 
     protected ArrayList<String> opcionesInvalidasProtoss;
     protected ArrayList<String> opcionesInvalidasZerg;
@@ -54,16 +52,22 @@ public abstract class ControladorVistaMenuJugadores {
 
         instanciarAcordeon();
 
-        this.titledPane = new TitledPane[cantidadDeMenus];
+        TitledPane[] titledPane = new TitledPane[cantidadDeMenus];
 
         for (int i = 0; i < cantidadDeMenus; i++) {
             AnchorPane nuevoAnchorPane = new AnchorPane();
             nuevoAnchorPane.setId("anchorPane_"+i);
-            this.titledPane[i] = new TitledPane(opciones.get(i), nuevoAnchorPane);
+
+            titledPane[i] = new TitledPane(opciones.get(i), nuevoAnchorPane);
+            titledPane[i].setId("titlePane_"+i);
         }
-        acordeon.getPanes().addAll(this.titledPane);
-        acordeon.setExpandedPane(this.titledPane[0]);
+        acordeon.getPanes().addAll(titledPane);
+        acordeon.setExpandedPane(titledPane[0]);
+
+        mostrarEnVBox();
     }
+
+    protected abstract void mostrarEnVBox();
 
     protected ArrayList<String> eliminarOpcionesInvalidas(ArrayList<String> opciones) {
 

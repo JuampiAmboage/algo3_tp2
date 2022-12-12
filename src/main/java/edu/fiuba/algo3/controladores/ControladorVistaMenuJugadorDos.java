@@ -3,15 +3,18 @@ package edu.fiuba.algo3.controladores;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 
 public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadores {
 
     @FXML
-    protected ImageView imagenPerfil;
+    private ImageView imagenPerfil;
     @FXML
-    protected Label nombrePerfil;
+    private Label nombrePerfil;
+    @FXML
+    protected VBox vBoxMenu;
 
     @Override
     public void establecerPerfil(String perfil, String nombre) {
@@ -28,5 +31,10 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
     protected void establecerNombre(String nombre) {
         this.nombrePerfil.setText(nombre);
         this.nombre = nombre;
+    }
+
+    @Override
+    protected void mostrarEnVBox() {
+        this.vBoxMenu.getChildren().add(this.acordeon);
     }
 }
