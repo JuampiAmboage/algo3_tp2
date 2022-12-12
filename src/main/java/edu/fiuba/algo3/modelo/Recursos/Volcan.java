@@ -13,6 +13,7 @@ public class Volcan extends Recurso {
         super();
         this.cantidad = 5000;
         this.rutaSprite = this.rutaSprite + "volcan.png";
+        this.opciones.add()
     }
 
     @Override
