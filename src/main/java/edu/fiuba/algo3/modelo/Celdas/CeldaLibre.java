@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
+import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -64,5 +65,5 @@ public class CeldaLibre extends TipoCelda {
     }
 
     @Override
-    public ArrayList<String> obtenerOpciones() { return null; }
+    public ArrayList<OpcionElegible> obtenerOpciones() { return null; }
 }

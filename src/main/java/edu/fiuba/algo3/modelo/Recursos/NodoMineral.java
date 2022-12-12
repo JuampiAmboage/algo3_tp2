@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.Recursos;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
 import edu.fiuba.algo3.modelo.Excepciones.MineralEnNodoAgotado;
+import edu.fiuba.algo3.modelo.Opciones.ConstruirNexoMineral;
+import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 
 import java.util.ArrayList;
 
@@ -10,6 +12,8 @@ public class NodoMineral extends Recurso {
         super();
         this.cantidad = 2000;
         this.rutaSprite = this.rutaSprite + "nodoMineral.png";
+
+        this.opciones.add(new ConstruirNexoMineral());
     }
     @Override
     public int extraer(int c) {
@@ -25,7 +29,7 @@ public class NodoMineral extends Recurso {
         construible.construirSobreRecurso(this);
     }
 
-    public ArrayList<String> obtenerOpciones() { return null; }
+    public ArrayList<OpcionElegible> obtenerOpciones() { return null; }
 
     @Override
     public String obtenerSprite() { return this.rutaSprite; }

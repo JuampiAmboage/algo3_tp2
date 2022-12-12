@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
@@ -103,27 +104,27 @@ public class Celda {
     public void instanciarUnidad(Unidad unidad){
         unidad.instanciacionesIniciales(posicion);
     }
-    public ArrayList<String> gestionarOpcionesParaJugador() {
+    public ArrayList<OpcionElegible> gestionarOpcionesParaJugador() {
 
-        ArrayList<String> listaDeOpciones = new ArrayList<String>();
+        ArrayList<OpcionElegible> listaDeOpciones = new ArrayList<OpcionElegible>();
 
         if (this.tipo != null) {
-            ArrayList<String> opcionesDeTipo = this.tipo.obtenerOpciones();
+            ArrayList<OpcionElegible> opcionesDeTipo = this.tipo.obtenerOpciones();
             if (opcionesDeTipo != null ) { listaDeOpciones.addAll(opcionesDeTipo); }
         }
 
         if (this.ocupanteTerrestre != null) {
-            ArrayList<String> opcionesDeOcupanteTerrestre = this.ocupanteTerrestre.obtenerOpciones();
+            ArrayList<OpcionElegible> opcionesDeOcupanteTerrestre = this.ocupanteTerrestre.obtenerOpciones();
             if (opcionesDeOcupanteTerrestre != null) { listaDeOpciones.addAll(opcionesDeOcupanteTerrestre); }
         }
 
         if (this.ocupanteAereo != null) {
-            ArrayList<String> opcionesDeOcupanteAereo = this.ocupanteAereo.obtenerOpciones();
+            ArrayList<OpcionElegible> opcionesDeOcupanteAereo = this.ocupanteAereo.obtenerOpciones();
             if (opcionesDeOcupanteAereo != null) { listaDeOpciones.addAll(opcionesDeOcupanteAereo); }
         }
 
         if (this.recurso != null && this.tipo != null) {
-            ArrayList<String> opcionesDeRecurso = this.recurso.obtenerOpciones();
+            ArrayList<OpcionElegible> opcionesDeRecurso = this.recurso.obtenerOpciones();
             if (opcionesDeRecurso != null) { listaDeOpciones.addAll(opcionesDeRecurso); }
         }
 

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
+import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 
 import java.util.ArrayList;
 
@@ -8,7 +9,7 @@ public abstract class TipoCelda {
     protected Celda celda;
     public final String sprite = "/sprites/celdas/";
 
-    protected ArrayList<String> opciones;
+    protected ArrayList<OpcionElegible> opciones = new ArrayList<OpcionElegible>();
 
     public TipoCelda() {}
     public TipoCelda(Celda celda) {
@@ -27,6 +28,6 @@ public abstract class TipoCelda {
 
     public abstract String obtenerSprite();
 
-    public abstract ArrayList<String> obtenerOpciones();
+    public abstract ArrayList<OpcionElegible> obtenerOpciones();
 
 }

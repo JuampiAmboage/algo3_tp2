@@ -21,7 +21,7 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
         danioTerrestre = 0;
         danioAereo = 0;
         suministro = 0;
-        opciones.add("Rastrear");
+        opciones.add(new Rastrear());
         this.rutaSprite = this.rutaSprite + "tropas/zerg/amosSupremo.png";
     }
     public void aniadirSuministro(){

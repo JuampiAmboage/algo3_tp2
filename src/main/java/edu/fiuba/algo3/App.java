@@ -2,6 +2,7 @@ package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.controladores.*;
 import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
+import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -168,7 +169,7 @@ public class App extends Application {
         } catch (IOException e) { e.printStackTrace(); }
     }
 
-    public void mostrarMenu(ArrayList<String> opciones){
+    public void mostrarMenu(ArrayList<OpcionElegible> opciones){
         if (this.partida.mostrarMenu() == 1)
             controladorVistaMenuJugadorUno.mostrarOpciones(opciones);
         else

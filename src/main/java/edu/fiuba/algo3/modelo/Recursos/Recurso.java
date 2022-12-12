@@ -14,7 +14,7 @@ public abstract class Recurso {
     public abstract int extraer(int cantidad);
     public abstract void quiereConstruir(Construible construible);
 
-    public abstract ArrayList<String> obtenerOpciones();
+    public abstract ArrayList<OpcionElegible> obtenerOpciones();
 
     public abstract String obtenerSprite();
 }

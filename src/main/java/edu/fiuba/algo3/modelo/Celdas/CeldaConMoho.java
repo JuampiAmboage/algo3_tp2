@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
+import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 
 import java.util.ArrayList;
@@ -59,5 +60,5 @@ public class CeldaConMoho extends TipoCelda {
     }
 
     @Override
-    public ArrayList<String> obtenerOpciones() { return null; }
+    public ArrayList<OpcionElegible> obtenerOpciones() { return null; }
 }

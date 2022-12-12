@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Opciones.Engendrar;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
@@ -27,7 +28,7 @@ public class Criadero extends Edificio {
         this.visibilidad = new Visible(this);
         this.costoEnGas = 0;
         this.costoEnMinerales = 200;
-        opciones.add("Engendrar");
+        opciones.add(new Engendrar());
         this.rutaSprite = this.rutaSprite + "edificios/criadero.png";
     }
     public Criadero(int tiempoDeConstruccion) {

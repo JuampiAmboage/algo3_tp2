@@ -25,10 +25,9 @@ public class Zangano extends TropaTerrestre {
         this.suministro = 1;
         this.vida = new Vida(25);
         this.edificioNecesario = new Criadero();
-        opciones.add("Evolucionar a edificio");
-        opciones.add("Trabajar en un extractor");
-        opciones.add("Trabajar en un nodo mineral");
-        opciones.add("Extraer mineral");
+        opciones.add(new EvolucionarAEdificio());
+        opciones.add(new TrabajarEn());
+        opciones.add(new ExtraerMineral());
         this.rutaSprite = this.rutaSprite + "tropas/zerg/zangano.png";
     }
     public void realizarAccionesTurno(){
