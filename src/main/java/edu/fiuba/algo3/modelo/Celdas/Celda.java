@@ -22,7 +22,6 @@ public class Celda {
 
     protected boolean spriteCeldaNoEnviado = true;
 
-    public int cantidadDeMenus = 0;
     static public boolean esCelda(Object objeto) {
         return objeto instanceof Celda;
     }
@@ -131,22 +130,19 @@ public class Celda {
 
         ArrayList<String> listaDeOpciones = new ArrayList<String>();
 
-        if (this.tipo != null) {
+        if (this.tipo.esMismoTipo(new CeldaEnergizada())) {
             ArrayList<String> opcionesDeTipo = this.tipo.obtenerOpciones();
             if (opcionesDeTipo != null ) { listaDeOpciones.addAll(opcionesDeTipo); }
-            this.cantidadDeMenus++;
         }
 
         if (this.ocupanteTerrestre != null) {
             ArrayList<String> opcionesDeOcupanteTerrestre = this.ocupanteTerrestre.obtenerOpciones();
             if (opcionesDeOcupanteTerrestre != null) { listaDeOpciones.addAll(opcionesDeOcupanteTerrestre); }
-            this.cantidadDeMenus++;
         }
 
         if (this.ocupanteAereo != null) {
             ArrayList<String> opcionesDeOcupanteAereo = this.ocupanteAereo.obtenerOpciones();
             if (opcionesDeOcupanteAereo != null) { listaDeOpciones.addAll(opcionesDeOcupanteAereo); }
-            this.cantidadDeMenus++;
         }
 
         if (this.recurso != null && this.tipo != null) {
@@ -156,9 +152,5 @@ public class Celda {
 
         return listaDeOpciones;
 
-    }
-
-    public int obtenerCantidadDeMenus() {
-        return this.cantidadDeMenus;
     }
 }
