@@ -7,29 +7,34 @@ public abstract class TropaAerea extends Tropa {
         celda.ocuparPorAire(this);
     }
     public void moverArriba(){
-        Celda celda = posicion.obtenerUnaCeldaLimitrofe(-1,0);
-        if(!celda.estaOcupadaPorAire()){
+        Celda celda = posicion.obtenerUnaCeldaLimitrofe(0,-1);
+        if(!celda.estaOcupadaPorAire() && cantidadMovimientos < 4){
             posicion.movimientoSuperior();
+            cantidadMovimientos++;
         }
     }
 
     public void moverAbajo(){
-        Celda celda = posicion.obtenerUnaCeldaLimitrofe(1,0);
-        if(!celda.estaOcupadaPorAire()){
+        Celda celda = posicion.obtenerUnaCeldaLimitrofe(0,1);
+        if(!celda.estaOcupadaPorAire() && cantidadMovimientos < 4){
             posicion.movimientoInferior();
+            cantidadMovimientos++;
+
         }
     }
     public void moverDerecha(){
-        Celda celda = posicion.obtenerUnaCeldaLimitrofe(0,1);
-        if(!celda.estaOcupadaPorAire()){
+        Celda celda = posicion.obtenerUnaCeldaLimitrofe(1,0);
+        if(!celda.estaOcupadaPorAire() &&  cantidadMovimientos < 4){
             posicion.movimientoDerecha();
+            cantidadMovimientos++;
         }
     }
 
     public void moverIzquierda(){
-        Celda celda = posicion.obtenerUnaCeldaLimitrofe(0,-1);
-        if(!celda.estaOcupadaPorAire()){
+        Celda celda = posicion.obtenerUnaCeldaLimitrofe(-1,0);
+        if(!celda.estaOcupadaPorAire() && cantidadMovimientos < 4){
             posicion.movimientoIzquierda();
+            cantidadMovimientos++;
         }
     }
 }

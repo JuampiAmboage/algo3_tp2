@@ -22,7 +22,6 @@ public class Hidralisco extends TropaTerrestre{
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         opciones.add("Atacar a tierra");
         opciones.add("Atacar a aire");
-        opciones.add("Moverse");
     }
 
     @Override
@@ -31,6 +30,8 @@ public class Hidralisco extends TropaTerrestre{
         rangoAtaque = new RangoAtaque(this,4,posicion);
 
     }
-    public void realizarAccionesTurno(){vida.pasarTurno();}
+    public void realizarAccionesTurno(){vida.pasarTurno();
+        cantidadMovimientos = 0;
+    }
 
     }

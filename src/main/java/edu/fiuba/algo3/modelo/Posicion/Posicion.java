@@ -1,14 +1,11 @@
 package edu.fiuba.algo3.modelo.Posicion;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Excepciones.CoordenadaFueraDeRango;
-import edu.fiuba.algo3.modelo.Excepciones.PosicionesDiferentes;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
-import javafx.geometry.Pos;
+import edu.fiuba.algo3.modelo.Recursos.Recurso;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Posicion {
     private int X;
@@ -22,9 +19,12 @@ public class Posicion {
     public boolean esMismaPosicion(Posicion posicionDeBusqueda){
         return posicionDeBusqueda.obtenerDistanciaA(X, Y) == 0;
     }
-    public double solicitarDistanciaA(Unidad unidadParaSolicitar){
+    public double solicitarDistanciaAUnidad(Unidad unidadParaSolicitar){
         return unidadParaSolicitar.obtenerDistanciaA(X,Y);
     }
+   /* public double solicitarDistanciaARecurso(Recurso recursoParaSolicitar){
+        //return recursoParaSolicitar.obtenerDistanciaA(X,Y);
+    }*/
     public double obtenerDistanciaA(int posicionXDestino, int posicionYDestino){
         return Math.sqrt(Math.pow((posicionXDestino-X),2)+Math.pow((posicionYDestino-Y),2));
     }

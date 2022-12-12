@@ -11,28 +11,35 @@ public abstract class TropaTerrestre extends Tropa{
     }
     public void moverArriba(){
         Celda celda = posicion.obtenerUnaCeldaLimitrofe(0,-1);
-        if(!celda.estaOcupadaPorTierra()){
+        if(!celda.estaOcupadaPorTierra() && cantidadMovimientos <4){
             posicion.movimientoSuperior();
+            cantidadMovimientos++;
+
         }
     }
 
     public void moverAbajo(){
         Celda celda = posicion.obtenerUnaCeldaLimitrofe(0,1);
-        if(!celda.estaOcupadaPorTierra()){
+        if(!celda.estaOcupadaPorTierra() && cantidadMovimientos < 4){
             posicion.movimientoInferior();
+            cantidadMovimientos++;
+
         }
     }
     public void moverDerecha(){
         Celda celda = posicion.obtenerUnaCeldaLimitrofe(1,0);
-        if(!celda.estaOcupadaPorTierra()){
+        if(!celda.estaOcupadaPorTierra() &&  cantidadMovimientos < 4){
             posicion.movimientoDerecha();
+            cantidadMovimientos++;
+
         }
     }
 
     public void moverIzquierda(){
         Celda celda = posicion.obtenerUnaCeldaLimitrofe(-1,0);
-        if(!celda.estaOcupadaPorTierra()){
+        if(!celda.estaOcupadaPorTierra() &&  cantidadMovimientos < 4){
             posicion.movimientoIzquierda();
+            cantidadMovimientos++;
         }
     }
 

@@ -22,7 +22,6 @@ public class Zerling extends TropaTerrestre {
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         opciones.add("Atacar a tierra");
         opciones.add("Atacar a aire");
-        opciones.add("Moverse");
     }
 
     public void instanciacionesIniciales(Posicion posicionALocalizar){
@@ -30,5 +29,7 @@ public class Zerling extends TropaTerrestre {
         rangoAtaque = new RangoAtaque(this,1,posicion);
 
     }
-    public void realizarAccionesTurno(){vida.pasarTurno();}
+    public void realizarAccionesTurno(){vida.pasarTurno();
+        cantidadMovimientos = 0;
+    }
 }
