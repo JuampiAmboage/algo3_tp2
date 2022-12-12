@@ -45,7 +45,7 @@ public abstract class ControladorVistaMenuJugadores {
             AnchorPane nuevoAnchorPane = new AnchorPane();
             nuevoAnchorPane.setId("anchorPane_"+i);
 
-            // TODO: (opciones.get(i)).obtenerTituloDeOpcion() -> String
+            // TODO: (opciones.get(i)).obtenerTitulo() -> String
             // titledPane[i] = new TitledPane(opciones.get(i), nuevoAnchorPane);
             titledPane[i].setId("titlePane_"+i);
         }
