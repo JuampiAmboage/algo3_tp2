@@ -17,7 +17,6 @@ import edu.fiuba.algo3.modelo.Salud.Vida;
 
 public class Criadero extends Edificio {
 
-    // TODO: En la construccion enviar a la celda correspondiente el sprite de celda con ciradeo
     private int cantidadLarvasEnEspera;
     protected RangoExpansible rangoExpansible;
     public Criadero(){

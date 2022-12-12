@@ -10,7 +10,7 @@ public class NoRecurso extends Recurso {
 
     @Override
     public int extraer(int cantidad) {
-        // todo error SIEMPRE
+        // _todo error SIEMPRE
         return 0;
     }
     @Override

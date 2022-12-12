@@ -29,9 +29,4 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
         this.nombrePerfil.setText(nombre);
         this.nombre = nombre;
     }
-
-    @Override
-    public void mostrarOpciones(ArrayList<String> opciones, int cantidadDeMenus) {
-
-    }
 }

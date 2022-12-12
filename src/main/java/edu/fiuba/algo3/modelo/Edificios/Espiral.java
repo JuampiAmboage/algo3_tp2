@@ -15,7 +15,6 @@ import edu.fiuba.algo3.modelo.Salud.Vida;
 
 public class Espiral extends Edificio {
 
-    // TODO: En la construccion enviar a la celda correspondiente el sprite de celda con pilon
     private Edificio edificioNecesario;
     public Espiral(){
         this.tiempoConstruccion = 10;

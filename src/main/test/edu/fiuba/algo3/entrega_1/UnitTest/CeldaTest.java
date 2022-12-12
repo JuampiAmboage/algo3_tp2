@@ -43,7 +43,7 @@ public class CeldaTest {
         m.instanciarMapa();
         Celda c = m.obtenerCelda(new Posicion(3,3));
         c.cambiarTipo(new CeldaConMoho(c));
-        c.pasarTurno(); // todo esto lo debería hacer Mapa, y bajar en cascada
+        c.pasarTurno(); // _todo esto lo debería hacer Mapa, y bajar en cascada
         // Todas las celdas del mapa deberían tener moho
         /*for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {

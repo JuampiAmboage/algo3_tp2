@@ -25,7 +25,20 @@ public abstract class ControladorVistaMenuJugadores {
 
     protected abstract void establecerNombre(String nombre);
 
-    public abstract void mostrarOpciones(ArrayList<String> opciones, int cantidadDeMenus);
+    public void mostrarOpciones(ArrayList<String> opciones, int cantidadDeMenus){
+        instanciarAcordeon();
+        this.titledPane = new TitledPane[cantidadDeMenus];
+        this.anchorPane = new AnchorPane[cantidadDeMenus];
+
+        for (int i = 0; i < cantidadDeMenus; i++) {
+            AnchorPane nuevoAnchorPane = new AnchorPane();
+            nuevoAnchorPane.setId("anchorPane_"+i);
+            //this.anchorPane[i] = nuevoAnchorPane;
+            this.titledPane[i] = new TitledPane("Opcion "+i, nuevoAnchorPane);
+        }
+        acordeon.getPanes().addAll(this.titledPane);
+        acordeon.setExpandedPane(this.titledPane[0]);
+    }
 
     protected void instanciarAcordeon() {
         this.acordeon = new Accordion();

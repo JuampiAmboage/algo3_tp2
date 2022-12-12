@@ -15,7 +15,6 @@ import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class PuertoEstelar extends Edificio {
 
-    // TODO: En la construccion enviar a la celda correspondiente el sprite de celda con puerto estelar
     private Edificio edificioNecesario;
 
     public PuertoEstelar(){

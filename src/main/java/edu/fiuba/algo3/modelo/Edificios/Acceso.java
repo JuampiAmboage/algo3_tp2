@@ -15,8 +15,6 @@ import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class Acceso extends EdificioProtoss implements Construible {
 
-    // TODO: En la construccion enviar a la celda correspondiente el sprite de celda con acceso
-
     private Salud vida;
     public Acceso(){
         super();

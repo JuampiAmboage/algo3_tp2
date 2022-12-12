@@ -16,7 +16,6 @@ import edu.fiuba.algo3.modelo.Salud.Vida;
 
 public class Guarida extends Edificio implements Correlatividad {
 
-    // TODO: En la construccion enviar a la celda correspondiente el sprite de celda con guardia
     private Edificio edificioNecesario;
     public Guarida(){
         this.costoEnGas = 100;
