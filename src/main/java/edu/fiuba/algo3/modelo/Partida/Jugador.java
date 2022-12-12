@@ -13,12 +13,33 @@ import edu.fiuba.algo3.modelo.Razas.Zangano;
 
 public class Jugador {
     private String nombre;
-    Comunidad comunidad;
+    private Comunidad comunidad;
+
+    private CondicionTurno condicionTurno;
 
     public Jugador(String nombre, Comunidad comunidad) {
         this.nombre = nombre;
         this.comunidad = comunidad;
         this.comunidad.inicializarBase();
+    }
+
+    public void iniciarTurno(){
+        this.condicionTurno = new Jugando(this);
+    }
+    public void mandarAEspera(){
+        this.condicionTurno = new EsperandoTurno(this);
+    }
+    public void terminarTurno(){
+        this.comunidad.pasarTurno();
+        this.mandarAEspera();
+    }
+
+    public void cambioCondicionTurno(){
+        this.condicionTurno.cambioDeTurno();
+    }
+
+    public boolean esSuTurno(){
+        return this.condicionTurno.estoyJugando();
     }
 
     public void crearTropaZerg(Tropa unidadACrear, Celda celdaALocalizar, Criadero criaderoQueGenera,String png) {
