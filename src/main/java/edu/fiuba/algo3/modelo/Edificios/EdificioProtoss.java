@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.Partida.Mapa;
 
 public abstract class EdificioProtoss extends Edificio{
     protected EstadoEnergia estadoEnergia;
-
     protected String spriteDesenergizado;
 
     public EdificioProtoss(){

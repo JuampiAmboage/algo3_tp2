@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
+import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
@@ -148,10 +149,8 @@ public class Celda {
             this.cantidadDeMenus++;
         }
 
-        if (this.recurso != null) {
-            ArrayList<String> opcionesDeRecurso = this.recurso.obtenerOpciones();
-            listaDeOpciones.addAll(opcionesDeRecurso);
-            this.cantidadDeMenus++;
+        if (this.recurso != null && this.tipo != null) {
+
         }
 
         return listaDeOpciones;

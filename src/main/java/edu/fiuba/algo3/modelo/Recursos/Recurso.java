@@ -9,6 +9,4 @@ public abstract class Recurso {
     public Recurso() {}
     public abstract int extraer(int cantidad);
     public abstract void quiereConstruir(Construible construible);
-
-    public abstract ArrayList<String> obtenerOpciones();
 }
