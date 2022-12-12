@@ -1,6 +1,8 @@
-package edu.fiuba.algo3.modelo.Partida;
+package edu.fiuba.algo3.modelo.Turno;
 
-public class Jugando extends CondicionTurno{
+import edu.fiuba.algo3.modelo.Partida.Jugador;
+
+public class Jugando extends CondicionTurno {
 
     public Jugando(Jugador jugador){ super(jugador);}
 

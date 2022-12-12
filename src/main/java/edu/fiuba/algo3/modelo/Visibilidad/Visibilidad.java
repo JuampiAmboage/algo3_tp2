@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Razas.Tropas;
+package edu.fiuba.algo3.modelo.Visibilidad;
 
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 

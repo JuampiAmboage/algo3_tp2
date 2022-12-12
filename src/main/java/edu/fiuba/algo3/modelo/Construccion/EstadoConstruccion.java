@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Razas;
+package edu.fiuba.algo3.modelo.Construccion;
 
 public interface EstadoConstruccion {
     void pasarTurno();

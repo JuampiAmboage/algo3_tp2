@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Razas.Tropas;
+package edu.fiuba.algo3.modelo.Visibilidad;
 
 public interface VisibilidadCambiante {
     public void volverVisible();

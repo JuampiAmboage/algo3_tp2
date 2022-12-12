@@ -5,13 +5,11 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 public class Partida {
 
     private Mapa mapa;
-    private Turno turno;
     private Jugador primerJugador;
     private Jugador segundoJugador;
     public Partida(String[] nombreJugadores, Comunidad[] comunidades) {
         this.mapa = Mapa.getInstance();
         this.mapa.instanciarMapa();
-        this.turno = new Turno();
         agregarJugadores(nombreJugadores, comunidades);
     }
 
