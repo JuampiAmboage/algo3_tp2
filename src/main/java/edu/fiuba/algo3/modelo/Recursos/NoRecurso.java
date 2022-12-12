@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.Recursos;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
 
+import java.util.ArrayList;
+
 public class NoRecurso extends Recurso {
     public NoRecurso(){
         super();
@@ -17,4 +19,7 @@ public class NoRecurso extends Recurso {
     public void quiereConstruir(Construible construible) {
         construible.construirSobreRecurso(this);
     }
+
+    @Override
+    public ArrayList<String> obtenerOpciones() { return null; }
 }

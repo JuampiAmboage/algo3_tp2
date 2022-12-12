@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
+import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
@@ -132,26 +133,25 @@ public class Celda {
 
         if (this.tipo != null) {
             ArrayList<String> opcionesDeTipo = this.tipo.obtenerOpciones();
-            listaDeOpciones.addAll(opcionesDeTipo);
+            if (opcionesDeTipo != null ) { listaDeOpciones.addAll(opcionesDeTipo); }
             this.cantidadDeMenus++;
         }
 
         if (this.ocupanteTerrestre != null) {
             ArrayList<String> opcionesDeOcupanteTerrestre = this.ocupanteTerrestre.obtenerOpciones();
-            listaDeOpciones.addAll(opcionesDeOcupanteTerrestre);
+            if (opcionesDeOcupanteTerrestre != null) { listaDeOpciones.addAll(opcionesDeOcupanteTerrestre); }
             this.cantidadDeMenus++;
         }
 
         if (this.ocupanteAereo != null) {
             ArrayList<String> opcionesDeOcupanteAereo = this.ocupanteAereo.obtenerOpciones();
-            listaDeOpciones.addAll(opcionesDeOcupanteAereo);
+            if (opcionesDeOcupanteAereo != null) { listaDeOpciones.addAll(opcionesDeOcupanteAereo); }
             this.cantidadDeMenus++;
         }
 
-        if (this.recurso != null) {
+        if (this.recurso != null && this.tipo != null) {
             ArrayList<String> opcionesDeRecurso = this.recurso.obtenerOpciones();
-            listaDeOpciones.addAll(opcionesDeRecurso);
-            this.cantidadDeMenus++;
+            if (opcionesDeRecurso != null) { listaDeOpciones.addAll(opcionesDeRecurso); }
         }
 
         return listaDeOpciones;
