@@ -3,7 +3,9 @@ package edu.fiuba.algo3.controladores;
 import javafx.fxml.FXML;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Label;
+import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
@@ -37,9 +39,17 @@ public class ControladorVistaMenuJugadorUno extends ControladorVistaMenuJugadore
     @Override
     public void mostrarOpciones(ArrayList<String> opciones, int cantidadDeMenus) {
         instanciarAcordeon();
-        for (int i = 0; i < cantidadDeMenus; i++) {
+        this.titledPane = new TitledPane[cantidadDeMenus];
+        this.anchorPane = new AnchorPane[cantidadDeMenus];
 
+        for (int i = 0; i < cantidadDeMenus; i++) {
+            AnchorPane nuevoAnchorPane = new AnchorPane();
+            nuevoAnchorPane.setId("anchorPane_"+i);
+            //this.anchorPane[i] = nuevoAnchorPane;
+            this.titledPane[i] = new TitledPane("Opcion "+i, nuevoAnchorPane);
         }
+        acordeon.getPanes().addAll(this.titledPane);
+        acordeon.setExpandedPane(this.titledPane[0]);
     }
 
 }
