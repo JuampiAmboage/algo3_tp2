@@ -21,7 +21,6 @@ public class Zerling extends TropaTerrestre {
         edificioNecesario = new ReservaDeReproduccion();
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         opciones.add("Atacar a tierra");
-        opciones.add("Atacar a aire");
         this.rutaSprite = this.rutaSprite + "tropas/zerg/zerlilng.png";
     }
 
@@ -35,5 +34,12 @@ public class Zerling extends TropaTerrestre {
     }
 
     @Override
+    public void mostrarDescripcion() {
+        System.out.println("-Zerling-");
+        System.out.println("Tropa terrestre con mucho amor propio. No se la deja facil a nadie. \n");
+        System.out.println("Vida actual: "+ this.vida.getVidaActual());
+        System.out.println("Daño aereo: No tiene ");
+        System.out.println("Danio terrestre:" + this.danioTerrestre);
+    }
     public String obtenerSprite() { return this.rutaSprite; }
 }
