@@ -23,13 +23,13 @@ public class RangoDetector extends Rango {
         tropasDetectadasEnAnteriorPasada = new ArrayList<>();
     }
 
-    public void localizarTropasInvisibles(){
+    public void localizarZealots(){
         Mapa mapa = Mapa.getInstance();
         for(Posicion unaPosicion : posicionesEnRango) {
             try {
                 Celda celda = mapa.obtenerCelda(unaPosicion);
-                if(celda.estaOcupadaPorTierra() && celda.obtenerOcupante().getClass().equals(VisibilidadCambiante.class) ) {
-                    VisibilidadCambiante unidadDetectada = (VisibilidadCambiante) celda.obtenerOcupante();
+                if(celda.estaOcupadaPorTierra() && celda.obtenerOcupante().getClass().equals(Zealot.class) ) {
+                    Zealot unidadDetectada = (Zealot) celda.obtenerOcupante();
                     tropasDetectadasEnPasadaActual.add(unidadDetectada);
                 }
             } catch (CoordenadaFueraDeRango e) {

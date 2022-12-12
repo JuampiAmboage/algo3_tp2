@@ -40,7 +40,7 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
         this.aniadirSuministro();
     }
     public void realizarAccionesTurno(){vida.pasarTurno();
-    rangoDetector.localizarTropasInvisibles();
+    rangoDetector.localizarZealots();
     rangoDetector.compararTropasDetectadasEntreTurnos();}
 
 }
