@@ -62,7 +62,6 @@ public abstract class ControladorVistaMenuJugadores {
             titledPane[i].setId("titlePane_"+i);
         }
         acordeon.getPanes().addAll(titledPane);
-        acordeon.setExpandedPane(titledPane[0]);
 
         mostrarEnVBox();
     }

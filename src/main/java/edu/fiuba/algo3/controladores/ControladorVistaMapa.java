@@ -143,6 +143,7 @@ public class ControladorVistaMapa {
     }
 
     public void gestionarClickEnCelda(int fila, int columna) {
+        // TODO: desactivar un boton cuando es clickeado, activarlo devuelta cuando se clickea otro boton.
         Posicion posicion = new Posicion(fila, columna);
         Celda celda = mapa.obtenerCelda(posicion);
 

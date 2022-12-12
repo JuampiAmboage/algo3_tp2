@@ -130,7 +130,7 @@ public class Celda {
 
         ArrayList<String> listaDeOpciones = new ArrayList<String>();
 
-        if (this.tipo.esMismoTipo(new CeldaEnergizada())) {
+        if (this.tipo != null) {
             ArrayList<String> opcionesDeTipo = this.tipo.obtenerOpciones();
             if (opcionesDeTipo != null ) { listaDeOpciones.addAll(opcionesDeTipo); }
         }

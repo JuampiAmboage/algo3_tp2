@@ -16,7 +16,7 @@ public class RangoAtaque {
         posicion = posicionObjetoConRango;
     }
     public void localizarTropaEnRango(Unidad victima, int puntosAtaque){
-        if(posicion.solicitarDistanciaA(victima) <= radio) {
+        if(posicion.solicitarDistanciaAUnidad(victima) <= radio) {
             victima.daniar(puntosAtaque);
         }
         else
