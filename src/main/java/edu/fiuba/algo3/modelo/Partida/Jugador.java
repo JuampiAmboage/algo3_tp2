@@ -30,8 +30,8 @@ public class Jugador {
         this.condicionTurno = new EsperandoTurno(this);
     }
     public void terminarTurno(){
-        comunidad.pasarTurno();
-        this.condicionTurno = new EsperandoTurno(this);
+        this.comunidad.pasarTurno();
+        this.mandarAEspera();
     }
 
     public void cambioCondicionTurno(){
