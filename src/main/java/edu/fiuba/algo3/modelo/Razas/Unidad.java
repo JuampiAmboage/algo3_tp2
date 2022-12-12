@@ -13,7 +13,7 @@ import edu.fiuba.algo3.modelo.Salud.Salud;
 
 import java.util.ArrayList;
 
-public abstract class Unidad {
+public abstract class Unidad implements Descripcion{
     protected Comunidad comunidad;
     protected Visibilidad visibilidad;
     protected Salud vida;
@@ -93,4 +93,7 @@ public abstract class Unidad {
     public void cargarSrite(String ruta){}
 
     public ArrayList<String> obtenerOpciones(){ return opciones;}
+
+    public abstract void mostrarDescripcion();
+
 }

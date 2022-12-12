@@ -1,10 +1,11 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
+import edu.fiuba.algo3.modelo.Razas.Descripcion;
 
 import java.util.ArrayList;
 
-public abstract class TipoCelda {
+public abstract class TipoCelda implements Descripcion {
     protected Celda celda;
     public final String sprite = "/sprites/celdas/";
 
@@ -28,5 +29,5 @@ public abstract class TipoCelda {
     public abstract String obtenerSprite();
 
     public abstract ArrayList<String> obtenerOpciones();
-
+    public abstract void mostrarDescripcion();
 }

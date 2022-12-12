@@ -34,4 +34,12 @@ public class Hidralisco extends TropaTerrestre{
         cantidadMovimientos = 0;
     }
 
+    @Override
+    public void mostrarDescripcion() {
+        System.out.println("-Hidralisco-");
+        System.out.println("Hizo Moai Tai y Judo. El problema es que solo hasta la primera clase. \n");
+        System.out.println("Vida actual: "+ this.vida.getVidaActual());
+        System.out.println("Daño aereo: "+ this.danioAereo);
+        System.out.println("Danio terrestre:" + this.danioTerrestre);
     }
+}

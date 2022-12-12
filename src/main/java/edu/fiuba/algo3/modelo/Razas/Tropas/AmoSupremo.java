@@ -46,4 +46,12 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
     rangoDetector.compararTropasDetectadasEntreTurnos();
     cantidadMovimientos = 0;}
 
+    @Override
+    public void mostrarDescripcion() {
+        System.out.println("-Amo supremo-");
+        System.out.println("Detecta tropas enemigas invisibles. No genera ataques.\n");
+        System.out.println("Vida actual: "+ this.vida.getVidaActual());
+
+    }
+
 }

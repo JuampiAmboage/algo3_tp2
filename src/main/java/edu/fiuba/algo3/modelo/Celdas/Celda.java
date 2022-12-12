@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Celdas;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Razas.Descripcion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
@@ -12,7 +13,7 @@ import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import java.util.ArrayList;
 
 
-public class Celda {
+public class Celda implements Descripcion {
     protected Unidad ocupanteTerrestre;
     protected TropaAerea ocupanteAereo;
     protected TipoCelda tipo;
@@ -152,5 +153,8 @@ public class Celda {
 
         return listaDeOpciones;
 
+    }
+    public void mostrarDescripcion(){
+        tipo.mostrarDescripcion();
     }
 }

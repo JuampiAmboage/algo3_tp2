@@ -72,4 +72,15 @@ public class Zangano extends TropaTerrestre {
             throw new ZanganoYaEmpleado();
         }
     }
+
+    @Override
+    public void mostrarDescripcion() {
+        System.out.println("-Zangano-");
+        System.out.println("Se lo puede evolucionar a edificio o asignar trabajo en una celda con recursos. De zángano no tiene nada. \n");
+        System.out.println("Vida actual: "+ this.vida.getVidaActual());
+        if(this.extractorDondeTrabaja != null || nodoMineralDondeTrabaja != null)
+            System.out.println("Estado laboral: Empleado.");
+        else
+            System.out.println("Estado laboral: Cesante.");
+    }
 }

@@ -46,4 +46,13 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
     public void pasarTurno() {
         vida.pasarTurno();
     }
+
+    @Override
+    public void mostrarDescripcion() {
+        System.out.println("-Mutalisco-");
+        System.out.println("Puede mutar en Devorador y Guardian. Lo que no puede mutar es el corazón de ella. \n");
+        System.out.println("Vida actual: "+ this.vida.getVidaActual());
+        System.out.println("Daño aereo: "+ this.danioAereo);
+        System.out.println("Danio terrestre:" + this.danioTerrestre);
+    }
 }
