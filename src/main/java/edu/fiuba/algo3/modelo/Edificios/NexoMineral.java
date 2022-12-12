@@ -64,4 +64,13 @@ public class NexoMineral extends EdificioProtoss implements Construible{
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
 
+    @Override
+    public void mostrarDescripcion() {
+        System.out.println("-NexoMineral-");
+        System.out.println("Extra mineral de un nodo mineral.");
+        System.out.println("Extracción: 20 por turno. \n");
+        System.out.println("Escudo actual: " + this.vida.getEscudoActual());
+        System.out.println("Vida actual: "+ this.vida.getVidaActual());
+    }
+
 }

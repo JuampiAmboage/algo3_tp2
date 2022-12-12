@@ -11,7 +11,10 @@ public abstract class TipoCelda implements Descripcion {
 
     protected ArrayList<String> opciones;
 
-    public TipoCelda() {}
+    public TipoCelda() {
+        opciones = new ArrayList<>();
+        opciones.add("Informacion");
+    }
     public TipoCelda(Celda celda) {
         this.celda = celda;
     }
