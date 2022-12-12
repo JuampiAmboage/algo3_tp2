@@ -23,4 +23,6 @@ public class NodoMineral extends Recurso {
     public void quiereConstruir(Construible construible) {
         construible.construirSobreRecurso(this);
     }
+
+    public ArrayList<String> obtenerOpciones() { return null; }
 }

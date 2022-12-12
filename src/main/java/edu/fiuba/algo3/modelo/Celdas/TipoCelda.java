@@ -24,4 +24,6 @@ public abstract class TipoCelda {
 
     public abstract String obtenerSprite();
 
+    public abstract ArrayList<String> obtenerOpciones();
+
 }

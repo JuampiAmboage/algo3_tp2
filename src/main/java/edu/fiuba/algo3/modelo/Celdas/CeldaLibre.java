@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -61,4 +62,7 @@ public class CeldaLibre extends TipoCelda {
 
         return (this.sprite + this.opcionSprite[eleccionRandom]);
     }
+
+    @Override
+    public ArrayList<String> obtenerOpciones() { return null; }
 }

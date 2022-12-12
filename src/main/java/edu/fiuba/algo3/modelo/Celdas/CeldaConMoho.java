@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Celdas;
 import edu.fiuba.algo3.modelo.Edificios.Construible;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 
+import java.util.ArrayList;
+
 public class CeldaConMoho extends TipoCelda {
     RangoExpansible rangoExpansible;
 
@@ -55,4 +57,7 @@ public class CeldaConMoho extends TipoCelda {
     public String obtenerSprite() {
         return (this.sprite + this.RUTA_SPRITE);
     }
+
+    @Override
+    public ArrayList<String> obtenerOpciones() { return null; }
 }

@@ -61,6 +61,7 @@ public class CeldaEnergizada extends TipoCelda{
         return (this.sprite + this.RUTA_SPRITE);
     }
 
+    @Override
     public ArrayList<String> obtenerOpciones(){return opciones;}
 
 

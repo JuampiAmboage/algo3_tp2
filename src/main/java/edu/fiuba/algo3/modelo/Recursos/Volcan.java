@@ -6,6 +6,8 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Excepciones.GasEnVolcanAgotado;
 
+import java.util.ArrayList;
+
 public class Volcan extends Recurso {
     public Volcan() {
         super();
@@ -25,5 +27,8 @@ public class Volcan extends Recurso {
     public void quiereConstruir(Construible construible) {
         construible.construirSobreRecurso(this);
     }
+
+    @Override
+    public ArrayList<String> obtenerOpciones() { return null; }
 }
 
