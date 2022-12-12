@@ -23,13 +23,14 @@ public class Scout extends TropaAerea{
         this.sprite = "";
         opciones.add("Atacar a tierra");
         opciones.add("Atacar a aire");
-        opciones.add("Moverse");
     }
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
         rangoAtaque = new RangoAtaque(this,4,posicion);
     }
-    public void realizarAccionesTurno(){vida.pasarTurno();}
+    public void realizarAccionesTurno(){vida.pasarTurno();
+        cantidadMovimientos = 0;
+    }
     public int obtenerEscudo(){return vida.getEscudoActual();}
 
 }

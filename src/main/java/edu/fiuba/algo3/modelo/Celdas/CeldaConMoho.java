@@ -5,19 +5,16 @@ import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 
 public class CeldaConMoho extends TipoCelda {
     RangoExpansible rangoExpansible;
-    private int delayExpandir = 2;
 
     private final String RUTA_SPRITE = "estado/moho.png";
 
     public CeldaConMoho() {
         super();
         rangoExpansible = new RangoExpansible(this.celda.posicion, 1);
-        opciones.add("Construir edificio Zerg");
     }
     public CeldaConMoho(Celda celda) {
         super(celda);
         rangoExpansible = new RangoExpansible(this.celda.posicion, 1);
-        opciones.add("Construir edificio Zerg");
     }
 
     private void expandir() {

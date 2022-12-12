@@ -28,7 +28,6 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         opciones.add("Atacar a tierra");
         opciones.add("Atacar a aire");
-        opciones.add("Moverse");
     }
 
     @Override
@@ -39,6 +38,8 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
 
     public void realizarAccionesTurno() {
         vida.pasarTurno();
+        cantidadMovimientos = 0;
+
     }
     @Override
     public void atacarTierra(TropaTerrestre unidadAtacable){

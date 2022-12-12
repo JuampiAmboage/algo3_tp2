@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Excepciones.EvolucionIncompatibleConTropaEvolucionableActual;
+import edu.fiuba.algo3.modelo.Excepciones.ZanganoEnDistintaACeldaANodoMineral;
+import edu.fiuba.algo3.modelo.Excepciones.ZanganoSinNodoMineralAsignado;
 import edu.fiuba.algo3.modelo.Excepciones.ZanganoYaEmpleado;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaTerrestre;
@@ -23,28 +25,42 @@ public class Zangano extends TropaTerrestre {
         this.suministro = 1;
         this.vida = new Vida(25);
         this.edificioNecesario = new Criadero();
-        opciones.add("Extraer mineral");
+        opciones.add("Evolucionar a edificio");
         opciones.add("Trabajar en un extractor");
-        opciones.add("Moverse");
+        opciones.add("Trabajar en un nodo mineral");
+        opciones.add("Extraer mineral");
     }
     public void realizarAccionesTurno(){
         vida.pasarTurno();
+        cantidadMovimientos = 0;
         if(nodoMineralDondeTrabaja != null)
             comunidad.aniadirMineral(extraerMineral());
     }
     public void asignarTrabajoEnExtractor(Extractor extractorQueContrata){
         this.esUsable();
+        if(this.posicion.solicitarDistanciaAUnidad(extractorQueContrata) == 1) {
+            this.extractorDondeTrabaja = extractorQueContrata;
+        }
         this.extractorDondeTrabaja = extractorQueContrata;
     }
 
     public void asignarTrabajoEnNodo(NodoMineral nodoMineral){
         this.esUsable();
-        this.nodoMineralDondeTrabaja = nodoMineral;
+        /*if(this.posicion.solicitarDistanciaA(nodoMineral) == 0) {
+            this.nodoMineralDondeTrabaja = nodoMineral;
+        }
+        else
+            throw new ZanganoEnDistintaACeldaANodoMineral();*/
+
 
     }
 
     public int extraerMineral(){
-        return nodoMineralDondeTrabaja.extraer(10);
+        if(nodoMineralDondeTrabaja != null){
+            return nodoMineralDondeTrabaja.extraer(10);
+        }
+        else
+            throw new ZanganoSinNodoMineralAsignado();
     }
 
     public void evolucionarAEdificio(Edificio edificioNuevo){

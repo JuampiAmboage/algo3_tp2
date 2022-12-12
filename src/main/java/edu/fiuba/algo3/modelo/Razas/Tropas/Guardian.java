@@ -20,9 +20,10 @@ public class Guardian extends TropaAerea implements UnidadEvolucionada{
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         opciones.add("Atacar a tierra");
         opciones.add("Atacar a aire");
-        opciones.add("Moverse");
     }
-    public void realizarAccionesTurno(){vida.pasarTurno();}
+    public void realizarAccionesTurno(){vida.pasarTurno();
+        cantidadMovimientos = 0;
+    }
 
     @Override
     public void instanciacionesIniciales(Posicion posicionALocalizar){

@@ -22,7 +22,6 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
         danioAereo = 0;
         suministro = 0;
         opciones.add("Rastrear");
-        opciones.add("Moverse");
     }
     public void aniadirSuministro(){
         comunidad.aniadirCapacidadSuministro(5);
@@ -44,6 +43,7 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
     }
     public void realizarAccionesTurno(){vida.pasarTurno();
     rangoDetector.localizarZealots();
-    rangoDetector.compararTropasDetectadasEntreTurnos();}
+    rangoDetector.compararTropasDetectadasEntreTurnos();
+    cantidadMovimientos = 0;}
 
 }

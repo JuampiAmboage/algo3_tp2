@@ -23,11 +23,12 @@ public class Dragon extends TropaTerrestre{
         vida = new VidaConEscudo(100,80);
         opciones.add("Atacar a tierra");
         opciones.add("Atacar a aire");
-        opciones.add("Moverse");
 
     }
     public void realizarAccionesTurno(){
         vida.pasarTurno();
+        cantidadMovimientos = 0;
+
     }
 
 
