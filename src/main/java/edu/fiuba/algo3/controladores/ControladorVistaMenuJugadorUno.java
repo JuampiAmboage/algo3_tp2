@@ -17,7 +17,7 @@ public class ControladorVistaMenuJugadorUno extends ControladorVistaMenuJugadore
     @FXML
     protected Label nombrePerfil;
     @FXML
-    private VBox vBoxJugadorUno;
+    private VBox vBoxMenu;
 
     @Override
     public void establecerPerfil(String perfil, String nombre) {
@@ -34,6 +34,11 @@ public class ControladorVistaMenuJugadorUno extends ControladorVistaMenuJugadore
     protected void establecerNombre(String nombre) {
         this.nombrePerfil.setText(nombre);
         this.nombre = nombre;
+    }
+
+    @Override
+    protected void mostrarEnVBox() {
+        this.vBoxMenu.getChildren().add(this.acordeon);
     }
 
 }
