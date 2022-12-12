@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.controladores;
 
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 
 
@@ -25,6 +26,11 @@ public class Boton {
 
     private void gestionarClickEnCelda(){
         System.out.println(fila + ", " + columna);
+
+        Parent contenedorDelBoton = this.boton.getParent();
+
+        System.out.println(contenedorDelBoton.getChildrenUnmodifiable());
+
     }
 
 }
