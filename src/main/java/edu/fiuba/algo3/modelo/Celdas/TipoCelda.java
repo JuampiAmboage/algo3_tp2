@@ -7,6 +7,9 @@ import java.util.ArrayList;
 public abstract class TipoCelda {
     protected Celda celda;
     public final String sprite = "/sprites/celdas/";
+
+    protected ArrayList<String> opciones;
+
     public TipoCelda() {}
     public TipoCelda(Celda celda) {
         this.celda = celda;

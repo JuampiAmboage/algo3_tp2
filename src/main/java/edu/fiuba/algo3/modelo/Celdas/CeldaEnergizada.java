@@ -8,8 +8,6 @@ public class CeldaEnergizada extends TipoCelda{
     private int energia = 0;
     private final String RUTA_SPRITE = "estado/energizada.png";
 
-    protected ArrayList<String> opciones;
-
     public CeldaEnergizada(){
         super();
         this.energia++;
