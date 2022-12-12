@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.Excepciones.EdificioHabilitadorNoCreado;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Razas.Correlatividad;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
+import edu.fiuba.algo3.modelo.Visibilidad.Visible;
 
 public abstract class Tropa extends Unidad implements Correlatividad {
     protected int danioTerrestre;

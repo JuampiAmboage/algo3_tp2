@@ -1,15 +1,11 @@
 package edu.fiuba.algo3.modelo.Rango;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Excepciones.CoordenadaFueraDeRango;
-import edu.fiuba.algo3.modelo.Excepciones.EnemigoFueraDeRango;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
-import edu.fiuba.algo3.modelo.Razas.Tropas.VisibilidadCambiante;
+import edu.fiuba.algo3.modelo.Visibilidad.VisibilidadCambiante;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Zealot;
-import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 import java.util.ArrayList;
 

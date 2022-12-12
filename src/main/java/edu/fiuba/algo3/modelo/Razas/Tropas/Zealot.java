@@ -6,8 +6,11 @@ import edu.fiuba.algo3.modelo.Edificios.Acceso;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
+import edu.fiuba.algo3.modelo.Visibilidad.Invisible;
+import edu.fiuba.algo3.modelo.Visibilidad.VisibilidadCambiante;
+import edu.fiuba.algo3.modelo.Visibilidad.Visible;
 
-public class Zealot extends TropaTerrestre implements VisibilidadCambiante{
+public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
     Invisible invisible;
     int bajasGeneradas;
     public Zealot(){

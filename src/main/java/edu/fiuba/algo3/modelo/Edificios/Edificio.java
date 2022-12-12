@@ -1,9 +1,8 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
-import edu.fiuba.algo3.modelo.Razas.EstadoConstruccion;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
-import edu.fiuba.algo3.modelo.Razas.UnidadConstruida;
-import edu.fiuba.algo3.modelo.Razas.UnidadEnConstruccion;
+import edu.fiuba.algo3.modelo.Construccion.UnidadConstruida;
+import edu.fiuba.algo3.modelo.Construccion.UnidadEnConstruccion;
 
 public abstract class Edificio extends Unidad implements Construible{
     public Edificio(){super();}

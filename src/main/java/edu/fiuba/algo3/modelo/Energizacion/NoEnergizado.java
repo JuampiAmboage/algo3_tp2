@@ -1,8 +1,9 @@
-package edu.fiuba.algo3.modelo.Edificios;
+package edu.fiuba.algo3.modelo.Energizacion;
 
+import edu.fiuba.algo3.modelo.Energizacion.EstadoEnergia;
 import edu.fiuba.algo3.modelo.Excepciones.EdificioNoEnergizado;
 
-public class NoEnergizado implements EstadoEnergia{
+public class NoEnergizado implements EstadoEnergia {
 
     public void NoEnergizado(){}
 

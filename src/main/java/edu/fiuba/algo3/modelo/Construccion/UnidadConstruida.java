@@ -1,4 +1,7 @@
-package edu.fiuba.algo3.modelo.Razas;
+package edu.fiuba.algo3.modelo.Construccion;
+
+import edu.fiuba.algo3.modelo.Construccion.EstadoConstruccion;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 public class UnidadConstruida implements EstadoConstruccion {
         private final Unidad unidadFormada;

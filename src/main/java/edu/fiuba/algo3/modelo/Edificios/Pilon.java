@@ -1,14 +1,11 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
 import edu.fiuba.algo3.modelo.Celdas.*;
-import edu.fiuba.algo3.modelo.Comunidad.Almacenamiento;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
-import edu.fiuba.algo3.modelo.Excepciones.RecursosInsuficientes;
-import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Visible;
+import edu.fiuba.algo3.modelo.Visibilidad.Visible;
 import edu.fiuba.algo3.modelo.Razas.UnidadConAmpliacionDeSuministro;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;

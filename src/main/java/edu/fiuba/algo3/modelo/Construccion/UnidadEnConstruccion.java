@@ -1,6 +1,9 @@
-package edu.fiuba.algo3.modelo.Razas;
+package edu.fiuba.algo3.modelo.Construccion;
 
+import edu.fiuba.algo3.modelo.Construccion.EstadoConstruccion;
+import edu.fiuba.algo3.modelo.Construccion.UnidadConstruida;
 import edu.fiuba.algo3.modelo.Excepciones.UnidadNoTerminada;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 public class UnidadEnConstruccion implements EstadoConstruccion {
     private final Unidad futuraUnidad;
