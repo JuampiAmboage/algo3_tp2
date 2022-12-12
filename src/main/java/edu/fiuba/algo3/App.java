@@ -151,7 +151,7 @@ public class App extends Application {
             this.controladorVistaRaiz.ocultarMenuBar();
 
             ControladorVistaMapa controladorVistaMapa = cargador.getController();
-            controladorVistaMapa.mostrarMapa();
+            controladorVistaMapa.mostrarMapa(this);
 
         } catch (IOException e) { e.printStackTrace(); }
     }

@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.controladores;
 
 
+import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -12,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class ControladorVistaMapa {
@@ -20,6 +23,8 @@ public class ControladorVistaMapa {
     private final int LONGITUD_FILAS_MAPA = 10; // Alto mapa;
     private final int LONGITUD_COLUMNAS_MAPA = 10;// Ancho mapa
     private GridPane grilla;
+
+    private App app;
 
     private final String rutaRocas = "/sprites/celdas/decoracion/";
 
@@ -50,11 +55,13 @@ public class ControladorVistaMapa {
         this.baseMapa.setCenter(grilla);
     }
 
-    public void mostrarMapa() {
+    public void mostrarMapa(App app) {
 
         if (this.grilla == null) {
             inicializarGrilla();
         }
+
+        this.app = app;
 
         for (int fila = 0; fila < LONGITUD_FILAS_MAPA; fila++) {
 
@@ -70,17 +77,10 @@ public class ControladorVistaMapa {
                 agregarSprite(rutaSpriteFinal, fila, columna);
                 agregarBoton(fila,columna);
 
-                guardarCeldaEnGrilla(celda, fila, columna);
-
             }
 
         }
 
-    }
-
-    private void guardarCeldaEnGrilla(Celda celda, int fila, int columna) {
-
-        this.grilla.add(celda, fila, columna);
     }
 
     public void agregarSprite(String rutaSprite, int fila, int columna) {
@@ -142,6 +142,12 @@ public class ControladorVistaMapa {
         this.grilla.add(boton.obtenerBoton(), fila, columna);
     }
 
-    public void gestionarClickEnCelda(int fila, int columna) {}
+    public void gestionarClickEnCelda(int fila, int columna) {
+        Posicion posicion = new Posicion(fila, columna);
+        Celda celda = mapa.obtenerCelda(posicion);
+
+        ArrayList<String> opciones = celda.gestionarOpcionesParaJugador();
+
+    }
 
 }

@@ -8,6 +8,8 @@ import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 
+import java.util.ArrayList;
+
 
 public class Celda {
     protected Unidad ocupanteTerrestre;
@@ -18,7 +20,6 @@ public class Celda {
     protected String spriteEntidadSobreCelda;
 
     protected boolean spriteCeldaNoEnviado = true;
-
     static public boolean esCelda(Object objeto) {
         return objeto instanceof Celda;
     }
@@ -121,5 +122,32 @@ public class Celda {
         } else {
             return this.spriteEntidadSobreCelda;
         }
+    }
+
+    public ArrayList<String> gestionarOpcionesParaJugador() {
+        ArrayList<String> listaDeOpciones = new ArrayList<String>();
+
+        if (this.tipo != null) {
+            ArrayList<String> opcionesDeTipo = this.tipo.obtenerOpciones();
+            listaDeOpciones.addAll(opcionesDeTipo);
+        }
+
+        if (this.ocupanteTerrestre != null) {
+            ArrayList<String> opcionesDeOcupanteTerrestre = this.ocupanteTerrestre.obtenerOpciones();
+            listaDeOpciones.addAll(opcionesDeOcupanteTerrestre);
+        }
+
+        if (this.ocupanteAereo != null) {
+            ArrayList<String> opcionesDeOcupanteAereo = this.ocupanteAereo.obtenerOpciones();
+            listaDeOpciones.addAll(opcionesDeOcupanteAereo);
+        }
+
+        if (this.recurso != null) {
+            ArrayList<String> opcionesDeRecurso = this.recurso.obtenerOpciones();
+            listaDeOpciones.addAll(opcionesDeRecurso);
+        }
+
+        return listaDeOpciones;
+
     }
 }
