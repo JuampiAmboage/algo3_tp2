@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
+import edu.fiuba.algo3.modelo.Ataque.AtacarTierraYAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Guarida;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
@@ -19,6 +20,9 @@ public class Hidralisco extends TropaTerrestre{
         edificioNecesario = new Guarida();
         vida = new Vida(80);
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
+        opciones.add("Atacar a tierra");
+        opciones.add("Atacar a aire");
+        opciones.add("Moverse");
     }
 
     @Override

@@ -1,6 +1,8 @@
-package edu.fiuba.algo3.modelo.Razas.Tropas;
+package edu.fiuba.algo3.modelo.Ataque;
 
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
+import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
+import edu.fiuba.algo3.modelo.Razas.Tropas.TropaTerrestre;
 
 public interface Atacar {
     public void atacarTierra(RangoAtaque rango, TropaTerrestre unidadAtacable, int puntosAtaqueTierra);

@@ -28,6 +28,7 @@ public class Criadero extends Edificio {
         this.visibilidad = new Visible(this);
         this.costoEnGas = 0;
         this.costoEnMinerales = 200;
+        opciones.add("Engendrar");
     }
     public Criadero(int tiempoDeConstruccion) {
         super(tiempoDeConstruccion);

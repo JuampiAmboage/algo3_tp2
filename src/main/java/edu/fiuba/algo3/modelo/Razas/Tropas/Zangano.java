@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Razas;
+package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
@@ -23,6 +23,9 @@ public class Zangano extends TropaTerrestre {
         this.suministro = 1;
         this.vida = new Vida(25);
         this.edificioNecesario = new Criadero();
+        opciones.add("Extraer mineral");
+        opciones.add("Trabajar en un extractor");
+        opciones.add("Moverse");
     }
     public void realizarAccionesTurno(){
         vida.pasarTurno();

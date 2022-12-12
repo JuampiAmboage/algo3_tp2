@@ -24,6 +24,9 @@ public abstract class Unidad {
     protected int tiempoConstruccion;
     protected int suministro;
     protected String sprite;
+    protected ArrayList<String> opciones;
+
+    public Unidad(){opciones = new ArrayList<>();}
     public void pasarTurno(){
         estado.pasarTurno();
     }
@@ -92,5 +95,5 @@ public abstract class Unidad {
 
     public void cargarSrite(String ruta){}
 
-    public abstract ArrayList<String> obtenerOpciones();
+    public ArrayList<String> obtenerOpciones(){ return opciones;}
 }
