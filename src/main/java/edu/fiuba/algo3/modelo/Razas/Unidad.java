@@ -11,6 +11,8 @@ import edu.fiuba.algo3.modelo.Razas.Tropas.Visibilidad;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Visible;
 import edu.fiuba.algo3.modelo.Salud.Salud;
 
+import java.util.ArrayList;
+
 public abstract class Unidad {
     protected Comunidad comunidad;
     protected Visibilidad visibilidad;
@@ -89,4 +91,6 @@ public abstract class Unidad {
     }
 
     public void cargarSrite(String ruta){}
+
+    public abstract ArrayList<String> obtenerOpciones();
 }

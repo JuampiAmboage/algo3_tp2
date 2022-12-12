@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
+import java.util.ArrayList;
+
 public class ControladorVistaMenuJugadorUno extends ControladorVistaMenuJugadores {
 
     @FXML
@@ -26,6 +28,11 @@ public class ControladorVistaMenuJugadorUno extends ControladorVistaMenuJugadore
     protected void establecerNombre(String nombre) {
         this.nombrePerfil.setText(nombre);
         this.nombre = nombre;
+    }
+
+    @Override
+    public void mostrarOpciones(ArrayList<String> opciones) {
+
     }
 
 }

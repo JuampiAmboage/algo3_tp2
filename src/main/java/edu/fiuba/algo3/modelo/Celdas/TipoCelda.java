@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
 
+import java.util.ArrayList;
+
 public abstract class TipoCelda {
     protected Celda celda;
 
@@ -22,4 +24,6 @@ public abstract class TipoCelda {
     public abstract void quiereConstruir(Construible construible);
 
     public abstract String obtenerSprite();
+
+    public abstract ArrayList<String> obtenerOpciones();
 }

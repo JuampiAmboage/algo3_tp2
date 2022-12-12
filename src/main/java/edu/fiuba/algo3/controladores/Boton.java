@@ -9,7 +9,11 @@ public class Boton {
     private int fila, columna;
     private Button boton;
 
-    public Boton(int fila, int columna) {
+    private ControladorVistaMapa controladorMapa;
+
+    public Boton(int fila, int columna, ControladorVistaMapa controladorMapa) {
+        this.controladorMapa = controladorMapa;
+
         this.boton = new Button();
 
         this.boton.setPrefSize(70.0, 70.0);
@@ -25,12 +29,7 @@ public class Boton {
     }
 
     private void gestionarClickEnCelda(){
-        System.out.println(fila + ", " + columna);
-
-        Parent contenedorDelBoton = this.boton.getParent();
-
-        System.out.println(contenedorDelBoton.getChildrenUnmodifiable());
-
+        this.controladorMapa.gestionarClickEnCelda(this.fila, this.columna);
     }
 
 }
