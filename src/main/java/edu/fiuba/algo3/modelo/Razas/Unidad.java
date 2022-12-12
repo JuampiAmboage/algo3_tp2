@@ -44,9 +44,6 @@ public abstract class Unidad {
     public void cambiarEstado(EstadoConstruccion nuevoEstado){
         this.estado = nuevoEstado;
     }
-    public void localizarEnMapa(int coordenadaX, int coordenadaY){
-        posicion = new Posicion(coordenadaX,coordenadaY);
-    }
     public int obtenerVida(){return vida.getVidaActual();}
 
     public int obtenerCostoMinerales(){return costoEnMinerales;}

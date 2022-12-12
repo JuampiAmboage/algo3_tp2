@@ -12,10 +12,12 @@ public class CeldaConMoho extends TipoCelda {
     public CeldaConMoho() {
         super();
         rangoExpansible = new RangoExpansible(this.celda.posicion, 1);
+        opciones.add("Construir");
     }
     public CeldaConMoho(Celda celda) {
         super(celda);
         rangoExpansible = new RangoExpansible(this.celda.posicion, 1);
+        opciones.add("Construir");
     }
 
     private void expandir() {
