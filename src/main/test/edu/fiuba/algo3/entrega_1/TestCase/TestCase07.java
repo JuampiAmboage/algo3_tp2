@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
 
-import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Edificios.Asimilador;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Edificios.NexoMineral;
-import edu.fiuba.algo3.modelo.Razas.Zangano;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import org.junit.jupiter.api.Test;

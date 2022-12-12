@@ -2,9 +2,8 @@ package edu.fiuba.algo3.entrega_1.UnitTest;
 
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
-import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Edificios.ReservaDeReproduccion;
-import edu.fiuba.algo3.modelo.Razas.Zangano;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

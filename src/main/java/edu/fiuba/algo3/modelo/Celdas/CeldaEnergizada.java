@@ -9,10 +9,12 @@ public class CeldaEnergizada extends TipoCelda{
     public CeldaEnergizada(){
         super();
         this.energia++;
+        opciones.add("Construir");
     }
     public CeldaEnergizada(Celda celda) {
         super(celda);
         this.energia++;
+        opciones.add("Construir");
     }
 
     @Override

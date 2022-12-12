@@ -1,14 +1,13 @@
 package edu.fiuba.algo3.entrega_1.TestCase;
 
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
-import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Dragon;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
 import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Recursos.*;
-import edu.fiuba.algo3.modelo.Razas.Zangano;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -5,10 +5,9 @@ import edu.fiuba.algo3.modelo.Excepciones.TropaNoVisible;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.AmoSupremo;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Scout;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Zealot;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Zerling;
-import edu.fiuba.algo3.modelo.Razas.Zangano;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

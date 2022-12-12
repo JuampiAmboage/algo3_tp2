@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Excepciones.EdificioHabilitadorNoCreado;
 import edu.fiuba.algo3.modelo.Excepciones.UnidadNoTerminada;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Mutalisco;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Zerling;
-import edu.fiuba.algo3.modelo.Razas.Zangano;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
