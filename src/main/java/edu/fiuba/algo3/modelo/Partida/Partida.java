@@ -8,7 +8,6 @@ public class Partida {
     private Turno turno;
     private Jugador primerJugador;
     private Jugador segundoJugador;
-
     public Partida(String[] nombreJugadores, Comunidad[] comunidades) {
         this.mapa = Mapa.getInstance();
         this.mapa.instanciarMapa();
@@ -19,6 +18,19 @@ public class Partida {
     private void agregarJugadores(String[] nombreJugadores, Comunidad[] comunidades){
         this.primerJugador = new Jugador(nombreJugadores[0], comunidades[0]);
         this.segundoJugador = new Jugador(nombreJugadores[1], comunidades[1]);
+        this.primerJugador.iniciarTurno();
+    }
+
+    public void finDeTurno(){
+        primerJugador.cambioCondicionTurno();
+        segundoJugador.cambioCondicionTurno();
+    }
+
+    public Jugador quienJuega(){
+        if(primerJugador.esSuTurno())
+            return primerJugador;
+        else
+            return segundoJugador;
     }
 
 
