@@ -21,6 +21,7 @@ public class Asimilador extends EdificioProtoss {
         this.comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         this.volcan = volcan;
         this.visibilidad = new Visible(this);
+        this.rutaSprite = this.rutaSprite + "edificios/asimilador.png";
     }
     @Override
     public void realizarAccionesTurno() {
@@ -57,4 +58,7 @@ public class Asimilador extends EdificioProtoss {
     public void construirSobre(Celda celda) {
         celda.quiereConstruir(this);
     }
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }

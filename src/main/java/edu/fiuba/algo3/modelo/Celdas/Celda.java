@@ -3,7 +3,6 @@ package edu.fiuba.algo3.modelo.Celdas;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import edu.fiuba.algo3.modelo.Razas.Descripcion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
@@ -13,15 +12,14 @@ import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import java.util.ArrayList;
 
 
-public class Celda implements Descripcion {
+public class Celda {
     protected Unidad ocupanteTerrestre;
     protected TropaAerea ocupanteAereo;
     protected TipoCelda tipo;
     protected Recurso recurso;
     protected Posicion posicion;
-    protected String spriteEntidadSobreCelda;
 
-    protected boolean spriteCeldaNoEnviado = true;
+    protected boolean spriteCeldaNoEnviado = false;
 
     static public boolean esCelda(Object objeto) {
         return objeto instanceof Celda;
@@ -42,14 +40,6 @@ public class Celda implements Descripcion {
         this.recurso = new NoRecurso();
         this.tipo = new CeldaLibre(this);
         this.posicion = new Posicion(0,0);
-    }
-
-    public void aplicarSpriteOcupante(String spriteOcupante){
-        this.spriteEntidadSobreCelda = spriteOcupante;
-
-    }
-    public void restablecerSpriteOriginal(){
-        this.spriteEntidadSobreCelda = null;
     }
     public boolean esMismaPosicion(Posicion posicion){
         return this.posicion.esMismaPosicion(posicion);
@@ -113,20 +103,6 @@ public class Celda implements Descripcion {
     public void instanciarUnidad(Unidad unidad){
         unidad.instanciacionesIniciales(posicion);
     }
-
-    public String obtenerSprite() {
-        if (this.spriteCeldaNoEnviado){
-            this.spriteCeldaNoEnviado = false;
-            return this.tipo.obtenerSprite();
-        }
-
-        if (this.spriteEntidadSobreCelda != null) {
-            return this.tipo.obtenerSprite();
-        } else {
-            return this.spriteEntidadSobreCelda;
-        }
-    }
-
     public ArrayList<String> gestionarOpcionesParaJugador() {
 
         ArrayList<String> listaDeOpciones = new ArrayList<String>();
@@ -154,7 +130,28 @@ public class Celda implements Descripcion {
         return listaDeOpciones;
 
     }
-    public void mostrarDescripcion(){
-        tipo.mostrarDescripcion();
+
+    // Sprites:
+    public String obtenerSpriteOcupanteTerrestre(){
+        if (this.ocupanteTerrestre != null) { return this.ocupanteTerrestre.obtenerSprite(); }
+        return null;
+    }
+
+    public String obtenerSpriteOcupanteAereo() {
+        if (this.ocupanteAereo != null) { return this.ocupanteAereo.obtenerSprite(); }
+        return null;
+    }
+
+    public String obtenerSpriteTipo() {
+        if (!this.spriteCeldaNoEnviado){
+            this.spriteCeldaNoEnviado = true;
+            return this.tipo.obtenerSprite();
+        }
+        return null;
+    }
+
+    public String obtenerSpriteRecurso() {
+        if (this.recurso != null) { return this.recurso.obtenerSprite(); }
+        return null;
     }
 }

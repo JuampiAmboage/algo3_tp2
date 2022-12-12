@@ -12,6 +12,7 @@ public class Volcan extends Recurso {
     public Volcan() {
         super();
         this.cantidad = 5000;
+        this.rutaSprite = this.rutaSprite + "volcan.png";
     }
 
     @Override
@@ -30,5 +31,8 @@ public class Volcan extends Recurso {
 
     @Override
     public ArrayList<String> obtenerOpciones() { return null; }
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }
 

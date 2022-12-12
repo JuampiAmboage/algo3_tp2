@@ -20,9 +20,9 @@ public class Scout extends TropaAerea{
         vida = new VidaConEscudo(150,100);
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         edificioNecesario = new PuertoEstelar();
-        this.sprite = "";
         opciones.add("Atacar a tierra");
         opciones.add("Atacar a aire");
+        this.rutaSprite = this.rutaSprite + "tropas/protoss/scout.png";
     }
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
@@ -34,13 +34,6 @@ public class Scout extends TropaAerea{
     public int obtenerEscudo(){return vida.getEscudoActual();}
 
     @Override
-    public void mostrarDescripcion() {
-        System.out.println("-Scout-");
-        System.out.println("Nave muy peligrosa. Te cañonea 10 veces antes de que toques el piso. \n");
-        System.out.println("Escudo actual: " + this.vida.getEscudoActual());
-        System.out.println("Vida actual: "+ this.vida.getVidaActual());
-        System.out.println("Daño aereo: "+ this.danioAereo);
-        System.out.println("Danio terrestre:" + this.danioTerrestre);
-    }
+    public String obtenerSprite() { return this.rutaSprite; }
 
 }

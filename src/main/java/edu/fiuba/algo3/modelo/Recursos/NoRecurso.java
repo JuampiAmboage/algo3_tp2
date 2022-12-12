@@ -22,4 +22,7 @@ public class NoRecurso extends Recurso {
 
     @Override
     public ArrayList<String> obtenerOpciones() { return null; }
+
+    @Override
+    public String obtenerSprite() { return null; }
 }

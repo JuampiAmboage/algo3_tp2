@@ -30,6 +30,8 @@ public class ControladorVistaMapa {
     private String[] opcionesRocas = new String[3];
     private Button botonAnterior;
 
+    private boolean rocasYaCreadas = false;
+
     private void inicializarSpriteRocas() {
         this.opcionesRocas[0] = "rocas00.png";
         this.opcionesRocas[1] = "rocas01.png";
@@ -55,6 +57,7 @@ public class ControladorVistaMapa {
         if (this.grilla == null) {
             inicializarGrilla();
         }
+        inicializarSpriteRocas();
 
         this.app = app;
 
@@ -65,12 +68,44 @@ public class ControladorVistaMapa {
                 Posicion posicion = new Posicion(fila, columna);
                 Celda celda = mapa.obtenerCelda(posicion);
 
-                String rutaSprite = celda.obtenerSprite();
-                String rutaSpriteFinal = rutaSprite;
+                String spriteTipo = celda.obtenerSpriteTipo();
+                if ( spriteTipo != null) {
+                    agregarSprite(spriteTipo, fila, columna);
+                    agregarBoton(fila,columna);
 
-                inicializarSpriteRocas();
-                agregarSprite(rutaSpriteFinal, fila, columna);
-                agregarBoton(fila,columna);
+                }
+
+                if (agregarRocas()) {
+
+                    String spriteRocaNueva = obtenerSpriteRoca();
+                    if (spriteRocaNueva != null) { agregarSprite(spriteRocaNueva, fila, columna); }
+
+                }
+
+                String spriteRecurso = celda.obtenerSpriteRecurso();
+                if ( spriteRecurso != null) {
+
+                    agregarSprite(spriteRecurso, fila, columna);
+                    agregarBoton(fila,columna);
+
+                }
+
+                String spriteOcupanteTerrestre = celda.obtenerSpriteOcupanteTerrestre();
+                if ( spriteOcupanteTerrestre != null) {
+
+                    agregarSprite(spriteOcupanteTerrestre, fila, columna);
+                    agregarBoton(fila,columna);
+
+                }
+
+                String spriteOcupanteAero = celda.obtenerSpriteOcupanteAereo();
+                if ( spriteOcupanteAero != null) {
+
+                    agregarSprite(spriteOcupanteAero, fila, columna);
+                    agregarBoton(fila,columna);
+
+                }
+
 
             }
 
@@ -88,26 +123,9 @@ public class ControladorVistaMapa {
         sprite.setImage(imagen);
 
         this.grilla.add(sprite, fila, columna);
-
-        if (agregarRocas()) {
-            this.grilla.add(obtenerSpriteRoca(), fila, columna);
-        }
-
     }
 
-    public ImageView obtenerSpriteRoca() {
-
-        String rutaFinal = elejirRutaRandom();
-
-        Image imagen = new Image(getClass().getResourceAsStream(rutaFinal));
-
-        ImageView sprite = new ImageView();
-        sprite.setFitWidth(70.0);
-        sprite.setFitHeight(70.0);
-        sprite.setImage(imagen);
-
-        return sprite;
-    }
+    public String obtenerSpriteRoca() { return elejirRutaRandom(); }
 
     public String elejirRutaRandom() {
         Random random = new Random();

@@ -21,6 +21,7 @@ public class NexoMineral extends EdificioProtoss implements Construible{
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         this.nodoMineral = nodoMineral;
         this.visibilidad = new Visible(this);
+        this.rutaSprite = this.rutaSprite + "edificios/nexoMineral.png";
     }
 
     public int extraerMineral(){
@@ -59,5 +60,8 @@ public class NexoMineral extends EdificioProtoss implements Construible{
     public void construirSobre(Celda celda) throws ConstruccionProhibida{
         celda.quiereConstruir(this);
     }
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 
 }

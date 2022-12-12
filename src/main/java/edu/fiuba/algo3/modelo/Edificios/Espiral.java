@@ -22,6 +22,7 @@ public class Espiral extends Edificio {
         this.vida = new Vida(1300);
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.visibilidad = new Visible(this);
+        this.rutaSprite = this.rutaSprite + "edificios/espiral.png";
     }
     public void construirEn(Celda celda) { celda.ocuparPorTierra(this);}
 
@@ -64,4 +65,7 @@ public class Espiral extends Edificio {
     public void construirSobre(Celda celda) {
         celda.quiereConstruir(this);
     }
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }

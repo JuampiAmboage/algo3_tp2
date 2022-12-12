@@ -18,7 +18,9 @@ public class Devorador extends TropaAerea implements UnidadEvolucionada{
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         vida = new Vida(200);
         suministro = 0;
+        opciones.add("Atacar a tierra");
         opciones.add("Atacar a aire");
+        this.rutaSprite = this.rutaSprite + "tropas/zerg/devorador.png";
     }
     public void realizarAccionesTurno(){
         vida.pasarTurno();
@@ -37,11 +39,5 @@ public class Devorador extends TropaAerea implements UnidadEvolucionada{
     }
 
     @Override
-    public void mostrarDescripcion() {
-        System.out.println("-Devorador-");
-        System.out.println("Coqueta evolución del mutalisco. Tiene genes de elmo y confunde a las tropas con cookies.\n");
-        System.out.println("Vida actual: "+ this.vida.getVidaActual());
-        System.out.println("Daño aereo: "+ this.danioAereo);
-        System.out.println("Danio terrestre: No tiene.");
-    }
+    public String obtenerSprite() { return this.rutaSprite; }
 }

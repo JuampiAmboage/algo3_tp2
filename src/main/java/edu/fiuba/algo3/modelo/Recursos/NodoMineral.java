@@ -9,6 +9,7 @@ public class NodoMineral extends Recurso {
     public NodoMineral() {
         super();
         this.cantidad = 2000;
+        this.rutaSprite = this.rutaSprite + "nodoMineral.png";
     }
     @Override
     public int extraer(int c) {
@@ -25,4 +26,7 @@ public class NodoMineral extends Recurso {
     }
 
     public ArrayList<String> obtenerOpciones() { return null; }
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }

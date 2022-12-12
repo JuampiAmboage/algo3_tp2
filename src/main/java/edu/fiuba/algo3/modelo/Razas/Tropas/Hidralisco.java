@@ -22,6 +22,7 @@ public class Hidralisco extends TropaTerrestre{
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         opciones.add("Atacar a tierra");
         opciones.add("Atacar a aire");
+        this.rutaSprite = this.rutaSprite + "tropas/zerg/hidralisco.png";
     }
 
     @Override
@@ -35,11 +36,5 @@ public class Hidralisco extends TropaTerrestre{
     }
 
     @Override
-    public void mostrarDescripcion() {
-        System.out.println("-Hidralisco-");
-        System.out.println("Hizo Moai Tai y Judo. El problema es que solo hasta la primera clase. \n");
-        System.out.println("Vida actual: "+ this.vida.getVidaActual());
-        System.out.println("Daño aereo: "+ this.danioAereo);
-        System.out.println("Danio terrestre:" + this.danioTerrestre);
-    }
+    public String obtenerSprite() { return this.rutaSprite; }
 }
