@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Recursos;
 import edu.fiuba.algo3.modelo.Edificios.Construible;
 import edu.fiuba.algo3.modelo.Excepciones.MineralEnNodoAgotado;
 
+import java.util.ArrayList;
+
 public class NodoMineral extends Recurso {
     public NodoMineral() {
         super();

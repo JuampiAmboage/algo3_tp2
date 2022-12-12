@@ -15,7 +15,7 @@ public abstract class ControladorVistaMenuJugadores {
     protected String nombre;
     protected Accordion acordeon;
     protected TitledPane[] titledPane;
-    protected AnchorPane[] anchorPane;
+    //protected AnchorPane[] anchorPane;
 
     public abstract void establecerPerfil(String perfil, String nombre);
 
@@ -28,7 +28,7 @@ public abstract class ControladorVistaMenuJugadores {
     public void mostrarOpciones(ArrayList<String> opciones, int cantidadDeMenus){
         instanciarAcordeon();
         this.titledPane = new TitledPane[cantidadDeMenus];
-        this.anchorPane = new AnchorPane[cantidadDeMenus];
+        //this.anchorPane = new AnchorPane[cantidadDeMenus];
 
         for (int i = 0; i < cantidadDeMenus; i++) {
             AnchorPane nuevoAnchorPane = new AnchorPane();
