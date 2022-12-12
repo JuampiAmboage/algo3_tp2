@@ -17,6 +17,8 @@ public class Celda {
     protected Posicion posicion;
     protected String spriteEntidadSobreCelda;
 
+    protected boolean spriteCeldaNoEnviado = true;
+
     static public boolean esCelda(Object objeto) {
         return objeto instanceof Celda;
     }
@@ -109,9 +111,15 @@ public class Celda {
     }
 
     public String obtenerSprite() {
-        if(this.spriteEntidadSobreCelda != null)
+        if (this.spriteCeldaNoEnviado){
+            this.spriteCeldaNoEnviado = false;
             return this.tipo.obtenerSprite();
-        else
+        }
+
+        if (this.spriteEntidadSobreCelda != null) {
+            return this.tipo.obtenerSprite();
+        } else {
             return this.spriteEntidadSobreCelda;
+        }
     }
 }

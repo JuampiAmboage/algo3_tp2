@@ -6,6 +6,8 @@ import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -23,7 +25,8 @@ public class ControladorVistaMapa {
 
     private String[] opcionesRocas = new String[3];
 
-
+    @FXML
+    private Button botonCelda;
     @FXML
     private BorderPane baseMapa;
 
@@ -42,8 +45,11 @@ public class ControladorVistaMapa {
         this.grilla.setPrefSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
 
         this.grilla.setAlignment(Pos.CENTER);
+        this.grilla.setId("grilla");
+
         this.baseMapa.setCenter(grilla);
     }
+
     public void mostrarMapa() {
 
         inicializarSpriteRocas();
@@ -63,6 +69,7 @@ public class ControladorVistaMapa {
                 String rutaSpriteFinal = rutaSprite;
 
                 agregarSprite(rutaSpriteFinal, i, j);
+                agregarBoton(i,j);
 
             }
 
@@ -84,6 +91,7 @@ public class ControladorVistaMapa {
         if (agregarRocas()) {
             this.grilla.add(obtenerSpriteRoca(), fila, columna);
         }
+
     }
 
     public ImageView obtenerSpriteRoca() {
@@ -119,6 +127,13 @@ public class ControladorVistaMapa {
             return true;
         }
         return false;
+    }
+
+    public void agregarBoton(int fila, int columna) {
+
+        Boton boton = new Boton(fila, columna);
+
+        this.grilla.add(boton.obtenerBoton(), fila, columna);
     }
 
 }
