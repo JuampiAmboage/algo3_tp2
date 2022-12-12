@@ -29,7 +29,7 @@ public class Boton {
     }
 
     private void gestionarClickEnCelda(){
-        this.controladorMapa.gestionarClickEnCelda(this.fila, this.columna);
+        this.controladorMapa.gestionarClickEnCelda(this.fila, this.columna, this.boton);
     }
 
 }

@@ -37,4 +37,10 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
     protected void mostrarEnVBox() {
         this.vBoxMenu.getChildren().add(this.acordeon);
     }
+
+    @Override
+    protected void limpiarMenu() {
+        this.vBoxMenu.getChildren().clear();
+    }
+
 }

@@ -27,13 +27,13 @@ public abstract class ControladorVistaMenuJugadores {
 
     private void instanciarOpcionesInvalidas() {
         // TODO: agregar las opciones invalidas.
-        if (this.perfil.equals("protoss")) {
+        if (this.perfil.equals("protoss") && this.opcionesInvalidasProtoss == null) {
             this.opcionesInvalidasProtoss = new ArrayList<String>();
             this.opcionesInvalidasProtoss.add("String");
             this.opcionesInvalidasProtoss.add("String");
             this.opcionesInvalidasProtoss.add("String");
             this.opcionesInvalidasProtoss.add("String");
-        } else {
+        } else if (this.opcionesInvalidasZerg == null){
             this.opcionesInvalidasZerg = new ArrayList<String>();
             this.opcionesInvalidasZerg.add("String");
             this.opcionesInvalidasZerg.add("String");
@@ -45,14 +45,15 @@ public abstract class ControladorVistaMenuJugadores {
     protected abstract void establecerNombre(String nombre);
 
     public void mostrarOpciones(ArrayList<String> opciones){
+        limpiarMenu();
         instanciarOpcionesInvalidas();
 
         opciones = eliminarOpcionesInvalidas(opciones);
+
         int cantidadDeMenus = opciones.toArray().length;
+        TitledPane[] titledPane = new TitledPane[cantidadDeMenus];
 
         instanciarAcordeon();
-
-        TitledPane[] titledPane = new TitledPane[cantidadDeMenus];
 
         for (int i = 0; i < cantidadDeMenus; i++) {
             AnchorPane nuevoAnchorPane = new AnchorPane();
@@ -66,6 +67,7 @@ public abstract class ControladorVistaMenuJugadores {
         mostrarEnVBox();
     }
 
+    protected abstract void limpiarMenu();
     protected abstract void mostrarEnVBox();
 
     protected ArrayList<String> eliminarOpcionesInvalidas(ArrayList<String> opciones) {

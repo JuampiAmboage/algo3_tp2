@@ -18,22 +18,17 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class ControladorVistaMapa {
+    @FXML
+    private BorderPane baseMapa;
 
     private final Mapa mapa = Mapa.getInstance();
     private final int LONGITUD_FILAS_MAPA = 10; // Alto mapa;
     private final int LONGITUD_COLUMNAS_MAPA = 10;// Ancho mapa
     private GridPane grilla;
-
     private App app;
-
     private final String rutaRocas = "/sprites/celdas/decoracion/";
-
     private String[] opcionesRocas = new String[3];
-
-    @FXML
-    private Button botonCelda;
-    @FXML
-    private BorderPane baseMapa;
+    private Button botonAnterior;
 
     private void inicializarSpriteRocas() {
         this.opcionesRocas[0] = "rocas00.png";
@@ -142,12 +137,22 @@ public class ControladorVistaMapa {
         this.grilla.add(boton.obtenerBoton(), fila, columna);
     }
 
-    public void gestionarClickEnCelda(int fila, int columna) {
-        // TODO: desactivar un boton cuando es clickeado, activarlo devuelta cuando se clickea otro boton.
+    public void gestionarClickEnCelda(int fila, int columna, Button boton) {
         Posicion posicion = new Posicion(fila, columna);
         Celda celda = mapa.obtenerCelda(posicion);
 
+        desactivarBoton(boton);
+
         app.mostrarMenu(celda.gestionarOpcionesParaJugador());
+    }
+
+    private void desactivarBoton(Button boton) {
+
+        if (this.botonAnterior != null) {
+            this.botonAnterior.setDisable(false);
+        }
+        boton.setDisable(true);
+        this.botonAnterior = boton;
     }
 
 }

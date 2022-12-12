@@ -41,5 +41,10 @@ public class ControladorVistaMenuJugadorUno extends ControladorVistaMenuJugadore
         this.vBoxMenu.getChildren().add(this.acordeon);
     }
 
+    @Override
+    protected void limpiarMenu() {
+        this.vBoxMenu.getChildren().clear();
+    }
+
 }
 
