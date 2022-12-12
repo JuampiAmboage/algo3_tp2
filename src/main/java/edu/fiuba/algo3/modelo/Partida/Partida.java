@@ -19,6 +19,7 @@ public class Partida {
         this.primerJugador = new Jugador(nombreJugadores[0], comunidades[0]);
         this.segundoJugador = new Jugador(nombreJugadores[1], comunidades[1]);
         this.primerJugador.iniciarTurno();
+        this.segundoJugador.mandarAEspera();
     }
 
     public void finDeTurno(){
