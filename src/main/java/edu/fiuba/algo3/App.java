@@ -2,6 +2,7 @@ package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.controladores.*;
 import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
+import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,14 +13,19 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class App extends Application {
 
     private Stage escenarioPrimario;
     private BorderPane layoutRaiz;
     private ControladorVistaRaiz controladorVistaRaiz;
+
+    private ControladorVistaMenuJugadorUno controladorVistaMenuJugadorUno;
+    private ControladorVistaMenuJugadorDos controladorVistaMenuJugadorDos;
     private double[] tamanioDelEscenario = new double[2];
 
+    private Partida partida;
     public static void main(String[] args) {
         launch();
     }
@@ -40,6 +46,8 @@ public class App extends Application {
 
         mostrarVistaInicio();
     }
+
+    public void establecerPartida(Partida partida){ this.partida = partida; }
 
     public void inicializarlayoutRaiz() {
         try {
@@ -114,8 +122,10 @@ public class App extends Application {
             );
             VBox VistaMenuJugadorUno = (VBox) cargador.load();
 
-            ControladorVistaMenuJugadores controladorVistaMenuJugadorUno = cargador.getController();
+            ControladorVistaMenuJugadorUno controladorVistaMenuJugadorUno = cargador.getController();
             controladorVistaMenuJugadorUno.establecerPerfil(perfil, nombre);
+
+            this.controladorVistaMenuJugadorUno = controladorVistaMenuJugadorUno;
 
             this.layoutRaiz.setLeft(VistaMenuJugadorUno);
 
@@ -130,8 +140,10 @@ public class App extends Application {
             );
             VBox VistaMenuJugadorDos = (VBox) cargador.load();
 
-            ControladorVistaMenuJugadores controladorVistaMenuJugadorDos = cargador.getController();
+            ControladorVistaMenuJugadorDos controladorVistaMenuJugadorDos = cargador.getController();
             controladorVistaMenuJugadorDos.establecerPerfil(perfil, nombre);
+
+            this.controladorVistaMenuJugadorDos = controladorVistaMenuJugadorDos;
 
             this.layoutRaiz.setRight(VistaMenuJugadorDos);
 
@@ -154,6 +166,13 @@ public class App extends Application {
             controladorVistaMapa.mostrarMapa(this);
 
         } catch (IOException e) { e.printStackTrace(); }
+    }
+
+    public void mostrarMenu(ArrayList<String> opciones){
+        if (this.partida.mostrarMenu() == 1)
+            controladorVistaMenuJugadorUno.mostrarOpciones(opciones);
+        else
+            controladorVistaMenuJugadorDos.mostrarOpciones(opciones);
     }
 
     public void salir() {

@@ -35,6 +35,10 @@ public class Partida {
     }
 
 
-
+    public int mostrarMenu(){
+        if (quienJuega() == primerJugador)
+            return 1;
+        return 0;
+    }
 
 }

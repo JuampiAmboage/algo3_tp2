@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.ArrayList;
+
 
 public abstract class ControladorVistaMenuJugadores {
     protected String perfil;
@@ -16,6 +18,8 @@ public abstract class ControladorVistaMenuJugadores {
     }
 
     protected abstract void establecerNombre(String nombre);
+
+    public abstract void mostrarOpciones(ArrayList<String> opciones);
 
 }
 

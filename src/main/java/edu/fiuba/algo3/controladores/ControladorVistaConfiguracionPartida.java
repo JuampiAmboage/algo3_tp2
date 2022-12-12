@@ -74,6 +74,7 @@ public class ControladorVistaConfiguracionPartida {
 
     public void gestionarPasajeDeDatosAlBackend() {
         this.partida = new Partida(this.nombreDeJugadores, this.comunidades);
+        this.app.establecerPartida(this.partida);
     }
 
     public void gestionarSeleccionDeRaza() {
