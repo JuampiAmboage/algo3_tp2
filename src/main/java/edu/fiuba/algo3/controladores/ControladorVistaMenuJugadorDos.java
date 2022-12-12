@@ -31,7 +31,7 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
     }
 
     @Override
-    public void mostrarOpciones(ArrayList<String> opciones) {
+    public void mostrarOpciones(ArrayList<String> opciones, int cantidadDeMenus) {
 
     }
 }

@@ -168,11 +168,11 @@ public class App extends Application {
         } catch (IOException e) { e.printStackTrace(); }
     }
 
-    public void mostrarMenu(ArrayList<String> opciones){
+    public void mostrarMenu(ArrayList<String> opciones, int cantidadDeMenus){
         if (this.partida.mostrarMenu() == 1)
-            controladorVistaMenuJugadorUno.mostrarOpciones(opciones);
+            controladorVistaMenuJugadorUno.mostrarOpciones(opciones, cantidadDeMenus);
         else
-            controladorVistaMenuJugadorDos.mostrarOpciones(opciones);
+            controladorVistaMenuJugadorDos.mostrarOpciones(opciones, cantidadDeMenus);
     }
 
     public void salir() {

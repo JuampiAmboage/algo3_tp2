@@ -146,7 +146,7 @@ public class ControladorVistaMapa {
         Posicion posicion = new Posicion(fila, columna);
         Celda celda = mapa.obtenerCelda(posicion);
 
-        app.mostrarMenu(celda.gestionarOpcionesParaJugador());
+        app.mostrarMenu(celda.gestionarOpcionesParaJugador(), celda.obtenerCantidadDeMenus());
     }
 
 }

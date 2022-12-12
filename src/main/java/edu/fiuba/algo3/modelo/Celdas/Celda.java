@@ -20,6 +20,8 @@ public class Celda {
     protected String spriteEntidadSobreCelda;
 
     protected boolean spriteCeldaNoEnviado = true;
+
+    public int cantidadDeMenus = 0;
     static public boolean esCelda(Object objeto) {
         return objeto instanceof Celda;
     }
@@ -125,29 +127,38 @@ public class Celda {
     }
 
     public ArrayList<String> gestionarOpcionesParaJugador() {
+
         ArrayList<String> listaDeOpciones = new ArrayList<String>();
 
         if (this.tipo != null) {
             ArrayList<String> opcionesDeTipo = this.tipo.obtenerOpciones();
             listaDeOpciones.addAll(opcionesDeTipo);
+            this.cantidadDeMenus++;
         }
 
         if (this.ocupanteTerrestre != null) {
             ArrayList<String> opcionesDeOcupanteTerrestre = this.ocupanteTerrestre.obtenerOpciones();
             listaDeOpciones.addAll(opcionesDeOcupanteTerrestre);
+            this.cantidadDeMenus++;
         }
 
         if (this.ocupanteAereo != null) {
             ArrayList<String> opcionesDeOcupanteAereo = this.ocupanteAereo.obtenerOpciones();
             listaDeOpciones.addAll(opcionesDeOcupanteAereo);
+            this.cantidadDeMenus++;
         }
 
         if (this.recurso != null) {
             ArrayList<String> opcionesDeRecurso = this.recurso.obtenerOpciones();
             listaDeOpciones.addAll(opcionesDeRecurso);
+            this.cantidadDeMenus++;
         }
 
         return listaDeOpciones;
 
+    }
+
+    public int obtenerCantidadDeMenus() {
+        return this.cantidadDeMenus;
     }
 }

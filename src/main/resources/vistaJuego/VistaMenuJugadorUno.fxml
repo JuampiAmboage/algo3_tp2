@@ -32,6 +32,7 @@
                   <Insets right="25.0" />
                </GridPane.margin>
             </ImageView>
+            <VBox fx:id="vBoxMenu" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1" />
          </children>
          <VBox.margin>
             <Insets />
