@@ -21,6 +21,7 @@ public class Pilon extends EdificioProtoss implements UnidadConAmpliacionDeSumin
         this.comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         this.suministro = 5;
         this.visibilidad = new Visible(this);
+        this.rutaSprite = this.rutaSprite + "edificios/pilon.png";
     }
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
@@ -84,4 +85,7 @@ public class Pilon extends EdificioProtoss implements UnidadConAmpliacionDeSumin
     public void construirSobre(Celda celda) {
         celda.quiereConstruir(this);
     }
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }

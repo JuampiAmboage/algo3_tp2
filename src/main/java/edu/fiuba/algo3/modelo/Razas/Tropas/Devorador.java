@@ -20,6 +20,7 @@ public class Devorador extends TropaAerea implements UnidadEvolucionada{
         suministro = 0;
         opciones.add("Atacar a tierra");
         opciones.add("Atacar a aire");
+        this.rutaSprite = this.rutaSprite + "tropas/zerg/devorador.png";
     }
     public void realizarAccionesTurno(){
         vida.pasarTurno();
@@ -36,4 +37,7 @@ public class Devorador extends TropaAerea implements UnidadEvolucionada{
     public void pasarTurno() {
         estado.pasarTurno();
     }
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }

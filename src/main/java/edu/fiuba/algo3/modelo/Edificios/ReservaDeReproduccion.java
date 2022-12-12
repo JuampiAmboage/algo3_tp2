@@ -22,6 +22,7 @@ public class ReservaDeReproduccion extends Edificio {
         this.costoEnMinerales = 150;
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.visibilidad = new Visible(this);
+        this.rutaSprite = this.rutaSprite + "edificios/reservaDeReproduccion.png";
     }
     @Override
     public void pasarTurno(){
@@ -55,5 +56,8 @@ public class ReservaDeReproduccion extends Edificio {
     public void construirSobre(Celda celda) throws ConstruccionProhibida{
         celda.quiereConstruir(this);
     }
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }
 

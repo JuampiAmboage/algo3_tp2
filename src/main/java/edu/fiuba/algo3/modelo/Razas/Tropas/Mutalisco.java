@@ -46,4 +46,7 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
     public void pasarTurno() {
         vida.pasarTurno();
     }
+
+    @Override
+    public String obtenerSprite() { return null; }
 }

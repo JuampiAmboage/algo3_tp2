@@ -20,11 +20,11 @@ public abstract class EdificioProtoss extends Edificio{
 
     public void energizar(){
         this.estadoEnergia = new Energizado(this);
-        Mapa.getInstance().obtenerCelda(this.posicion).aplicarSpriteOcupante(sprite);//sprite original
+        //Mapa.getInstance().obtenerCelda(this.posicion).aplicarSpriteOcupante(sprite);
     }
     public void desenergizar(){
         this.estadoEnergia = new NoEnergizado();
-        Mapa.getInstance().obtenerCelda(this.posicion).aplicarSpriteOcupante(spriteDesenergizado);
+       //Mapa.getInstance().obtenerCelda(this.posicion).aplicarSpriteOcupante(spriteDesenergizado);
     }
 
     public void estaEnergizado(){

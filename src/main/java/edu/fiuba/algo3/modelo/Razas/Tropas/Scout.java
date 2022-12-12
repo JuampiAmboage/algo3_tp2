@@ -20,9 +20,9 @@ public class Scout extends TropaAerea{
         vida = new VidaConEscudo(150,100);
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         edificioNecesario = new PuertoEstelar();
-        this.sprite = "";
         opciones.add("Atacar a tierra");
         opciones.add("Atacar a aire");
+        this.rutaSprite = this.rutaSprite + "tropas/protoss/scout.png";
     }
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
@@ -32,5 +32,8 @@ public class Scout extends TropaAerea{
         cantidadMovimientos = 0;
     }
     public int obtenerEscudo(){return vida.getEscudoActual();}
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 
 }

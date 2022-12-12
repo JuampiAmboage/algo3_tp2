@@ -25,7 +25,7 @@ public class Guarida extends Edificio implements Correlatividad {
         this.edificioNecesario = new ReservaDeReproduccion();
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.visibilidad = new Visible(this);
-
+        this.rutaSprite = this.rutaSprite + "edificios/guardia";
     }
     public void construirEn(Celda celda) {
         celda.ocuparPorTierra(this);}
@@ -67,4 +67,7 @@ public class Guarida extends Edificio implements Correlatividad {
     public void construirSobre(Celda celda) {
         celda.quiereConstruir(this);
     }
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }

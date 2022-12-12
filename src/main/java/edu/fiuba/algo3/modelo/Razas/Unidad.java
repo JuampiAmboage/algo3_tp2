@@ -23,7 +23,8 @@ public abstract class Unidad {
     protected int costoEnGas;
     protected int tiempoConstruccion;
     protected int suministro;
-    protected String sprite;
+    protected String rutaSprite = "/sprites/";
+
     protected ArrayList<String> opciones;
 
     public Unidad(){opciones = new ArrayList<>();}
@@ -32,9 +33,6 @@ public abstract class Unidad {
     }
     public abstract void realizarAccionesTurno();
 
-    public void modificarSpriteEnCeldaContenedora(Celda celdaAOcupar){
-        celdaAOcupar.aplicarSpriteOcupante(this.sprite);
-    }
     public void instanciacionesIniciales(Posicion posicionALocalizar){ this.posicion =posicionALocalizar;
         this.aplicarPesoEnSuministro();
     }
@@ -75,7 +73,7 @@ public abstract class Unidad {
         if(vida.estaSinVida()) {
             comunidad.restarPesoEnSuministro(suministro);
             comunidad.quitarUnidad(this);
-            Mapa.getInstance().obtenerCelda(this.posicion).restablecerSpriteOriginal();
+            //Mapa.getInstance().obtenerCelda(this.posicion).quitarSprite(); TODO: Creo que no se necesita.
         }
     }
 
@@ -90,7 +88,7 @@ public abstract class Unidad {
         return vida.estaSinVida();
     }
 
-    public void cargarSrite(String ruta){}
-
     public ArrayList<String> obtenerOpciones(){ return opciones;}
+
+    public abstract String obtenerSprite();
 }

@@ -23,7 +23,7 @@ public class Dragon extends TropaTerrestre{
         vida = new VidaConEscudo(100,80);
         opciones.add("Atacar a tierra");
         opciones.add("Atacar a aire");
-
+        this.rutaSprite = this.rutaSprite + "tropas/protoss/dragon.png";
     }
     public void realizarAccionesTurno(){
         vida.pasarTurno();
@@ -38,4 +38,7 @@ public class Dragon extends TropaTerrestre{
     }
 
     public int obtenerEscudo(){return vida.getEscudoActual();}
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }

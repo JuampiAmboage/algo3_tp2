@@ -28,6 +28,7 @@ public class Extractor extends Edificio {
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.volcan = volcan;
         this.visibilidad = new Visible(this);
+        this.rutaSprite = this.rutaSprite + "edificios/extractor.png";
     }
     public Extractor(Volcan volcan, int tiempoDeConstruccion) {
         this.tiempoConstruccion = tiempoDeConstruccion;
@@ -87,4 +88,7 @@ public class Extractor extends Edificio {
         celda.quiereConstruir(this);
         this.estado = new UnidadEnConstruccion(this);
     }
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }

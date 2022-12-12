@@ -22,6 +22,7 @@ public class Hidralisco extends TropaTerrestre{
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         opciones.add("Atacar a tierra");
         opciones.add("Atacar a aire");
+        this.rutaSprite = this.rutaSprite + "tropas/zerg/hidralisco.png";
     }
 
     @Override
@@ -34,4 +35,6 @@ public class Hidralisco extends TropaTerrestre{
         cantidadMovimientos = 0;
     }
 
-    }
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
+}

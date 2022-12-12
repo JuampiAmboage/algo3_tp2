@@ -22,6 +22,7 @@ public class Zerling extends TropaTerrestre {
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         opciones.add("Atacar a tierra");
         opciones.add("Atacar a aire");
+        this.rutaSprite = this.rutaSprite + "tropas/zerg/zerlilng.png";
     }
 
     public void instanciacionesIniciales(Posicion posicionALocalizar){
@@ -32,4 +33,7 @@ public class Zerling extends TropaTerrestre {
     public void realizarAccionesTurno(){vida.pasarTurno();
         cantidadMovimientos = 0;
     }
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }

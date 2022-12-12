@@ -18,9 +18,8 @@ public class Celda {
     protected TipoCelda tipo;
     protected Recurso recurso;
     protected Posicion posicion;
-    protected String spriteEntidadSobreCelda;
 
-    protected boolean spriteCeldaNoEnviado = true;
+    protected boolean spriteCeldaNoEnviado = false;
 
     static public boolean esCelda(Object objeto) {
         return objeto instanceof Celda;
@@ -41,14 +40,6 @@ public class Celda {
         this.recurso = new NoRecurso();
         this.tipo = new CeldaLibre(this);
         this.posicion = new Posicion(0,0);
-    }
-
-    public void aplicarSpriteOcupante(String spriteOcupante){
-        this.spriteEntidadSobreCelda = spriteOcupante;
-
-    }
-    public void restablecerSpriteOriginal(){
-        this.spriteEntidadSobreCelda = null;
     }
     public boolean esMismaPosicion(Posicion posicion){
         return this.posicion.esMismaPosicion(posicion);
@@ -112,20 +103,6 @@ public class Celda {
     public void instanciarUnidad(Unidad unidad){
         unidad.instanciacionesIniciales(posicion);
     }
-
-    public String obtenerSprite() {
-        if (this.spriteCeldaNoEnviado){
-            this.spriteCeldaNoEnviado = false;
-            return this.tipo.obtenerSprite();
-        }
-
-        if (this.spriteEntidadSobreCelda != null) {
-            return this.tipo.obtenerSprite();
-        } else {
-            return this.spriteEntidadSobreCelda;
-        }
-    }
-
     public ArrayList<String> gestionarOpcionesParaJugador() {
 
         ArrayList<String> listaDeOpciones = new ArrayList<String>();
@@ -152,5 +129,29 @@ public class Celda {
 
         return listaDeOpciones;
 
+    }
+
+    // Sprites:
+    public String obtenerSpriteOcupanteTerrestre(){
+        if (this.ocupanteTerrestre != null) { return this.ocupanteTerrestre.obtenerSprite(); }
+        return null;
+    }
+
+    public String obtenerSpriteOcupanteAereo() {
+        if (this.ocupanteAereo != null) { return this.ocupanteAereo.obtenerSprite(); }
+        return null;
+    }
+
+    public String obtenerSpriteTipo() {
+        if (!this.spriteCeldaNoEnviado){
+            this.spriteCeldaNoEnviado = true;
+            return this.tipo.obtenerSprite();
+        }
+        return null;
+    }
+
+    public String obtenerSpriteRecurso() {
+        if (this.recurso != null) { return this.recurso.obtenerSprite(); }
+        return null;
     }
 }

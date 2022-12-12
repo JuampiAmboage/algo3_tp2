@@ -28,6 +28,7 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         opciones.add("Atacar a tierra");
         opciones.add("Atacar a aire");
+        this.rutaSprite = this.rutaSprite + "tropas/protoss/zealot.png";
     }
 
     @Override
@@ -55,5 +56,8 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
         visibilidad = new Invisible(this);
     }
     public int obtenerEscudo(){return vida.getEscudoActual();}
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 
 }

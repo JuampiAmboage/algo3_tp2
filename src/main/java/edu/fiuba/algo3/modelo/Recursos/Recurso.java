@@ -6,9 +6,12 @@ import java.util.ArrayList;
 
 public abstract class Recurso {
     protected int cantidad;
+    protected String rutaSprite = "/sprites/recursos/";
     public Recurso() {}
     public abstract int extraer(int cantidad);
     public abstract void quiereConstruir(Construible construible);
 
     public abstract ArrayList<String> obtenerOpciones();
+
+    public abstract String obtenerSprite();
 }

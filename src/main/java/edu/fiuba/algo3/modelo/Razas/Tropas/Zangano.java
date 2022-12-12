@@ -29,6 +29,7 @@ public class Zangano extends TropaTerrestre {
         opciones.add("Trabajar en un extractor");
         opciones.add("Trabajar en un nodo mineral");
         opciones.add("Extraer mineral");
+        this.rutaSprite = this.rutaSprite + "tropas/zerg/zangano.png";
     }
     public void realizarAccionesTurno(){
         vida.pasarTurno();
@@ -72,4 +73,7 @@ public class Zangano extends TropaTerrestre {
             throw new ZanganoYaEmpleado();
         }
     }
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }

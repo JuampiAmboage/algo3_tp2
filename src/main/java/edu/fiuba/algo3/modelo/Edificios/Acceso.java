@@ -22,6 +22,7 @@ public class Acceso extends EdificioProtoss implements Construible {
         this.vida = new VidaConEscudo(500, 500);
         this.comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         this.visibilidad = new Visible(this);
+        this.rutaSprite = this.rutaSprite + "edificios/acceso.png";
     }
     @Override
     public void construirSobreRecurso(NoRecurso tipoRecurso) {throw  new ConstruccionProhibida();}
@@ -47,4 +48,7 @@ public class Acceso extends EdificioProtoss implements Construible {
     public void construirSobre(Celda celda) {
         celda.quiereConstruir(this);
     }
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }

@@ -22,6 +22,7 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
         danioAereo = 0;
         suministro = 0;
         opciones.add("Rastrear");
+        this.rutaSprite = this.rutaSprite + "tropas/zerg/amosSupremo.png";
     }
     public void aniadirSuministro(){
         comunidad.aniadirCapacidadSuministro(5);
@@ -42,8 +43,11 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
         this.aniadirSuministro();
     }
     public void realizarAccionesTurno(){vida.pasarTurno();
-    rangoDetector.localizarZealots();
-    rangoDetector.compararTropasDetectadasEntreTurnos();
-    cantidadMovimientos = 0;}
+        rangoDetector.localizarZealots();
+        rangoDetector.compararTropasDetectadasEntreTurnos();
+        cantidadMovimientos = 0;
+    }
 
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }

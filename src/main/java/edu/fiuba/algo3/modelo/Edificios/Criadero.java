@@ -28,12 +28,14 @@ public class Criadero extends Edificio {
         this.costoEnGas = 0;
         this.costoEnMinerales = 200;
         opciones.add("Engendrar");
+        this.rutaSprite = this.rutaSprite + "edificios/criadero.png";
     }
     public Criadero(int tiempoDeConstruccion) {
         super(tiempoDeConstruccion);
         this.vida = new Vida(500);
         this.cantidadLarvasEnEspera = 3;
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
+        this.rutaSprite = this.rutaSprite + "edificios/criadero.png";
     }
 
     public void instanciacionesIniciales(Posicion posicionALocalizar){
@@ -103,4 +105,7 @@ public class Criadero extends Edificio {
     public void construirSobre(Celda celda) throws ConstruccionProhibida{
         celda.quiereConstruir(this);
     }
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }

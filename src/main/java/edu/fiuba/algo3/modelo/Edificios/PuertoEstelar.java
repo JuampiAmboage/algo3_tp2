@@ -24,6 +24,7 @@ public class PuertoEstelar extends Edificio {
         this.vida = new VidaConEscudo(600, 600);
         this.comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         this.visibilidad = new Visible(this);
+        this.rutaSprite = this.rutaSprite + "edificios/puertoEstelar.png";
     }
 
     public void construirEn(Celda celda) {
@@ -69,4 +70,7 @@ public class PuertoEstelar extends Edificio {
     public void construirSobre(Celda celda) {
         celda.quiereConstruir(this);
     }
+
+    @Override
+    public String obtenerSprite() { return this.rutaSprite; }
 }
