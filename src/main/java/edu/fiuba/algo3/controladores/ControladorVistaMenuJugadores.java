@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.controladores;
 
+import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import javafx.fxml.FXML;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.TitledPane;
@@ -16,37 +17,22 @@ public abstract class ControladorVistaMenuJugadores {
     protected String nombre;
     protected Accordion acordeon;
 
-    protected ArrayList<String> opcionesInvalidasProtoss;
-    protected ArrayList<String> opcionesInvalidasZerg;
-
+    protected abstract void establecerNombre(String nombre);
     public abstract void establecerPerfil(String perfil, String nombre);
-
     protected Image establecerImagen() {
         return new Image(getClass().getResourceAsStream("/sprites/perfiles/"+this.perfil+".png"));
     }
 
-    private void instanciarOpcionesInvalidas() {
-        // TODO: agregar las opciones invalidas.
-        if (this.perfil.equals("protoss") && this.opcionesInvalidasProtoss == null) {
-            this.opcionesInvalidasProtoss = new ArrayList<String>();
-            this.opcionesInvalidasProtoss.add("String");
-            this.opcionesInvalidasProtoss.add("String");
-            this.opcionesInvalidasProtoss.add("String");
-            this.opcionesInvalidasProtoss.add("String");
-        } else if (this.opcionesInvalidasZerg == null){
-            this.opcionesInvalidasZerg = new ArrayList<String>();
-            this.opcionesInvalidasZerg.add("String");
-            this.opcionesInvalidasZerg.add("String");
-            this.opcionesInvalidasZerg.add("String");
-            this.opcionesInvalidasZerg.add("String");
-        }
+    protected ArrayList<OpcionElegible> eliminarOpcionesInvalidas(ArrayList<OpcionElegible> opciones) {
+        // TODO: Si la pertenencia de una opcion coincide con la del perfil, queda, si no se elimina.
+        // TODO: Si la pertenencia es null significa que pertenence a ambos perfiles, la opcion queda.
+
+        return opciones;
+
     }
 
-    protected abstract void establecerNombre(String nombre);
-
-    public void mostrarOpciones(ArrayList<String> opciones){
+    public void mostrarOpciones(ArrayList<OpcionElegible> opciones){
         limpiarMenu();
-        instanciarOpcionesInvalidas();
 
         opciones = eliminarOpcionesInvalidas(opciones);
 
@@ -59,7 +45,8 @@ public abstract class ControladorVistaMenuJugadores {
             AnchorPane nuevoAnchorPane = new AnchorPane();
             nuevoAnchorPane.setId("anchorPane_"+i);
 
-            titledPane[i] = new TitledPane(opciones.get(i), nuevoAnchorPane);
+            // TODO: (opciones.get(i)).obtenerTituloDeOpcion() -> String
+            // titledPane[i] = new TitledPane(opciones.get(i), nuevoAnchorPane);
             titledPane[i].setId("titlePane_"+i);
         }
         acordeon.getPanes().addAll(titledPane);
@@ -67,29 +54,12 @@ public abstract class ControladorVistaMenuJugadores {
         mostrarEnVBox();
     }
 
-    protected abstract void limpiarMenu();
-    protected abstract void mostrarEnVBox();
-
-    protected ArrayList<String> eliminarOpcionesInvalidas(ArrayList<String> opciones) {
-
-        if (this.opcionesInvalidasProtoss != null) {
-            for (String opcionInvalida : this.opcionesInvalidasProtoss) {
-                opciones.remove(opcionInvalida);
-            }
-            return opciones;
-        }
-
-        for (String opcionInvalida : this.opcionesInvalidasZerg) {
-            opciones.remove(opcionInvalida);
-        }
-        return opciones;
-
-    }
-
     protected void instanciarAcordeon() {
         this.acordeon = new Accordion();
         this.acordeon.setId("acordeon");
     }
 
+    protected abstract void limpiarMenu();
+    protected abstract void mostrarEnVBox();
 }
 
