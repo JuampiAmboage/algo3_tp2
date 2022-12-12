@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
+import edu.fiuba.algo3.modelo.Ataque.AtacarTierraYAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Edificios.PuertoEstelar;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
@@ -20,6 +21,9 @@ public class Scout extends TropaAerea{
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         edificioNecesario = new PuertoEstelar();
         this.sprite = "";
+        opciones.add("Atacar a tierra");
+        opciones.add("Atacar a aire");
+        opciones.add("Moverse");
     }
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;

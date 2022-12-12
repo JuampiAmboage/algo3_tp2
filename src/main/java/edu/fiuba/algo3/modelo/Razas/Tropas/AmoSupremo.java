@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
+import edu.fiuba.algo3.modelo.Ataque.AtacarAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoDetector;
@@ -20,6 +21,8 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
         danioTerrestre = 0;
         danioAereo = 0;
         suministro = 0;
+        opciones.add("Rastrear");
+        opciones.add("Moverse");
     }
     public void aniadirSuministro(){
         comunidad.aniadirCapacidadSuministro(5);
@@ -40,7 +43,7 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
         this.aniadirSuministro();
     }
     public void realizarAccionesTurno(){vida.pasarTurno();
-    rangoDetector.localizarTropasInvisibles();
+    rangoDetector.localizarZealots();
     rangoDetector.compararTropasDetectadasEntreTurnos();}
 
 }

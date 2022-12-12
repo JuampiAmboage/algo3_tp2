@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
+import edu.fiuba.algo3.modelo.Ataque.Atacar;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
@@ -15,6 +16,7 @@ public abstract class Tropa extends Unidad implements Correlatividad {
     protected Atacar ataque;
     protected RangoAtaque rangoAtaque;
     public Tropa(){
+        super();
         visibilidad = new Visible(this);
     }
     public int obtenerDanioTerrestre(){

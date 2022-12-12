@@ -8,6 +8,7 @@ public abstract class EdificioProtoss extends Edificio{
     protected String spriteDesenergizado;
 
     public EdificioProtoss(){
+        super();
         this.estadoEnergia = new Energizado(this);
     }
 

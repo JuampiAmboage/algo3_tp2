@@ -6,9 +6,8 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Mutalisco;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
-import edu.fiuba.algo3.modelo.Razas.Tropas.UnidadEvolucionable;
 import edu.fiuba.algo3.modelo.Razas.Tropas.UnidadEvolucionada;
-import edu.fiuba.algo3.modelo.Razas.Zangano;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
 
 
 public class ComunidadZerg extends Comunidad {

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
+import edu.fiuba.algo3.modelo.Ataque.AtacarTierraYAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
-import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Acceso;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
@@ -21,6 +21,9 @@ public class Dragon extends TropaTerrestre{
         edificioNecesario = new Acceso();
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         vida = new VidaConEscudo(100,80);
+        opciones.add("Atacar a tierra");
+        opciones.add("Atacar a aire");
+        opciones.add("Moverse");
 
     }
     public void realizarAccionesTurno(){

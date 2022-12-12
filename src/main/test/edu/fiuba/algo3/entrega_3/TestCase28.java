@@ -58,7 +58,7 @@ public class TestCase28 {
         assertThrows(TropaNoVisible.class,()->zerling.atacarTierra(zealot));
     }
     @Test
-    void siUnZealotEsInvisiblePeroLoAtacaUnAmoSupremoRecibeDanio(){
+    void siUnZealotEsInvisiblePeroLoDetectaUnAmoSupremoPuedeSerAtacado(){
         Zealot zealot = new Zealot();
         AmoSupremo amoSupremo = new AmoSupremo();
         Zerling zerling = new Zerling();
@@ -75,7 +75,6 @@ public class TestCase28 {
         mapa.obtenerCelda(new Posicion(8,8)).ocuparPorAire(amoSupremo);
         mapa.obtenerCelda(new Posicion(7,7)).ocuparPorTierra(zerling);
 
-        amoSupremo.iniciarConstruccion();
         for(int i=0;i<5;i++) {
             amoSupremo.pasarTurno();
             zerling.pasarTurno();

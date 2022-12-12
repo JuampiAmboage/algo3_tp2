@@ -9,7 +9,7 @@ import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Excepciones.ExtractorLleno;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Visible;
 import edu.fiuba.algo3.modelo.Razas.UnidadEnConstruccion;
-import edu.fiuba.algo3.modelo.Razas.Zangano;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
