@@ -5,6 +5,10 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Excepciones.EdificioHabilitadorNoCreado;
+import edu.fiuba.algo3.modelo.Opciones.MoverseADerecha;
+import edu.fiuba.algo3.modelo.Opciones.MoverseAIzquierda;
+import edu.fiuba.algo3.modelo.Opciones.MoverseHaciaAbajo;
+import edu.fiuba.algo3.modelo.Opciones.MoverseHaciaArriba;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Razas.Correlatividad;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
@@ -21,10 +25,10 @@ public abstract class Tropa extends Unidad implements Correlatividad {
         super();
         visibilidad = new Visible(this);
         cantidadMovimientos = 0;
-        opciones.add("Moverse arriba");
-        opciones.add("Moverse abajo");
-        opciones.add("Moverse derecha");
-        opciones.add("Moverse izquierda");
+        opciones.add(new MoverseHaciaArriba());
+        opciones.add(new MoverseHaciaAbajo());
+        opciones.add(new MoverseAIzquierda());
+        opciones.add(new MoverseADerecha());
     }
     public int obtenerDanioTerrestre(){
         return danioTerrestre;

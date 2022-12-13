@@ -8,6 +8,9 @@ import edu.fiuba.algo3.modelo.Excepciones.EvolucionIncompatibleConTropaEvolucion
 import edu.fiuba.algo3.modelo.Excepciones.ZanganoEnDistintaACeldaANodoMineral;
 import edu.fiuba.algo3.modelo.Excepciones.ZanganoSinNodoMineralAsignado;
 import edu.fiuba.algo3.modelo.Excepciones.ZanganoYaEmpleado;
+import edu.fiuba.algo3.modelo.Opciones.AsignarTrabajoEnExtractor;
+import edu.fiuba.algo3.modelo.Opciones.AsignarTrabajoEnNodoMineral;
+import edu.fiuba.algo3.modelo.Opciones.EvolucionarAEdificio;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaTerrestre;
 import edu.fiuba.algo3.modelo.Razas.Tropas.UnidadEvolucionable;
@@ -26,8 +29,8 @@ public class Zangano extends TropaTerrestre {
         this.vida = new Vida(25);
         this.edificioNecesario = new Criadero();
         opciones.add(new EvolucionarAEdificio());
-        opciones.add(new TrabajarEn());
-        opciones.add(new ExtraerMineral());
+        opciones.add(new AsignarTrabajoEnExtractor());
+        opciones.add(new AsignarTrabajoEnNodoMineral());
         this.rutaSprite = this.rutaSprite + "tropas/zerg/zangano.png";
     }
     public void realizarAccionesTurno(){
