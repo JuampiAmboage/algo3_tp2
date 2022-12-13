@@ -124,7 +124,7 @@ public class App extends Application {
             VBox VistaMenuJugadorUno = (VBox) cargador.load();
 
             ControladorVistaMenuJugadorUno controladorVistaMenuJugadorUno = cargador.getController();
-            controladorVistaMenuJugadorUno.establecerPerfil(perfil, nombre);
+            controladorVistaMenuJugadorUno.establecerPerfil(perfil, nombre, this);
 
             this.controladorVistaMenuJugadorUno = controladorVistaMenuJugadorUno;
 
@@ -142,7 +142,7 @@ public class App extends Application {
             VBox VistaMenuJugadorDos = (VBox) cargador.load();
 
             ControladorVistaMenuJugadorDos controladorVistaMenuJugadorDos = cargador.getController();
-            controladorVistaMenuJugadorDos.establecerPerfil(perfil, nombre);
+            controladorVistaMenuJugadorDos.establecerPerfil(perfil, nombre, this);
 
             this.controladorVistaMenuJugadorDos = controladorVistaMenuJugadorDos;
 
@@ -175,6 +175,8 @@ public class App extends Application {
         else
             controladorVistaMenuJugadorDos.mostrarOpciones(opciones);
     }
+
+    public void gestionarPasarTurno() { this.partida.finDeTurno(); }
 
     public void salir() {
         this.escenarioPrimario.close();

@@ -4,8 +4,8 @@ public abstract class OpcionElegible {
     public String titulo;
     public String pertenceA;
     public String rutaImagen;
-    public String infromacionSobreOpcion;
-    public String[] botones;
+    public String inforomacionSobreOpcion;
+    public String textoBoton;
 
     public String obtenerTitulo() { return this.titulo; }
     public String obtenerPertenencia(){ return this.pertenceA; }
@@ -13,12 +13,15 @@ public abstract class OpcionElegible {
         if (this.rutaImagen != null) { return this.rutaImagen; }
         return null;
     }
-    public String obtenerInformacionSobreopcion() {
-        if (this.obtenerInformacionSobreopcion() != null) { return this.infromacionSobreOpcion; }
+    public String obtenerInformacionSobreOpcion() {
+        if (this.inforomacionSobreOpcion != null) { return this.inforomacionSobreOpcion; }
         return null;
     }
-    public String[] obtenerBotones() {
-        if (this.botones != null) { return this.botones; }
+    public String obtenerBoton() {
+        if (this.textoBoton != null) { return this.textoBoton; }
         return null;
     }
+
+    //public void accionar() {}
+    //public abstract void gestionarAccion();
 }

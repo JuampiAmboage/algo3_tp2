@@ -5,16 +5,13 @@ import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import edu.fiuba.algo3.modelo.Razas.Unidad;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class ControladorVistaMapa {
@@ -154,9 +151,9 @@ public class ControladorVistaMapa {
 
     public void agregarBoton(int fila, int columna) {
 
-        Boton boton = new Boton(fila, columna, this);
+        BotonCelda botonCelda = new BotonCelda(fila, columna, this);
 
-        this.grilla.add(boton.obtenerBoton(), fila, columna);
+        this.grilla.add(botonCelda.obtenerBoton(), fila, columna);
     }
 
     public void gestionarClickEnCelda(int fila, int columna, Button boton) {

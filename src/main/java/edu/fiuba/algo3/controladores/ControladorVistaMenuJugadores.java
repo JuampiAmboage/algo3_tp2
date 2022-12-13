@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.controladores;
 
+import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
+import javafx.fxml.FXML;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.TitledPane;
@@ -15,20 +17,20 @@ public abstract class ControladorVistaMenuJugadores {
     protected String perfil;
     protected String nombre;
     protected Accordion acordeon;
+    protected App app;
 
     protected abstract void establecerNombre(String nombre);
-    public abstract void establecerPerfil(String perfil, String nombre);
+    public abstract void establecerPerfil(String perfil, String nombre, App app);
     protected Image establecerImagen() {
         return new Image(getClass().getResourceAsStream("/sprites/perfiles/"+this.perfil+".png"));
     }
 
     protected ArrayList<OpcionElegible> eliminarOpcionesInvalidas(ArrayList<OpcionElegible> opciones) {
-        // TODO: Chequear que funcione lo de != null.
         for (OpcionElegible opcion : opciones) {
             String perteneceA = opcion.obtenerPertenencia();
 
-            if (!perteneceA.equals(this.perfil)) {
-                if (perteneceA != null) {
+            if (perteneceA != null) {
+                if (!perteneceA.equals(this.perfil)) {
                     opciones.remove(opcion);
                 }
             }
@@ -54,12 +56,11 @@ public abstract class ControladorVistaMenuJugadores {
             nuevoBorderPane.setId("borderPane_"+i);
 
             ImageView imagen = insertarImagen(opcion);
-            nuevoBorderPane.setLeft(imagen);
+            if (imagen != null) { nuevoBorderPane.setLeft(imagen); }
 
-            ArrayList<Button> botones = obtenerBotones(opcion);
-            for (Button boton : botones) {
-                nuevoBorderPane.setCenter(boton);
-            }
+            Button boton = obtenerBotones(opcion);
+            nuevoBorderPane.setCenter(boton);
+
 
             titledPane[i] = new TitledPane((opciones.get(i)).obtenerTitulo(), nuevoBorderPane);
             titledPane[i].setId("titlePane_"+i);
@@ -73,28 +74,29 @@ public abstract class ControladorVistaMenuJugadores {
 
         String rutaImagen = opcion.obtenerImagen();
 
-        Image imagen = new Image(getClass().getResourceAsStream(rutaImagen));
+        if (rutaImagen != null) {
+            Image imagen = new Image(getClass().getResourceAsStream(rutaImagen));
 
-        ImageView visulizadorDeImagen = new ImageView();
-        visulizadorDeImagen.setFitWidth(100.0);
-        visulizadorDeImagen.setFitHeight(100.0);
-        visulizadorDeImagen.setImage(imagen);
+            ImageView visulizadorDeImagen = new ImageView();
+            visulizadorDeImagen.setFitWidth(100.0);
+            visulizadorDeImagen.setFitHeight(100.0);
+            visulizadorDeImagen.setImage(imagen);
 
-        return visulizadorDeImagen;
+            return visulizadorDeImagen;
+        }
+        return null;
     }
 
-    public ArrayList<Button> obtenerBotones(OpcionElegible opcion) {
-        ArrayList<Button> botones = new ArrayList<>();
-        String[] textoBotones = opcion.obtenerBotones();
+    public Button obtenerBotones(OpcionElegible opcion) {
+        String textoBoton = opcion.obtenerBoton();
 
-        for (String textoBoton : textoBotones) {
-            Button boton = new Button();
-            boton.setText(textoBoton);
+        Button boton = new Button();
 
-            botones.add(boton);
-        }
+        boton.setText(textoBoton);
+        // TODO: Darle accion al boton.
+        //boton.setOnAction(e->(opcion.accionar()));
 
-        return botones;
+        return boton;
     }
     protected void instanciarAcordeon() {
         this.acordeon = new Accordion();
@@ -103,7 +105,5 @@ public abstract class ControladorVistaMenuJugadores {
 
     protected abstract void limpiarMenu();
     protected abstract void mostrarEnVBox();
-
-    protected void gestionarPasarTurno() {}
 }
 

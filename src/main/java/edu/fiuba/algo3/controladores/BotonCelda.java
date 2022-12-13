@@ -1,17 +1,16 @@
 package edu.fiuba.algo3.controladores;
 
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 
 
-public class Boton {
+public class BotonCelda {
     private int fila, columna;
     private Button boton;
 
     private ControladorVistaMapa controladorMapa;
 
-    public Boton(int fila, int columna, ControladorVistaMapa controladorMapa) {
+    public BotonCelda(int fila, int columna, ControladorVistaMapa controladorMapa) {
         this.controladorMapa = controladorMapa;
 
         this.boton = new Button();

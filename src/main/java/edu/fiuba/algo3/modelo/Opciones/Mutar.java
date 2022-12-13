@@ -1,4 +1,11 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
-public class Mutar implements OpcionElegible{
+public class Mutar extends OpcionElegible{
+    public Mutar() {
+        this.titulo = "Mutar";
+        this.pertenceA = null;
+        this.rutaImagen = null;
+        this.inforomacionSobreOpcion = "";
+        this.textoBoton = this.titulo;
+    }
 }
