@@ -40,15 +40,11 @@ public class Celda {
         unTipo.setCelda(this);
         this.tipo = unTipo;
         this.posicion = unaPosicion;
-        this.ocupanteTerrestre = new UnidadInexistente();
-        this.ocupanteAereo = new TropaAereaInexistente();
     }
     public Celda(){
         this.recurso = new NoRecurso();
         this.tipo = new CeldaLibre(this);
         this.posicion = new Posicion(0,0);
-        this.ocupanteTerrestre = new UnidadInexistente();
-        this.ocupanteAereo = new TropaAereaInexistente();
     }
     public boolean esMismaPosicion(Posicion posicion){
         return this.posicion.esMismaPosicion(posicion);
@@ -69,19 +65,23 @@ public class Celda {
             throw new CeldaOcupada();
         }
     }
-    public void desocuparPorTierra(){
+    public Unidad desocuparPorTierra(){
+        Unidad u = this.ocupanteTerrestre;
         this.ocupanteTerrestre = new UnidadInexistente();
+        return u;
     }
 
-    public void desocuparPorAire(){
+    public Unidad desocuparPorAire(){
+        Unidad u = this.ocupanteAereo;
         this.ocupanteAereo = new TropaAereaInexistente();
+        return u;
     }
 
     public boolean estaOcupadaPorTierra() {
         return this.ocupanteTerrestre.existe();
     }
     public boolean estaOcupadaPorAire() {
-        return this.ocupanteAereo.existe();
+        return this.ocupanteAereo != null;
     }
 
     public void pasarTurno(){
@@ -150,12 +150,12 @@ public class Celda {
 
     // Sprites:
     public String obtenerSpriteOcupanteTerrestre(){
-        if (this.ocupanteTerrestre.existe()) { return this.ocupanteTerrestre.obtenerSprite(); }
+        if (this.ocupanteTerrestre != null) { return this.ocupanteTerrestre.obtenerSprite(); }
         return null;
     }
 
     public String obtenerSpriteOcupanteAereo() {
-        if (this.ocupanteAereo.existe()) { return this.ocupanteAereo.obtenerSprite(); }
+        if (this.ocupanteAereo != null) { return this.ocupanteAereo.obtenerSprite(); }
         return null;
     }
 
