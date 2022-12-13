@@ -3,7 +3,6 @@ package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Excepciones.UnidadInexistente;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import javafx.fxml.FXML;
@@ -49,15 +48,25 @@ public class ControladorVistaMapa {
         this.baseMapa.setCenter(grilla);
     }
 
-    public void mostrarMapa(App app) {
+    public void establecerApp(App app) { this.app = app; }
+
+    public void mostrarMapa() {
 
         if (this.grilla == null) {
             inicializarGrilla();
         }
         inicializarSpriteRocas();
 
-        this.app = app;
+        pedirSprites(true);
 
+        if (this.seActualizo) {
+            actualizarMapa();
+            this.seActualizo = true;
+        }
+
+    }
+
+    public void pedirSprites(boolean primeraVez) {
         for (int fila = 0; fila < LONGITUD_FILAS_MAPA; fila++) {
 
             for (int columna = 0; columna < LONGITUD_COLUMNAS_MAPA; columna++) {
@@ -66,24 +75,28 @@ public class ControladorVistaMapa {
                 Celda celda = mapa.obtenerCelda(posicion);
 
                 String spriteTipo = celda.obtenerSpriteTipo();
-                if ( spriteTipo != null) {
+                if (spriteTipo != null) {
                     agregarSprite(spriteTipo, fila, columna);
-                    agregarBoton(fila,columna);
+                    agregarBoton(fila, columna);
 
                 }
 
-                if (agregarRocas()) {
+                /*if (primeraVez) {
+                    if (agregarRocas()) {
 
-                    String spriteRocaNueva = obtenerSpriteRoca();
-                    if (spriteRocaNueva != null) { agregarSprite(spriteRocaNueva, fila, columna); }
+                        String spriteRocaNueva = obtenerSpriteRoca();
+                        if (spriteRocaNueva != null) {
+                            agregarSprite(spriteRocaNueva, fila, columna);
+                        }
 
-                }
+                    }
+                }*/ // Chequeos para agregar rocas
 
                 String spriteRecurso = celda.obtenerSpriteRecurso();
-                if ( spriteRecurso != null) {
+                if (spriteRecurso != null) {
 
                     agregarSprite(spriteRecurso, fila, columna);
-                    agregarBoton(fila,columna);
+                    agregarBoton(fila, columna);
 
                 }
 
@@ -96,10 +109,10 @@ public class ControladorVistaMapa {
                 }
 
                 String spriteOcupanteAero = celda.obtenerSpriteOcupanteAereo();
-                if ( spriteOcupanteAero != null) {
+                if (spriteOcupanteAero != null) {
 
                     agregarSprite(spriteOcupanteAero, fila, columna);
-                    agregarBoton(fila,columna);
+                    agregarBoton(fila, columna);
 
                 }
 
@@ -107,12 +120,10 @@ public class ControladorVistaMapa {
             }
 
         }
+    }
 
-        if (this.seActualizo) {
-            mostrarMapa(this.app);
-            this.seActualizo = true;
-        }
-
+    public void actualizarMapa(){
+        pedirSprites(false);
     }
 
     public void agregarSprite(String rutaSprite, int fila, int columna) {
@@ -127,7 +138,9 @@ public class ControladorVistaMapa {
         this.grilla.add(sprite, fila, columna);
     }
 
-    public String obtenerSpriteRoca() { return elejirRutaRandom(); }
+    /*public String obtenerSpriteRoca() {
+        return elejirRutaRandom();
+    }
 
     public String elejirRutaRandom() {
         Random random = new Random();
@@ -148,7 +161,7 @@ public class ControladorVistaMapa {
             return true;
         }
         return false;
-    }
+    }*/ // obtenerSpriteRoca() // elejirRutaRandom()  // agregarRoca()
 
     public void agregarBoton(int fila, int columna) {
 

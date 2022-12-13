@@ -19,7 +19,7 @@ public class App extends Application {
     private Stage escenarioPrimario;
     private BorderPane layoutRaiz;
     private ControladorVistaRaiz controladorVistaRaiz;
-
+    private ControladorVistaMapa controladorVistaMapa;
     private ControladorVistaMenuJugadorUno controladorVistaMenuJugadorUno;
     private ControladorVistaMenuJugadorDos controladorVistaMenuJugadorDos;
     private double[] tamanioDelEscenario = new double[2];
@@ -162,7 +162,9 @@ public class App extends Application {
             this.controladorVistaRaiz.ocultarMenuBar();
 
             ControladorVistaMapa controladorVistaMapa = cargador.getController();
-            controladorVistaMapa.mostrarMapa(this);
+            this.controladorVistaMapa = controladorVistaMapa;
+            controladorVistaMapa.establecerApp(this);
+            controladorVistaMapa.mostrarMapa();
 
         } catch (IOException e) { e.printStackTrace(); }
     }
@@ -178,7 +180,12 @@ public class App extends Application {
         }
     }
 
-    public void gestionarPasarTurno() { this.partida.finDeTurno(); }
+    public void gestionarPasarTurno(ControladorVistaMenuJugadores controlador) {
+        this.partida.finDeTurno();
+        controlador.limpiarMenu();
+    }
+
+    public void actualizarMapa() { this.controladorVistaMapa.actualizarMapa(); }
 
     public void salir() {
         this.escenarioPrimario.close();

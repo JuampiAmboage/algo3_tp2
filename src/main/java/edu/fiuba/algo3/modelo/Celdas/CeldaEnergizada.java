@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class CeldaEnergizada extends TipoCelda{
     private int energia = 0;
-    private final String RUTA_SPRITE = "estado/energizada.png";
+    private final String RUTA_SPRITE = "estados/energizada.png";
 
     public CeldaEnergizada(){
         super();

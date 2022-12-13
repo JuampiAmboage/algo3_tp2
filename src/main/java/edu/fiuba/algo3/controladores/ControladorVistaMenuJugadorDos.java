@@ -46,7 +46,7 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
     }
 
     @Override
-    protected void limpiarMenu() {
+    public void limpiarMenu() {
         this.vBoxMenu.getChildren().clear();
     }
 
@@ -56,7 +56,7 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
 
     public void gestionarPasarTurno() {
         this.botonPasarTurno.setDisable(true);
-        this.app.gestionarPasarTurno();
+        this.app.gestionarPasarTurno(this);
     }
 
     public void activar() { this.botonPasarTurno.setDisable(false); }

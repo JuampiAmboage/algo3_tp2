@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class CeldaConMoho extends TipoCelda {
     RangoExpansible rangoExpansible;
 
-    private final String RUTA_SPRITE = "estado/moho.png";
+    private final String RUTA_SPRITE = "estados/moho.png";
 
     public CeldaConMoho() {
         super();

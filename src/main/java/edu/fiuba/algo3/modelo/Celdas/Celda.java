@@ -156,11 +156,11 @@ public class Celda {
     }
 
     public String obtenerSpriteTipo() {
-        if (!this.spriteCeldaNoEnviado){
-            this.spriteCeldaNoEnviado = true;
-            return this.tipo.obtenerSprite();
-        }
-        return null;
+        //if (!this.spriteCeldaNoEnviado){
+        return this.tipo.obtenerSprite();
+            //this.spriteCeldaNoEnviado = true;
+        //}
+        //return null;
     }
 
     public String obtenerSpriteRecurso() {

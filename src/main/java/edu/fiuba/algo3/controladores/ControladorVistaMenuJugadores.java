@@ -55,7 +55,7 @@ public abstract class ControladorVistaMenuJugadores {
 
         mostrarEnVBox();
     }
-    protected abstract void limpiarMenu();
+    public abstract void limpiarMenu();
     protected ArrayList<OpcionElegible> eliminarOpcionesInvalidas(ArrayList<OpcionElegible> opciones) {
         for (OpcionElegible opcion : opciones) {
             String perteneceA = opcion.obtenerPertenencia();
@@ -98,6 +98,6 @@ public abstract class ControladorVistaMenuJugadores {
     }
     protected abstract void mostrarEnVBox();
 
-    public void actualizarMapa() { this.app.mostrarVistaMapa(); }
+    public void actualizarMapa() { this.app.actualizarMapa(); }
 }
 
