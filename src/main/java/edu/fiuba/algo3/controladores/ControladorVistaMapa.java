@@ -30,8 +30,7 @@ public class ControladorVistaMapa {
     private String[] opcionesRocas = new String[3];
     private Button botonAnterior;
 
-    private boolean rocasYaCreadas = false;
-
+    private boolean seActualizo = false;
     private void inicializarSpriteRocas() {
         this.opcionesRocas[0] = "rocas00.png";
         this.opcionesRocas[1] = "rocas01.png";
@@ -109,6 +108,11 @@ public class ControladorVistaMapa {
 
             }
 
+        }
+
+        if (this.seActualizo) {
+            mostrarMapa(this.app);
+            this.seActualizo = true;
         }
 
     }
