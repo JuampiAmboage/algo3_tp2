@@ -4,7 +4,7 @@ public class ConstruirNexoMineral extends OpcionElegible{
 
     public ConstruirNexoMineral() {
         this.titulo = "Construir nexo Mineral";
-        this.pertenceA = null;
+        this.pertenceA = "protoss";
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = "";
         this.textoBoton = "Construir";

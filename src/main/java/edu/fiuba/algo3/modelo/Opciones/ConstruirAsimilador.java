@@ -4,7 +4,7 @@ public class ConstruirAsimilador extends OpcionElegible {
 
     public ConstruirAsimilador() {
         this.titulo = "Construir asimilador";
-        this.pertenceA = null;
+        this.pertenceA = "protoss";
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = "";
         this.textoBoton = "Construir";

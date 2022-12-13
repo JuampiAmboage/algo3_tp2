@@ -4,7 +4,7 @@ public class MoverseAIzquierda extends OpcionElegible{
 
     public MoverseAIzquierda() {
         this.titulo = "Mover a la izquierda";
-        this.pertenceA = null;
+        // this.pertenceA = null;
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = "";
         this.textoBoton = "Mover";

@@ -4,7 +4,7 @@ public class EvolucionarAEdificio extends OpcionElegible{
 
     public EvolucionarAEdificio() {
         this.titulo = "Evolucionar a edificio";
-        this.pertenceA = null;
+        this.pertenceA = "zerg";
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = "";
         this.textoBoton = "evolucionar";
