@@ -65,16 +65,12 @@ public class Celda {
             throw new CeldaOcupada();
         }
     }
-    public Unidad desocuparPorTierra(){
-        Unidad u = this.ocupanteTerrestre;
+    public void desocuparPorTierra(){
         this.ocupanteTerrestre = new UnidadInexistente();
-        return u;
     }
 
-    public Unidad desocuparPorAire(){
-        Unidad u = this.ocupanteAereo;
+    public void desocuparPorAire(){
         this.ocupanteAereo = new TropaAereaInexistente();
-        return u;
     }
 
     public boolean estaOcupadaPorTierra() {
@@ -144,18 +140,18 @@ public class Celda {
     }
 
     public boolean celdaConRecurso(){
-        return recurso instanceof NoRecurso;
+        return !(recurso instanceof NoRecurso);
     }
 
 
     // Sprites:
     public String obtenerSpriteOcupanteTerrestre(){
-        if (this.ocupanteTerrestre != null) { return this.ocupanteTerrestre.obtenerSprite(); }
+        if (this.ocupanteTerrestre.existe()) { return this.ocupanteTerrestre.obtenerSprite(); }
         return null;
     }
 
     public String obtenerSpriteOcupanteAereo() {
-        if (this.ocupanteAereo != null) { return this.ocupanteAereo.obtenerSprite(); }
+        if (this.ocupanteAereo.existe()) { return this.ocupanteAereo.obtenerSprite(); }
         return null;
     }
 
