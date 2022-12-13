@@ -40,11 +40,15 @@ public class Celda {
         unTipo.setCelda(this);
         this.tipo = unTipo;
         this.posicion = unaPosicion;
+        this.ocupanteTerrestre = new UnidadInexistente();
+        this.ocupanteAereo = new TropaAereaInexistente();
     }
     public Celda(){
         this.recurso = new NoRecurso();
         this.tipo = new CeldaLibre(this);
         this.posicion = new Posicion(0,0);
+        this.ocupanteTerrestre = new UnidadInexistente();
+        this.ocupanteAereo = new TropaAereaInexistente();
     }
     public boolean esMismaPosicion(Posicion posicion){
         return this.posicion.esMismaPosicion(posicion);
