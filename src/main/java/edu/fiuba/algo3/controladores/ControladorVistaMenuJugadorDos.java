@@ -31,6 +31,7 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
         this.imagenPerfil.setImage(establecerImagen());
 
         establecerNombre(nombre);
+        establecerBotonpasarTurno();
     }
 
     @Override
@@ -49,9 +50,13 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
         this.vBoxMenu.getChildren().clear();
     }
 
-    public void gestionarPasarTurno() {
-        this.app.gestionarPasarTurno();
+    private void establecerBotonpasarTurno() {
         this.botonPasarTurno.setDisable(true);
+    }
+
+    public void gestionarPasarTurno() {
+        this.botonPasarTurno.setDisable(true);
+        this.app.gestionarPasarTurno();
     }
 
     public void activar() { this.botonPasarTurno.setDisable(false); }
