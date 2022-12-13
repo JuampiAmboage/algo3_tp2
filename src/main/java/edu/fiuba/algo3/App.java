@@ -151,7 +151,7 @@ public class App extends Application {
         } catch (IOException e) { e.printStackTrace(); }
     }
 
-    private void mostrarVistaMapa() {
+    public void mostrarVistaMapa() {
         try {
             FXMLLoader cargador = new FXMLLoader();
             cargador.setLocation(

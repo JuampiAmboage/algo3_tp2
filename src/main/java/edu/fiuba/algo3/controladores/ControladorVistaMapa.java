@@ -87,14 +87,12 @@ public class ControladorVistaMapa {
 
                 }
 
-                try {
-                    String spriteOcupanteTerrestre = celda.obtenerSpriteOcupanteTerrestre();
+                String spriteOcupanteTerrestre = celda.obtenerSpriteOcupanteTerrestre();
+                if (spriteOcupanteTerrestre != null) {
 
                     agregarSprite(spriteOcupanteTerrestre, fila, columna);
-                    agregarBoton(fila,columna);
+                    agregarBoton(fila, columna);
 
-                } catch (UnidadInexistente e) {
-                    System.out.println("salto");
                 }
 
                 String spriteOcupanteAero = celda.obtenerSpriteOcupanteAereo();

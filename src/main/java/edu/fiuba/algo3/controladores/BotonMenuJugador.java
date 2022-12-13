@@ -8,8 +8,12 @@ public class BotonMenuJugador {
     public Button botonNodo;
     private OpcionElegible opcion;
 
-    public BotonMenuJugador(String texto, OpcionElegible opcion) {
+    private ControladorVistaMenuJugadores controlador;
+
+    public BotonMenuJugador(String texto, OpcionElegible opcion, ControladorVistaMenuJugadores controlador) {
         this.opcion = opcion;
+
+        this.controlador = controlador;
 
         this.botonNodo = new Button();
         this.botonNodo.setText(texto);
@@ -18,6 +22,9 @@ public class BotonMenuJugador {
     }
 
     public Button obtenerBotonNodo() { return this.botonNodo; }
-    private void gestionarClick() { this.opcion.gestionarClick(); }
+    private void gestionarClick() {
+        this.opcion.gestionarClick();
+        this.controlador.actualizarMapa();
+    }
 }
 

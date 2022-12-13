@@ -17,26 +17,14 @@ public abstract class ControladorVistaMenuJugadores {
     protected Accordion acordeon;
     protected App app;
 
-    protected abstract void establecerNombre(String nombre);
+    // PERFIL
     public abstract void establecerPerfil(String perfil, String nombre, App app);
+    protected abstract void establecerNombre(String nombre);
     protected Image establecerImagen() {
         return new Image(getClass().getResourceAsStream("/sprites/perfiles/"+this.perfil+".png"));
     }
 
-    protected ArrayList<OpcionElegible> eliminarOpcionesInvalidas(ArrayList<OpcionElegible> opciones) {
-        for (OpcionElegible opcion : opciones) {
-            String perteneceA = opcion.obtenerPertenencia();
-
-            if (perteneceA != null) {
-                if (!perteneceA.equals(this.perfil)) {
-                    opciones.remove(opcion);
-                }
-            }
-       }
-        return opciones;
-
-    }
-
+    // MENU : Instancia de desplegables y botones
     public void mostrarOpciones(ArrayList<OpcionElegible> opciones){
         limpiarMenu();
 
@@ -51,7 +39,7 @@ public abstract class ControladorVistaMenuJugadores {
             OpcionElegible opcion = opciones.get(i);
 
             BorderPane nuevoBorderPane = new BorderPane();
-            nuevoBorderPane.setId("borderPane_"+i);
+            //nuevoBorderPane.setId("borderPane_"+i);
 
             ImageView imagen = insertarImagen(opcion);
             if (imagen != null) { nuevoBorderPane.setLeft(imagen); }
@@ -61,14 +49,31 @@ public abstract class ControladorVistaMenuJugadores {
 
 
             titledPane[i] = new TitledPane((opciones.get(i)).obtenerTitulo(), nuevoBorderPane);
-            titledPane[i].setId("titlePane_"+i);
+            //titledPane[i].setId("titlePane_"+i);
         }
         acordeon.getPanes().addAll(titledPane);
 
         mostrarEnVBox();
     }
+    protected abstract void limpiarMenu();
+    protected ArrayList<OpcionElegible> eliminarOpcionesInvalidas(ArrayList<OpcionElegible> opciones) {
+        for (OpcionElegible opcion : opciones) {
+            String perteneceA = opcion.obtenerPertenencia();
 
-    public ImageView insertarImagen(OpcionElegible opcion){
+            if (perteneceA != null) {
+                if (!perteneceA.equals(this.perfil)) {
+                    opciones.remove(opcion);
+                }
+            }
+        }
+        return opciones;
+
+    }
+    protected void instanciarAcordeon() {
+        this.acordeon = new Accordion();
+        this.acordeon.setId("acordeon");
+    }
+    protected ImageView insertarImagen(OpcionElegible opcion){
 
         String rutaImagen = opcion.obtenerImagen();
 
@@ -84,20 +89,15 @@ public abstract class ControladorVistaMenuJugadores {
         }
         return null;
     }
-
-    public BotonMenuJugador obtenerBoton(OpcionElegible opcion) {
+    protected BotonMenuJugador obtenerBoton(OpcionElegible opcion) {
         String textoBoton = opcion.obtenerBoton();
 
-        BotonMenuJugador boton = new BotonMenuJugador(textoBoton, opcion);
+        BotonMenuJugador boton = new BotonMenuJugador(textoBoton, opcion, this);
 
         return boton;
     }
-    protected void instanciarAcordeon() {
-        this.acordeon = new Accordion();
-        this.acordeon.setId("acordeon");
-    }
-
-    protected abstract void limpiarMenu();
     protected abstract void mostrarEnVBox();
+
+    public void actualizarMapa() { this.app.mostrarVistaMapa(); }
 }
 
