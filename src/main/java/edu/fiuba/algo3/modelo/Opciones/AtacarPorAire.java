@@ -9,4 +9,7 @@ public class AtacarPorAire extends OpcionElegible{
         this.inforomacionSobreOpcion = "";
         this.textoBoton = "Atacar";
     }
+
+    @Override
+    public void gestionarClick() {}
 }

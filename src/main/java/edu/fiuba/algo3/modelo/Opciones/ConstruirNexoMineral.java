@@ -9,4 +9,7 @@ public class ConstruirNexoMineral extends OpcionElegible{
         this.inforomacionSobreOpcion = "";
         this.textoBoton = "Construir";
     }
+
+    @Override
+    public void gestionarClick() {}
 }

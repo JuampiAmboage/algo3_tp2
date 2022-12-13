@@ -21,8 +21,6 @@ public abstract class OpcionElegible {
         if (this.textoBoton != null) { return this.textoBoton; }
         return null;
     }
-    // TODO: Hacer este metodo abstracto y que cada opcion ponga su funcionalidad ahi.
-    public void gestionarClick() {
-        System.out.println("funciona");
-    }
+
+    public abstract void gestionarClick();
 }

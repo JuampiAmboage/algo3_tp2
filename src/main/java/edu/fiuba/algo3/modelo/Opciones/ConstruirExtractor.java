@@ -8,4 +8,7 @@ public class ConstruirExtractor extends OpcionElegible{
         this.inforomacionSobreOpcion = "";
         this.textoBoton = "Construir";
     }
+
+    @Override
+    public void gestionarClick() {}
 }

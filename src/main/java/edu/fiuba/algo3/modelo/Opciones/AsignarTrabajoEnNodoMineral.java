@@ -9,4 +9,7 @@ public class AsignarTrabajoEnNodoMineral extends OpcionElegible{
         this.inforomacionSobreOpcion = "";
         this.textoBoton = "Asignar trabajo";
     }
+
+    @Override
+    public void gestionarClick() {}
 }

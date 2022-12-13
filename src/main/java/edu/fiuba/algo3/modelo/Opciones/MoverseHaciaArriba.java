@@ -8,4 +8,6 @@ public class MoverseHaciaArriba extends OpcionElegible{
         this.inforomacionSobreOpcion = "";
         this.textoBoton = "Mover";
     }
+    @Override
+    public void gestionarClick() {}
 }

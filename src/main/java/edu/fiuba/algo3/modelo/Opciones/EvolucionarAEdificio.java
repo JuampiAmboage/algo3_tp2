@@ -9,4 +9,7 @@ public class EvolucionarAEdificio extends OpcionElegible{
         this.inforomacionSobreOpcion = "";
         this.textoBoton = "evolucionar";
     }
+
+    @Override
+    public void gestionarClick() {}
 }

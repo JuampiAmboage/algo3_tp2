@@ -9,4 +9,7 @@ public class ConstruirAsimilador extends OpcionElegible {
         this.inforomacionSobreOpcion = "";
         this.textoBoton = "Construir";
     }
+
+    @Override
+    public void gestionarClick() {}
 }

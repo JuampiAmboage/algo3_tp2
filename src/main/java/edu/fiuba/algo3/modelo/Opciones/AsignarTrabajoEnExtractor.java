@@ -10,4 +10,6 @@ public class AsignarTrabajoEnExtractor extends OpcionElegible{
         this.textoBoton = "Asignar trabajo";
     }
 
+    @Override
+    public void gestionarClick() {}
 }

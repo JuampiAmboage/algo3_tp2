@@ -8,4 +8,7 @@ public class SolicitarInformacion extends OpcionElegible{
         this.inforomacionSobreOpcion = "";
         this.textoBoton = "Solicitar";
     }
+
+    @Override
+    public void gestionarClick() {}
 }

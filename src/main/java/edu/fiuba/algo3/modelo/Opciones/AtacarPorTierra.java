@@ -9,4 +9,7 @@ public class AtacarPorTierra extends OpcionElegible {
         this.inforomacionSobreOpcion = "";
         this.textoBoton = "Atacar";
     }
+
+    @Override
+    public void gestionarClick() {}
 }

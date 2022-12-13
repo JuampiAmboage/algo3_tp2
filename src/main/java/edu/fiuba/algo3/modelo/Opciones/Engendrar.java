@@ -9,4 +9,7 @@ public class Engendrar extends OpcionElegible{
         this.inforomacionSobreOpcion = "";
         this.textoBoton = this.titulo;
     }
+
+    @Override
+    public void gestionarClick() {}
 }

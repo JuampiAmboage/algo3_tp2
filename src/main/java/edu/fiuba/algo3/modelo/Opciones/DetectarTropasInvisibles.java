@@ -9,4 +9,6 @@ public class DetectarTropasInvisibles extends OpcionElegible{
         this.inforomacionSobreOpcion = "";
         this.textoBoton = "Detectar";
     }
+    @Override
+    public void gestionarClick() {}
 }

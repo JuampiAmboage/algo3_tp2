@@ -8,4 +8,6 @@ public class Mutar extends OpcionElegible{
         this.inforomacionSobreOpcion = "";
         this.textoBoton = this.titulo;
     }
+    @Override
+    public void gestionarClick() {}
 }
