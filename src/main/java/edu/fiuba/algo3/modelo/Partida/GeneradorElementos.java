@@ -22,7 +22,7 @@ public class GeneradorElementos {
     }
 
     public Posicion buscarCeldaSinRecurso(int filaFija){
-        Posicion posicionDePrueba = new Posicion(0,(int) (Math.random() * longitudFilas-1));
+        Posicion posicionDePrueba = new Posicion(filaFija,(int) (Math.random() * longitudFilas-1));
         while (Mapa.getInstance().obtenerCelda(posicionDePrueba).celdaConRecurso())
             posicionDePrueba = new Posicion(filaFija,(int) (Math.random() * longitudFilas-1));
         return posicionDePrueba;
