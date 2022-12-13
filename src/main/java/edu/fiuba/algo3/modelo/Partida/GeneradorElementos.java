@@ -15,7 +15,7 @@ public class GeneradorElementos {
     private int longitudColumnas;
     boolean primeraColocacion;
 
-    public GeneradorElementos(ArrayList<ArrayList<Celda>> mapa, int longitudFilas, int longitudColumnas){
+    public GeneradorElementos(int longitudFilas, int longitudColumnas){
         this.longitudFilas = longitudFilas;
         this.longitudColumnas = longitudColumnas;
         this.primeraColocacion = true;
@@ -24,7 +24,7 @@ public class GeneradorElementos {
     public Posicion buscarCeldaSinRecurso(int filaFija){
         Posicion posicionDePrueba = new Posicion(0,(int) (Math.random() * longitudFilas));
         while (Mapa.getInstance().obtenerCelda(posicionDePrueba).celdaConRecurso())
-            posicionDePrueba = new Posicion(0,(int) (Math.random() * longitudFilas));
+            posicionDePrueba = new Posicion(filaFija,(int) (Math.random() * longitudFilas));
         return posicionDePrueba;
     }
     public void generarBase(Edificio baseJugador){
