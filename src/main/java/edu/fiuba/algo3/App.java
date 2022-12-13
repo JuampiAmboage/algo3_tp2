@@ -1,7 +1,6 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.controladores.*;
-import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.application.Application;
@@ -9,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -169,11 +167,15 @@ public class App extends Application {
         } catch (IOException e) { e.printStackTrace(); }
     }
 
-    public void mostrarMenu(ArrayList<OpcionElegible> opciones){
-        if (this.partida.mostrarMenu() == 1)
+    public void mostrarMenu(ArrayList<OpcionElegible> opciones) {
+
+        if (this.partida.quienJuega() == 1) {
+            controladorVistaMenuJugadorUno.activar();
             controladorVistaMenuJugadorUno.mostrarOpciones(opciones);
-        else
+        } else {
+            controladorVistaMenuJugadorDos.activar();
             controladorVistaMenuJugadorDos.mostrarOpciones(opciones);
+        }
     }
 
     public void gestionarPasarTurno() { this.partida.finDeTurno(); }

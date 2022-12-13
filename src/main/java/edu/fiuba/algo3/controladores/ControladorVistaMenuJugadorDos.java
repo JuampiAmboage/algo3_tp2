@@ -17,6 +17,8 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
     private Label nombrePerfil;
     @FXML
     protected VBox vBoxMenu;
+    @FXML
+    private Button botonPasarTurno;
 
     @Override
     public void establecerPerfil(String perfil, String nombre, App app) {
@@ -47,6 +49,11 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
         this.vBoxMenu.getChildren().clear();
     }
 
-    public void gestionarPasarTurno() { this.app.gestionarPasarTurno(); }
+    public void gestionarPasarTurno() {
+        this.app.gestionarPasarTurno();
+        this.botonPasarTurno.setDisable(true);
+    }
+
+    public void activar() { this.botonPasarTurno.setDisable(false); }
 
 }

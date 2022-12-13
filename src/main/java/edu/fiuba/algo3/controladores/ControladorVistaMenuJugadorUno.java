@@ -2,15 +2,11 @@ package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.App;
 import javafx.fxml.FXML;
-import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 
-import java.util.ArrayList;
+import javafx.scene.layout.VBox;
 
 public class ControladorVistaMenuJugadorUno extends ControladorVistaMenuJugadores {
     @FXML
@@ -49,7 +45,12 @@ public class ControladorVistaMenuJugadorUno extends ControladorVistaMenuJugadore
     @Override
     protected void limpiarMenu() { this.vBoxMenu.getChildren().clear(); }
 
-    public void gestionarPasarTurno() { this.app.gestionarPasarTurno(); }
+    public void gestionarPasarTurno() {
+        this.app.gestionarPasarTurno();
+        this.botonPasarTurno.setDisable(true);
+    }
+
+    public void activar() { this.botonPasarTurno.setDisable(false); }
 
 }
 
