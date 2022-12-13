@@ -150,12 +150,12 @@ public class Celda {
 
     // Sprites:
     public String obtenerSpriteOcupanteTerrestre(){
-        if (this.ocupanteTerrestre != null) { return this.ocupanteTerrestre.obtenerSprite(); }
+        if (this.ocupanteTerrestre.existe()) { return this.ocupanteTerrestre.obtenerSprite(); }
         return null;
     }
 
     public String obtenerSpriteOcupanteAereo() {
-        if (this.ocupanteAereo != null) { return this.ocupanteAereo.obtenerSprite(); }
+        if (this.ocupanteAereo.existe()) { return this.ocupanteAereo.obtenerSprite(); }
         return null;
     }
 
