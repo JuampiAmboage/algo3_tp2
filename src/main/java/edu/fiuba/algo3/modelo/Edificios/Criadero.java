@@ -21,14 +21,10 @@ public class Criadero extends Edificio {
     private int cantidadLarvasEnEspera;
     protected RangoExpansible rangoExpansible;
     public Criadero(){
+        super();
         this.tiempoConstruccion = 4;
         this.inicializaciones();
     }
-    public Criadero(int tiempoDeConstruccion) {
-        super(tiempoDeConstruccion);
-        this.inicializaciones();
-    }
-
     public void inicializaciones(){
         this.vida = new Vida(500);
         this.cantidadLarvasEnEspera = 3;

@@ -20,12 +20,6 @@ public class Pilon extends EdificioProtoss implements UnidadConAmpliacionDeSumin
         inicializaciones();
     }
 
-    public Pilon(int tiempoDeConstruccion) {
-        super(tiempoDeConstruccion);
-        this.tiempoConstruccion = tiempoDeConstruccion;
-        inicializaciones();
-    }
-
     public void inicializaciones(){
         this.vida = new VidaConEscudo(300, 300);
         this.comunidad = ComunidadProtoss.obtenerInstanciaDeClase();

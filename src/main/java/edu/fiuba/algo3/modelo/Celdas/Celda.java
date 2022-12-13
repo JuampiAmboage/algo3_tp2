@@ -124,12 +124,12 @@ public class Celda {
             if (opcionesDeTipo != null ) { listaDeOpciones.addAll(opcionesDeTipo); }
         }
 
-        if (this.ocupanteTerrestre != null) {
+        if (this.ocupanteTerrestre.existe()) {
             ArrayList<OpcionElegible> opcionesDeOcupanteTerrestre = this.ocupanteTerrestre.obtenerOpciones();
             if (opcionesDeOcupanteTerrestre != null) { listaDeOpciones.addAll(opcionesDeOcupanteTerrestre); }
         }
 
-        if (this.ocupanteAereo != null) {
+        if (this.ocupanteAereo.existe()) {
             ArrayList<OpcionElegible> opcionesDeOcupanteAereo = this.ocupanteAereo.obtenerOpciones();
             if (opcionesDeOcupanteAereo != null) { listaDeOpciones.addAll(opcionesDeOcupanteAereo); }
         }
@@ -144,7 +144,7 @@ public class Celda {
     }
 
     public boolean celdaConRecurso(){
-        return recurso != null;
+        return recurso instanceof NoRecurso;
     }
 
 
