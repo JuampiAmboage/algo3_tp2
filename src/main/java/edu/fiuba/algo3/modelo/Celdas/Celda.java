@@ -69,23 +69,19 @@ public class Celda {
             throw new CeldaOcupada();
         }
     }
-    public Unidad desocuparPorTierra(){
-        Unidad u = this.ocupanteTerrestre;
+    public void desocuparPorTierra(){
         this.ocupanteTerrestre = new UnidadInexistente();
-        return u;
     }
 
-    public Unidad desocuparPorAire(){
-        Unidad u = this.ocupanteAereo;
+    public void desocuparPorAire(){
         this.ocupanteAereo = new TropaAereaInexistente();
-        return u;
     }
 
     public boolean estaOcupadaPorTierra() {
         return this.ocupanteTerrestre.existe();
     }
     public boolean estaOcupadaPorAire() {
-        return this.ocupanteAereo != null;
+        return this.ocupanteAereo.existe();
     }
 
     public void pasarTurno(){
