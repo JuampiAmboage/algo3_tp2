@@ -92,4 +92,8 @@ public abstract class Unidad {
     public ArrayList<OpcionElegible> obtenerOpciones() { return this.opciones; }
 
     public abstract String obtenerSprite();
+
+    public boolean existe(){
+        return true;
+    }
 }

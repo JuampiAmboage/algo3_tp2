@@ -5,7 +5,9 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
+import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAereaInexistente;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
+import edu.fiuba.algo3.modelo.Razas.UnidadInexistente;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
@@ -28,6 +30,8 @@ public class Celda {
 
     public Celda(int posicionX, int posicionY){
         this.recurso = new NoRecurso();
+        this.ocupanteTerrestre = new UnidadInexistente();
+        this.ocupanteAereo = new TropaAereaInexistente();
         this.tipo = new CeldaLibre(this);
         this.posicion = new Posicion(posicionX,posicionY);
     }
@@ -56,18 +60,25 @@ public class Celda {
 
     public void ocuparPorAire(TropaAerea ocupanteAereoNuevo){
         if(!this.estaOcupadaPorAire()) {
-            this.ocupanteAereo = ocupanteAereoNuevo;
+            this.ocupanteAereo.existe();
         }else{
             throw new CeldaOcupada();
         }
     }
-    public Unidad desocupar(){
+    public Unidad desocuparPorTierra(){
         Unidad u = this.ocupanteTerrestre;
-        this.ocupanteTerrestre = null;
+        this.ocupanteTerrestre = new UnidadInexistente();
         return u;
     }
+
+    public Unidad desocuparPorAire(){
+        Unidad u = this.ocupanteAereo;
+        this.ocupanteAereo = new TropaAereaInexistente();
+        return u;
+    }
+
     public boolean estaOcupadaPorTierra() {
-        return this.ocupanteTerrestre != null;
+        return this.ocupanteTerrestre.existe();
     }
     public boolean estaOcupadaPorAire() {
         return this.ocupanteAereo != null;
