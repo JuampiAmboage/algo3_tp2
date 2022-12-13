@@ -3,8 +3,8 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 import edu.fiuba.algo3.modelo.Ataque.AtacarTierraYAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Edificios.PuertoEstelar;
-import edu.fiuba.algo3.modelo.Opciones.AtacarATierra;
-import edu.fiuba.algo3.modelo.Opciones.AtacarAire;
+import edu.fiuba.algo3.modelo.Opciones.AtacarPorTierra;
+import edu.fiuba.algo3.modelo.Opciones.AtacarPorAire;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
@@ -22,8 +22,8 @@ public class Scout extends TropaAerea{
         vida = new VidaConEscudo(150,100);
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         edificioNecesario = new PuertoEstelar();
-        opciones.add(new AtacarATierra());
-        opciones.add(new AtacarAire());
+        opciones.add(new AtacarPorTierra());
+        opciones.add(new AtacarPorAire());
         this.rutaSprite = this.rutaSprite + "tropas/protoss/scout.png";
     }
     public void instanciacionesIniciales(Posicion posicionALocalizar){
