@@ -2,9 +2,7 @@ package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
-import javafx.fxml.FXML;
 import javafx.scene.control.Accordion;
-import javafx.scene.control.Button;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
