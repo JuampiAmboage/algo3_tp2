@@ -19,7 +19,7 @@ public class ComunidadZerg extends Comunidad {
 
     @Override
     public void inicializarBase() {
-        Criadero criaderoInicial = new Criadero();
+        Criadero criaderoInicial = new Criadero(0);
         Mapa.getInstance().generarBase(criaderoInicial);
         unidades.add(criaderoInicial);
     }

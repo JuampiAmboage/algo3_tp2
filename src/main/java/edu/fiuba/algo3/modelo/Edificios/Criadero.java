@@ -22,6 +22,14 @@ public class Criadero extends Edificio {
     protected RangoExpansible rangoExpansible;
     public Criadero(){
         this.tiempoConstruccion = 4;
+        this.inicializaciones();
+    }
+    public Criadero(int tiempoDeConstruccion) {
+        super(tiempoDeConstruccion);
+        this.inicializaciones();
+    }
+
+    public void inicializaciones(){
         this.vida = new Vida(500);
         this.cantidadLarvasEnEspera = 3;
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
@@ -29,13 +37,6 @@ public class Criadero extends Edificio {
         this.costoEnGas = 0;
         this.costoEnMinerales = 200;
         opciones.add(new Engendrar());
-        this.rutaSprite = this.rutaSprite + "edificios/criadero.png";
-    }
-    public Criadero(int tiempoDeConstruccion) {
-        super(tiempoDeConstruccion);
-        this.vida = new Vida(500);
-        this.cantidadLarvasEnEspera = 3;
-        this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.rutaSprite = this.rutaSprite + "edificios/criadero.png";
     }
 

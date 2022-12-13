@@ -17,7 +17,7 @@ public class ComunidadProtoss extends Comunidad{
 
     @Override
     public void inicializarBase() {
-        Pilon pilonInicial = new Pilon();
+        Pilon pilonInicial = new Pilon(0);
         Mapa.getInstance().generarBase(pilonInicial);
         unidades.add(pilonInicial);
     }

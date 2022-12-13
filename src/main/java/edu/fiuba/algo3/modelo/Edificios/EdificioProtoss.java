@@ -14,6 +14,11 @@ public abstract class EdificioProtoss extends Edificio{
         this.estadoEnergia = new Energizado(this);
     }
 
+    public EdificioProtoss(int tiempoDeConstruccion){
+        super(tiempoDeConstruccion);
+        this.estadoEnergia = new Energizado(this);
+    }
+
     public void realizarAccionesTurno(){estadoEnergia.realizarAccionesTurno();}
 
     public void accionesTurnoSiEstaEnergizado(){vida.pasarTurno();}

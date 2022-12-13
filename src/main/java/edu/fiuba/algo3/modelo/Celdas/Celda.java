@@ -143,6 +143,11 @@ public class Celda {
 
     }
 
+    public boolean celdaConRecurso(){
+        return recurso != null;
+    }
+
+
     // Sprites:
     public String obtenerSpriteOcupanteTerrestre(){
         if (this.ocupanteTerrestre != null) { return this.ocupanteTerrestre.obtenerSprite(); }
