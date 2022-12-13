@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 
 public class BotonCelda {
     private int fila, columna;
-    private Button boton;
+    public Button boton;
 
     private ControladorVistaMapa controladorMapa;
 
@@ -23,12 +23,10 @@ public class BotonCelda {
         this.columna = columna;
     }
 
-    public Node obtenerBoton(){
+    public Button obtenerBotonNodo(){
         return this.boton;
     }
 
-    private void gestionarClickEnCelda(){
-        this.controladorMapa.gestionarClickEnCelda(this.fila, this.columna, this.boton);
-    }
+    private void gestionarClickEnCelda(){ this.controladorMapa.gestionarClickEnCelda(this.fila, this.columna, this.boton); }
 
 }

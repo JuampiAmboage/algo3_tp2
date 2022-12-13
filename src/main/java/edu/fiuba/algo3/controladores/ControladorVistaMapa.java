@@ -3,6 +3,7 @@ package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Excepciones.UnidadInexistente;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import javafx.fxml.FXML;
@@ -86,12 +87,14 @@ public class ControladorVistaMapa {
 
                 }
 
-                String spriteOcupanteTerrestre = celda.obtenerSpriteOcupanteTerrestre();
-                if ( spriteOcupanteTerrestre != null) {
+                try {
+                    String spriteOcupanteTerrestre = celda.obtenerSpriteOcupanteTerrestre();
 
                     agregarSprite(spriteOcupanteTerrestre, fila, columna);
                     agregarBoton(fila,columna);
 
+                } catch (UnidadInexistente e) {
+                    System.out.println("salto");
                 }
 
                 String spriteOcupanteAero = celda.obtenerSpriteOcupanteAereo();
@@ -153,7 +156,7 @@ public class ControladorVistaMapa {
 
         BotonCelda botonCelda = new BotonCelda(fila, columna, this);
 
-        this.grilla.add(botonCelda.obtenerBoton(), fila, columna);
+        this.grilla.add(botonCelda.obtenerBotonNodo(), fila, columna);
     }
 
     public void gestionarClickEnCelda(int fila, int columna, Button boton) {

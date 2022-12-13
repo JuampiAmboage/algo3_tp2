@@ -58,8 +58,8 @@ public abstract class ControladorVistaMenuJugadores {
             ImageView imagen = insertarImagen(opcion);
             if (imagen != null) { nuevoBorderPane.setLeft(imagen); }
 
-            Button boton = obtenerBotones(opcion);
-            nuevoBorderPane.setCenter(boton);
+            BotonMenuJugador boton = obtenerBoton(opcion);
+            nuevoBorderPane.setCenter(boton.obtenerBotonNodo());
 
 
             titledPane[i] = new TitledPane((opciones.get(i)).obtenerTitulo(), nuevoBorderPane);
@@ -87,14 +87,10 @@ public abstract class ControladorVistaMenuJugadores {
         return null;
     }
 
-    public Button obtenerBotones(OpcionElegible opcion) {
+    public BotonMenuJugador obtenerBoton(OpcionElegible opcion) {
         String textoBoton = opcion.obtenerBoton();
 
-        Button boton = new Button();
-
-        boton.setText(textoBoton);
-        // TODO: Darle accion al boton.
-        //boton.setOnAction(e->(opcion.accionar()));
+        BotonMenuJugador boton = new BotonMenuJugador(textoBoton, opcion);
 
         return boton;
     }

@@ -21,7 +21,7 @@ public abstract class OpcionElegible {
         if (this.textoBoton != null) { return this.textoBoton; }
         return null;
     }
-
-    //public void accionar() {}
-    //public abstract void gestionarAccion();
+    public void gestionarClick() {
+        System.out.println("funciona");
+    }
 }
