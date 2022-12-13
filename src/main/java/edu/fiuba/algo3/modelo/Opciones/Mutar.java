@@ -9,5 +9,5 @@ public class Mutar extends OpcionElegible{
         this.textoBoton = this.titulo;
     }
     @Override
-    public void gestionarClick() {}
+    public void gestionarClick() { System.out.println("funciona"); }
 }

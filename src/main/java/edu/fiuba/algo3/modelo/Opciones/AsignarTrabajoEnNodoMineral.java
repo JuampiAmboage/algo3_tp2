@@ -11,6 +11,6 @@ public class AsignarTrabajoEnNodoMineral extends OpcionElegible{
     }
 
     @Override
-    public void gestionarClick() {}
+    public void gestionarClick() { System.out.println("funciona"); }
 }
 

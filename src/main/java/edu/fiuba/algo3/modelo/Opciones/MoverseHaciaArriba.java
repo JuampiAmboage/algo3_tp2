@@ -9,5 +9,5 @@ public class MoverseHaciaArriba extends OpcionElegible{
         this.textoBoton = "Mover";
     }
     @Override
-    public void gestionarClick() {}
+    public void gestionarClick() { System.out.println("funciona"); }
 }

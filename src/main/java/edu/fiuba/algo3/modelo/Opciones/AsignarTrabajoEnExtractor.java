@@ -11,5 +11,5 @@ public class AsignarTrabajoEnExtractor extends OpcionElegible{
     }
 
     @Override
-    public void gestionarClick() {}
+    public void gestionarClick() { System.out.println("funciona"); }
 }
