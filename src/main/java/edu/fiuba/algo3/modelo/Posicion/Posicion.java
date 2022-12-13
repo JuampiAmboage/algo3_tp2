@@ -22,9 +22,9 @@ public class Posicion {
     public double solicitarDistanciaAUnidad(Unidad unidadParaSolicitar){
         return unidadParaSolicitar.obtenerDistanciaA(X,Y);
     }
-   /* public double solicitarDistanciaARecurso(Recurso recursoParaSolicitar){
-        //return recursoParaSolicitar.obtenerDistanciaA(X,Y);
-    }*/
+   public double solicitarDistanciaARecurso(Recurso recursoParaSolicitar){
+        return recursoParaSolicitar.obtenerDistanciaA(X,Y);
+    }
     public double obtenerDistanciaA(int posicionXDestino, int posicionYDestino){
         return Math.sqrt(Math.pow((posicionXDestino-X),2)+Math.pow((posicionYDestino-Y),2));
     }
@@ -44,10 +44,22 @@ public class Posicion {
         }
         return posiciones;
     }
-    public Celda obtenerUnaCeldaLimitrofe(int desplazamientoX, int desplazamientoY){
+    /*public Celda obtenerUnaCeldaLimitrofe(int desplazamientoX, int desplazamientoY){
         return Mapa.getInstance().obtenerCelda(new Posicion(this.X+desplazamientoX,this.Y+desplazamientoY));
-    }
+    }*/
 
+    public Celda obtenerCeldaSuperior(){
+        return Mapa.getInstance().obtenerCelda(new Posicion(this.X,this.Y-1));
+    }
+    public Celda obtenerCeldaInferior(){
+        return Mapa.getInstance().obtenerCelda(new Posicion(this.X,this.Y+1));
+    }
+    public Celda obtenerCeldaIzquierda(){
+        return Mapa.getInstance().obtenerCelda(new Posicion(this.X-1,this.Y));
+    }
+    public Celda obtenerCeldaDerecha(){
+        return Mapa.getInstance().obtenerCelda(new Posicion(this.X+1,this.Y));
+    }
     public void movimientoSuperior(){
         this.X -= 1;
     }
