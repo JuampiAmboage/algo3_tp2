@@ -79,7 +79,8 @@ public class TestCase28 {
             zerling.pasarTurno();
         }
         zealot.volverInsvisible();
-        amoSupremo.realizarAccionesTurno();
+        amoSupremo.localicarZealots();
+        amoSupremo.compararTropasDetectadasEntreTurnos();
 
         assertDoesNotThrow(()->zerling.atacarTierra(zealot));
     }

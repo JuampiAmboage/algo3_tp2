@@ -35,7 +35,7 @@ public abstract class Tropa extends Unidad implements Correlatividad {
         return danioTerrestre;
     }
     public int obtenerDanioAereo(){ return danioAereo;}
-    public void atacarTierra(TropaTerrestre unidadAtacable){
+    public void atacarTierra(Unidad unidadAtacable){
         this.esUsable();
         ataque.atacarTierra(rangoAtaque,unidadAtacable,danioTerrestre);
     }

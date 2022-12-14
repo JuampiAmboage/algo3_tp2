@@ -9,7 +9,7 @@ import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 public class AtacarAire implements Atacar {
 
-    public void atacarTierra(RangoAtaque rango, TropaTerrestre unidadAtacable, int puntosAtaqueTierra){
+    public void atacarTierra(RangoAtaque rango, Unidad unidadAtacable, int puntosAtaqueTierra){
         throw new TropaSinAtaqueATierra();
     }
     public void atacarAire(RangoAtaque rango, TropaAerea unidadAtacable, int puntosAtaqueAire) {
