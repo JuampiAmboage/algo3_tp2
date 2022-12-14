@@ -9,8 +9,6 @@ import edu.fiuba.algo3.modelo.Razas.Unidad;
 public class TropaAereaAtacaTierra extends OpcionElegible{
     public TropaAereaAtacaTierra(String descripcion) {
         this.titulo = "Ataque terrestre";
-        // this.pertenceA = null;
-        this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
         this.textoBotones.add("Atacar");
     }

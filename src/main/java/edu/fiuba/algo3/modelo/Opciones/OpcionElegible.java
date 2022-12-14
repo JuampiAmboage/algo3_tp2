@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public abstract class OpcionElegible {
     public String titulo;
     public String pertenceA;
-    public String rutaImagen;
     public String inforomacionSobreOpcion;
     public int cantidadDeOpcionesInternas;
     public ArrayList<String> textoBotones;
@@ -18,10 +17,6 @@ public abstract class OpcionElegible {
 
     public String obtenerTitulo() { return this.titulo; }
     public String obtenerPertenencia(){ return this.pertenceA; }
-    public String obtenerImagen() {
-        if (this.rutaImagen != null) { return this.rutaImagen; }
-        return null;
-    }
 
     public int obtenerCantidadDeOpcionesInternas() {return this.cantidadDeOpcionesInternas; }
     public String obtenerInformacionSobreOpcion() {

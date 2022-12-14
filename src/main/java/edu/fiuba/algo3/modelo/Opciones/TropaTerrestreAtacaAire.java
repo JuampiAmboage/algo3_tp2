@@ -9,8 +9,6 @@ public class TropaTerrestreAtacaAire extends OpcionElegible{
 
     public TropaTerrestreAtacaAire(String descripcion) {
         this.titulo = "Ataque aereo";
-        // this.pertenceA = null;
-        this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
         this.textoBotones.add("Atacar");
     }

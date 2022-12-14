@@ -9,7 +9,6 @@ public class ConstruirTropaProtoss extends OpcionElegible {
     public ConstruirTropaProtoss(String descripcion) {
         this.titulo = "Construir tropa protoss";
         this.pertenceA = "protoss";
-        this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
         this.textoBotones.add("Construir");
     }

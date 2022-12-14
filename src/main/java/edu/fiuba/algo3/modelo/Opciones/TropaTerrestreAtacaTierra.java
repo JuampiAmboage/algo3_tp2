@@ -10,8 +10,6 @@ public class TropaTerrestreAtacaTierra extends OpcionElegible {
 
     public TropaTerrestreAtacaTierra(String descripcion) {
         this.titulo = "Ataque terrestre";
-        // this.pertenceA = null;
-        this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
         this.textoBotones.add("Atacar");
     }

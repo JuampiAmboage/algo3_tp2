@@ -6,8 +6,6 @@ import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 public class MoverseADerecha extends OpcionElegible{
     public MoverseADerecha(String descripcion) {
         this.titulo = "Mover a la derecha";
-        // this.pertenceA = null;
-        this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
         this.textoBotones.add("Mover");
     }
