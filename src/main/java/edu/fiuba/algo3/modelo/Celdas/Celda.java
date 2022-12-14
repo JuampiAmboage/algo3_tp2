@@ -95,6 +95,7 @@ public class Celda {
     }
     public void agregarRecurso(Recurso nuevoRecurso){
         recurso = nuevoRecurso;
+        recurso.posicionarRecurso(this.posicion);
     }
     public int extraer(int cantidad) {
         return this.recurso.extraer(cantidad);

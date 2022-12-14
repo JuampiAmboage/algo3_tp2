@@ -9,6 +9,7 @@ import edu.fiuba.algo3.modelo.Opciones.MoverseADerecha;
 import edu.fiuba.algo3.modelo.Opciones.MoverseAIzquierda;
 import edu.fiuba.algo3.modelo.Opciones.MoverseHaciaAbajo;
 import edu.fiuba.algo3.modelo.Opciones.MoverseHaciaArriba;
+import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Razas.Correlatividad;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
@@ -46,11 +47,35 @@ public abstract class Tropa extends Unidad implements Correlatividad {
             throw new EdificioHabilitadorNoCreado();
         }
     }
+    public void validarMovimiento(Celda celdaDestino){
+        if(this.cantidadMovimientos < 4){
+            this.ocuparCelda(celdaDestino);
+            cantidadMovimientos++;
+        }
+    }
+    public void moverArriba(){
+        Celda celdaDestino = posicion.obtenerCeldaSuperior();
+        validarMovimiento(celdaDestino);
+        this.posicion.movimientoSuperior();
+    }
+
+    public void moverAbajo(){
+        Celda celdaDestino = posicion.obtenerCeldaInferior();
+        validarMovimiento(celdaDestino);
+        this.posicion.movimientoInferior();
+    }
+    public void moverDerecha(){
+        Celda celdaDestino = posicion.obtenerCeldaDerecha();
+        validarMovimiento(celdaDestino);
+        this.posicion.movimientoDerecha();
+    }
+    public void moverIzquierda(){
+        Celda celdaDestino = posicion.obtenerCeldaIzquierda();
+        validarMovimiento(celdaDestino);
+        this.posicion.movimientoIzquierda();
+    }
+
+
     public abstract void ocuparCelda(Celda celda);
-    public abstract void moverArriba();
 
-    public abstract void moverAbajo();
-    public abstract void moverDerecha();
-
-    public abstract void moverIzquierda();
 }
