@@ -47,4 +47,6 @@ public class TropaAereaInexistente extends TropaAerea{
     public String obtenerDescripcion() {
         return null;
     }
+
+    public void mostrarDescripcion(){}
 }

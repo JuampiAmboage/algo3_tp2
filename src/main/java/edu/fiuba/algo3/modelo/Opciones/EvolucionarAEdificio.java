@@ -14,7 +14,7 @@ public class EvolucionarAEdificio extends OpcionElegible{
         this.inforomacionSobreOpcion = descripcion;
         this.textoBoton = "evolucionar";
     }
-
+/*
     public void gestionarClick(Celda celdaAConstruir) {
         Edificio edificioAConstruir = obtenerEdificioAConstruir();
         Zangano zanganoAEvolucionar = (Zangano) celdaAConstruir.obtenerOcupanteTerrestre();
@@ -24,8 +24,8 @@ public class EvolucionarAEdificio extends OpcionElegible{
 
     private Edificio obtenerEdificioAConstruir(){
         // TODO: Mostrar ventana con opciones.
-        /* Opciones de edificio: Criadero, Reserva De Reproduccion, Guarida, Espiral*/
+        Opciones de edificio: Criadero, Reserva De Reproduccion, Guarida, Espiral
 
         return edificioAConstruir;
-    }
+    }*/
 }

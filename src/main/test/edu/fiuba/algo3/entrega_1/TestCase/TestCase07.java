@@ -52,6 +52,7 @@ public class TestCase07 {
     public void siInstancioUnZanganoYExtraigoTresVecesTengoLaCantidadDeMineralCorrecta() {
         NodoMineral nodoMineral = new NodoMineral();
         Zangano zangano = new Zangano();
+        zangano.construccionInstantanea();
         zangano.asignarTrabajoEnNodo(nodoMineral);
         int cantidadExtraida = 0;
         for(int i=0;i<3;i++)

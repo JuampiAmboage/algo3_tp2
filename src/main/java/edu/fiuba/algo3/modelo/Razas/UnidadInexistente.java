@@ -23,4 +23,7 @@ public class UnidadInexistente extends Unidad{
     public String obtenerDescripcion() {
         return null;
     }
+
+    public void mostrarDescripcion(){}
+
 }

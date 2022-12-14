@@ -44,7 +44,7 @@ public class TestCase27 {
         Mapa mapa = Mapa.getInstance();
         Devorador devorador = new Devorador();
         Scout scout = new Scout();
-        mapa.instanciarMapa(4,4);
+        mapa.instanciarMapa();
 
         devorador.instanciacionesIniciales(new Posicion(2,2));
         scout.instanciacionesIniciales(new Posicion(2,3));
@@ -64,7 +64,7 @@ public class TestCase27 {
         Mapa mapa = Mapa.getInstance();
         Devorador devorador = new Devorador();
         Zerling zerling = new Zerling();
-        mapa.instanciarMapa(4,4);
+        mapa.instanciarMapa();
 
         devorador.instanciacionesIniciales(new Posicion(2,2));
         zerling.instanciacionesIniciales(new Posicion(2,3));

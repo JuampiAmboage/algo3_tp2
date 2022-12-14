@@ -24,8 +24,10 @@ public class TestComunidad {
     @Test
     public void siQuieroBuscarUnEdificioLoEncuentra(){
         ComunidadZerg comunidadZerg = ComunidadZerg.obtenerInstanciaDeClase();
-        Criadero criadero = new Criadero(0);
-        Criadero criaderoDeBusqueda = new Criadero(0);
+        Criadero criadero = new Criadero();
+        Criadero criaderoDeBusqueda = new Criadero();
+        criadero.construccionInstantanea();
+        criaderoDeBusqueda.construccionInstantanea();
         comunidadZerg.aniadirGasVespeno(300);
         comunidadZerg.aniadirMineral(400);
         comunidadZerg.agregarUnidad(criadero);
@@ -35,7 +37,8 @@ public class TestComunidad {
     public void siBuscoUnEdificioQueJamasFueCreadoNoLoEncuentra(){
         ComunidadZerg unaComunidadZerg = ComunidadZerg.obtenerInstanciaDeClase();
         ReservaDeReproduccion reservaDeReproduccion = new ReservaDeReproduccion();
-        Criadero criaderoDeBusqueda = new Criadero(0);
+        Criadero criaderoDeBusqueda = new Criadero();
+        criaderoDeBusqueda.construccionInstantanea();
         unaComunidadZerg.aniadirGasVespeno(300);
         unaComunidadZerg.aniadirMineral(400);
         unaComunidadZerg.agregarUnidad(reservaDeReproduccion);

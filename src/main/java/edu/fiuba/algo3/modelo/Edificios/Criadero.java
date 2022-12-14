@@ -78,7 +78,6 @@ public class Criadero extends Edificio {
     }
 
     public void engendrar(Tropa tipoUnidad) {
-        Celda celda = Mapa.getInstance().obtenerCelda(this.posicion);
         this.estado.esUsable();
         tipoUnidad.existeEdificioNecesario();
         comunidad.agregarUnidad(tipoUnidad);

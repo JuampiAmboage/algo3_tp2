@@ -17,7 +17,7 @@ public class TestCase13 {
 
         celda.cambiarTipo(celdaConMoho);
         celda.ocuparPorTierra(criadero);
-        celda.desocupar();
+        celda.desocuparPorTierra();
 
         assertDoesNotThrow(()->celda.ocuparPorTierra(otroCriadero));
     }

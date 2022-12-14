@@ -2,6 +2,7 @@ package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.controladores.*;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
+import edu.fiuba.algo3.modelo.Partida.Jugador;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -27,6 +28,11 @@ public class App extends Application {
     private Partida partida;
     public static void main(String[] args) {
         launch();
+    }
+
+    public static void terminarPartida(String ganador){
+        //pantallazo final
+
     }
 
     @Override

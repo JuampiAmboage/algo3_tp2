@@ -25,8 +25,7 @@ public class RangoDetector extends Rango {
         for(Posicion unaPosicion : posicionesEnRango) {
             try {
                 Celda celda = mapa.obtenerCelda(unaPosicion);
-                celda.estaOcupadaPorTierra();
-                if(celda.obtenerOcupanteTerrestre().getClass().equals(Zealot.class) ) {
+                if(celda.obtenerOcupanteTerrestre() instanceof Zealot) {
                     Zealot unidadDetectada = (Zealot) celda.obtenerOcupanteTerrestre();
                     tropasDetectadasEnPasadaActual.add(unidadDetectada);
                 }

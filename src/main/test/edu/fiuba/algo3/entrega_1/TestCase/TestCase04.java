@@ -75,6 +75,7 @@ public class TestCase04 { //A todos les falta probar con test y terminados de co
     public void siExtraigoMineralDeUnAsimiladorCincoVecesPuedoGenerarUnDragon(){
         Volcan volcan = new Volcan();
         Asimilador a = new Asimilador(volcan);
+        a.construccionInstantanea();
         Dragon dragon = new Dragon();
         for(int i=0;i<3;i++)
             a.pasarTurno();

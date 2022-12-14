@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.Almacenamiento;
 import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
 import edu.fiuba.algo3.modelo.Construccion.EstadoConstruccion;
+import edu.fiuba.algo3.modelo.Construccion.UnidadConstruida;
 import edu.fiuba.algo3.modelo.Construccion.UnidadEnConstruccion;
 import edu.fiuba.algo3.modelo.Excepciones.RecursosInsuficientes;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
@@ -35,7 +36,9 @@ public abstract class Unidad implements Descripcion{
         estado.pasarTurno();
     }
     public abstract void realizarAccionesTurno();
-
+    public void construccionInstantanea() {
+        this.estado = new UnidadConstruida(this);
+    }
     public void instanciacionesIniciales(Posicion posicionALocalizar){ this.posicion =posicionALocalizar;
     }
     public void iniciarConstruccion(){

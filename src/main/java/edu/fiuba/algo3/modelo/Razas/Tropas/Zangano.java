@@ -38,7 +38,7 @@ public class Zangano extends TropaTerrestre {
     public void asignarTrabajoEnExtractor(Unidad extractorQueContrata){
         this.esUsable();
         if(extractorQueContrata instanceof Extractor){
-            evaluarDistanciaAExtractor(extractorDondeTrabaja);
+            evaluarDistanciaAExtractor((Extractor) extractorQueContrata);
             ((Extractor) extractorQueContrata).agregarTrabajador(this);
             this.extractorDondeTrabaja = (Extractor) extractorQueContrata;
         }
@@ -54,7 +54,7 @@ public class Zangano extends TropaTerrestre {
     public void asignarTrabajoEnNodo(Recurso recursoDeLaCelda){
         this.esUsable();
         if (recursoDeLaCelda instanceof NodoMineral)
-            this.asignarTrabajoEnNodo(recursoDeLaCelda);
+            this.nodoMineralDondeTrabaja = (NodoMineral) recursoDeLaCelda;
         else
             throw new ZanganoEnDistintaACeldaANodoMineral();
     }
