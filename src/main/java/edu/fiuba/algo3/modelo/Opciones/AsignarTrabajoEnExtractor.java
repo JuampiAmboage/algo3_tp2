@@ -25,6 +25,7 @@ public class AsignarTrabajoEnExtractor extends OpcionElegible{
 
     private Celda obtenerCeldaExtractor() {
         // TODO: Esperar clcik en extractor.
+
         return celda;
     }
 
