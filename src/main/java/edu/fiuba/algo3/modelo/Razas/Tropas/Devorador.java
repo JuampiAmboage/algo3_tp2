@@ -2,8 +2,9 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Ataque.AtacarAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
-import edu.fiuba.algo3.modelo.Opciones.AtacarPorTierra;
-import edu.fiuba.algo3.modelo.Opciones.AtacarPorAire;
+import edu.fiuba.algo3.modelo.Opciones.TropaAereaAtacaAire;
+import edu.fiuba.algo3.modelo.Opciones.TropaTerrestreAtacaTierra;
+import edu.fiuba.algo3.modelo.Opciones.TropaTerrestreAtacaAire;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.Vida;
@@ -20,12 +21,7 @@ public class Devorador extends TropaAerea implements UnidadEvolucionada{
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         vida = new Vida(200);
         suministro = 0;
-<<<<<<< HEAD
-        opciones.add("Atacar a aire");
-=======
-        opciones.add(new AtacarPorTierra(obtenerDescripcion()));
-        opciones.add(new AtacarPorAire(obtenerDescripcion()));
->>>>>>> manejoDeOpciones
+        opciones.add(new TropaAereaAtacaAire(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/devorador.png";
     }
     public void realizarAccionesTurno(){

@@ -3,8 +3,9 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 import edu.fiuba.algo3.modelo.Ataque.AtacarTierraYAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Espiral;
-import edu.fiuba.algo3.modelo.Opciones.AtacarPorTierra;
-import edu.fiuba.algo3.modelo.Opciones.AtacarPorAire;
+import edu.fiuba.algo3.modelo.Opciones.TropaAereaAtacaTierra;
+import edu.fiuba.algo3.modelo.Opciones.TropaTerrestreAtacaTierra;
+import edu.fiuba.algo3.modelo.Opciones.TropaTerrestreAtacaAire;
 import edu.fiuba.algo3.modelo.Opciones.Mutar;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
@@ -24,8 +25,8 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
         vida = new Vida(80);
         edificioNecesario = new Espiral();
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-        opciones.add(new AtacarPorTierra(obtenerDescripcion()));
-        opciones.add(new AtacarPorAire(obtenerDescripcion()));
+        opciones.add(new TropaAereaAtacaTierra(obtenerDescripcion()));
+        opciones.add(new TropaAereaAtacaTierra(obtenerDescripcion()));
         opciones.add(new Mutar(obtenerDescripcion()));
 
     }

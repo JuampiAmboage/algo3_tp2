@@ -18,7 +18,7 @@ public class TestCase28 {
         Zealot zealot = new Zealot();
         Zerling zerling = new Zerling();
         Mapa mapa = Mapa.getInstance();
-        mapa.instanciarMapa(9,9);
+        mapa.instanciarMapa();
         zealot.instanciacionesIniciales(new Posicion(5,6));
 
         zerling.instanciacionesIniciales(new Posicion(5,5));
@@ -40,7 +40,7 @@ public class TestCase28 {
         Zealot zealot = new Zealot();
         Zerling zerling = new Zerling();
         Mapa mapa = Mapa.getInstance();
-        mapa.instanciarMapa(9,9);
+        mapa.instanciarMapa();
         zealot.instanciacionesIniciales(new Posicion(7,8));
 
         zerling.instanciacionesIniciales(new Posicion(7,7));
@@ -63,7 +63,7 @@ public class TestCase28 {
         Zerling zerling = new Zerling();
         Mapa mapa = Mapa.getInstance();
 
-        mapa.instanciarMapa(9,9);
+        mapa.instanciarMapa();
         zealot.instanciacionesIniciales(new Posicion(7,8));
         amoSupremo.instanciacionesIniciales(new Posicion(8,8));
         zerling.instanciacionesIniciales(new Posicion(7,7));
@@ -98,7 +98,7 @@ public class TestCase28 {
         comunidadZerg.agregarUnidad(zangano2);
         comunidadZerg.agregarUnidad(zangano3);
 
-        mapa.instanciarMapa(9,9);
+        mapa.instanciarMapa();
         zealot.instanciacionesIniciales(new Posicion(2,2));
         zangano1.instanciacionesIniciales(new Posicion(2,3));
         zangano2.instanciacionesIniciales(new Posicion(3,2));

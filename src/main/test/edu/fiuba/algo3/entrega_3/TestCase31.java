@@ -19,7 +19,7 @@ public class TestCase31 {
         Mapa mapa = Mapa.getInstance();
         Comunidad comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         Pilon pilon = new Pilon();
-        mapa.instanciarMapa(3,3);
+        mapa.instanciarMapa();
         Celda celda = mapa.obtenerCelda(new Posicion(2,2));
 
         pilon.instanciacionesIniciales(new Posicion(2,2)); //añade 5 de capacidad

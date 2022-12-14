@@ -3,8 +3,8 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 import edu.fiuba.algo3.modelo.Ataque.AtacarTierra;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.ReservaDeReproduccion;
-import edu.fiuba.algo3.modelo.Opciones.AtacarPorAire;
-import edu.fiuba.algo3.modelo.Opciones.AtacarPorTierra;
+import edu.fiuba.algo3.modelo.Opciones.TropaTerrestreAtacaAire;
+import edu.fiuba.algo3.modelo.Opciones.TropaTerrestreAtacaTierra;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.Vida;
@@ -22,12 +22,7 @@ public class Zerling extends TropaTerrestre {
         vida = new Vida(35);
         edificioNecesario = new ReservaDeReproduccion();
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-<<<<<<< HEAD
-        opciones.add("Atacar a tierra");
-=======
-        opciones.add(new AtacarPorTierra(obtenerDescripcion()));
-        opciones.add(new AtacarPorAire(obtenerDescripcion()));
->>>>>>> manejoDeOpciones
+        opciones.add(new TropaTerrestreAtacaTierra(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/zerlilng.png";
     }
 

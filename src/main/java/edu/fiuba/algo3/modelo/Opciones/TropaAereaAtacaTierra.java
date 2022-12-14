@@ -5,9 +5,8 @@ import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 
-public class AtacarPorTierra extends OpcionElegible {
-
-    public AtacarPorTierra(String descripcion) {
+public class TropaAereaAtacaTierra extends OpcionElegible{
+    public TropaAereaAtacaTierra(String descripcion) {
         this.titulo = "Ataque terrestre";
         // this.pertenceA = null;
         this.rutaImagen = null;
@@ -16,7 +15,7 @@ public class AtacarPorTierra extends OpcionElegible {
     }
 
     public void gestionarClick(Celda celdaAtacante, Celda celdaAtacado) {
-        Tropa tropaAtacante = (Tropa) celdaAtacante.obtenerOcupanteTerrestre();
+        TropaAerea tropaAtacante = celdaAtacante.obtenerOcupanteAereo();
         Unidad tropaAtacada = celdaAtacado.obtenerOcupanteTerrestre();
         tropaAtacante.atacarTierra(tropaAtacada);
     }
