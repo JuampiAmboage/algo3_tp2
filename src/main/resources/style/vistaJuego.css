@@ -1,0 +1,28 @@
+GridPane, VBox, Label, Accordion > Button {
+    -fx-background-color: #403A3A8C;
+}
+
+AnchorPane {
+    -fx-border-color: null;
+}
+TitledPane > Title {
+    -fx-background-color: #524545;
+    -fx-text-fill: white;
+}
+
+Accordion {
+    -fx-background-color: #524545;
+    -fx-text-fill: white;
+}
+
+BorderPane {
+    -fx-background-color: #524545;
+}
+
+#borderPane {
+    -fx-background-color: black;
+}
+
+#grillaMenu {
+    -fx-border-width: 15px;
+}

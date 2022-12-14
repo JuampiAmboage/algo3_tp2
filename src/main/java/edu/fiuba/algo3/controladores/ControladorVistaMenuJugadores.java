@@ -14,6 +14,8 @@ import java.util.ArrayList;
 public abstract class ControladorVistaMenuJugadores {
     protected String perfil;
     protected String nombre;
+    protected boolean activo;
+
     protected Accordion acordeon;
     protected App app;
 
@@ -31,6 +33,9 @@ public abstract class ControladorVistaMenuJugadores {
         opciones = eliminarOpcionesInvalidas(opciones);
 
         int cantidadDeMenus = opciones.toArray().length;
+
+        // TODO: Agregar una condicion de corte si no hay opciones
+
         TitledPane[] titledPane = new TitledPane[cantidadDeMenus];
 
         instanciarAcordeon();
@@ -39,7 +44,6 @@ public abstract class ControladorVistaMenuJugadores {
             OpcionElegible opcion = opciones.get(i);
 
             BorderPane nuevoBorderPane = new BorderPane();
-            //nuevoBorderPane.setId("borderPane_"+i);
 
             ImageView imagen = insertarImagen(opcion);
             if (imagen != null) { nuevoBorderPane.setLeft(imagen); }
@@ -49,7 +53,7 @@ public abstract class ControladorVistaMenuJugadores {
 
 
             titledPane[i] = new TitledPane((opciones.get(i)).obtenerTitulo(), nuevoBorderPane);
-            //titledPane[i].setId("titlePane_"+i);
+            titledPane[i].setAnimated(true);
         }
         acordeon.getPanes().addAll(titledPane);
 
@@ -72,6 +76,7 @@ public abstract class ControladorVistaMenuJugadores {
     protected void instanciarAcordeon() {
         this.acordeon = new Accordion();
         this.acordeon.setId("acordeon");
+
     }
     protected ImageView insertarImagen(OpcionElegible opcion){
 
@@ -99,5 +104,9 @@ public abstract class ControladorVistaMenuJugadores {
     protected abstract void mostrarEnVBox();
 
     public void actualizarMapa() { this.app.actualizarMapa(); }
+
+    public abstract void activar();
+    public abstract void desactivar();
+    public abstract void indicadorDeTurnoActivo();
 }
 

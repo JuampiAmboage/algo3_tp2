@@ -32,7 +32,7 @@ public class App extends Application {
     @Override
     public void start(Stage escenario) {
         this.escenarioPrimario = escenario;
-        this.escenarioPrimario.setTitle("Conquer the universe");
+        //this.escenarioPrimario.setTitle("");
 
         this.escenarioPrimario.setResizable(false);
 
@@ -172,10 +172,8 @@ public class App extends Application {
     public void mostrarMenu(ArrayList<OpcionElegible> opciones) {
 
         if (this.partida.quienJuega() == 1) {
-            controladorVistaMenuJugadorUno.activar();
             controladorVistaMenuJugadorUno.mostrarOpciones(opciones);
         } else {
-            controladorVistaMenuJugadorDos.activar();
             controladorVistaMenuJugadorDos.mostrarOpciones(opciones);
         }
     }
@@ -183,6 +181,12 @@ public class App extends Application {
     public void gestionarPasarTurno(ControladorVistaMenuJugadores controlador) {
         this.partida.finDeTurno();
         controlador.limpiarMenu();
+
+        if (controlador.equals(this.controladorVistaMenuJugadorUno)){
+            this.controladorVistaMenuJugadorDos.activar();
+        } else {
+            this.controladorVistaMenuJugadorUno.activar();
+        }
     }
 
     public void actualizarMapa() { this.controladorVistaMapa.actualizarMapa(); }

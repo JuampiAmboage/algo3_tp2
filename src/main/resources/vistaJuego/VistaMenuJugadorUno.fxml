@@ -9,16 +9,16 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controladores.ControladorVistaMenuJugadorUno">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="275.0" stylesheets="@../style/vistaJuego.css, @../style/botonesVistaJuego.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controladores.ControladorVistaMenuJugadorUno">
    <children>
-      <GridPane alignment="TOP_CENTER" prefHeight="700.0" VBox.vgrow="ALWAYS">
+      <GridPane fx:id="grillaMenu" alignment="TOP_CENTER" prefHeight="700.0" VBox.vgrow="ALWAYS">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="669.0" minHeight="-Infinity" prefHeight="545.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="669.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="669.0" minHeight="-Infinity" prefHeight="512.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="669.0" minHeight="10.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label fx:id="nombrePerfil" alignment="CENTER" contentDisplay="CENTER" GridPane.halignment="LEFT">
