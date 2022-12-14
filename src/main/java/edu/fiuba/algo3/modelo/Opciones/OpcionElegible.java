@@ -20,10 +20,12 @@ public abstract class OpcionElegible {
         if (this.inforomacionSobreOpcion != null) { return this.inforomacionSobreOpcion; }
         return null;
     }
-    public String obtenerBoton() {
+    public String obtenerTextoBoton() {
         if (this.textoBoton != null) { return this.textoBoton; }
         return null;
     }
+
+    public abstract void gestionarClick(Celda celda);
 
 
 }

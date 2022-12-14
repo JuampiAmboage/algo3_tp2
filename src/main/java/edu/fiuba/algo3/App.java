@@ -1,6 +1,7 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.controladores.*;
+import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.application.Application;
@@ -169,14 +170,14 @@ public class App extends Application {
         } catch (IOException e) { e.printStackTrace(); }
     }
 
-    public void mostrarMenu(ArrayList<OpcionElegible> opciones) {
+    public void mostrarMenu(ArrayList<OpcionElegible> opciones, Celda celda) {
 
         if (this.partida.quienJuega() == 1) {
             controladorVistaMenuJugadorUno.activar();
-            controladorVistaMenuJugadorUno.mostrarOpciones(opciones);
+            controladorVistaMenuJugadorUno.mostrarOpciones(opciones, celda);
         } else {
             controladorVistaMenuJugadorDos.activar();
-            controladorVistaMenuJugadorDos.mostrarOpciones(opciones);
+            controladorVistaMenuJugadorDos.mostrarOpciones(opciones, celda);
         }
     }
 

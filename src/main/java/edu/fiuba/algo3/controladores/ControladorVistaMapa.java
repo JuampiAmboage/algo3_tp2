@@ -176,7 +176,7 @@ public class ControladorVistaMapa {
 
         desactivarBoton(boton);
 
-        app.mostrarMenu(celda.gestionarOpcionesParaJugador());
+        app.mostrarMenu(celda.gestionarOpcionesParaJugador(), celda);
     }
 
     private void desactivarBoton(Button boton) {
