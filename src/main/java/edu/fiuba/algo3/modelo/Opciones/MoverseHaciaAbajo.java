@@ -9,10 +9,10 @@ public class MoverseHaciaAbajo extends OpcionElegible{
         // this.pertenceA = null;
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
-        this.textoBoton = "Mover";
+        this.textoBotones.add("Mover");
     }
-
-    public void gestionarClick(Celda celda) {
+    @Override
+    public void gestionarClick(Celda celda, String opcionElejida) {
         Tropa tropaAMovilizar = (Tropa) celda.obtenerOcupanteTerrestre();
         tropaAMovilizar.moverAbajo();}
 }

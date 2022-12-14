@@ -14,10 +14,11 @@ public class AsignarTrabajoEnExtractor extends OpcionElegible{
         this.pertenceA = "zerg";
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
-        this.textoBoton = "Asignar trabajo";
+        this.textoBotones.add("Asignar trabajo");
     }
 
-    public void gestionarClick(Celda celdaZangano) {
+    @Override
+    public void gestionarClick(Celda celdaZangano, String opcionElejida) {
         Zangano zangano = (Zangano) celdaZangano.obtenerOcupanteTerrestre();
         zangano.revisarEstadoLaboral();
 
