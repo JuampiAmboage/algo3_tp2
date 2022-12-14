@@ -3,9 +3,7 @@ package edu.fiuba.algo3.modelo.Opciones;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Edificios.EdificioProtoss;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
-import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
-import edu.fiuba.algo3.modelo.Razas.Tropas.TropaTerrestre;
+import edu.fiuba.algo3.modelo.Razas.Tropas.*;
 
 public class ConstruirTropaProtoss extends OpcionElegible{
     public ConstruirTropaProtoss(String descripcion) {
@@ -18,30 +16,40 @@ public class ConstruirTropaProtoss extends OpcionElegible{
 
     @Override
     public void gestionarClick(Celda celda, String opcionElejida) {
-
-        Tropa tropaAConstruir = obtenerTropaAConstruir();
-        if (tropaAConstruir instanceof TropaAerea) {
-            celda.estaOcupadaPorAire();
-            ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(tropaAConstruir);
-            celda.ocuparPorAire((TropaAerea) tropaAConstruir);
-        } else {
-            celda.estaOcupadaPorTierra();
-            ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(tropaAConstruir);
-            celda.ocuparPorTierra(tropaAConstruir);
-        }
-        celda.instanciarUnidad(tropaAConstruir);
-
         if (textoBotones.contains(opcionElejida)) {
 
             if (textoBotones.get(0).equals(opcionElejida)) {
-                construirPilonEn(celda);
+                construirZealotEn(celda);
             }else if (textoBotones.get(1).equals(opcionElejida)){
-                construirAccsesoEn(celda);
+                construirDragonEn(celda);
             }else{
-                construirPuertoEn(celda);
+                construirScoutEn(celda);
             }
 
         }
+    }
+
+    public void construirZealotEn(Celda celda){
+        Zealot zealot = new Zealot();
+        celda.estaOcupadaPorTierra();
+        ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(zealot);
+        celda.ocuparPorTierra(zealot);
+        celda.instanciarUnidad(zealot);
+    }
+    public void construirDragonEn(Celda celda){
+        Dragon dragon = new Dragon();
+        celda.estaOcupadaPorTierra();
+        ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(dragon);
+        celda.ocuparPorTierra(dragon);
+        celda.instanciarUnidad(dragon);
+    }
+
+    public void construirScoutEn(Celda celda){
+        Scout scout = new Scout();
+        celda.estaOcupadaPorAire();
+        ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(scout);
+        celda.ocuparPorAire(scout);
+        celda.instanciarUnidad(scout);
     }
 
     private Tropa obtenerTropaAConstruir() {
