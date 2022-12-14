@@ -18,7 +18,12 @@ public class ConstruirEdificioProtoss extends OpcionElegible{
         this.textoBoton = "Construir";
     }
 
-    public void gestionarClick(Celda celda, EdificioProtoss edificioAConstruir) {
-        ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda,edificioAConstruir);
+    public void gestionarClick(Celda celda) {
+        ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda,edificioAConstruir());
+    }
+
+    private EdificioProtoss edificioAConstruir() {
+        // TODO: Mostrar ventana con opciones.
+        return edificioAConstruir;
     }
 }

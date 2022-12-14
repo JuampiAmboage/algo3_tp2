@@ -13,8 +13,8 @@ public class AsignarTrabajoEnExtractor extends OpcionElegible{
         this.textoBoton = "Asignar trabajo";
     }
 
-    /*@Override
-    public void gestionarClick(Celda celda) {
+
+    /*public void gestionarClick(Celda celda) {
         Zangano zanganoQueVaATrabajar = (Zangano) celda.obtenerOcupante();
         zanganoQueVaATrabajar.asignarTrabajoEnExtractor();
     }*/
