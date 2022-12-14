@@ -14,10 +14,10 @@ public class ConstruirAsimilador extends OpcionElegible {
         this.pertenceA = "protoss";
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
-        this.textoBoton = "Construir";
+        this.textoBotones.add("Construir asimilador");
     }
-
-    public void gestionarClick(Celda celda) {
+    @Override
+    public void gestionarClick(Celda celda, String opcionElejida) {
         Asimilador asimilador = new Asimilador((Volcan) celda.obtenerRecurso());
         ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda,asimilador);
         celda.instanciarUnidad(asimilador);

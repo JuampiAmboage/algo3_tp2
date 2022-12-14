@@ -16,7 +16,9 @@ public class ConstruirTropaProtoss extends OpcionElegible{
         this.textoBoton = "Construir";
     }
 
-    public void gestionarClick(Celda celda) {
+    @Override
+    public void gestionarClick(Celda celda, String opcionElejida) {
+
         Tropa tropaAConstruir = obtenerTropaAConstruir();
         if (tropaAConstruir instanceof TropaAerea) {
             celda.estaOcupadaPorAire();
@@ -28,6 +30,18 @@ public class ConstruirTropaProtoss extends OpcionElegible{
             celda.ocuparPorTierra(tropaAConstruir);
         }
         celda.instanciarUnidad(tropaAConstruir);
+
+        if (textoBotones.contains(opcionElejida)) {
+
+            if (textoBotones.get(0).equals(opcionElejida)) {
+                construirPilonEn(celda);
+            }else if (textoBotones.get(1).equals(opcionElejida)){
+                construirAccsesoEn(celda);
+            }else{
+                construirPuertoEn(celda);
+            }
+
+        }
     }
 
     private Tropa obtenerTropaAConstruir() {
@@ -37,3 +51,40 @@ public class ConstruirTropaProtoss extends OpcionElegible{
         return tropaAConstruir;
     }
 }
+
+
+
+/* Nuevo:
+
+        this.textoBotones.add("Zealot");
+        this.textoBotones.add("Dragon");
+        this.textoBotones.add("Scout");
+    }
+
+    @Override
+    public void gestionarClick(Celda celda, String opcionElejida) {
+
+        if (textoBotones.contains(opcionElejida)) {
+
+            if (textoBotones.get(0).equals(opcionElejida)) {
+                instanciarTropaZealot(celda);
+            } else if (textoBotones.get(1).equals(opcionElejida)) {
+                instanciarTropaDragon(celda);
+            } else {
+                instanciarTropaScout(celda);
+            }
+
+        }
+    }
+
+    private void instanciarTropaZealot(Celda celda) {
+
+    }
+    private void instanciarTropaDragon(Celda celda) {
+
+    }
+    private void instanciarTropaScout(Celda celda) {
+
+    }
+
+ */
