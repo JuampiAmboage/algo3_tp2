@@ -13,7 +13,6 @@ public abstract class TipoCelda {
 
     public TipoCelda() {
         opciones = new ArrayList<>();
-        opciones.add(new SolicitarInformacion(obtenerDescripcion()));
     }
     public TipoCelda(Celda celda) {
         this.celda = celda;
