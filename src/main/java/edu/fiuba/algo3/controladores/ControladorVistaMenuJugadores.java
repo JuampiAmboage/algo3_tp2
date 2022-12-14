@@ -47,18 +47,8 @@ public abstract class ControladorVistaMenuJugadores {
 
                 BorderPane nuevoBorderPane = new BorderPane();
 
-<<<<<<< HEAD
-            BotonMenuJugador boton = obtenerBoton(opcion, celda, i);
-            nuevoBorderPane.setCenter(boton.obtenerBotonNodo());
-=======
-                ImageView imagen = insertarImagen(opcion);
-                if (imagen != null) {
-                    nuevoBorderPane.setLeft(imagen);
-                }
-
-                BotonMenuJugador boton = obtenerBoton(opcion);
+                BotonMenuJugador boton = obtenerBoton(opcion, celda, i);
                 nuevoBorderPane.setCenter(boton.obtenerBotonNodo());
->>>>>>> master
 
 
                 titledPane[i] = new TitledPane((opciones.get(i)).obtenerTitulo(), nuevoBorderPane);
@@ -89,22 +79,6 @@ public abstract class ControladorVistaMenuJugadores {
         this.acordeon.setId("acordeon");
 
     }
-    protected ImageView insertarImagen(OpcionElegible opcion){
-
-        String rutaImagen = opcion.obtenerImagen();
-
-        if (rutaImagen != null) {
-            Image imagen = new Image(getClass().getResourceAsStream(rutaImagen));
-
-            ImageView visulizadorDeImagen = new ImageView();
-            visulizadorDeImagen.setFitWidth(100.0);
-            visulizadorDeImagen.setFitHeight(100.0);
-            visulizadorDeImagen.setImage(imagen);
-
-            return visulizadorDeImagen;
-        }
-        return null;
-    }
     protected BotonMenuJugador obtenerBoton(OpcionElegible opcion, Celda celda, int index) {
         BotonMenuJugador boton = new BotonMenuJugador(opcion, this, celda, index);
 
@@ -114,15 +88,12 @@ public abstract class ControladorVistaMenuJugadores {
 
     public void actualizarMapa() { this.app.actualizarMapa(); }
 
-<<<<<<< HEAD
     public Celda[] obtenerCeldasConExtractor() {
         return this.app.obtenerCeldasConExtractor();
     }
 
-=======
     public abstract void activar();
     public abstract void desactivar();
     public abstract void indicadorDeTurnoActivo();
->>>>>>> master
 }
 
