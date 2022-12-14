@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -192,6 +193,11 @@ public class App extends Application {
     }
 
     public static void lanzarWarning(String advertencia) {
+        Alert warning = new Alert(Alert.AlertType.WARNING);
+        warning.setHeaderText(null);
+        warning.setTitle("Atencion");
+        warning.setContentText(advertencia);
+        warning.showAndWait();
 
     }
 
