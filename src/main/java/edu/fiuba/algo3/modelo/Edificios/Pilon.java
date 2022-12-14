@@ -94,13 +94,6 @@ public class Pilon extends EdificioProtoss implements UnidadConAmpliacionDeSumin
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
 
-    /*@Override
-    public void mostrarDescripcion() {
-        System.out.println("-Pilon-");
-        System.out.println("Unidad fundamental Protoss. Energiza celdas para construcción de edificios.\n");
-        System.out.println("Escudo actual: " + this.vida.getEscudoActual());
-        System.out.println("Vida actual: " + this.vida.getVidaActual());
-    }*/
     public String obtenerDescripcion() {
         String descripcion = "";
         return descripcion;

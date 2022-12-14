@@ -71,13 +71,6 @@ public class Guarida extends Edificio implements Correlatividad {
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
 
-    /*@Override
-    public void mostrarDescripcion() {
-        System.out.println("-Guarida-");
-        System.out.println("Permite construir: Espiral.");
-        System.out.println("Permite engendrar: Hidralisco. \n");
-        System.out.println("Vida actual: " + this.vida.getVidaActual());
-    }*/
     public String obtenerDescripcion() {
         String descripcion = "";
         return descripcion;

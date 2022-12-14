@@ -3,8 +3,6 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 import edu.fiuba.algo3.modelo.Ataque.AtacarTierra;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.ReservaDeReproduccion;
-import edu.fiuba.algo3.modelo.Opciones.TropaTerrestreAtacaAire;
-import edu.fiuba.algo3.modelo.Opciones.TropaTerrestreAtacaTierra;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.Vida;
@@ -22,12 +20,7 @@ public class Zerling extends TropaTerrestre {
         vida = new Vida(35);
         edificioNecesario = new ReservaDeReproduccion();
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-<<<<<<< HEAD
-        opciones.add(new TropaTerrestreAtacaTierra(obtenerDescripcion()));
-=======
-        opciones.add(new AtacarPorTierra(obtenerDescripcion()));
-        opciones.add(new AtacarPorAire(obtenerDescripcion()));
->>>>>>> master
+        //opciones.add(new TropaTerrestreAtacaTierra(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/zerlilng.png";
     }
 
@@ -39,15 +32,6 @@ public class Zerling extends TropaTerrestre {
     public void realizarAccionesTurno(){vida.pasarTurno();
         cantidadMovimientos = 0;
     }
-
-    /*@Override
-    public void mostrarDescripcion() {
-        System.out.println("-Zerling-");
-        System.out.println("Tropa terrestre con mucho amor propio. No se la deja facil a nadie. \n");
-        System.out.println("Vida actual: "+ this.vida.getVidaActual());
-        System.out.println("Daño aereo: No tiene ");
-        System.out.println("Danio terrestre:" + this.danioTerrestre);
-    }*/
     public String obtenerSprite() { return this.rutaSprite; }
     @Override
     public String obtenerDescripcion() {
