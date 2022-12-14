@@ -107,17 +107,15 @@ public class Criadero extends Edificio {
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
 
-<<<<<<< HEAD
     @Override
     public void mostrarDescripcion() {
         System.out.println("-Criadero-");
         System.out.println("Unidad escencial Zerg. Engendra tropas e infecta con moho su entorno.");
         System.out.println("Engendra: Zangano, Zerling, Hidralisco, Mutalisco, Amo Supremo. \n");
-        System.out.println("Vida actual: "+ this.vida.getVidaActual());
-=======
+        System.out.println("Vida actual: " + this.vida.getVidaActual());
+    }
     public String obtenerDescripcion(){
         String descripcion = "";
         return descripcion;
->>>>>>> manejoDeOpciones
     }
 }

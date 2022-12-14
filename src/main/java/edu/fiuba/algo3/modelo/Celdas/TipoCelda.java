@@ -1,12 +1,9 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
-<<<<<<< HEAD
+import edu.fiuba.algo3.modelo.Opciones.SolicitarInformacion;
 import edu.fiuba.algo3.modelo.Razas.Descripcion;
-=======
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
->>>>>>> manejoDeOpciones
-
 import java.util.ArrayList;
 
 public abstract class TipoCelda implements Descripcion {
@@ -17,7 +14,7 @@ public abstract class TipoCelda implements Descripcion {
 
     public TipoCelda() {
         opciones = new ArrayList<>();
-        opciones.add("Informacion");
+        opciones.add(new SolicitarInformacion(obtenerDescripcion()));
     }
     public TipoCelda(Celda celda) {
         this.celda = celda;

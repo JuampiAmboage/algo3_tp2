@@ -53,17 +53,16 @@ public class Acceso extends EdificioProtoss implements Construible {
     public String obtenerSprite() { return this.rutaSprite; }
 
     @Override
-<<<<<<< HEAD
     public void mostrarDescripcion() {
         System.out.println("-Acceso-");
         System.out.println("Permite construir: Puerto Estelar.");
         System.out.println("Permite generar: Zealot, Dragon. \n");
         System.out.println("Escudo actual: " + this.vida.getEscudoActual());
-        System.out.println("Vida actual: "+ this.vida.getVidaActual());
-=======
+        System.out.println("Vida actual: " + this.vida.getVidaActual());
+    }
+
     public String obtenerDescripcion() {
         String descripcion = "";
         return descripcion;
->>>>>>> manejoDeOpciones
     }
 }

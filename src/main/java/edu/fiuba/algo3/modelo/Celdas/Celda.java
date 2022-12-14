@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
-import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
@@ -140,18 +139,14 @@ public class Celda implements Descripcion {
         return listaDeOpciones;
 
     }
-<<<<<<< HEAD
     public void mostrarDescripcion() {
         tipo.mostrarDescripcion();
     }
-=======
 
     public boolean celdaConRecurso(){
         return !(recurso instanceof NoRecurso);
     }
 
-
->>>>>>> manejoDeOpciones
     // Sprites:
     public String obtenerSpriteOcupanteTerrestre(){
         if (this.ocupanteTerrestre.existe()) { return this.ocupanteTerrestre.obtenerSprite(); }
