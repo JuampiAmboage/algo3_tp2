@@ -32,7 +32,6 @@ public abstract class Unidad {
 
     public Unidad() {
         opciones = new ArrayList<>();
-        opciones.add(new SolicitarInformacion(obtenerDescripcion()));
     }
 
     public void pasarTurno(){
