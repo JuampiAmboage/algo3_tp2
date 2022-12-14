@@ -5,16 +5,13 @@ import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import edu.fiuba.algo3.modelo.Razas.Unidad;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class ControladorVistaMapa {
@@ -30,8 +27,7 @@ public class ControladorVistaMapa {
     private String[] opcionesRocas = new String[3];
     private Button botonAnterior;
 
-    private boolean rocasYaCreadas = false;
-
+    private boolean seActualizo = false;
     private void inicializarSpriteRocas() {
         this.opcionesRocas[0] = "rocas00.png";
         this.opcionesRocas[1] = "rocas01.png";
@@ -52,15 +48,25 @@ public class ControladorVistaMapa {
         this.baseMapa.setCenter(grilla);
     }
 
-    public void mostrarMapa(App app) {
+    public void establecerApp(App app) { this.app = app; }
+
+    public void mostrarMapa() {
 
         if (this.grilla == null) {
             inicializarGrilla();
         }
         inicializarSpriteRocas();
 
-        this.app = app;
+        pedirSprites(true);
 
+        if (this.seActualizo) {
+            actualizarMapa();
+            this.seActualizo = true;
+        }
+
+    }
+
+    public void pedirSprites(boolean primeraVez) {
         for (int fila = 0; fila < LONGITUD_FILAS_MAPA; fila++) {
 
             for (int columna = 0; columna < LONGITUD_COLUMNAS_MAPA; columna++) {
@@ -69,40 +75,44 @@ public class ControladorVistaMapa {
                 Celda celda = mapa.obtenerCelda(posicion);
 
                 String spriteTipo = celda.obtenerSpriteTipo();
-                if ( spriteTipo != null) {
+                if (spriteTipo != null) {
                     agregarSprite(spriteTipo, fila, columna);
-                    agregarBoton(fila,columna);
+                    agregarBoton(fila, columna);
 
                 }
 
-                if (agregarRocas()) {
+                /*if (primeraVez) {
+                    if (agregarRocas()) {
 
-                    String spriteRocaNueva = obtenerSpriteRoca();
-                    if (spriteRocaNueva != null) { agregarSprite(spriteRocaNueva, fila, columna); }
+                        String spriteRocaNueva = obtenerSpriteRoca();
+                        if (spriteRocaNueva != null) {
+                            agregarSprite(spriteRocaNueva, fila, columna);
+                        }
 
-                }
+                    }
+                }*/ // Chequeos para agregar rocas
 
                 String spriteRecurso = celda.obtenerSpriteRecurso();
-                if ( spriteRecurso != null) {
+                if (spriteRecurso != null) {
 
                     agregarSprite(spriteRecurso, fila, columna);
-                    agregarBoton(fila,columna);
+                    agregarBoton(fila, columna);
 
                 }
 
                 String spriteOcupanteTerrestre = celda.obtenerSpriteOcupanteTerrestre();
-                if ( spriteOcupanteTerrestre != null) {
+                if (spriteOcupanteTerrestre != null) {
 
                     agregarSprite(spriteOcupanteTerrestre, fila, columna);
-                    agregarBoton(fila,columna);
+                    agregarBoton(fila, columna);
 
                 }
 
                 String spriteOcupanteAero = celda.obtenerSpriteOcupanteAereo();
-                if ( spriteOcupanteAero != null) {
+                if (spriteOcupanteAero != null) {
 
                     agregarSprite(spriteOcupanteAero, fila, columna);
-                    agregarBoton(fila,columna);
+                    agregarBoton(fila, columna);
 
                 }
 
@@ -110,7 +120,10 @@ public class ControladorVistaMapa {
             }
 
         }
+    }
 
+    public void actualizarMapa(){
+        pedirSprites(false);
     }
 
     public void agregarSprite(String rutaSprite, int fila, int columna) {
@@ -125,7 +138,9 @@ public class ControladorVistaMapa {
         this.grilla.add(sprite, fila, columna);
     }
 
-    public String obtenerSpriteRoca() { return elejirRutaRandom(); }
+    /*public String obtenerSpriteRoca() {
+        return elejirRutaRandom();
+    }
 
     public String elejirRutaRandom() {
         Random random = new Random();
@@ -146,13 +161,13 @@ public class ControladorVistaMapa {
             return true;
         }
         return false;
-    }
+    }*/ // obtenerSpriteRoca() // elejirRutaRandom()  // agregarRoca()
 
     public void agregarBoton(int fila, int columna) {
 
-        Boton boton = new Boton(fila, columna, this);
+        BotonCelda botonCelda = new BotonCelda(fila, columna, this);
 
-        this.grilla.add(boton.obtenerBoton(), fila, columna);
+        this.grilla.add(botonCelda.obtenerBotonNodo(), fila, columna);
     }
 
     public void gestionarClickEnCelda(int fila, int columna, Button boton) {

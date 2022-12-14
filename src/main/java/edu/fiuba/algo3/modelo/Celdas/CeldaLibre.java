@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
+import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -16,8 +17,6 @@ public class CeldaLibre extends TipoCelda {
     public CeldaLibre(Celda celda) {
         super(celda);
         this.opcionSprite[0] = "celdaLibre00.png";
-        this.opcionSprite[1] = "celdaLibre01.png";
-        this.opcionSprite[2] = "celdaLibre02.png";
     }
 
     @Override
@@ -60,14 +59,20 @@ public class CeldaLibre extends TipoCelda {
 
     @Override
     public String obtenerSprite() {
-        int maximo = 3;
+        int maximo = this.opcionSprite.length;
         Random random = new Random();
 
-        int eleccionRandom = random.nextInt(maximo);
+        //int eleccionRandom = random.nextInt(maximo);
 
-        return (this.sprite + this.opcionSprite[eleccionRandom]);
+        return (this.sprite + this.opcionSprite[0]);
     }
 
     @Override
-    public ArrayList<String> obtenerOpciones() { return null; }
+    public ArrayList<OpcionElegible> obtenerOpciones() { return null; }
+
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }

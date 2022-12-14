@@ -25,18 +25,11 @@ public class Partida {
         segundoJugador.cambioCondicionTurno();
     }
 
-    public Jugador quienJuega(){
+    public int quienJuega(){
         if(primerJugador.esSuTurno())
-            return primerJugador;
-        else
-            return segundoJugador;
-    }
-
-
-    public int mostrarMenu(){
-        if (quienJuega() == primerJugador)
             return 1;
-        return 0;
+        else
+            return 0;
     }
 
 }

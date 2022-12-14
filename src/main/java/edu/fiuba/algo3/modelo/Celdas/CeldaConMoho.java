@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
+import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 public class CeldaConMoho extends TipoCelda {
     RangoExpansible rangoExpansible;
 
-    private final String RUTA_SPRITE = "estado/moho.png";
+    private final String RUTA_SPRITE = "estados/moho.png";
 
     public CeldaConMoho() {
         super();
@@ -65,5 +66,10 @@ public class CeldaConMoho extends TipoCelda {
     }
 
     @Override
-    public ArrayList<String> obtenerOpciones() { return null; }
+    public ArrayList<OpcionElegible> obtenerOpciones() { return null; }
+
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }

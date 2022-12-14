@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Opciones.Engendrar;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
@@ -20,21 +21,18 @@ public class Criadero extends Edificio {
     private int cantidadLarvasEnEspera;
     protected RangoExpansible rangoExpansible;
     public Criadero(){
+        super();
         this.tiempoConstruccion = 4;
+        this.inicializaciones();
+    }
+    public void inicializaciones(){
         this.vida = new Vida(500);
         this.cantidadLarvasEnEspera = 3;
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.visibilidad = new Visible(this);
         this.costoEnGas = 0;
         this.costoEnMinerales = 200;
-        opciones.add("Engendrar");
-        this.rutaSprite = this.rutaSprite + "edificios/criadero.png";
-    }
-    public Criadero(int tiempoDeConstruccion) {
-        super(tiempoDeConstruccion);
-        this.vida = new Vida(500);
-        this.cantidadLarvasEnEspera = 3;
-        this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
+        opciones.add(new Engendrar(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "edificios/criadero.png";
     }
 
@@ -109,11 +107,17 @@ public class Criadero extends Edificio {
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
 
+<<<<<<< HEAD
     @Override
     public void mostrarDescripcion() {
         System.out.println("-Criadero-");
         System.out.println("Unidad escencial Zerg. Engendra tropas e infecta con moho su entorno.");
         System.out.println("Engendra: Zangano, Zerling, Hidralisco, Mutalisco, Amo Supremo. \n");
         System.out.println("Vida actual: "+ this.vida.getVidaActual());
+=======
+    public String obtenerDescripcion(){
+        String descripcion = "";
+        return descripcion;
+>>>>>>> manejoDeOpciones
     }
 }

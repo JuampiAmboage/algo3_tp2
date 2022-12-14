@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
 import edu.fiuba.algo3.modelo.Construccion.EstadoConstruccion;
 import edu.fiuba.algo3.modelo.Construccion.UnidadEnConstruccion;
 import edu.fiuba.algo3.modelo.Excepciones.RecursosInsuficientes;
+import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Visibilidad.Visibilidad;
@@ -25,7 +26,7 @@ public abstract class Unidad implements Descripcion{
     protected int suministro;
     protected String rutaSprite = "/sprites/";
 
-    protected ArrayList<String> opciones;
+    protected ArrayList<OpcionElegible> opciones;
 
     public Unidad(){opciones = new ArrayList<>();
     opciones.add("Información");}
@@ -89,9 +90,15 @@ public abstract class Unidad implements Descripcion{
         return vida.estaSinVida();
     }
 
-    public ArrayList<String> obtenerOpciones(){ return opciones;}
+    public ArrayList<OpcionElegible> obtenerOpciones() { return this.opciones; }
 
     public abstract void mostrarDescripcion();
 
     public abstract String obtenerSprite();
+
+    public boolean existe(){
+        return true;
+    }
+
+    public abstract String obtenerDescripcion();
 }

@@ -1,14 +1,13 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.controladores.*;
-import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
+import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -20,7 +19,7 @@ public class App extends Application {
     private Stage escenarioPrimario;
     private BorderPane layoutRaiz;
     private ControladorVistaRaiz controladorVistaRaiz;
-
+    private ControladorVistaMapa controladorVistaMapa;
     private ControladorVistaMenuJugadorUno controladorVistaMenuJugadorUno;
     private ControladorVistaMenuJugadorDos controladorVistaMenuJugadorDos;
     private double[] tamanioDelEscenario = new double[2];
@@ -123,7 +122,7 @@ public class App extends Application {
             VBox VistaMenuJugadorUno = (VBox) cargador.load();
 
             ControladorVistaMenuJugadorUno controladorVistaMenuJugadorUno = cargador.getController();
-            controladorVistaMenuJugadorUno.establecerPerfil(perfil, nombre);
+            controladorVistaMenuJugadorUno.establecerPerfil(perfil, nombre, this);
 
             this.controladorVistaMenuJugadorUno = controladorVistaMenuJugadorUno;
 
@@ -141,7 +140,7 @@ public class App extends Application {
             VBox VistaMenuJugadorDos = (VBox) cargador.load();
 
             ControladorVistaMenuJugadorDos controladorVistaMenuJugadorDos = cargador.getController();
-            controladorVistaMenuJugadorDos.establecerPerfil(perfil, nombre);
+            controladorVistaMenuJugadorDos.establecerPerfil(perfil, nombre, this);
 
             this.controladorVistaMenuJugadorDos = controladorVistaMenuJugadorDos;
 
@@ -150,7 +149,7 @@ public class App extends Application {
         } catch (IOException e) { e.printStackTrace(); }
     }
 
-    private void mostrarVistaMapa() {
+    public void mostrarVistaMapa() {
         try {
             FXMLLoader cargador = new FXMLLoader();
             cargador.setLocation(
@@ -163,17 +162,30 @@ public class App extends Application {
             this.controladorVistaRaiz.ocultarMenuBar();
 
             ControladorVistaMapa controladorVistaMapa = cargador.getController();
-            controladorVistaMapa.mostrarMapa(this);
+            this.controladorVistaMapa = controladorVistaMapa;
+            controladorVistaMapa.establecerApp(this);
+            controladorVistaMapa.mostrarMapa();
 
         } catch (IOException e) { e.printStackTrace(); }
     }
 
-    public void mostrarMenu(ArrayList<String> opciones){
-        if (this.partida.mostrarMenu() == 1)
+    public void mostrarMenu(ArrayList<OpcionElegible> opciones) {
+
+        if (this.partida.quienJuega() == 1) {
+            controladorVistaMenuJugadorUno.activar();
             controladorVistaMenuJugadorUno.mostrarOpciones(opciones);
-        else
+        } else {
+            controladorVistaMenuJugadorDos.activar();
             controladorVistaMenuJugadorDos.mostrarOpciones(opciones);
+        }
     }
+
+    public void gestionarPasarTurno(ControladorVistaMenuJugadores controlador) {
+        this.partida.finDeTurno();
+        controlador.limpiarMenu();
+    }
+
+    public void actualizarMapa() { this.controladorVistaMapa.actualizarMapa(); }
 
     public void salir() {
         this.escenarioPrimario.close();

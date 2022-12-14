@@ -22,6 +22,7 @@ public class ComunidadZerg extends Comunidad {
         Criadero criaderoInicial = new Criadero();
         Mapa.getInstance().generarBase(criaderoInicial);
         unidades.add(criaderoInicial);
+        criaderoInicial.construccionInstantanea();
     }
     public static ComunidadZerg obtenerInstanciaDeClase() {
         if (comunidadZerg == null)

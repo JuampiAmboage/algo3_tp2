@@ -11,25 +11,36 @@ import java.util.ArrayList;
 
 public class GeneradorElementos {
 
-    private ArrayList<ArrayList<Celda>> mapa;
     private int longitudFilas;
     private int longitudColumnas;
     boolean primeraColocacion;
 
-    public GeneradorElementos(ArrayList<ArrayList<Celda>> mapa, int longitudFilas, int longitudColumnas){
+    public GeneradorElementos(int longitudFilas, int longitudColumnas){
         this.longitudFilas = longitudFilas;
         this.longitudColumnas = longitudColumnas;
         this.primeraColocacion = true;
-        this.mapa = mapa;
     }
 
+    public Posicion buscarCeldaSinRecurso(int filaFija){
+        Posicion posicionDePrueba = new Posicion(filaFija,(int) (Math.random() * longitudFilas-1));
+        while (Mapa.getInstance().obtenerCelda(posicionDePrueba).celdaConRecurso())
+            posicionDePrueba = new Posicion(filaFija,(int) (Math.random() * longitudFilas-1));
+        return posicionDePrueba;
+    }
     public void generarBase(Edificio baseJugador){
+        Mapa mapa = Mapa.getInstance();
+        Posicion posicionBase;
+
         if(primeraColocacion) {
-            mapa.get(0).get((int) (Math.random() * longitudFilas)).ocuparPorTierra(baseJugador);
+            posicionBase = buscarCeldaSinRecurso(0);
             primeraColocacion = false;
         }
-        else
-            mapa.get(longitudFilas-1).get((int) (Math.random() * longitudFilas)).ocuparPorTierra(baseJugador);
+        else {
+            posicionBase = buscarCeldaSinRecurso(longitudFilas-1);
+        }
+        mapa.obtenerCelda(posicionBase).ocuparPorTierra(baseJugador);
+        baseJugador.instanciacionesIniciales(posicionBase);
+
     }
     public int calcularTotalCeldas(){
         return longitudColumnas*longitudFilas;

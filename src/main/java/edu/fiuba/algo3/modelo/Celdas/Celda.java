@@ -2,10 +2,13 @@ package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Descripcion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
+import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAereaInexistente;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
+import edu.fiuba.algo3.modelo.Razas.UnidadInexistente;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
@@ -28,6 +31,8 @@ public class Celda implements Descripcion {
 
     public Celda(int posicionX, int posicionY){
         this.recurso = new NoRecurso();
+        this.ocupanteTerrestre = new UnidadInexistente();
+        this.ocupanteAereo = new TropaAereaInexistente();
         this.tipo = new CeldaLibre(this);
         this.posicion = new Posicion(posicionX,posicionY);
     }
@@ -56,18 +61,21 @@ public class Celda implements Descripcion {
 
     public void ocuparPorAire(TropaAerea ocupanteAereoNuevo){
         if(!this.estaOcupadaPorAire()) {
-            this.ocupanteAereo = ocupanteAereoNuevo;
+            this.ocupanteAereo.existe();
         }else{
             throw new CeldaOcupada();
         }
     }
-    public Unidad desocupar(){
-        Unidad u = this.ocupanteTerrestre;
-        this.ocupanteTerrestre = null;
-        return u;
+    public void desocuparPorTierra(){
+        this.ocupanteTerrestre = new UnidadInexistente();
     }
+
+    public void desocuparPorAire(){
+        this.ocupanteAereo = new TropaAereaInexistente();
+    }
+
     public boolean estaOcupadaPorTierra() {
-        return this.ocupanteTerrestre != null;
+        return this.ocupanteTerrestre.existe();
     }
     public boolean estaOcupadaPorAire() {
         return this.ocupanteAereo != null;
@@ -88,6 +96,7 @@ public class Celda implements Descripcion {
     }
     public void agregarRecurso(Recurso nuevoRecurso){
         recurso = nuevoRecurso;
+        recurso.posicionarRecurso(this.posicion);
     }
     public int extraer(int cantidad) {
         return this.recurso.extraer(cantidad);
@@ -104,53 +113,62 @@ public class Celda implements Descripcion {
     public void instanciarUnidad(Unidad unidad){
         unidad.instanciacionesIniciales(posicion);
     }
-    public ArrayList<String> gestionarOpcionesParaJugador() {
+    public ArrayList<OpcionElegible> gestionarOpcionesParaJugador() {
 
-        ArrayList<String> listaDeOpciones = new ArrayList<String>();
+        ArrayList<OpcionElegible> listaDeOpciones = new ArrayList<OpcionElegible>();
 
         if (this.tipo != null) {
-            ArrayList<String> opcionesDeTipo = this.tipo.obtenerOpciones();
+            ArrayList<OpcionElegible> opcionesDeTipo = this.tipo.obtenerOpciones();
             if (opcionesDeTipo != null ) { listaDeOpciones.addAll(opcionesDeTipo); }
         }
 
-        if (this.ocupanteTerrestre != null) {
-            ArrayList<String> opcionesDeOcupanteTerrestre = this.ocupanteTerrestre.obtenerOpciones();
+        if (this.ocupanteTerrestre.existe()) {
+            ArrayList<OpcionElegible> opcionesDeOcupanteTerrestre = this.ocupanteTerrestre.obtenerOpciones();
             if (opcionesDeOcupanteTerrestre != null) { listaDeOpciones.addAll(opcionesDeOcupanteTerrestre); }
         }
 
-        if (this.ocupanteAereo != null) {
-            ArrayList<String> opcionesDeOcupanteAereo = this.ocupanteAereo.obtenerOpciones();
+        if (this.ocupanteAereo.existe()) {
+            ArrayList<OpcionElegible> opcionesDeOcupanteAereo = this.ocupanteAereo.obtenerOpciones();
             if (opcionesDeOcupanteAereo != null) { listaDeOpciones.addAll(opcionesDeOcupanteAereo); }
         }
 
         if (this.recurso != null && this.tipo != null) {
-            ArrayList<String> opcionesDeRecurso = this.recurso.obtenerOpciones();
+            ArrayList<OpcionElegible> opcionesDeRecurso = this.recurso.obtenerOpciones();
             if (opcionesDeRecurso != null) { listaDeOpciones.addAll(opcionesDeRecurso); }
         }
 
         return listaDeOpciones;
 
     }
+<<<<<<< HEAD
     public void mostrarDescripcion() {
         tipo.mostrarDescripcion();
     }
+=======
+
+    public boolean celdaConRecurso(){
+        return !(recurso instanceof NoRecurso);
+    }
+
+
+>>>>>>> manejoDeOpciones
     // Sprites:
     public String obtenerSpriteOcupanteTerrestre(){
-        if (this.ocupanteTerrestre != null) { return this.ocupanteTerrestre.obtenerSprite(); }
+        if (this.ocupanteTerrestre.existe()) { return this.ocupanteTerrestre.obtenerSprite(); }
         return null;
     }
 
     public String obtenerSpriteOcupanteAereo() {
-        if (this.ocupanteAereo != null) { return this.ocupanteAereo.obtenerSprite(); }
+        if (this.ocupanteAereo.existe()) { return this.ocupanteAereo.obtenerSprite(); }
         return null;
     }
 
     public String obtenerSpriteTipo() {
-        if (!this.spriteCeldaNoEnviado){
-            this.spriteCeldaNoEnviado = true;
-            return this.tipo.obtenerSprite();
-        }
-        return null;
+        //if (!this.spriteCeldaNoEnviado){
+        return this.tipo.obtenerSprite();
+            //this.spriteCeldaNoEnviado = true;
+        //}
+        //return null;
     }
 
     public String obtenerSpriteRecurso() {

@@ -3,6 +3,9 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 import edu.fiuba.algo3.modelo.Ataque.AtacarTierraYAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Espiral;
+import edu.fiuba.algo3.modelo.Opciones.AtacarPorTierra;
+import edu.fiuba.algo3.modelo.Opciones.AtacarPorAire;
+import edu.fiuba.algo3.modelo.Opciones.Mutar;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
@@ -21,11 +24,12 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
         vida = new Vida(80);
         edificioNecesario = new Espiral();
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-        opciones.add("Atacar a tierra");
-        opciones.add("Atacar a aire");
-        opciones.add("Mutar");
+        opciones.add(new AtacarPorTierra(obtenerDescripcion()));
+        opciones.add(new AtacarPorAire(obtenerDescripcion()));
+        opciones.add(new Mutar(obtenerDescripcion()));
 
     }
+
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
         rangoAtaque = new RangoAtaque(this,3,posicion);
@@ -56,4 +60,10 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
         System.out.println("Danio terrestre:" + this.danioTerrestre);
     }
     public String obtenerSprite() { return null; }
+
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }

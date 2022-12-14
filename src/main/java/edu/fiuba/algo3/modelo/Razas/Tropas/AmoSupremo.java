@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Ataque.AtacarAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
+import edu.fiuba.algo3.modelo.Opciones.DetectarTropasInvisibles;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoDetector;
 import edu.fiuba.algo3.modelo.Razas.UnidadConAmpliacionDeSuministro;
@@ -21,9 +22,10 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
         danioTerrestre = 0;
         danioAereo = 0;
         suministro = 0;
-        opciones.add("Rastrear");
+        opciones.add(new DetectarTropasInvisibles(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/amosSupremo.png";
     }
+
     public void aniadirSuministro(){
         comunidad.aniadirCapacidadSuministro(5);
     }
@@ -56,4 +58,10 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
 
     }
     public String obtenerSprite() { return this.rutaSprite; }
+
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }

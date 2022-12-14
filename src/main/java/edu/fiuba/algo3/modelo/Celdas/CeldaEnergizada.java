@@ -1,22 +1,24 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
+import edu.fiuba.algo3.modelo.Opciones.ConstruirEdificioProtoss;
+import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 
 import java.util.ArrayList;
 
 public class CeldaEnergizada extends TipoCelda{
     private int energia = 0;
-    private final String RUTA_SPRITE = "estado/energizada.png";
+    private final String RUTA_SPRITE = "estados/energizada.png";
 
     public CeldaEnergizada(){
         super();
         this.energia++;
-        opciones.add("Construir edificio Protoss");
+        opciones.add(new ConstruirEdificioProtoss(obtenerDescripcion()));
     }
     public CeldaEnergizada(Celda celda) {
         super(celda);
         this.energia++;
-        opciones.add("Construir edificio Protoss");
+        opciones.add(new ConstruirEdificioProtoss(obtenerDescripcion()));
     }
 
     @Override
@@ -66,7 +68,13 @@ public class CeldaEnergizada extends TipoCelda{
     }
 
     @Override
-    public ArrayList<String> obtenerOpciones(){return opciones;}
+    public ArrayList<OpcionElegible> obtenerOpciones(){return opciones;}
 
+    @Override
+    public String obtenerDescripcion(){
+        String descripcion = "";
+        return descripcion;
+    }
 
 }
+

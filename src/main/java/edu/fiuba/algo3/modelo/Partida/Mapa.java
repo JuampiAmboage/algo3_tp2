@@ -29,7 +29,7 @@ public class Mapa {
             for (int j = 0; j < LONGITUD_COLUMNAS_MAPA; j++)
                 mapaJuego.get(i).add(new Celda(i, j));
         }
-        generadorElementos = new GeneradorElementos(mapaJuego,LONGITUD_FILAS_MAPA,LONGITUD_COLUMNAS_MAPA);
+        generadorElementos = new GeneradorElementos(LONGITUD_FILAS_MAPA,LONGITUD_COLUMNAS_MAPA);
     }
 
     public void generarBase(Edificio baseJugador){

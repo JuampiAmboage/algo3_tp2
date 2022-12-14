@@ -17,11 +17,16 @@ public class Pilon extends EdificioProtoss implements UnidadConAmpliacionDeSumin
     public Pilon(){
         super();
         this.tiempoConstruccion = 5;
-        this.vida =  new VidaConEscudo(300, 300);
+        inicializaciones();
+    }
+
+    public void inicializaciones(){
+        this.vida = new VidaConEscudo(300, 300);
         this.comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         this.suministro = 5;
         this.visibilidad = new Visible(this);
         this.rutaSprite = this.rutaSprite + "edificios/pilon.png";
+
     }
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
@@ -90,10 +95,16 @@ public class Pilon extends EdificioProtoss implements UnidadConAmpliacionDeSumin
     public String obtenerSprite() { return this.rutaSprite; }
 
     @Override
+<<<<<<< HEAD
     public void mostrarDescripcion() {
         System.out.println("-Pilon-");
         System.out.println("Unidad fundamental Protoss. Energiza celdas para construcción de edificios.\n");
         System.out.println("Escudo actual: " + this.vida.getEscudoActual());
         System.out.println("Vida actual: "+ this.vida.getVidaActual());
+=======
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+>>>>>>> manejoDeOpciones
     }
 }

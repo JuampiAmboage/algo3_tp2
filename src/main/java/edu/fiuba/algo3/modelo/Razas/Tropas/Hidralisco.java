@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 import edu.fiuba.algo3.modelo.Ataque.AtacarTierraYAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Guarida;
+import edu.fiuba.algo3.modelo.Opciones.AtacarPorTierra;
+import edu.fiuba.algo3.modelo.Opciones.AtacarPorAire;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.Vida;
@@ -20,8 +22,8 @@ public class Hidralisco extends TropaTerrestre{
         edificioNecesario = new Guarida();
         vida = new Vida(80);
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-        opciones.add("Atacar a tierra");
-        opciones.add("Atacar a aire");
+        opciones.add(new AtacarPorTierra(obtenerDescripcion()));
+        opciones.add(new AtacarPorAire(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/hidralisco.png";
     }
 
@@ -44,4 +46,10 @@ public class Hidralisco extends TropaTerrestre{
         System.out.println("Danio terrestre:" + this.danioTerrestre);
     }
     public String obtenerSprite() { return this.rutaSprite; }
+
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }

@@ -20,6 +20,7 @@ public class ComunidadProtoss extends Comunidad{
         Pilon pilonInicial = new Pilon();
         Mapa.getInstance().generarBase(pilonInicial);
         unidades.add(pilonInicial);
+        pilonInicial.construccionInstantanea();
     }
 
     public static ComunidadProtoss obtenerInstanciaDeClase(){

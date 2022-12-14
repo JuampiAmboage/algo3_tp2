@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.controladores;
 
+import edu.fiuba.algo3.App;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
@@ -15,9 +17,13 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
     private Label nombrePerfil;
     @FXML
     protected VBox vBoxMenu;
+    @FXML
+    private Button botonPasarTurno;
 
     @Override
-    public void establecerPerfil(String perfil, String nombre) {
+    public void establecerPerfil(String perfil, String nombre, App app) {
+        this.app = app;
+
         this.perfil = perfil;
 
         this.imagenPerfil.setFitWidth(100.0);
@@ -25,6 +31,7 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
         this.imagenPerfil.setImage(establecerImagen());
 
         establecerNombre(nombre);
+        establecerBotonpasarTurno();
     }
 
     @Override
@@ -39,8 +46,19 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
     }
 
     @Override
-    protected void limpiarMenu() {
+    public void limpiarMenu() {
         this.vBoxMenu.getChildren().clear();
     }
+
+    private void establecerBotonpasarTurno() {
+        this.botonPasarTurno.setDisable(true);
+    }
+
+    public void gestionarPasarTurno() {
+        this.botonPasarTurno.setDisable(true);
+        this.app.gestionarPasarTurno(this);
+    }
+
+    public void activar() { this.botonPasarTurno.setDisable(false); }
 
 }

@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 import edu.fiuba.algo3.modelo.Ataque.AtacarTierraYAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Edificios.Acceso;
+import edu.fiuba.algo3.modelo.Opciones.AtacarPorTierra;
+import edu.fiuba.algo3.modelo.Opciones.AtacarPorAire;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
@@ -21,8 +23,8 @@ public class Dragon extends TropaTerrestre{
         edificioNecesario = new Acceso();
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         vida = new VidaConEscudo(100,80);
-        opciones.add("Atacar a tierra");
-        opciones.add("Atacar a aire");
+        opciones.add(new AtacarPorTierra(obtenerDescripcion()));
+        opciones.add(new AtacarPorAire(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/protoss/dragon.png";
     }
     public void realizarAccionesTurno(){
@@ -49,4 +51,10 @@ public class Dragon extends TropaTerrestre{
         System.out.println("Danio terrestre:" + this.danioTerrestre);
     }
     public String obtenerSprite() { return this.rutaSprite; }
+
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }
