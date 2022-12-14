@@ -191,8 +191,6 @@ public class App extends Application {
 
     public void actualizarMapa() { this.controladorVistaMapa.actualizarMapa(); }
 
-    public void salir() {
-        this.escenarioPrimario.close();
-    }
+    public void salir() { this.escenarioPrimario.close(); }
 
 }
