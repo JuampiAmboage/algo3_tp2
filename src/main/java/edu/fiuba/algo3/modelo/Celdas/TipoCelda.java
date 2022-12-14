@@ -35,12 +35,7 @@ public abstract class TipoCelda implements Descripcion {
 
     public abstract String obtenerSprite();
 
-<<<<<<< HEAD
-    public abstract ArrayList<String> obtenerOpciones();
-    public abstract void mostrarDescripcion();
-=======
     public abstract ArrayList<OpcionElegible> obtenerOpciones();
 
     public abstract String obtenerDescripcion();
->>>>>>> manejoDeOpciones
 }
