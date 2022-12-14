@@ -12,7 +12,6 @@ public class Mutar extends OpcionElegible{
     public Mutar(String descripcion) {
         this.titulo = "Mutar";
         this.pertenceA = "zerg";
-        this.inforomacionSobreOpcion = descripcion;
         this.textoBotones.add("Mutar a devorador");
         this.textoBotones.add("Mutar a guardian");
     }

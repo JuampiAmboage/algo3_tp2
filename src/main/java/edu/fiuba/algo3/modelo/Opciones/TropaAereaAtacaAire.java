@@ -5,11 +5,10 @@ import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
-
+/*
 public class TropaAereaAtacaAire extends OpcionElegible{
     public TropaAereaAtacaAire(String descripcion) {
         this.titulo = "Ataque terrestre";
-        this.inforomacionSobreOpcion = descripcion;
         this.textoBotones.add("Atacar");
     }
 
@@ -24,4 +23,4 @@ public class TropaAereaAtacaAire extends OpcionElegible{
             tropaAtacante.atacarAire(tropaAtacada);
         }
     }
-}
+}*/

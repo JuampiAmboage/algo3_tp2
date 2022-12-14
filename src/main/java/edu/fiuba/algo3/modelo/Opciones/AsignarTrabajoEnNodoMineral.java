@@ -8,7 +8,6 @@ public class AsignarTrabajoEnNodoMineral extends OpcionElegible{
     public AsignarTrabajoEnNodoMineral(String descripcion) {
         this.titulo = "Asignar trabajo en nodo mineral";
         this.pertenceA = "zerg";
-        this.inforomacionSobreOpcion = descripcion;
         this.textoBotones.add("Asignar trabajo");
     }
 

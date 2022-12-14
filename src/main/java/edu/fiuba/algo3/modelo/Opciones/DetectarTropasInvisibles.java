@@ -8,7 +8,6 @@ public class DetectarTropasInvisibles extends OpcionElegible{
     public DetectarTropasInvisibles(String descripcion) {
         this.titulo = "Detectar tropas invisibles";
         this.pertenceA = "zerg";
-        this.inforomacionSobreOpcion = descripcion;
         this.textoBotones.add("Detectar");
     }
 

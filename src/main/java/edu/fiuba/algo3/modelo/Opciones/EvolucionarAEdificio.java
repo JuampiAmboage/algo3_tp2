@@ -10,7 +10,6 @@ public class EvolucionarAEdificio extends OpcionElegible{
     public EvolucionarAEdificio(String descripcion) {
         this.titulo = "Evolucionar a edificio";
         this.pertenceA = "zerg";
-        this.inforomacionSobreOpcion = descripcion;
         this.textoBotones.add("Criadero");
         this.textoBotones.add("Reserva de reproduccion");
         this.textoBotones.add("Guardia");

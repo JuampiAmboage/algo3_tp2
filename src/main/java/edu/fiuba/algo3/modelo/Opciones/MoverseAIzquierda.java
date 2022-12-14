@@ -7,7 +7,6 @@ public class MoverseAIzquierda extends OpcionElegible{
 
     public MoverseAIzquierda(String descripcion) {
         this.titulo = "Mover a la izquierda";
-        this.inforomacionSobreOpcion = descripcion;
         this.textoBotones.add("Mover");
     }
 

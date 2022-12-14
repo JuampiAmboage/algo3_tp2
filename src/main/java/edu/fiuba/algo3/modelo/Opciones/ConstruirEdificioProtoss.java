@@ -10,7 +10,6 @@ public class ConstruirEdificioProtoss extends OpcionElegible{
     public ConstruirEdificioProtoss(String descripcion) {
         this.titulo = "Construir edificio protos";
         this.pertenceA = "protoss";
-        this.inforomacionSobreOpcion = descripcion;
 
         this.textoBotones.add("Pilon");
         this.textoBotones.add("Accseso");

@@ -12,7 +12,6 @@ public class AsignarTrabajoEnExtractor extends OpcionElegible{
     public AsignarTrabajoEnExtractor(String descripcion) {
         this.titulo = "Asignar trabajo en extractor";
         this.pertenceA = "zerg";
-        this.inforomacionSobreOpcion = descripcion;
         this.textoBotones.add("Asignar trabajo");
     }
 

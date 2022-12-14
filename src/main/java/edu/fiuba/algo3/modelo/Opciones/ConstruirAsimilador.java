@@ -12,7 +12,6 @@ public class ConstruirAsimilador extends OpcionElegible {
     public ConstruirAsimilador(String descripcion) {
         this.titulo = "Construir asimilador";
         this.pertenceA = "protoss";
-        this.inforomacionSobreOpcion = descripcion;
         this.textoBotones.add("Construir asimilador");
     }
     @Override
