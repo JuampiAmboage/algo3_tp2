@@ -191,4 +191,8 @@ public class App extends Application {
         this.escenarioPrimario.close();
     }
 
+    public static void lanzarWarning(String advertencia) {
+
+    }
+
 }
