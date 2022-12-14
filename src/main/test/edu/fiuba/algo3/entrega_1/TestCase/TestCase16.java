@@ -24,7 +24,7 @@ public class TestCase16 {
         celda.agregarRecurso(volcan);
         celda.ocuparPorTierra(extractor);
 
-        assertThrows(CeldaOcupada.class, () -> celda.ocuparPorTierra(asimilador));
+        assertThrows(CeldaOcupada.class, celda::estaOcupadaPorTierra);
     }
 
     @Test
@@ -37,19 +37,6 @@ public class TestCase16 {
         celda.cambiarTipo(energizada);
         celda.ocuparPorTierra(dragon);
 
-        assertThrows(CeldaOcupada.class, () -> celda.ocuparPorTierra(nexoMineral));
-    }
-
-    @Test
-    public void noSePuedeTrasladarUnaUnidadDondeHayUnEdificio() {
-        Celda celda = new Celda(0,0);
-        CeldaEnergizada energizada = new CeldaEnergizada(celda);
-        NexoMineral nexoMineral = new NexoMineral(new NodoMineral());
-        Dragon dragon = new Dragon();
-
-        celda.cambiarTipo(energizada);
-        celda.ocuparPorTierra(nexoMineral);
-
-        assertThrows(CeldaOcupada.class, () -> celda.ocuparPorTierra(dragon));
+        assertThrows(CeldaOcupada.class, celda::estaOcupadaPorTierra);
     }
 }

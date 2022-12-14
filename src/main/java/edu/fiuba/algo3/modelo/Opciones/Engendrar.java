@@ -18,9 +18,17 @@ public class Engendrar extends OpcionElegible{
     }
     /* Opciones de tropas: Zangano, Zerling, Hidralisco, Mutalisco, Amo Supremo */
 
-    public void gestionarClick(Celda celda) {
+    /*public void gestionarClick(Celda celda) {
         Tropa unidadAEngendrar = obtenerTropa();
         Criadero criadero = (Criadero) celda.obtenerOcupanteTerrestre();
         ComunidadZerg.obtenerInstanciaDeClase().crearUnidad(criadero,unidadAEngendrar);
     }
+
+
+    private Tropa obtenerTropa() {
+        // TODO: Mostrar ventana con opciones.
+        Opciones de tropas: Zangano, Zerling, Hidralisco, Mutalisco, Amo Supremo
+
+        return tropa;
+    }*/
 }

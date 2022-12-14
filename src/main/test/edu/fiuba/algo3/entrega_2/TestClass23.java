@@ -15,7 +15,7 @@ public class TestClass23 {
     @Test
     public void siUnaTropaEstaDentroDelRangoDeOtraYEsAtacadaRecibeDanio(){
         Mapa mapa = Mapa.getInstance();
-        mapa.instanciarMapa(6,6);
+        mapa.instanciarMapa();
 
         Zerling zerling = new Zerling(); //zerling hace 4 de daño
         Dragon dragon = new Dragon(); //dragon empieza con 80 de escudo y 100 de vida
@@ -46,7 +46,7 @@ public class TestClass23 {
 
         zerling.iniciarConstruccion();
 
-        mapa.instanciarMapa(6,6);
+        mapa.instanciarMapa();
 
         celdaZerling.ocuparPorTierra(zerling);
         zerling.instanciacionesIniciales(new Posicion(3,6));

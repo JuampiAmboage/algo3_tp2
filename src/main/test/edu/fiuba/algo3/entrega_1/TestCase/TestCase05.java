@@ -21,7 +21,7 @@ public class TestCase05 {
         Mapa mapa = Mapa.getInstance();
         Pilon pilon = new Pilon();
 
-        mapa.instanciarMapa(7, 7);
+        mapa.instanciarMapa();
         mapa.obtenerCelda(new Posicion(4,4)).ocuparPorTierra(pilon);
         pilon.instanciacionesIniciales(new Posicion(4,4));
         Celda celda = mapa.obtenerCelda(new Posicion(4,5));
@@ -33,10 +33,10 @@ public class TestCase05 {
         Mapa mapa = Mapa.getInstance();
         Pilon pilon = new Pilon();
 
-        mapa.instanciarMapa(7, 7);
+        mapa.instanciarMapa();
         ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(pilon);
         mapa.obtenerCelda(new Posicion(4,4)).ocuparPorTierra(pilon);
-        mapa.obtenerCelda(new Posicion(4,4)).desocupar();
+        mapa.obtenerCelda(new Posicion(4,4)).desocuparPorTierra();
         pilon.instanciacionesIniciales(new Posicion(4,4));
         pilon.daniarIgnorandoVisibilidad(600);
         Celda celda = mapa.obtenerCelda(new Posicion(4,5));
@@ -47,7 +47,7 @@ public class TestCase05 {
         Mapa mapa = Mapa.getInstance();
         Criadero criadero = new Criadero();
 
-        mapa.instanciarMapa(7, 7);
+        mapa.instanciarMapa();
         mapa.obtenerCelda(new Posicion(3,3)).ocuparPorTierra(criadero);
         criadero.instanciacionesIniciales(new Posicion(3,3));
         Celda celda = mapa.obtenerCelda(new Posicion(3,4));

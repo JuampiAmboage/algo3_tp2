@@ -11,7 +11,7 @@ public class Almacenamiento {
 
     public Almacenamiento(){
         this.gasVespeno = 0;
-        this.mineral = 200;
+        this.mineral = 400;
     }
     public boolean suficientesRecursos(int costoGasUnidadAGenerar, int costoMineralUnidadAGenerar) {
         return (costoGasUnidadAGenerar <= gasVespeno && costoMineralUnidadAGenerar <= mineral);

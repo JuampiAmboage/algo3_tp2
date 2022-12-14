@@ -2,14 +2,16 @@ package edu.fiuba.algo3.modelo.Comunidad;
 
 import edu.fiuba.algo3.modelo.Excepciones.PoblacionMaximaAlcanzada;
 import edu.fiuba.algo3.modelo.Excepciones.UnidadInexistente;
+import edu.fiuba.algo3.modelo.Partida.Jugador;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 import java.util.ArrayList;
 
 public abstract class Comunidad {
+    private Jugador jugadorPropietario;
+
     protected ArrayList<Unidad> unidades;
     protected Almacenamiento almacenamiento;
-
     protected  int cantidadPoblacionHabilitada;
     protected  int cantidadPoblacionActual;
 
@@ -18,6 +20,10 @@ public abstract class Comunidad {
         unidades = new ArrayList<Unidad>();
         cantidadPoblacionHabilitada = 1;
         cantidadPoblacionActual = 0;
+    }
+
+    public void agregarJugadorPropietario(Jugador jugador){
+        this.jugadorPropietario = jugador;
     }
     public void agregarUnidad(Unidad unidadNueva){
         if(cantidadPoblacionActual+1 <= cantidadPoblacionHabilitada) {
@@ -35,6 +41,12 @@ public abstract class Comunidad {
         else
             throw new UnidadInexistente();
     }
+
+    public void revisarPoblacion(){
+        if(unidades.isEmpty())
+            jugadorPropietario.notificarFinDePartida();
+    }
+
     public void aniadirGasVespeno(int cantidadGasEntrante){
         almacenamiento.almacenarGasVespeno(cantidadGasEntrante);
     }
@@ -68,6 +80,7 @@ public abstract class Comunidad {
     public boolean existeUnidad(Unidad unidadBuscada) {
         for (Unidad unidad : unidades) {
             if (unidad.getClass().equals(unidadBuscada.getClass())) {
+                unidad.esUsable();
                 return true;
             }
         }

@@ -14,7 +14,7 @@ public class Mutar extends OpcionElegible{
         this.inforomacionSobreOpcion = descripcion;
         this.textoBoton = this.titulo;
     }
-    public void gestionarClick(Celda celda) {
+ /*   public void gestionarClick(Celda celda) {
         UnidadEvolucionada unidadEvolucionada = obtenerUnidadEvolucionada();
         Mutalisco mutalisco = (Mutalisco) celda.obtenerOcupanteAereo();
         mutalisco.mutar(unidadEvolucionada);
@@ -23,8 +23,10 @@ public class Mutar extends OpcionElegible{
 
     private UnidadEvolucionada unidadEvolucionada() {
         // TODO: Mostrar ventana con opciones.
-        /* Opciones de mutacion: Devorador, Guardian*/
+         Opciones de mutacion: Devorador, Guardian
 
         return unidadEvolucionada;
-    }
+        }
+  */
+
 }

@@ -15,16 +15,19 @@ public class TestCase06 {
     @Test
     public void cuandoInfectoUnaCeldaConMohoNoInfectaDeInmediato() {
         Mapa mapa = Mapa.getInstance();
-        mapa.instanciarMapa(3,3);
-        Celda centro = mapa.obtenerCelda(new Posicion(1,1));
+        mapa.instanciarMapa();
+
+        Celda centro = mapa.obtenerCelda(new Posicion(8,8));
+        Celda abajo = mapa.obtenerCelda(new Posicion(8,9));
+
         centro.cambiarTipo(new CeldaConMoho(centro));
-        assertFalse(mapa.obtenerCelda(new Posicion(2,1)).esMismoTipo(new CeldaConMoho(centro)));
+        assertFalse(abajo.esMismoTipo(new CeldaConMoho(abajo)));
     }
 
     @Test
     public void cuandoInfectoUnaCeldaConMohoYPasoUnTurnoLasCeldasAdyacentesSeInfectaron() {
         Mapa mapa = Mapa.getInstance();
-        mapa.instanciarMapa(3,3);
+        mapa.instanciarMapa();
         Celda centro = mapa.obtenerCelda(new Posicion(1,1));
         centro.cambiarTipo(new CeldaConMoho(centro));
         centro.pasarTurno();
@@ -42,7 +45,7 @@ public class TestCase06 {
     @Test
     public void unMapaDe5x5EsTotalmenteInfectadoAlPasar4Turnos() {
         Mapa mapa = Mapa.getInstance();
-        mapa.instanciarMapa(5,5);
+        mapa.instanciarMapa();
         Celda centro = mapa.obtenerCelda(new Posicion(2,2));
         centro.cambiarTipo(new CeldaConMoho(centro));
         mapa.pasarTurno();

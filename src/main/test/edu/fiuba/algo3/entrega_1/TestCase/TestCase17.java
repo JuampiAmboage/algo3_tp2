@@ -37,6 +37,8 @@ public class TestCase17 {
 
         celda.cambiarTipo(energizada);
         ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(acceso);
+        acceso.construccionInstantanea();
+
         assertDoesNotThrow(()->celda.quiereConstruir(puertaEstelar));
 
     }
@@ -61,6 +63,7 @@ public class TestCase17 {
 
         celda.cambiarTipo(celdaConMoho);
         ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(guarida);
+        guarida.construccionInstantanea();
 
         assertDoesNotThrow(()->celda.quiereConstruir(espiral));
     }
