@@ -11,7 +11,7 @@ public class ConstruirTropaProtoss extends OpcionElegible{
         this.pertenceA = "protoss";
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
-        this.textoBoton = "Construir";
+        this.textoBotones.add("Construir");
     }
 
     @Override

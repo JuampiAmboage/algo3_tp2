@@ -13,7 +13,7 @@ public class Engendrar extends OpcionElegible{
         this.pertenceA = "zerg";
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
-        this.textoBoton= this.titulo;
+        this.textoBotones.add("Engendrar");
     }
     /* Opciones de tropas: Zangano, Zerling, Hidralisco, Mutalisco, Amo Supremo */
 

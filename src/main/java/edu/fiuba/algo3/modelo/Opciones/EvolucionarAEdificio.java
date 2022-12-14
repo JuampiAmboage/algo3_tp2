@@ -12,7 +12,10 @@ public class EvolucionarAEdificio extends OpcionElegible{
         this.pertenceA = "zerg";
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
-        this.textoBoton = "evolucionar";
+        this.textoBotones.add("Criadero");
+        this.textoBotones.add("Reserva de reproduccion");
+        this.textoBotones.add("Guardia");
+        this.textoBotones.add("Espiral");
     }
 
     @Override
