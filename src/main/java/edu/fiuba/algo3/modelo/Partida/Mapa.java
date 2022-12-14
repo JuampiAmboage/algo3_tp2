@@ -46,6 +46,9 @@ public class Mapa {
         throw new CoordenadaFueraDeRango();
     }
 
+    public void generarRecursos(){
+        generadorElementos.generarRecursos();
+    }
     public void pasarTurno(){
         for (ArrayList<Celda> fila : mapaJuego){
             for (Celda celda : fila) {
