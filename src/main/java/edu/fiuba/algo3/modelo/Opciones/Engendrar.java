@@ -1,5 +1,10 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
+import edu.fiuba.algo3.modelo.Edificios.Criadero;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
+
 public class Engendrar extends OpcionElegible{
 
     public Engendrar(String descripcion) {
@@ -10,6 +15,8 @@ public class Engendrar extends OpcionElegible{
         this.textoBoton = this.titulo;
     }
 
-    @Override
-    public void gestionarClick() { System.out.println("funciona"); }
+    public void gestionarClick(Celda celda, Tropa unidadAEngendrar) {
+        Criadero criadero = (Criadero) celda.obtenerOcupanteTerrestre();
+        ComunidadZerg.obtenerInstanciaDeClase().crearUnidad(criadero,unidadAEngendrar);
+    }
 }

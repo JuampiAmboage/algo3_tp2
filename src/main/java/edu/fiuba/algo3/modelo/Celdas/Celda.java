@@ -77,7 +77,7 @@ public class Celda implements Descripcion {
         return this.ocupanteTerrestre.existe();
     }
     public boolean estaOcupadaPorAire() {
-        return this.ocupanteAereo != null;
+        return this.ocupanteAereo.existe();
     }
 
     public void pasarTurno(){
@@ -105,9 +105,11 @@ public class Celda implements Descripcion {
         this.tipo.quiereConstruir(unEdificio);
     }
 
-    public Unidad obtenerOcupante(){
+    public Unidad obtenerOcupanteTerrestre(){
         return ocupanteTerrestre;
     }
+
+    public TropaAerea obtenerOcupanteAereo(){return ocupanteAereo; }
 
     public void instanciarUnidad(Unidad unidad){
         unidad.instanciacionesIniciales(posicion);
@@ -147,6 +149,7 @@ public class Celda implements Descripcion {
         return !(recurso instanceof NoRecurso);
     }
 
+    public Recurso obtenerRecurso(){ return recurso;}
     // Sprites:
     public String obtenerSpriteOcupanteTerrestre(){
         if (this.ocupanteTerrestre.existe()) { return this.ocupanteTerrestre.obtenerSprite(); }

@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Razas.Tropas.AmoSupremo;
+
 public class DetectarTropasInvisibles extends OpcionElegible{
 
     public DetectarTropasInvisibles(String descripcion) {
@@ -9,6 +12,9 @@ public class DetectarTropasInvisibles extends OpcionElegible{
         this.inforomacionSobreOpcion = descripcion;
         this.textoBoton = "Detectar";
     }
-    @Override
-    public void gestionarClick() { System.out.println("funciona"); }
+    public void gestionarClick(Celda celda) {
+        AmoSupremo amoSupremo = (AmoSupremo) celda.obtenerOcupanteTerrestre();
+        amoSupremo.localicarZealots();
+        amoSupremo.compararTropasDetectadasEntreTurnos();
+    }
 }

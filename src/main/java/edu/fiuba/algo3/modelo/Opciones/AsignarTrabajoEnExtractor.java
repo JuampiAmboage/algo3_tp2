@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
+
 public class AsignarTrabajoEnExtractor extends OpcionElegible{
 
     public AsignarTrabajoEnExtractor(String descripcion) {
@@ -10,6 +13,9 @@ public class AsignarTrabajoEnExtractor extends OpcionElegible{
         this.textoBoton = "Asignar trabajo";
     }
 
-    @Override
-    public void gestionarClick() { System.out.println("funciona"); }
+    /*@Override
+    public void gestionarClick(Celda celda) {
+        Zangano zanganoQueVaATrabajar = (Zangano) celda.obtenerOcupante();
+        zanganoQueVaATrabajar.asignarTrabajoEnExtractor();
+    }*/
 }

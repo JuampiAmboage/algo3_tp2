@@ -9,6 +9,5 @@ public class SolicitarInformacion extends OpcionElegible{
         this.textoBoton = "Solicitar";
     }
 
-    @Override
     public void gestionarClick() { System.out.println("funciona"); }
 }

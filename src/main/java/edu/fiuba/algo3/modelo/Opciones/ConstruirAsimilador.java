@@ -1,5 +1,10 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
+import edu.fiuba.algo3.modelo.Edificios.Asimilador;
+import edu.fiuba.algo3.modelo.Recursos.Volcan;
+
 public class ConstruirAsimilador extends OpcionElegible {
 
     public ConstruirAsimilador(String descripcion) {
@@ -10,6 +15,7 @@ public class ConstruirAsimilador extends OpcionElegible {
         this.textoBoton = "Construir";
     }
 
-    @Override
-    public void gestionarClick() { System.out.println("funciona"); }
+    public void gestionarClick(Celda celda) {
+        ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda,new Asimilador((Volcan) celda.obtenerRecurso()));
+    }
 }

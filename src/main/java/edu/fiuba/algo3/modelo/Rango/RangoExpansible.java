@@ -30,8 +30,8 @@ public class RangoExpansible extends Rango {
             try {
                 Celda celda = mapa.obtenerCelda(unaPosicion);
                 celda.cambiarTipo(new CeldaEnergizada(celda));
-                if(celda.estaOcupadaPorTierra() && celda.obtenerOcupante().getClass().equals(EdificioProtoss.class)){
-                    EdificioProtoss edificioProtoss = (EdificioProtoss) celda.obtenerOcupante();
+                if(celda.estaOcupadaPorTierra() && celda.obtenerOcupanteTerrestre().getClass().equals(EdificioProtoss.class)){
+                    EdificioProtoss edificioProtoss = (EdificioProtoss) celda.obtenerOcupanteTerrestre();
                     edificioProtoss.energizar();
                 }
             }
@@ -45,8 +45,8 @@ public class RangoExpansible extends Rango {
             try {
                 Celda celda = mapa.obtenerCelda(unaPosicion);
                 celda.cambiarTipo(new CeldaLibre(celda));
-                if(celda.estaOcupadaPorTierra() && celda.obtenerOcupante().getClass().equals(EdificioProtoss.class)){
-                    EdificioProtoss edificioProtoss = (EdificioProtoss) celda.obtenerOcupante();
+                if(celda.estaOcupadaPorTierra() && celda.obtenerOcupanteTerrestre().getClass().equals(EdificioProtoss.class)){
+                    EdificioProtoss edificioProtoss = (EdificioProtoss) celda.obtenerOcupanteTerrestre();
                     edificioProtoss.desenergizar();
                 }
             }

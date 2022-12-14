@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
+
 public class MoverseAIzquierda extends OpcionElegible{
 
     public MoverseAIzquierda(String descripcion) {
@@ -10,6 +13,6 @@ public class MoverseAIzquierda extends OpcionElegible{
         this.textoBoton = "Mover";
     }
 
-    @Override
-    public void gestionarClick() { System.out.println("funciona"); }
+    public void gestionarClick(Celda celda) {  Tropa tropaAMovilizar = (Tropa) celda.obtenerOcupanteTerrestre();
+        tropaAMovilizar.moverIzquierda(); }
 }

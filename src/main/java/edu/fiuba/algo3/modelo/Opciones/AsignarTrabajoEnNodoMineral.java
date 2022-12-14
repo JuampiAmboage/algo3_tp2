@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
+
 public class AsignarTrabajoEnNodoMineral extends OpcionElegible{
     //Nodo mineral o nexo mineral? pertenencia =? protoss
     public AsignarTrabajoEnNodoMineral(String descripcion) {
@@ -10,7 +13,9 @@ public class AsignarTrabajoEnNodoMineral extends OpcionElegible{
         this.textoBoton = "Asignar trabajo";
     }
 
-    @Override
-    public void gestionarClick() { System.out.println("funciona"); }
+    public void gestionarClick(Celda celda) {
+        Zangano zanganoQueVaATrabajar = (Zangano) celda.obtenerOcupanteTerrestre();
+        //zanganoQueVaATrabajar.asignarTrabajoEnNodo();
+    }
 }
 

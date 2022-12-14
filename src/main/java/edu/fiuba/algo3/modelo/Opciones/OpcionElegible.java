@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
+
 public abstract class OpcionElegible {
     public String titulo;
     public String pertenceA;
@@ -22,5 +25,5 @@ public abstract class OpcionElegible {
         return null;
     }
 
-    public abstract void gestionarClick();
+
 }
