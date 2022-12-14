@@ -14,7 +14,8 @@ public class Mutar extends OpcionElegible{
         this.pertenceA = "zerg";
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
-        this.textoBoton = this.titulo;
+        this.textoBotones.add("Mutar a devorador");
+        this.textoBotones.add("Mutar a guardian");
     }
 
     public void gestionarClick(Celda celda, String opcionElejida){
@@ -39,19 +40,4 @@ public class Mutar extends OpcionElegible{
         mutalisco.mutar(guardian);
         celda.instanciarUnidad(guardian);
     }
- /*   public void gestionarClick(Celda celda) {
-        UnidadEvolucionada unidadEvolucionada = obtenerUnidadEvolucionada();
-        Mutalisco mutalisco = (Mutalisco) celda.obtenerOcupanteAereo();
-        mutalisco.mutar(unidadEvolucionada);
-        celda.instanciarUnidad((Unidad) unidadEvolucionada);
-    }
-
-    private UnidadEvolucionada unidadEvolucionada() {
-        // TODO: Mostrar ventana con opciones.
-         Opciones de mutacion: Devorador, Guardian
-
-        return unidadEvolucionada;
-        }
-  */
-
 }
