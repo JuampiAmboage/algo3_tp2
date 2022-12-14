@@ -61,4 +61,10 @@ public class Asimilador extends EdificioProtoss {
 
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
+
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }

@@ -93,4 +93,10 @@ public class Pilon extends EdificioProtoss implements UnidadConAmpliacionDeSumin
 
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
+
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }

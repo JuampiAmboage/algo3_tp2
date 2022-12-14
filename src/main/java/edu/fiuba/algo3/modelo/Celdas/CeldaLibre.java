@@ -64,4 +64,10 @@ public class CeldaLibre extends TipoCelda {
 
     @Override
     public ArrayList<OpcionElegible> obtenerOpciones() { return null; }
+
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }

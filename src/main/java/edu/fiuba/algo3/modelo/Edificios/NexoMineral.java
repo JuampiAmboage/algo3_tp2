@@ -64,4 +64,10 @@ public class NexoMineral extends EdificioProtoss implements Construible{
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
 
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
+
 }

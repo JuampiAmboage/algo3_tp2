@@ -70,4 +70,10 @@ public class Guarida extends Edificio implements Correlatividad {
 
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
+
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }

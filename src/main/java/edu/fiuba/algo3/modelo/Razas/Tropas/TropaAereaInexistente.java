@@ -42,4 +42,9 @@ public class TropaAereaInexistente extends TropaAerea{
     public String obtenerSprite(){
         throw new UnidadInexistente();
     }
+
+    @Override
+    public String obtenerDescripcion() {
+        return null;
+    }
 }

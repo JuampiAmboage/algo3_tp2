@@ -35,7 +35,7 @@ public class NodoMineral extends Recurso {
     public String obtenerSprite() { return this.rutaSprite; }
 
     @Override
-    public obtenerDescripcion() {
+    public String obtenerDescripcion() {
         String descripcion = "";
         return descripcion;
     }

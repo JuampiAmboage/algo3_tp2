@@ -26,4 +26,10 @@ public class NoRecurso extends Recurso {
 
     @Override
     public String obtenerSprite() { return null; }
+
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }

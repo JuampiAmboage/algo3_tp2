@@ -17,4 +17,6 @@ public abstract class Recurso {
     public abstract ArrayList<OpcionElegible> obtenerOpciones();
 
     public abstract String obtenerSprite();
+
+    public abstract String obtenerDescripcion();
 }

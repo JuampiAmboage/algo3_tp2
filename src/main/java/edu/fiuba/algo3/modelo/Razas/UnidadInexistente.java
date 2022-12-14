@@ -18,4 +18,9 @@ public class UnidadInexistente extends Unidad{
     public String obtenerSprite(){
         throw new NoExisteEstaUnidad();
     }
+
+    @Override
+    public String obtenerDescripcion() {
+        return null;
+    }
 }

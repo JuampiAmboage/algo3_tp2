@@ -61,4 +61,9 @@ public class CeldaConMoho extends TipoCelda {
 
     @Override
     public ArrayList<OpcionElegible> obtenerOpciones() { return null; }
+
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }
