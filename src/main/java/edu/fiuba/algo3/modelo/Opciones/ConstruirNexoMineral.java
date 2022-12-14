@@ -12,10 +12,11 @@ public class ConstruirNexoMineral extends OpcionElegible{
         this.pertenceA = "protoss";
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
-        this.textoBoton = "Construir";
+        this.textoBotones.add("Construir");
     }
 
-    public void gestionarClick(Celda celda) {
+    @Override
+    public void gestionarClick(Celda celda, String opcionElejida) {
         NexoMineral nexoMineral = new NexoMineral((NodoMineral) celda.obtenerRecurso());
         ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda,nexoMineral);
         celda.instanciarUnidad(nexoMineral);

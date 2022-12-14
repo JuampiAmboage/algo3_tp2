@@ -10,9 +10,11 @@ public class DetectarTropasInvisibles extends OpcionElegible{
         this.pertenceA = "zerg";
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
-        this.textoBoton = "Detectar";
+        this.textoBotones.add("Detectar");
     }
-    public void gestionarClick(Celda celda) {
+
+    @Override
+    public void gestionarClick(Celda celda, String opcionElejida) {
         AmoSupremo amoSupremo = (AmoSupremo) celda.obtenerOcupanteTerrestre();
         amoSupremo.localicarZealots();
         amoSupremo.compararTropasDetectadasEntreTurnos();

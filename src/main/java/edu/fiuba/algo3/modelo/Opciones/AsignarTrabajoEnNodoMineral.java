@@ -10,10 +10,11 @@ public class AsignarTrabajoEnNodoMineral extends OpcionElegible{
         this.pertenceA = "zerg";
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
-        this.textoBoton = "Asignar trabajo";
+        this.textoBotones.add("Asignar trabajo");
     }
 
-    public void gestionarClick(Celda celda) {
+    @Override
+    public void gestionarClick(Celda celda, String opcionElegida) {
         Zangano zanganoQueVaATrabajar = (Zangano) celda.obtenerOcupanteTerrestre();
         zanganoQueVaATrabajar.revisarEstadoLaboral();
         zanganoQueVaATrabajar.asignarTrabajoEnNodo((NodoMineral) celda.obtenerRecurso());

@@ -14,11 +14,12 @@ public class ConstruirExtractor extends OpcionElegible{
         this.pertenceA = "zerg";
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
-        this.textoBoton = "Construir";
+        this.textoBotones.add("Construir");
     }
 
-    public void gestionarClick(Celda celda) {
-        Extractor extractorNuevo =new Extractor((Volcan) celda.obtenerRecurso());
+    @Override
+    public void gestionarClick(Celda celda, String opcionElejida) {
+        Extractor extractorNuevo = new Extractor((Volcan) celda.obtenerRecurso());
         Zangano zanganoAEvolucionar = (Zangano) celda.obtenerOcupanteTerrestre();
         ComunidadZerg.obtenerInstanciaDeClase().construirEdificio(celda,zanganoAEvolucionar,extractorNuevo);
         celda.instanciarUnidad(extractorNuevo);
