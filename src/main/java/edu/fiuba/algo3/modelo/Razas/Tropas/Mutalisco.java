@@ -3,9 +3,7 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 import edu.fiuba.algo3.modelo.Ataque.AtacarTierraYAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Espiral;
-import edu.fiuba.algo3.modelo.Opciones.TropaAereaAtacaTierra;
-import edu.fiuba.algo3.modelo.Opciones.TropaTerrestreAtacaTierra;
-import edu.fiuba.algo3.modelo.Opciones.TropaTerrestreAtacaAire;
+
 import edu.fiuba.algo3.modelo.Opciones.Mutar;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
@@ -25,8 +23,8 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
         vida = new Vida(80);
         edificioNecesario = new Espiral();
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-        opciones.add(new TropaAereaAtacaTierra(obtenerDescripcion()));
-        opciones.add(new TropaAereaAtacaTierra(obtenerDescripcion()));
+        //opciones.add(new TropaAereaAtacaTierra(obtenerDescripcion()));
+        //opciones.add(new TropaAereaAtacaTierra(obtenerDescripcion()));
         opciones.add(new Mutar(obtenerDescripcion()));
 
     }
@@ -52,14 +50,7 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
         vida.pasarTurno();
     }
 
-    /*@Override
-    public void mostrarDescripcion() {
-        System.out.println("-Mutalisco-");
-        System.out.println("Puede mutar en Devorador y Guardian. Lo que no puede mutar es el corazón de ella. \n");
-        System.out.println("Vida actual: "+ this.vida.getVidaActual());
-        System.out.println("Daño aereo: "+ this.danioAereo);
-        System.out.println("Danio terrestre:" + this.danioTerrestre);
-    }*/
+
     public String obtenerSprite() { return null; }
 
     @Override
