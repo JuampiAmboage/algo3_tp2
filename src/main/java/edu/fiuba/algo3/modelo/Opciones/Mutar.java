@@ -15,7 +15,8 @@ public class Mutar extends OpcionElegible{
         this.textoBoton = this.titulo;
     }
     public void gestionarClick(Celda celda, UnidadEvolucionada unidadEvolucionada) {
-        Mutalisco mutalisco = (Mutalisco) celda.obtenerOcupanteTerrestre();
+        Mutalisco mutalisco = (Mutalisco) celda.obtenerOcupanteAereo();
         mutalisco.mutar(unidadEvolucionada);
+        celda.instanciarUnidad((Unidad) unidadEvolucionada);
     }
 }

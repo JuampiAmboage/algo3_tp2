@@ -18,5 +18,7 @@ public class EvolucionarAEdificio extends OpcionElegible{
     public void gestionarClick(Celda celdaAConstruir, Edificio edificioAConstruir) {
         Zangano zanganoAEvolucionar = (Zangano) celdaAConstruir.obtenerOcupanteTerrestre();
         ComunidadZerg.obtenerInstanciaDeClase().construirEdificio(celdaAConstruir,zanganoAEvolucionar,edificioAConstruir);
+        celdaAConstruir.instanciarUnidad(edificioAConstruir);
+
     }
 }

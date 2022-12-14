@@ -16,6 +16,8 @@ public class ConstruirNexoMineral extends OpcionElegible{
     }
 
     public void gestionarClick(Celda celda) {
-        ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda,new NexoMineral((NodoMineral) celda.obtenerRecurso()));
+        NexoMineral nexoMineral = new NexoMineral((NodoMineral) celda.obtenerRecurso());
+        ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda,nexoMineral);
+        celda.instanciarUnidad(nexoMineral);
     }
 }

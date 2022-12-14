@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Rango;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Excepciones.CoordenadaFueraDeRango;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
@@ -24,11 +25,12 @@ public class RangoDetector extends Rango {
         for(Posicion unaPosicion : posicionesEnRango) {
             try {
                 Celda celda = mapa.obtenerCelda(unaPosicion);
-                if(celda.estaOcupadaPorTierra() && celda.obtenerOcupanteTerrestre().getClass().equals(Zealot.class) ) {
+                celda.estaOcupadaPorTierra();
+                if(celda.obtenerOcupanteTerrestre().getClass().equals(Zealot.class) ) {
                     Zealot unidadDetectada = (Zealot) celda.obtenerOcupanteTerrestre();
                     tropasDetectadasEnPasadaActual.add(unidadDetectada);
                 }
-            } catch (CoordenadaFueraDeRango e) {
+            }catch (CoordenadaFueraDeRango | CeldaOcupada e) {
                 continue;
             }
         }

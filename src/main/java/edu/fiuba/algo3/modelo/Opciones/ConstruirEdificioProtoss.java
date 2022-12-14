@@ -20,5 +20,6 @@ public class ConstruirEdificioProtoss extends OpcionElegible{
 
     public void gestionarClick(Celda celda, EdificioProtoss edificioAConstruir) {
         ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda,edificioAConstruir);
+        celda.instanciarUnidad(edificioAConstruir);
     }
 }

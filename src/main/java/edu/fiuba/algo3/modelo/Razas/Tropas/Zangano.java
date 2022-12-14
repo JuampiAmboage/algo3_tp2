@@ -8,7 +8,9 @@ import edu.fiuba.algo3.modelo.Excepciones.*;
 import edu.fiuba.algo3.modelo.Opciones.AsignarTrabajoEnExtractor;
 import edu.fiuba.algo3.modelo.Opciones.AsignarTrabajoEnNodoMineral;
 import edu.fiuba.algo3.modelo.Opciones.EvolucionarAEdificio;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
+import edu.fiuba.algo3.modelo.Recursos.Recurso;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
 public class Zangano extends TropaTerrestre {
@@ -33,21 +35,26 @@ public class Zangano extends TropaTerrestre {
         if(nodoMineralDondeTrabaja != null)
             comunidad.aniadirMineral(extraerMineral());
     }
-    public void asignarTrabajoEnExtractor(Extractor extractorQueContrata){
+    public void asignarTrabajoEnExtractor(Unidad extractorQueContrata){
         this.esUsable();
-        if(this.posicion.solicitarDistanciaAUnidad(extractorQueContrata) == 1) {
-            this.extractorDondeTrabaja = extractorQueContrata;
-            extractorQueContrata.agregarTrabajador(this);
+        if(extractorQueContrata instanceof Extractor){
+            evaluarDistanciaAExtractor(extractorDondeTrabaja);
+            ((Extractor) extractorQueContrata).agregarTrabajador(this);
+            this.extractorDondeTrabaja = (Extractor) extractorQueContrata;
         }
         else
             throw new ZanganoLejosDeExtractor();
     }
 
-    public void asignarTrabajoEnNodo(NodoMineral nodoMineral){
+    public void evaluarDistanciaAExtractor(Extractor extractor){
+        if(this.posicion.solicitarDistanciaAUnidad(extractor) >= 2)
+            throw new ZanganoLejosDeExtractor();
+    }
+
+    public void asignarTrabajoEnNodo(Recurso recursoDeLaCelda){
         this.esUsable();
-        if(this.posicion.solicitarDistanciaARecurso(nodoMineral) == 0) {
-            this.nodoMineralDondeTrabaja = nodoMineral;
-        }
+        if (recursoDeLaCelda instanceof NodoMineral)
+            this.asignarTrabajoEnNodo(recursoDeLaCelda);
         else
             throw new ZanganoEnDistintaACeldaANodoMineral();
     }

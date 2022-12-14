@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Descripcion;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAereaInexistente;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
@@ -49,22 +50,16 @@ public class Celda implements Descripcion {
     public boolean esMismaPosicion(Posicion posicion){
         return this.posicion.esMismaPosicion(posicion);
     }
+
     public void ocuparPorTierra(Unidad ocupante){
-        if(!this.estaOcupadaPorTierra()) {
-            this.ocupanteTerrestre = ocupante;
-        }
-        else{
-            throw new CeldaOcupada();
-        }
+       this.ocupanteTerrestre = ocupante;
     }
 
     public void ocuparPorAire(TropaAerea ocupanteAereoNuevo){
-        if(!this.estaOcupadaPorAire()) {
-            this.ocupanteAereo.existe();
-        }else{
-            throw new CeldaOcupada();
-        }
+        this.ocupanteAereo = ocupanteAereoNuevo;
     }
+
+
     public void desocuparPorTierra(){
         this.ocupanteTerrestre = new UnidadInexistente();
     }
@@ -73,17 +68,19 @@ public class Celda implements Descripcion {
         this.ocupanteAereo = new TropaAereaInexistente();
     }
 
-    public boolean estaOcupadaPorTierra() {
-        return this.ocupanteTerrestre.existe();
+    public void estaOcupadaPorTierra() {
+        if (this.ocupanteTerrestre.existe())
+            throw new CeldaOcupada();
     }
-    public boolean estaOcupadaPorAire() {
-        return this.ocupanteAereo.existe();
+    public void estaOcupadaPorAire() {
+        if (this.ocupanteAereo.existe())
+            throw new CeldaOcupada();
     }
 
     public void pasarTurno(){
-        if (this.estaOcupadaPorTierra())
+        if (this.ocupanteTerrestre.existe())
             this.ocupanteTerrestre.pasarTurno();
-        if(this.estaOcupadaPorAire())
+        if(this.ocupanteAereo.existe())
             this.ocupanteAereo.pasarTurno();
         this.tipo.pasarTurno();
     }

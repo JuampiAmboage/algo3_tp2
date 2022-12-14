@@ -30,6 +30,7 @@ public class ComunidadProtoss extends Comunidad{
     }
 
     public void construirEdificio(Celda celda, Edificio nuevoEdificio) {
+        celda.estaOcupadaPorTierra();
         celda.quiereConstruir(nuevoEdificio);
         this.agregarUnidad(nuevoEdificio);
         celda.ocuparPorTierra(nuevoEdificio);

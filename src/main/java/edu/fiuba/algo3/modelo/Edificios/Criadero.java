@@ -7,7 +7,9 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Opciones.Engendrar;
+import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Rango.RangoBusquedaYColocacion;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 import edu.fiuba.algo3.modelo.Visibilidad.Visible;
@@ -20,6 +22,8 @@ public class Criadero extends Edificio {
 
     private int cantidadLarvasEnEspera;
     protected RangoExpansible rangoExpansible;
+
+    private RangoBusquedaYColocacion rangoBusquedaYColocacion;
     public Criadero(){
         super();
         this.tiempoConstruccion = 4;
@@ -39,7 +43,8 @@ public class Criadero extends Edificio {
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         this.posicion = posicionALocalizar;
         this.aniadirSuministro();
-        this.rangoExpansible = new RangoExpansible(posicion,5);
+        this.rangoExpansible = new RangoExpansible(posicion,1);
+        this.rangoBusquedaYColocacion = new RangoBusquedaYColocacion(posicion,10);
         this.infectarCeldasEnRango();
 
     }
@@ -73,10 +78,12 @@ public class Criadero extends Edificio {
     }
 
     public void engendrar(Tropa tipoUnidad) {
+        Celda celda = Mapa.getInstance().obtenerCelda(this.posicion);
         this.estado.esUsable();
         tipoUnidad.existeEdificioNecesario();
         comunidad.agregarUnidad(tipoUnidad);
         cantidadLarvasEnEspera--;
+        rangoBusquedaYColocacion.colocarUnidad(tipoUnidad);
     }
 
     @Override
