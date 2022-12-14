@@ -13,7 +13,7 @@ public class TropaTerrestreAtacaTierra extends OpcionElegible {
         // this.pertenceA = null;
         this.rutaImagen = null;
         this.inforomacionSobreOpcion = descripcion;
-        this.textoBoton = "Atacar";
+        this.textoBotones.add("Atacar");
     }
 
     public void gestionarClick(Celda celdaAtacante, Celda celdaAtacado) {
