@@ -92,14 +92,14 @@ public class Extractor extends Edificio {
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
 
-    @Override
+    /*@Override
     public void mostrarDescripcion() {
         System.out.println("-Extractor-");
         System.out.println("Extrae gas de un volcán. Requiere zánganos para la extracción.\n");
         System.out.println("Extracción: En cada turno, 10 por zangano empleado");
         System.out.println("Zanganos trabajando: " + this.trabajadores.size() + "/3");
         System.out.println("Vida actual: " + this.vida.getVidaActual());
-    }
+    }*/
     public String obtenerDescripcion() {
         String descripcion = "";
         return descripcion;

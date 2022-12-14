@@ -32,11 +32,11 @@ public class CeldaEnergizada extends TipoCelda{
     @Override
     public void pasarTurno() {}
 
-    @Override
+    /*@Override
     public void mostrarDescripcion(){
         System.out.println("-Celda energizada-");
         System.out.println("Apta para edificio Protoss");
-    }
+    }*/
     @Override
     public boolean esMismoTipo(Object objeto) {
         return objeto instanceof CeldaEnergizada;

@@ -16,7 +16,7 @@ import edu.fiuba.algo3.modelo.Salud.Salud;
 
 import java.util.ArrayList;
 
-public abstract class Unidad implements Descripcion{
+public abstract class Unidad {
     protected Comunidad comunidad;
     protected Visibilidad visibilidad;
     protected Salud vida;
@@ -30,8 +30,11 @@ public abstract class Unidad implements Descripcion{
 
     protected ArrayList<OpcionElegible> opciones;
 
-    public Unidad(){opciones = new ArrayList<>();
-    opciones.add(new SolicitarInformacion(obtenerDescripcion()));}
+    public Unidad() {
+        opciones = new ArrayList<>();
+        opciones.add(new SolicitarInformacion(obtenerDescripcion()));
+    }
+
     public void pasarTurno(){
         estado.pasarTurno();
     }
@@ -78,7 +81,6 @@ public abstract class Unidad implements Descripcion{
         if(vida.estaSinVida()) {
             comunidad.restarPesoEnSuministro(suministro);
             comunidad.quitarUnidad(this);
-            //Mapa.getInstance().obtenerCelda(this.posicion).quitarSprite(); TODO: Creo que no se necesita.
         }
     }
 
@@ -94,8 +96,6 @@ public abstract class Unidad implements Descripcion{
     }
 
     public ArrayList<OpcionElegible> obtenerOpciones() { return this.opciones; }
-
-    public abstract void mostrarDescripcion();
 
     public abstract String obtenerSprite();
 

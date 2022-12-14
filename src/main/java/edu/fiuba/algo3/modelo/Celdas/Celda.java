@@ -3,8 +3,6 @@ package edu.fiuba.algo3.modelo.Celdas;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import edu.fiuba.algo3.modelo.Razas.Descripcion;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAereaInexistente;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
@@ -16,7 +14,7 @@ import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import java.util.ArrayList;
 
 
-public class Celda implements Descripcion {
+public class Celda {
     protected Unidad ocupanteTerrestre;
     protected TropaAerea ocupanteAereo;
     protected TipoCelda tipo;
@@ -138,9 +136,6 @@ public class Celda implements Descripcion {
         return listaDeOpciones;
 
     }
-    public void mostrarDescripcion() {
-        tipo.mostrarDescripcion();
-    }
 
     public boolean celdaConRecurso(){
         return !(recurso instanceof NoRecurso);
@@ -159,11 +154,7 @@ public class Celda implements Descripcion {
     }
 
     public String obtenerSpriteTipo() {
-        //if (!this.spriteCeldaNoEnviado){
         return this.tipo.obtenerSprite();
-            //this.spriteCeldaNoEnviado = true;
-        //}
-        //return null;
     }
 
     public String obtenerSpriteRecurso() {

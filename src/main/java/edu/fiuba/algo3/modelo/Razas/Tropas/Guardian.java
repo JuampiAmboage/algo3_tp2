@@ -21,7 +21,12 @@ public class Guardian extends TropaAerea implements UnidadEvolucionada{
         suministro = 0;
         vida = new Vida(100);
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
+<<<<<<< HEAD
         opciones.add(new TropaAereaAtacaTierra(obtenerDescripcion()));
+=======
+        opciones.add(new AtacarPorTierra(obtenerDescripcion()));
+        opciones.add(new AtacarPorAire(obtenerDescripcion()));
+>>>>>>> master
         this.rutaSprite = this.rutaSprite + "tropas/zerg/guardian.png";
     }
     public void realizarAccionesTurno(){vida.pasarTurno();
@@ -35,14 +40,14 @@ public class Guardian extends TropaAerea implements UnidadEvolucionada{
 
     }
 
-    @Override
+    /*@Override
     public void mostrarDescripcion() {
         System.out.println("-Guardian-");
         System.out.println("Evolución del mutalisco. Cuando el juego no está corriendo se va a hacer un pesos de guardia a la cancha de All Boys. \n");
         System.out.println("Vida actual: "+ this.vida.getVidaActual());
         System.out.println("Daño aereo: No tiene");
         System.out.println("Danio terrestre:" + this.danioTerrestre);
-    }
+    }*/
     public String obtenerSprite() { return this.rutaSprite; }
 
     @Override

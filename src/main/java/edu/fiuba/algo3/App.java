@@ -2,18 +2,15 @@ package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.controladores.*;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
-import edu.fiuba.algo3.modelo.Partida.Jugador;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -42,7 +39,7 @@ public class App extends Application {
     @Override
     public void start(Stage escenario) {
         this.escenarioPrimario = escenario;
-        this.escenarioPrimario.setTitle("Conquer the universe");
+        //this.escenarioPrimario.setTitle("");
 
         this.escenarioPrimario.setResizable(false);
 
@@ -193,6 +190,12 @@ public class App extends Application {
     public void gestionarPasarTurno(ControladorVistaMenuJugadores controlador) {
         this.partida.finDeTurno();
         controlador.limpiarMenu();
+
+        if (controlador.equals(this.controladorVistaMenuJugadorUno)){
+            this.controladorVistaMenuJugadorDos.activar();
+        } else {
+            this.controladorVistaMenuJugadorUno.activar();
+        }
     }
 
     public void actualizarMapa() { this.controladorVistaMapa.actualizarMapa(); }
@@ -203,6 +206,14 @@ public class App extends Application {
 
     public void salir() {
         this.escenarioPrimario.close();
+    }
+
+    public static void lanzarWarning(String advertencia) {
+        Alert warning = new Alert(Alert.AlertType.WARNING);
+        warning.setHeaderText(null);
+        warning.setTitle("Atencion");
+        warning.setContentText(advertencia);
+        warning.showAndWait();
     }
 
 }

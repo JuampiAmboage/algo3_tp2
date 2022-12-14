@@ -11,11 +11,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public abstract class ControladorVistaMenuJugadores {
     protected String perfil;
     protected String nombre;
+    protected boolean activo;
+
     protected Accordion acordeon;
     protected App app;
 
@@ -33,29 +36,38 @@ public abstract class ControladorVistaMenuJugadores {
         opciones = eliminarOpcionesInvalidas(opciones);
 
         int cantidadDeMenus = opciones.toArray().length;
-        TitledPane[] titledPane = new TitledPane[cantidadDeMenus];
 
-        instanciarAcordeon();
+        if (cantidadDeMenus != 0) {
+            TitledPane[] titledPane = new TitledPane[cantidadDeMenus];
 
-        for (int i = 0; i < cantidadDeMenus; i++) {
-            OpcionElegible opcion = opciones.get(i);
+            instanciarAcordeon();
 
-            BorderPane nuevoBorderPane = new BorderPane();
-            //nuevoBorderPane.setId("borderPane_"+i);
+            for (int i = 0; i < cantidadDeMenus; i++) {
+                OpcionElegible opcion = opciones.get(i);
 
-            ImageView imagen = insertarImagen(opcion);
-            if (imagen != null) { nuevoBorderPane.setLeft(imagen); }
+                BorderPane nuevoBorderPane = new BorderPane();
 
+<<<<<<< HEAD
             BotonMenuJugador boton = obtenerBoton(opcion, celda, i);
             nuevoBorderPane.setCenter(boton.obtenerBotonNodo());
+=======
+                ImageView imagen = insertarImagen(opcion);
+                if (imagen != null) {
+                    nuevoBorderPane.setLeft(imagen);
+                }
+
+                BotonMenuJugador boton = obtenerBoton(opcion);
+                nuevoBorderPane.setCenter(boton.obtenerBotonNodo());
+>>>>>>> master
 
 
-            titledPane[i] = new TitledPane((opciones.get(i)).obtenerTitulo(), nuevoBorderPane);
-            //titledPane[i].setId("titlePane_"+i);
+                titledPane[i] = new TitledPane((opciones.get(i)).obtenerTitulo(), nuevoBorderPane);
+                titledPane[i].setAnimated(true);
+            }
+            acordeon.getPanes().addAll(titledPane);
+
+            mostrarEnVBox();
         }
-        acordeon.getPanes().addAll(titledPane);
-
-        mostrarEnVBox();
     }
     public abstract void limpiarMenu();
     protected ArrayList<OpcionElegible> eliminarOpcionesInvalidas(ArrayList<OpcionElegible> opciones) {
@@ -68,12 +80,14 @@ public abstract class ControladorVistaMenuJugadores {
                 }
             }
         }
+
         return opciones;
 
     }
     protected void instanciarAcordeon() {
         this.acordeon = new Accordion();
         this.acordeon.setId("acordeon");
+
     }
     protected ImageView insertarImagen(OpcionElegible opcion){
 
@@ -100,9 +114,15 @@ public abstract class ControladorVistaMenuJugadores {
 
     public void actualizarMapa() { this.app.actualizarMapa(); }
 
+<<<<<<< HEAD
     public Celda[] obtenerCeldasConExtractor() {
         return this.app.obtenerCeldasConExtractor();
     }
 
+=======
+    public abstract void activar();
+    public abstract void desactivar();
+    public abstract void indicadorDeTurnoActivo();
+>>>>>>> master
 }
 

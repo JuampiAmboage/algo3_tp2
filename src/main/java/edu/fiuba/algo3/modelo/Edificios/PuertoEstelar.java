@@ -74,13 +74,13 @@ public class PuertoEstelar extends Edificio {
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
 
-    @Override
+    /*@Override
     public void mostrarDescripcion() {
         System.out.println("-Puerto Estelar-");
         System.out.println("Permite generar: Scout.\n");
         System.out.println("Escudo actual: " + this.vida.getEscudoActual());
         System.out.println("Vida actual: " + this.vida.getVidaActual());
-    }
+    }*/
     public String obtenerDescripcion() {
         String descripcion = "";
         return descripcion;

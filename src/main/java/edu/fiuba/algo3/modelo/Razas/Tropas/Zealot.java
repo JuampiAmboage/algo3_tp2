@@ -29,7 +29,12 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
         bajasGeneradas = 0;
         edificioNecesario = new Acceso();
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
+<<<<<<< HEAD
         opciones.add(new TropaTerrestreAtacaTierra(obtenerDescripcion()));
+=======
+        opciones.add(new AtacarPorTierra(obtenerDescripcion()));
+        opciones.add(new AtacarPorAire(obtenerDescripcion()));
+>>>>>>> master
         this.rutaSprite = this.rutaSprite + "tropas/protoss/zealot.png";
     }
 
@@ -59,7 +64,7 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
     }
     public int obtenerEscudo(){return vida.getEscudoActual();}
 
-    @Override
+    /*@Override
     public void mostrarDescripcion() {
         System.out.println("-Zealot-");
         System.out.println("Al eliminar tres enemigos se vuelve invisible. Si pierde Boca hace lo mismo. \n");
@@ -67,7 +72,7 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
         System.out.println("Vida actual: "+ this.vida.getVidaActual());
         System.out.println("Daño aereo: No tiene");
         System.out.println("Danio terrestre:" + this.danioTerrestre);
-    }
+    }*/
     public String obtenerSprite() { return this.rutaSprite; }
 
     @Override

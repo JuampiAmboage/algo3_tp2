@@ -1,0 +1,16 @@
+Button {
+    -fx-font: "Serif";
+    -fx-padding: 10;
+    -fx-background-color: black;
+    -fx-color: -fx-focused-base;
+    -fx-opacity: 50%;
+}
+
+Button:disabled {
+    -fx-font: "Serif";
+    -fx-padding: 10;
+    -fx-background-color: #2b2828;
+    -fx-color: -fx-focused-base;
+    -fx-opacity: 50%;
+}
+
