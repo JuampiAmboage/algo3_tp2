@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.App;
+import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import javafx.scene.control.Accordion;
+import javafx.scene.control.Button;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,7 +27,7 @@ public abstract class ControladorVistaMenuJugadores {
     }
 
     // MENU : Instancia de desplegables y botones
-    public void mostrarOpciones(ArrayList<OpcionElegible> opciones){
+    public void mostrarOpciones(ArrayList<OpcionElegible> opciones, Celda celda){
         limpiarMenu();
 
         opciones = eliminarOpcionesInvalidas(opciones);
@@ -44,7 +46,7 @@ public abstract class ControladorVistaMenuJugadores {
             ImageView imagen = insertarImagen(opcion);
             if (imagen != null) { nuevoBorderPane.setLeft(imagen); }
 
-            BotonMenuJugador boton = obtenerBoton(opcion);
+            BotonMenuJugador boton = obtenerBoton(opcion, celda);
             nuevoBorderPane.setCenter(boton.obtenerBotonNodo());
 
 
@@ -89,15 +91,18 @@ public abstract class ControladorVistaMenuJugadores {
         }
         return null;
     }
-    protected BotonMenuJugador obtenerBoton(OpcionElegible opcion) {
-        String textoBoton = opcion.obtenerBoton();
-
-        BotonMenuJugador boton = new BotonMenuJugador(textoBoton, opcion, this);
+    protected BotonMenuJugador obtenerBoton(OpcionElegible opcion, Celda celda) {
+        BotonMenuJugador boton = new BotonMenuJugador(opcion, this, celda);
 
         return boton;
     }
     protected abstract void mostrarEnVBox();
 
     public void actualizarMapa() { this.app.actualizarMapa(); }
+
+    public Celda[] obtenerCeldasConExtractor() {
+        return this.app.obtenerCeldasConExtractor();
+    }
+
 }
 

@@ -1,12 +1,10 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
+import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
-import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.EdificioProtoss;
-import edu.fiuba.algo3.modelo.Partida.Mapa;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
 
 public class ConstruirEdificioProtoss extends OpcionElegible{
 
@@ -25,8 +23,6 @@ public class ConstruirEdificioProtoss extends OpcionElegible{
     }
 
     private EdificioProtoss obtenerEdificioAConstruir() {
-        // TODO: Mostrar ventana con opciones.
         /* Opciones de edificio: Pilon, Acceso, Puerto Estelar*/
-        return edificioAConstruir;
     }
 }

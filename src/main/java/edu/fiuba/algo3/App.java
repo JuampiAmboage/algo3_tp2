@@ -1,15 +1,19 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.controladores.*;
+import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Partida.Jugador;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -175,14 +179,14 @@ public class App extends Application {
         } catch (IOException e) { e.printStackTrace(); }
     }
 
-    public void mostrarMenu(ArrayList<OpcionElegible> opciones) {
+    public void mostrarMenu(ArrayList<OpcionElegible> opciones, Celda celda) {
 
         if (this.partida.quienJuega() == 1) {
             controladorVistaMenuJugadorUno.activar();
-            controladorVistaMenuJugadorUno.mostrarOpciones(opciones);
+            controladorVistaMenuJugadorUno.mostrarOpciones(opciones, celda);
         } else {
             controladorVistaMenuJugadorDos.activar();
-            controladorVistaMenuJugadorDos.mostrarOpciones(opciones);
+            controladorVistaMenuJugadorDos.mostrarOpciones(opciones, celda);
         }
     }
 
@@ -192,6 +196,10 @@ public class App extends Application {
     }
 
     public void actualizarMapa() { this.controladorVistaMapa.actualizarMapa(); }
+
+    public Celda[] obtenerCeldasConExtractor() {
+        return this.controladorVistaMapa.obtenerCeldasConExtractor();
+    }
 
     public void salir() {
         this.escenarioPrimario.close();

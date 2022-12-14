@@ -10,6 +10,8 @@ public abstract class OpcionElegible {
     public String inforomacionSobreOpcion;
     public String textoBoton;
 
+    protected Celda[] celdasConExtractor;
+
     public String obtenerTitulo() { return this.titulo; }
     public String obtenerPertenencia(){ return this.pertenceA; }
     public String obtenerImagen() {
@@ -20,10 +22,15 @@ public abstract class OpcionElegible {
         if (this.inforomacionSobreOpcion != null) { return this.inforomacionSobreOpcion; }
         return null;
     }
-    public String obtenerBoton() {
+    public String obtenerTextoBoton() {
         if (this.textoBoton != null) { return this.textoBoton; }
         return null;
     }
 
+    public abstract void gestionarClick(Celda celda);
+
+    public void estblecerCeldasConExtractor(Celda[] celdas) {
+        this.celdasConExtractor =  celdas;
+    }
 
 }
