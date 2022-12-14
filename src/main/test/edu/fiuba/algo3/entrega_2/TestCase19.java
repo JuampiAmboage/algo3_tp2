@@ -23,7 +23,7 @@ public class TestCase19 {
     @Test
     public void siUnaUnidadConAtaqueAereoAtacaAUnaUnidadAereaElAtaqueEsEfectivo(){
         Mapa mapa = Mapa.getInstance();
-        mapa.instanciarMapa(6,6);
+        mapa.instanciarMapa();
         Mutalisco mutalisco = new Mutalisco(); //el mutalisco empieza con 80 de vida
         Scout scout = new Scout(); //cuando el scout ataca a una unidad aerea hace 14 de daño
         mutalisco.instanciacionesIniciales(new Posicion(3,4));
@@ -36,7 +36,7 @@ public class TestCase19 {
     @Test
     public void siUnaUnidadConAtaqueTerrestreAtacaAOtraTerrestreElAtaqueEsEfectivo(){
         Mapa mapa = Mapa.getInstance();
-        mapa.instanciarMapa(9,9);
+        mapa.instanciarMapa();
         Zerling zerling =  new Zerling(); //el zerling empieza con 35 de vida
         Scout scout = new Scout(); //cuando el scout ataca a una unidad terrestre hace 8 de daño
         zerling.instanciacionesIniciales(new Posicion(5,5));
