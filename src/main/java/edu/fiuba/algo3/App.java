@@ -198,7 +198,6 @@ public class App extends Application {
         warning.setTitle("Atencion");
         warning.setContentText(advertencia);
         warning.showAndWait();
-
     }
 
 }
