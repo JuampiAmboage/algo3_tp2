@@ -26,6 +26,7 @@ public class ConstruirEdificioProtoss extends OpcionElegible{
 
     private EdificioProtoss obtenerEdificioAConstruir() {
         // TODO: Mostrar ventana con opciones.
+        /* Opciones de edificio: Pilon, Acceso, Puerto Estelar*/
         return edificioAConstruir;
     }
 }

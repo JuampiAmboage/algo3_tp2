@@ -25,6 +25,8 @@ public class Engendrar extends OpcionElegible{
 
     private Tropa obtenerTropa() {
         // TODO: Mostrar ventana con opciones.
+        /* Opciones de tropas: Zangano, Zerling, Hidralisco, Mutalisco, Amo Supremo */
+
         return tropa;
     }
 }

@@ -32,6 +32,8 @@ public class ConstruirTropaProtoss extends OpcionElegible{
 
     private Tropa obtenerTropaAConstruir() {
         // TODO: Mostrar ventana con opciones.
+        /* Opciones de tropas: Zealot, Dragon, Scout*/
+
         return tropaAConstruir;
     }
 }

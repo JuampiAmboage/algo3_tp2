@@ -23,6 +23,8 @@ public class Mutar extends OpcionElegible{
 
     private UnidadEvolucionada unidadEvolucionada() {
         // TODO: Mostrar ventana con opciones.
+        /* Opciones de mutacion: Devorador, Guardian*/
+
         return unidadEvolucionada;
     }
 }

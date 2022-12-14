@@ -24,6 +24,8 @@ public class EvolucionarAEdificio extends OpcionElegible{
 
     private Edificio obtenerEdificioAConstruir(){
         // TODO: Mostrar ventana con opciones.
+        /* Opciones de edificio: Criadero, Reserva De Reproduccion, Guarida, Espiral*/
+
         return edificioAConstruir;
     }
 }
