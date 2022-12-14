@@ -28,9 +28,9 @@ public class Zangano extends TropaTerrestre {
         this.suministro = 1;
         this.vida = new Vida(25);
         this.edificioNecesario = new Criadero();
-        opciones.add(new EvolucionarAEdificio());
-        opciones.add(new AsignarTrabajoEnExtractor());
-        opciones.add(new AsignarTrabajoEnNodoMineral());
+        opciones.add(new EvolucionarAEdificio(obtenerDescripcion()));
+        opciones.add(new AsignarTrabajoEnExtractor(obtenerDescripcion()));
+        opciones.add(new AsignarTrabajoEnNodoMineral(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/zangano.png";
     }
     public void realizarAccionesTurno(){
@@ -78,4 +78,10 @@ public class Zangano extends TropaTerrestre {
 
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
+
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }

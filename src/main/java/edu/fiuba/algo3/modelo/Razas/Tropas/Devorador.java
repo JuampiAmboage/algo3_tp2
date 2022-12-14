@@ -20,8 +20,8 @@ public class Devorador extends TropaAerea implements UnidadEvolucionada{
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         vida = new Vida(200);
         suministro = 0;
-        opciones.add(new AtacarPorTierra());
-        opciones.add(new AtacarPorAire());
+        opciones.add(new AtacarPorTierra(obtenerDescripcion()));
+        opciones.add(new AtacarPorAire(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/devorador.png";
     }
     public void realizarAccionesTurno(){
@@ -42,4 +42,10 @@ public class Devorador extends TropaAerea implements UnidadEvolucionada{
 
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
+
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }

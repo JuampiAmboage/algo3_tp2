@@ -25,10 +25,10 @@ public abstract class Tropa extends Unidad implements Correlatividad {
         super();
         visibilidad = new Visible(this);
         cantidadMovimientos = 0;
-        opciones.add(new MoverseHaciaArriba());
-        opciones.add(new MoverseHaciaAbajo());
-        opciones.add(new MoverseAIzquierda());
-        opciones.add(new MoverseADerecha());
+        opciones.add(new MoverseHaciaArriba(obtenerDescripcion()));
+        opciones.add(new MoverseHaciaAbajo(obtenerDescripcion()));
+        opciones.add(new MoverseAIzquierda(obtenerDescripcion()));
+        opciones.add(new MoverseADerecha(obtenerDescripcion()));
     }
     public int obtenerDanioTerrestre(){
         return danioTerrestre;

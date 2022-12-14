@@ -96,4 +96,6 @@ public abstract class Unidad {
     public boolean existe(){
         return true;
     }
+
+    public abstract String obtenerDescripcion();
 }

@@ -23,8 +23,8 @@ public class Dragon extends TropaTerrestre{
         edificioNecesario = new Acceso();
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         vida = new VidaConEscudo(100,80);
-        opciones.add(new AtacarPorTierra());
-        opciones.add(new AtacarPorAire());
+        opciones.add(new AtacarPorTierra(obtenerDescripcion()));
+        opciones.add(new AtacarPorAire(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/protoss/dragon.png";
     }
     public void realizarAccionesTurno(){
@@ -43,4 +43,10 @@ public class Dragon extends TropaTerrestre{
 
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
+
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }

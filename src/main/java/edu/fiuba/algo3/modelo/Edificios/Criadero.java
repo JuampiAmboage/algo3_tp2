@@ -32,7 +32,7 @@ public class Criadero extends Edificio {
         this.visibilidad = new Visible(this);
         this.costoEnGas = 0;
         this.costoEnMinerales = 200;
-        opciones.add(new Engendrar());
+        opciones.add(new Engendrar(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "edificios/criadero.png";
     }
 
@@ -106,4 +106,9 @@ public class Criadero extends Edificio {
 
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
+
+    public String obtenerDescripcion(){
+        String descripcion = "";
+        return descripcion;
+    }
 }

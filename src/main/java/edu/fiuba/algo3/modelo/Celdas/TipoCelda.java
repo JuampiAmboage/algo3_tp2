@@ -30,4 +30,5 @@ public abstract class TipoCelda {
 
     public abstract ArrayList<OpcionElegible> obtenerOpciones();
 
+    public abstract String obtenerDescripcion();
 }

@@ -13,7 +13,7 @@ public class NodoMineral extends Recurso {
         this.cantidad = 2000;
         this.rutaSprite = this.rutaSprite + "nodoMineral.png";
 
-        this.opciones.add(new ConstruirNexoMineral());
+        this.opciones.add(new ConstruirNexoMineral(obtenerDescripcion()));
     }
     @Override
     public int extraer(int c) {
@@ -33,4 +33,10 @@ public class NodoMineral extends Recurso {
 
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
+
+    @Override
+    public obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }

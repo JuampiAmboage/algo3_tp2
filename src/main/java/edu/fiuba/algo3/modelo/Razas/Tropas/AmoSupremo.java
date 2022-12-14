@@ -22,9 +22,10 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
         danioTerrestre = 0;
         danioAereo = 0;
         suministro = 0;
-        opciones.add(new DetectarTropasInvisibles());
+        opciones.add(new DetectarTropasInvisibles(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/amosSupremo.png";
     }
+
     public void aniadirSuministro(){
         comunidad.aniadirCapacidadSuministro(5);
     }
@@ -51,4 +52,10 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
 
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
+
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }

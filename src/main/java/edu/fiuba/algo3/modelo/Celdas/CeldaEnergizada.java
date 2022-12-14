@@ -13,12 +13,12 @@ public class CeldaEnergizada extends TipoCelda{
     public CeldaEnergizada(){
         super();
         this.energia++;
-        opciones.add(new ConstruirEdificioProtoss());
+        opciones.add(new ConstruirEdificioProtoss(obtenerDescripcion()));
     }
     public CeldaEnergizada(Celda celda) {
         super(celda);
         this.energia++;
-        opciones.add(new ConstruirEdificioProtoss());
+        opciones.add(new ConstruirEdificioProtoss(obtenerDescripcion()));
     }
 
     @Override
@@ -64,5 +64,11 @@ public class CeldaEnergizada extends TipoCelda{
     @Override
     public ArrayList<OpcionElegible> obtenerOpciones(){return opciones;}
 
+    @Override
+    public String obtenerDescripcion(){
+        String descripcion = "";
+        return descripcion;
+    }
 
 }
+

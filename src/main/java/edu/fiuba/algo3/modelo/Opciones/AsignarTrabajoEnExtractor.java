@@ -2,11 +2,11 @@ package edu.fiuba.algo3.modelo.Opciones;
 
 public class AsignarTrabajoEnExtractor extends OpcionElegible{
 
-    public AsignarTrabajoEnExtractor() {
+    public AsignarTrabajoEnExtractor(String descripcion) {
         this.titulo = "Asignar trabajo en extractor";
         this.pertenceA = "zerg";
         this.rutaImagen = null;
-        this.inforomacionSobreOpcion = "";
+        this.inforomacionSobreOpcion = descripcion;
         this.textoBoton = "Asignar trabajo";
     }
 

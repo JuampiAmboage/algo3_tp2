@@ -2,11 +2,11 @@ package edu.fiuba.algo3.modelo.Opciones;
 
 public class ConstruirAsimilador extends OpcionElegible {
 
-    public ConstruirAsimilador() {
+    public ConstruirAsimilador(String descripcion) {
         this.titulo = "Construir asimilador";
         this.pertenceA = "protoss";
         this.rutaImagen = null;
-        this.inforomacionSobreOpcion = "";
+        this.inforomacionSobreOpcion = descripcion;
         this.textoBoton = "Construir";
     }
 

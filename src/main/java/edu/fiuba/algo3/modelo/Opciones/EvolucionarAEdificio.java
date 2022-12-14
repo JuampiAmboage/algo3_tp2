@@ -2,11 +2,11 @@ package edu.fiuba.algo3.modelo.Opciones;
 
 public class EvolucionarAEdificio extends OpcionElegible{
 
-    public EvolucionarAEdificio() {
+    public EvolucionarAEdificio(String descripcion) {
         this.titulo = "Evolucionar a edificio";
         this.pertenceA = "zerg";
         this.rutaImagen = null;
-        this.inforomacionSobreOpcion = "";
+        this.inforomacionSobreOpcion = descripcion;
         this.textoBoton = "evolucionar";
     }
 

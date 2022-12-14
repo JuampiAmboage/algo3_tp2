@@ -24,11 +24,12 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
         vida = new Vida(80);
         edificioNecesario = new Espiral();
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-        opciones.add(new AtacarPorTierra());
-        opciones.add(new AtacarPorAire());
-        opciones.add(new Mutar());
+        opciones.add(new AtacarPorTierra(obtenerDescripcion()));
+        opciones.add(new AtacarPorAire(obtenerDescripcion()));
+        opciones.add(new Mutar(obtenerDescripcion()));
 
     }
+
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
         rangoAtaque = new RangoAtaque(this,3,posicion);
@@ -52,4 +53,10 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
 
     @Override
     public String obtenerSprite() { return null; }
+
+    @Override
+    public String obtenerDescripcion() {
+        String descripcion = "";
+        return descripcion;
+    }
 }
