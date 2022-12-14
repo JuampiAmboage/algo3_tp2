@@ -77,7 +77,6 @@ public abstract class Unidad {
         if(vida.estaSinVida()) {
             comunidad.restarPesoEnSuministro(suministro);
             comunidad.quitarUnidad(this);
-            //Mapa.getInstance().obtenerCelda(this.posicion).quitarSprite(); TODO: Creo que no se necesita.
         }
     }
 

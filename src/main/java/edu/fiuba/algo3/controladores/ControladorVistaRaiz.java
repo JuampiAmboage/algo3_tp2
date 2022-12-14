@@ -19,14 +19,6 @@ public class ControladorVistaRaiz {
     public void setApp(App app) {
         this.app = app;
     }
-
-    public void visibilidadDeCambioDePantalla(){
-        if ( true ) { // TODO: Si la ventana es x entonces x no se muestra en el menu
-
-        } else {
-
-        }
-    }
     
     public void ocultarMenuBar() {
         this.barraMenu.setVisible(false);

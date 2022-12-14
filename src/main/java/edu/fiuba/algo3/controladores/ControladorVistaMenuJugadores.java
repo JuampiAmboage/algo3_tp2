@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public abstract class ControladorVistaMenuJugadores {
@@ -34,30 +35,32 @@ public abstract class ControladorVistaMenuJugadores {
 
         int cantidadDeMenus = opciones.toArray().length;
 
-        // TODO: Agregar una condicion de corte si no hay opciones
+        if (cantidadDeMenus != 0) {
+            TitledPane[] titledPane = new TitledPane[cantidadDeMenus];
 
-        TitledPane[] titledPane = new TitledPane[cantidadDeMenus];
+            instanciarAcordeon();
 
-        instanciarAcordeon();
+            for (int i = 0; i < cantidadDeMenus; i++) {
+                OpcionElegible opcion = opciones.get(i);
 
-        for (int i = 0; i < cantidadDeMenus; i++) {
-            OpcionElegible opcion = opciones.get(i);
+                BorderPane nuevoBorderPane = new BorderPane();
 
-            BorderPane nuevoBorderPane = new BorderPane();
+                ImageView imagen = insertarImagen(opcion);
+                if (imagen != null) {
+                    nuevoBorderPane.setLeft(imagen);
+                }
 
-            ImageView imagen = insertarImagen(opcion);
-            if (imagen != null) { nuevoBorderPane.setLeft(imagen); }
-
-            BotonMenuJugador boton = obtenerBoton(opcion);
-            nuevoBorderPane.setCenter(boton.obtenerBotonNodo());
+                BotonMenuJugador boton = obtenerBoton(opcion);
+                nuevoBorderPane.setCenter(boton.obtenerBotonNodo());
 
 
-            titledPane[i] = new TitledPane((opciones.get(i)).obtenerTitulo(), nuevoBorderPane);
-            titledPane[i].setAnimated(true);
+                titledPane[i] = new TitledPane((opciones.get(i)).obtenerTitulo(), nuevoBorderPane);
+                titledPane[i].setAnimated(true);
+            }
+            acordeon.getPanes().addAll(titledPane);
+
+            mostrarEnVBox();
         }
-        acordeon.getPanes().addAll(titledPane);
-
-        mostrarEnVBox();
     }
     public abstract void limpiarMenu();
     protected ArrayList<OpcionElegible> eliminarOpcionesInvalidas(ArrayList<OpcionElegible> opciones) {
@@ -70,6 +73,7 @@ public abstract class ControladorVistaMenuJugadores {
                 }
             }
         }
+
         return opciones;
 
     }
