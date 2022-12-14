@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Opciones.AsignarTrabajoEnExtractor;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import javafx.scene.control.Button;
@@ -26,6 +27,11 @@ public class BotonMenuJugador {
 
     public Button obtenerBotonNodo() { return this.botonNodo; }
     private void gestionarClick(Celda celda) {
+        if (this.opcion.equals(new AsignarTrabajoEnExtractor(""))) {
+            Celda[] celdas = this.controlador.obtenerCeldasConExtractor();
+            this.opcion.estblecerCeldasConExtractor(celdas);
+        }
+
         this.opcion.gestionarClick(celda);
         this.controlador.actualizarMapa();
     }

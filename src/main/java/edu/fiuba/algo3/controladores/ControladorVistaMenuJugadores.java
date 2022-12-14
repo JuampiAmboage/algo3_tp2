@@ -99,5 +99,10 @@ public abstract class ControladorVistaMenuJugadores {
     protected abstract void mostrarEnVBox();
 
     public void actualizarMapa() { this.app.actualizarMapa(); }
+
+    public Celda[] obtenerCeldasConExtractor() {
+        return this.app.obtenerCeldasConExtractor();
+    }
+
 }
 
