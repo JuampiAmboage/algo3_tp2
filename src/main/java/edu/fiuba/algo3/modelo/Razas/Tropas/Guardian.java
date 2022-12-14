@@ -20,12 +20,8 @@ public class Guardian extends TropaAerea implements UnidadEvolucionada{
         suministro = 0;
         vida = new Vida(100);
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-<<<<<<< HEAD
-        opciones.add("Atacar a tierra");
-=======
         opciones.add(new AtacarPorTierra(obtenerDescripcion()));
         opciones.add(new AtacarPorAire(obtenerDescripcion()));
->>>>>>> manejoDeOpciones
         this.rutaSprite = this.rutaSprite + "tropas/zerg/guardian.png";
     }
     public void realizarAccionesTurno(){vida.pasarTurno();

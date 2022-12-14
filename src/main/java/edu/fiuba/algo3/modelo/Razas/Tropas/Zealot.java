@@ -28,12 +28,8 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
         bajasGeneradas = 0;
         edificioNecesario = new Acceso();
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
-<<<<<<< HEAD
-        opciones.add("Atacar a tierra");
-=======
         opciones.add(new AtacarPorTierra(obtenerDescripcion()));
         opciones.add(new AtacarPorAire(obtenerDescripcion()));
->>>>>>> manejoDeOpciones
         this.rutaSprite = this.rutaSprite + "tropas/protoss/zealot.png";
     }
 
@@ -73,13 +69,10 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
         System.out.println("Danio terrestre:" + this.danioTerrestre);
     }
     public String obtenerSprite() { return this.rutaSprite; }
-<<<<<<< HEAD
-=======
 
     @Override
     public String obtenerDescripcion() {
         String descripcion = "";
         return descripcion;
     }
->>>>>>> manejoDeOpciones
 }

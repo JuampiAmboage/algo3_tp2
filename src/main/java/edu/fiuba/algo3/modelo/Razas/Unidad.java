@@ -28,8 +28,10 @@ public abstract class Unidad implements Descripcion{
 
     protected ArrayList<OpcionElegible> opciones;
 
-    public Unidad(){opciones = new ArrayList<>();
-    opciones.add("Información");}
+    public Unidad(){
+        opciones = new ArrayList<>();
+        //opciones.add("informacion");
+    }
     public void pasarTurno(){
         estado.pasarTurno();
     }
