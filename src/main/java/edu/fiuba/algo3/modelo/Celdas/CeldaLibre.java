@@ -26,10 +26,10 @@ public class CeldaLibre extends TipoCelda {
     @Override
     public void pasarTurno() {}
 
-    @Override
+    /*@Override
     public void mostrarDescripcion(){
         System.out.println("-Celda vacía-");
-    }
+    }*/
     @Override
     public boolean esMismoTipo(Object objeto) {
         return objeto instanceof CeldaLibre;

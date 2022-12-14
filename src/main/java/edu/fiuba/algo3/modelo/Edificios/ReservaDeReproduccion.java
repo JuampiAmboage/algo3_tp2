@@ -59,13 +59,13 @@ public class ReservaDeReproduccion extends Edificio {
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
 
-    @Override
+    /*@Override
     public void mostrarDescripcion() {
         System.out.println("-Acceso-");
         System.out.println("Permite construir: Guarida.");
         System.out.println("Permite engendrar: Zerling. \n");
         System.out.println("Vida actual: " + this.vida.getVidaActual());
-    }
+    }*/
     public String obtenerDescripcion() {
         String descripcion = "";
         return descripcion;

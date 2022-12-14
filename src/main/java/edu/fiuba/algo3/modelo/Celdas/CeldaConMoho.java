@@ -33,11 +33,11 @@ public class CeldaConMoho extends TipoCelda {
         this.expandir();
     }
 
-    @Override
+    /*@Override
     public void mostrarDescripcion(){
         System.out.println("-Celda con moho-");
         System.out.println("Apta para edificio Zerg (requiere un zángano)");
-    }
+    }*/
     @Override
     public boolean esMismoTipo(Object objeto) {
         return objeto instanceof CeldaConMoho;
