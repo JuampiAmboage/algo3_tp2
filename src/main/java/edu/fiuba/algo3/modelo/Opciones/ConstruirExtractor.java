@@ -18,6 +18,9 @@ public class ConstruirExtractor extends OpcionElegible{
     }
 
     public void gestionarClick(Celda celda) {
+        Extractor extractorNuevo =new Extractor((Volcan) celda.obtenerRecurso());
         Zangano zanganoAEvolucionar = (Zangano) celda.obtenerOcupanteTerrestre();
-        ComunidadZerg.obtenerInstanciaDeClase().construirEdificio(celda,zanganoAEvolucionar,new Extractor((Volcan) celda.obtenerRecurso())); }
+        ComunidadZerg.obtenerInstanciaDeClase().construirEdificio(celda,zanganoAEvolucionar,extractorNuevo);
+        celda.instanciarUnidad(extractorNuevo);
+    }
 }

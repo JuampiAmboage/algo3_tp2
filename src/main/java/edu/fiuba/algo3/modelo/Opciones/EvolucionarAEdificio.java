@@ -15,8 +15,15 @@ public class EvolucionarAEdificio extends OpcionElegible{
         this.textoBoton = "evolucionar";
     }
 
-    public void gestionarClick(Celda celdaAConstruir, Edificio edificioAConstruir) {
+    public void gestionarClick(Celda celdaAConstruir) {
+        Edificio edificioAConstruir = obtenerEdificioAConstruir();
         Zangano zanganoAEvolucionar = (Zangano) celdaAConstruir.obtenerOcupanteTerrestre();
         ComunidadZerg.obtenerInstanciaDeClase().construirEdificio(celdaAConstruir,zanganoAEvolucionar,edificioAConstruir);
+        celdaAConstruir.instanciarUnidad(edificioAConstruir);
+    }
+
+    private Edificio obtenerEdificioAConstruir(){
+        // TODO: Mostrar ventana con opciones.
+        return edificioAConstruir;
     }
 }

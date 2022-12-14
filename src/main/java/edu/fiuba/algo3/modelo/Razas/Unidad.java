@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Construccion.EstadoConstruccion;
 import edu.fiuba.algo3.modelo.Construccion.UnidadEnConstruccion;
 import edu.fiuba.algo3.modelo.Excepciones.RecursosInsuficientes;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
+import edu.fiuba.algo3.modelo.Opciones.SolicitarInformacion;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Visibilidad.Visibilidad;
@@ -29,14 +30,13 @@ public abstract class Unidad implements Descripcion{
     protected ArrayList<OpcionElegible> opciones;
 
     public Unidad(){opciones = new ArrayList<>();
-    opciones.add("Información");}
+    opciones.add(new SolicitarInformacion(obtenerDescripcion()));}
     public void pasarTurno(){
         estado.pasarTurno();
     }
     public abstract void realizarAccionesTurno();
 
     public void instanciacionesIniciales(Posicion posicionALocalizar){ this.posicion =posicionALocalizar;
-        this.aplicarPesoEnSuministro();
     }
     public void iniciarConstruccion(){
         this.estado = new UnidadEnConstruccion(this);
