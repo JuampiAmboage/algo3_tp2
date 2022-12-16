@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Excepciones.CeldaConRecurso;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
@@ -137,8 +138,9 @@ public class Celda {
 
     }
 
-    public boolean celdaConRecurso(){
-        return !(recurso instanceof NoRecurso);
+    public void celdaConRecurso(){
+       if(recurso.existe())
+           throw new CeldaConRecurso();
     }
 
     public Recurso obtenerRecurso(){ return recurso;}

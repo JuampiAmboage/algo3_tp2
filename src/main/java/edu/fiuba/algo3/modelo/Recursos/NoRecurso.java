@@ -32,4 +32,8 @@ public class NoRecurso extends Recurso {
         String descripcion = "";
         return descripcion;
     }
+    @Override
+    public boolean existe(){
+        return false;
+    }
 }
