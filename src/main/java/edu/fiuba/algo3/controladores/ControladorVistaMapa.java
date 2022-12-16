@@ -142,6 +142,8 @@ public class ControladorVistaMapa {
 
     public void marcarSeleccionada(int fila, int columna) {
 
+
+
         //this.grilla.add(seleccionada, fila, columna);
     }
 
