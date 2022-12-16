@@ -61,16 +61,16 @@ public class Posicion {
         return Mapa.getInstance().obtenerCelda(new Posicion(this.X+1,this.Y));
     }
     public void movimientoSuperior(){
-        this.X -= 1;
+        this.Y -= 1;
     }
     public void movimientoInferior(){
-        this.X += 1;
-    }
-    public void movimientoDerecha(){
         this.Y += 1;
     }
+    public void movimientoDerecha(){
+        this.X += 1;
+    }
     public void movimientoIzquierda(){
-        this.Y -= 1;
+        this.X -= 1;
     }
 
 }

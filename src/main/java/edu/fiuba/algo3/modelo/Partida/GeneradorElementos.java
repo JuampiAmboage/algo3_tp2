@@ -65,9 +65,7 @@ public class GeneradorElementos {
                 unVolcan= new Volcan();
                 celdaRandom.agregarRecurso(unVolcan);
             }
-            catch (CeldaOcupada celdaOcupada){
-                continue;
-            }
+            catch (CeldaOcupada ignore){}
         }
     }
 
