@@ -136,16 +136,12 @@ public class ControladorVistaMapa {
         Celda celda = mapa.obtenerCelda(posicion);
 
         desactivarBoton(boton);
-        marcarSeleccionada(fila, columna);
+
+        agregarSprite("/sprites/celdas/seleccionada.png",fila, columna);
+
         app.mostrarMenu(celda.gestionarOpcionesParaJugador(), celda);
     }
 
-    public void marcarSeleccionada(int fila, int columna) {
-
-
-
-        //this.grilla.add(seleccionada, fila, columna);
-    }
 
     public Celda[] obtenerCeldasConExtractor() {
         ArrayList<Celda> celda = this.celdasConExtractor;

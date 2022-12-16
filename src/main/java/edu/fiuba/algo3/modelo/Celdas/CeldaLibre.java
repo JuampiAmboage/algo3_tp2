@@ -61,11 +61,6 @@ public class CeldaLibre extends TipoCelda {
 
     @Override
     public String obtenerSprite() {
-        int maximo = this.opcionSprite.length;
-        Random random = new Random();
-
-        //int eleccionRandom = random.nextInt(maximo);
-
         return (this.sprite + this.opcionSprite[0]);
     }
 
