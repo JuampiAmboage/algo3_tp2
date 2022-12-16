@@ -31,7 +31,7 @@ public class GeneradorElementos {
             primeraColocacion = false;
         }
         else {
-            posicionBase = new Posicion(longitudColumnas,(int) (Math.random() * longitudFilas-1));
+            posicionBase = new Posicion(longitudFilas-1,(int) (Math.random() * longitudFilas-1));
         }
         mapa.obtenerCelda(posicionBase).ocuparPorTierra(baseJugador);
         baseJugador.instanciacionesIniciales(posicionBase);
