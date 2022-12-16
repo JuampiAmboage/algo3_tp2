@@ -21,19 +21,17 @@ public class RangoBusquedaYColocacion extends Rango{
         for(Posicion unaPosicion : posicionesEnRango) {
             try {
                 Celda celda = mapa.obtenerCelda(unaPosicion);
-                if(tropaAColocar.getClass().equals(TropaTerrestre.class)){
+                if(tropaAColocar instanceof TropaTerrestre){
                     celda.estaOcupadaPorTierra();
                     celda.ocuparPorTierra(tropaAColocar);
                     return;
                 }
-                else if(tropaAColocar.getClass().equals(TropaAerea.class)){
+                else if(tropaAColocar instanceof TropaAerea){
                     celda.estaOcupadaPorAire();
                     celda.ocuparPorAire((TropaAerea) tropaAColocar);
                     return;
                 }
-            } catch (CoordenadaFueraDeRango | CeldaOcupada e) {
-                continue;
-            }
+            } catch (CoordenadaFueraDeRango | CeldaOcupada e) {}
         }
     }
 }
