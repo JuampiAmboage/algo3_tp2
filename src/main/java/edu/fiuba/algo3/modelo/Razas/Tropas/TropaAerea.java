@@ -8,5 +8,6 @@ public abstract class TropaAerea extends Tropa {
         Celda celdaActual = Mapa.getInstance().obtenerCelda(this.posicion);
         celda.ocuparPorAire(this);
         celdaActual.desocuparPorAire();
+        this.cantidadMovimientos++;
     }
 }

@@ -10,5 +10,6 @@ public abstract class TropaTerrestre extends Tropa{
         Celda celdaActual = Mapa.getInstance().obtenerCelda(this.posicion);
         celda.ocuparPorTierra(this);
         celdaActual.desocuparPorTierra();
+        this.cantidadMovimientos++;
     }
 }

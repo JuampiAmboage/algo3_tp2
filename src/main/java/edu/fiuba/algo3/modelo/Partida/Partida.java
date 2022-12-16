@@ -12,8 +12,8 @@ public class Partida {
     public Partida(String[] nombreJugadores, Comunidad[] comunidades) {
         this.mapa = Mapa.getInstance();
         this.mapa.instanciarMapa();
-        this.mapa.generarRecursos();
         agregarJugadores(nombreJugadores, comunidades);
+        this.mapa.generarRecursos();
     }
 
     private void agregarJugadores(String[] nombreJugadores, Comunidad[] comunidades){
