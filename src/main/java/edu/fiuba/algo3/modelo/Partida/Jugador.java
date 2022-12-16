@@ -41,9 +41,7 @@ public class Jugador {
     public void terminarTurno(){
         this.mandarAEspera();
     }
-
     public void cambioCondicionTurno(){
-        Mapa.getInstance().pasarTurno();
         this.condicionTurno.cambioDeTurno();
     }
 

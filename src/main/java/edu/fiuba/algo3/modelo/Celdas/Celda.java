@@ -57,7 +57,6 @@ public class Celda {
         this.ocupanteAereo = ocupanteAereoNuevo;
     }
 
-
     public void desocuparPorTierra(){
         this.ocupanteTerrestre = new UnidadInexistente();
     }

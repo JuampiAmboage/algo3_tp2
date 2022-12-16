@@ -9,16 +9,18 @@ import java.util.ArrayList;
 public class CeldaConMoho extends TipoCelda {
     RangoExpansible rangoExpansible;
 
-    boolean recienInfectada = true;
+    boolean recienInfectada;
     private final String RUTA_SPRITE = "estados/moho.png";
 
     public CeldaConMoho() {
         super();
         rangoExpansible = new RangoExpansible(this.celda.posicion, 1);
+        this.recienInfectada = true;
     }
     public CeldaConMoho(Celda celda) {
         super(celda);
         rangoExpansible = new RangoExpansible(this.celda.posicion, 1);
+        this.recienInfectada = true;
     }
 
     private void expandir() {
@@ -46,7 +48,7 @@ public class CeldaConMoho extends TipoCelda {
     @Override
     protected void cambiarTipoA(CeldaEnergizada nuevoTipo) {}
     @Override
-    protected void cambiarTipoA(CeldaConMoho nuevoTipo) {}
+    protected void cambiarTipoA(CeldaConMoho nuevoTipo) {recienInfectada=true;}
 
     @Override
     public void cambiarTipoDe(Celda c) {
