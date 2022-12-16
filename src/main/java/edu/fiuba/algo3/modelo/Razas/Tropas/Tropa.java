@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Excepciones.EdificioHabilitadorNoCreado;
+import edu.fiuba.algo3.modelo.Excepciones.SinMasMovimientos;
 import edu.fiuba.algo3.modelo.Opciones.MoverseADerecha;
 import edu.fiuba.algo3.modelo.Opciones.MoverseAIzquierda;
 import edu.fiuba.algo3.modelo.Opciones.MoverseHaciaAbajo;
@@ -47,35 +48,38 @@ public abstract class Tropa extends Unidad implements Correlatividad {
             throw new EdificioHabilitadorNoCreado();
         }
     }
-    public void validarMovimiento(Celda celdaDestino){
-        if(this.cantidadMovimientos < 4){
-            this.ocuparCelda(celdaDestino);
-            cantidadMovimientos++;
+    public void tieneMovimientos(){
+        if(cantidadMovimientos >= 4){
+            throw new SinMasMovimientos();
         }
+    }
+
+    public void mover(Celda celdaDestino){
+        this.tieneMovimientos();
+        this.ocuparCelda(celdaDestino);
+
     }
     public void moverArriba(){
         Celda celdaDestino = posicion.obtenerCeldaSuperior();
-        validarMovimiento(celdaDestino);
+        this.mover(celdaDestino);
         this.posicion.movimientoSuperior();
     }
 
     public void moverAbajo(){
         Celda celdaDestino = posicion.obtenerCeldaInferior();
-        validarMovimiento(celdaDestino);
+        this.mover(celdaDestino);
         this.posicion.movimientoInferior();
     }
     public void moverDerecha(){
         Celda celdaDestino = posicion.obtenerCeldaDerecha();
-        validarMovimiento(celdaDestino);
+        this.mover(celdaDestino);
         this.posicion.movimientoDerecha();
     }
     public void moverIzquierda(){
         Celda celdaDestino = posicion.obtenerCeldaIzquierda();
-        validarMovimiento(celdaDestino);
+        this.mover(celdaDestino);
         this.posicion.movimientoIzquierda();
     }
-
-
     public abstract void ocuparCelda(Celda celda);
 
 }

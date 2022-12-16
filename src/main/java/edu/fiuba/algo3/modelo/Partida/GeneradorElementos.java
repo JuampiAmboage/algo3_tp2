@@ -22,22 +22,16 @@ public class GeneradorElementos {
         this.primeraColocacion = true;
     }
 
-    public Posicion buscarCeldaSinRecurso(int filaFija){
-        Posicion posicionDePrueba = new Posicion(filaFija,(int) (Math.random() * longitudFilas-1));
-        while (Mapa.getInstance().obtenerCelda(posicionDePrueba).celdaConRecurso())
-            posicionDePrueba = new Posicion(filaFija,(int) (Math.random() * longitudFilas-1));
-        return posicionDePrueba;
-    }
     public void generarBase(Edificio baseJugador){
         Mapa mapa = Mapa.getInstance();
         Posicion posicionBase;
 
         if(primeraColocacion) {
-            posicionBase = buscarCeldaSinRecurso(0);
+            posicionBase = new Posicion(0,(int) (Math.random() * longitudFilas-1));
             primeraColocacion = false;
         }
         else {
-            posicionBase = buscarCeldaSinRecurso(longitudFilas-1);
+            posicionBase = new Posicion(longitudColumnas,(int) (Math.random() * longitudFilas-1));
         }
         mapa.obtenerCelda(posicionBase).ocuparPorTierra(baseJugador);
         baseJugador.instanciacionesIniciales(posicionBase);

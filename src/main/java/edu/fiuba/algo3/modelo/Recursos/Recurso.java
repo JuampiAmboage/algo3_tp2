@@ -29,4 +29,9 @@ public abstract class Recurso {
     public abstract String obtenerSprite();
 
     public abstract String obtenerDescripcion();
+
+    public boolean existe(){
+        return true;
+    }
+
 }
