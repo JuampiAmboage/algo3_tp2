@@ -40,21 +40,20 @@ public abstract class ControladorVistaMenuJugadores {
 
         opciones = eliminarOpcionesInvalidas(opciones);
 
-        int cantidadDeMenus = opciones.toArray().length;
 
-        if (cantidadDeMenus != 0) {
-            TitledPane[] titledPane = new TitledPane[cantidadDeMenus];
+        if (opciones.toArray().length != 0) {
+            TitledPane[] titledPane = new TitledPane[opciones.toArray().length];
 
             instanciarAcordeon();
 
-            for (int i = 0; i < cantidadDeMenus; i++) {
+            for (int i = 0; i < opciones.toArray().length; i++) {
                 OpcionElegible opcion = opciones.get(i);
 
                 BorderPane nuevoBorderPane = new BorderPane();
                 VBox vBox = new VBox();
                 vBox.setId("vBoxMenuInterno");
 
-                ArrayList<BotonMenuJugador> botones = obtenerBoton(opcion, celda, i);
+                ArrayList<BotonMenuJugador> botones = obtenerBoton(opcion, celda);
                 for (BotonMenuJugador boton : botones) {
                     vBox.getChildren().add(boton.obtenerBotonNodo());
                 }
@@ -72,13 +71,22 @@ public abstract class ControladorVistaMenuJugadores {
     }
     public abstract void limpiarMenu();
     protected ArrayList<OpcionElegible> eliminarOpcionesInvalidas(ArrayList<OpcionElegible> opciones) {
-        for (OpcionElegible opcion : opciones) {
+
+        int cantidad = opciones.toArray().length;
+        int iterador = 0;
+
+        for (int i = 0; i < cantidad; i++) {
+            OpcionElegible opcion = opciones.get(iterador);
             String perteneceA = opcion.obtenerPertenencia();
 
             if (perteneceA != null) {
                 if (!perteneceA.equals(this.perfil)) {
                     opciones.remove(opcion);
+                }else{
+                    iterador++;
                 }
+            }else{
+                iterador++;
             }
         }
 
@@ -90,7 +98,7 @@ public abstract class ControladorVistaMenuJugadores {
         this.acordeon.setId("acordeon");
 
     }
-    protected ArrayList<BotonMenuJugador> obtenerBoton(OpcionElegible opcion, Celda celda, int index) {
+    protected ArrayList<BotonMenuJugador> obtenerBoton(OpcionElegible opcion, Celda celda) {
         ArrayList<BotonMenuJugador> botones = new ArrayList<>();
         for (int i = 0; i < opcion.cantidadDeOpcionesInternas(); i++) {
             BotonMenuJugador boton = new BotonMenuJugador(opcion, this, celda, i);

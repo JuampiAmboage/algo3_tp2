@@ -78,9 +78,7 @@ public class GeneradorElementos {
                 unNodo = new NodoMineral();
                 celdaRandom.agregarRecurso(unNodo);
             }
-            catch (CeldaOcupada celdaOcupada){
-                continue;
-            }
+            catch (CeldaOcupada ignore){}
         }
     }
 
