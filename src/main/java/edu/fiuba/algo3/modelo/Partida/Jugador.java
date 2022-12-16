@@ -12,6 +12,8 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
 
+import java.util.Map;
+
 public class Jugador {
     Partida partidaQueEstaJugando;
     private String nombre;
@@ -37,11 +39,11 @@ public class Jugador {
         this.condicionTurno = new EsperandoTurno(this);
     }
     public void terminarTurno(){
-        this.comunidad.pasarTurno();
         this.mandarAEspera();
     }
 
     public void cambioCondicionTurno(){
+        Mapa.getInstance().pasarTurno();
         this.condicionTurno.cambioDeTurno();
     }
 
