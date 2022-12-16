@@ -8,7 +8,6 @@ import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 
 public class RangoExpansible extends Rango {
-    int radio;
 
     public RangoExpansible(Posicion posicionOrigen, int radio) {
         super(posicionOrigen, radio);
@@ -21,7 +20,7 @@ public class RangoExpansible extends Rango {
                 Celda celda = mapa.obtenerCelda(unaPosicion);
                 celda.cambiarTipo(new CeldaConMoho(celda));
             }
-            catch (CoordenadaFueraDeRango e){continue;}
+            catch (CoordenadaFueraDeRango ignore){}
         }
     }
 
