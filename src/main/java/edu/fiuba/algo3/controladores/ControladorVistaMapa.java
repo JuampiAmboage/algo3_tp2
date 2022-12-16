@@ -81,31 +81,24 @@ public class ControladorVistaMapa {
                 if (spriteTipo != null) {
                     agregarSprite(spriteTipo, fila, columna);
                     agregarBoton(fila, columna);
-
                 }
 
                 String spriteRecurso = celda.obtenerSpriteRecurso();
                 if (spriteRecurso != null) {
-
                     agregarSprite(spriteRecurso, fila, columna);
                     agregarBoton(fila, columna);
-
                 }
 
                 String spriteOcupanteTerrestre = celda.obtenerSpriteOcupanteTerrestre();
                 if (spriteOcupanteTerrestre != null) {
-
                     agregarSprite(spriteOcupanteTerrestre, fila, columna);
                     agregarBoton(fila, columna);
-
                 }
 
                 String spriteOcupanteAero = celda.obtenerSpriteOcupanteAereo();
                 if (spriteOcupanteAero != null) {
-
                     agregarSprite(spriteOcupanteAero, fila, columna);
                     agregarBoton(fila, columna);
-
                 }
 
 
@@ -115,6 +108,7 @@ public class ControladorVistaMapa {
     }
 
     public void actualizarMapa(){
+        this.grilla.getChildren().clear();
         pedirSprites(false);
     }
 
