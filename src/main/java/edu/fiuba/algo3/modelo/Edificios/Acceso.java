@@ -25,7 +25,7 @@ public class Acceso extends EdificioProtoss implements Construible {
         this.rutaSprite = this.rutaSprite + "edificios/acceso.png";
     }
     @Override
-    public void construirSobreRecurso(NoRecurso tipoRecurso) {throw  new ConstruccionProhibida();}
+    public void construirSobreRecurso(NoRecurso tipoRecurso) {}
     @Override
     public void construirSobreRecurso(NodoMineral tipoRecurso) {
         throw new ConstruccionProhibida();
@@ -51,15 +51,6 @@ public class Acceso extends EdificioProtoss implements Construible {
 
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
-
-    /*@Override
-    public void mostrarDescripcion() {
-        System.out.println("-Acceso-");
-        System.out.println("Permite construir: Puerto Estelar.");
-        System.out.println("Permite generar: Zealot, Dragon. \n");
-        System.out.println("Escudo actual: " + this.vida.getEscudoActual());
-        System.out.println("Vida actual: " + this.vida.getVidaActual());
-    }*/
 
     public String obtenerDescripcion() {
         String descripcion = "";
