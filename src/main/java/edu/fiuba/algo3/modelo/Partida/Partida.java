@@ -26,6 +26,7 @@ public class Partida {
     }
 
     public void finDeTurno(){
+        Mapa.getInstance().pasarTurno();
         primerJugador.cambioCondicionTurno();
         segundoJugador.cambioCondicionTurno();
     }
