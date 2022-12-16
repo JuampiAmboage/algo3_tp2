@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public abstract class OpcionElegible {
     public String titulo;
     public String pertenceA;
-    public ArrayList<String> textoBotones;
+    public ArrayList<String> textoBotones = new ArrayList<>();
 
     protected Celda[] celdasConExtractor;
 
