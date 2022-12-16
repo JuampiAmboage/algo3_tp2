@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class CeldaConMoho extends TipoCelda {
     RangoExpansible rangoExpansible;
 
+    boolean recienInfectada = true;
     private final String RUTA_SPRITE = "estados/moho.png";
 
     public CeldaConMoho() {
@@ -30,14 +31,12 @@ public class CeldaConMoho extends TipoCelda {
     }
     @Override
     public void pasarTurno() {
-        this.expandir();
+        if(!recienInfectada)
+            this.expandir();
+        else
+            recienInfectada = false;
     }
 
-    /*@Override
-    public void mostrarDescripcion(){
-        System.out.println("-Celda con moho-");
-        System.out.println("Apta para edificio Zerg (requiere un zángano)");
-    }*/
     @Override
     public boolean esMismoTipo(Object objeto) {
         return objeto instanceof CeldaConMoho;
