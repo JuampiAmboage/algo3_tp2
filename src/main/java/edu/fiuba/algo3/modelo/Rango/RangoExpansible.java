@@ -28,16 +28,20 @@ public class RangoExpansible extends Rango {
     public void energizar() {
         Mapa mapa = Mapa.getInstance();
         for(Posicion unaPosicion : posicionesEnRango) {
+            Celda celda = mapa.obtenerCelda(unaPosicion);
             try {
-                Celda celda = mapa.obtenerCelda(unaPosicion);
+
                 celda.cambiarTipo(new CeldaEnergizada(celda));
                 celda.estaOcupadaPorTierra();
+
+            } catch (CeldaOcupada celdaOcupada) {
+
                 if(celda.obtenerOcupanteTerrestre().getClass().equals(EdificioProtoss.class)){
                     EdificioProtoss edificioProtoss = (EdificioProtoss) celda.obtenerOcupanteTerrestre();
                     edificioProtoss.energizar();
                 }
-            }
-            catch (CoordenadaFueraDeRango | CeldaOcupada e){continue;}
+
+            } catch (CoordenadaFueraDeRango ignore) {}
         }
     }
 
