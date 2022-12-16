@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -39,8 +40,6 @@ public class App extends Application {
     @Override
     public void start(Stage escenario) {
         this.escenarioPrimario = escenario;
-        //this.escenarioPrimario.setTitle("");
-
         this.escenarioPrimario.setResizable(false);
 
         inicializarlayoutRaiz();
@@ -193,8 +192,10 @@ public class App extends Application {
 
         if (controlador.equals(this.controladorVistaMenuJugadorUno)){
             this.controladorVistaMenuJugadorDos.activar();
+            actualizarMapa();
         } else {
             this.controladorVistaMenuJugadorUno.activar();
+            actualizarMapa();
         }
     }
 
@@ -204,8 +205,13 @@ public class App extends Application {
         return this.controladorVistaMapa.obtenerCeldasConExtractor();
     }
 
+
     public void salir() {
         this.escenarioPrimario.close();
+    }
+
+    public void mostrarTurno(String quienJuega) {
+        this.escenarioPrimario.setTitle(quienJuega);
     }
 
     public static void lanzarWarning(String advertencia) {

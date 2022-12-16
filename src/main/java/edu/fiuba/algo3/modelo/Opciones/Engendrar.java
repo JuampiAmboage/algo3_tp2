@@ -11,9 +11,12 @@ public class Engendrar extends OpcionElegible{
     public Engendrar(String descripcion) {
         this.titulo = "Engendrar";
         this.pertenceA = "zerg";
-        this.textoBotones.add("Engendrar");
+        this.textoBotones.add("Engendrar zangano");
+        this.textoBotones.add("Engendrar zerling");
+        this.textoBotones.add("Engendrar hidralisco");
+        this.textoBotones.add("Engendrar mutalisco");
+        this.textoBotones.add("Engendrar amo supremo");
     }
-    /* Opciones de tropas: Zangano, Zerling, Hidralisco, Mutalisco, Amo Supremo */
 
     public void gestionarClick(Celda celda, String opcionElejida){
         Criadero criadero = (Criadero) celda.obtenerOcupanteTerrestre();

@@ -80,6 +80,7 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
     public void indicadorDeTurnoActivo() {
         if (this.activo){
             this.grillaMenu.setStyle("-fx-border-color: green");
+            mostrarTurno();
         } else {
             this.grillaMenu.setStyle("-fx-border-color: red");
         }

@@ -1,5 +1,4 @@
 #botonIniciarJuego, #botonIniciarPartida {
-    -fx-font: "Serif";
     -fx-padding: 10;
     -fx-background-color: #383131;
     -fx-color: -fx-focused-base;

@@ -3,6 +3,7 @@ package edu.fiuba.algo3.controladores;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Opciones.AsignarTrabajoEnExtractor;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 
 public class BotonMenuJugador {

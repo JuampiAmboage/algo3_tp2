@@ -10,6 +10,7 @@ import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -26,18 +27,12 @@ public class ControladorVistaMapa {
     private final int LONGITUD_COLUMNAS_MAPA = 10;// Ancho mapa
     private GridPane grilla;
     private App app;
-    private final String rutaRocas = "/sprites/celdas/decoracion/";
     private String[] opcionesRocas = new String[3];
     private Button botonAnterior;
 
     private ArrayList<Celda> celdasConExtractor = new ArrayList<>();
 
     private boolean seActualizo = false;
-    private void inicializarSpriteRocas() {
-        this.opcionesRocas[0] = "rocas00.png";
-        this.opcionesRocas[1] = "rocas01.png";
-        this.opcionesRocas[2] = "rocas02.png";
-    }
 
     private void inicializarGrilla() {
         this.grilla = new GridPane();
@@ -60,7 +55,6 @@ public class ControladorVistaMapa {
         if (this.grilla == null) {
             inicializarGrilla();
         }
-        inicializarSpriteRocas();
 
         pedirSprites(true);
 
@@ -89,17 +83,6 @@ public class ControladorVistaMapa {
                     agregarBoton(fila, columna);
 
                 }
-
-                /*if (primeraVez) {
-                    if (agregarRocas()) {
-
-                        String spriteRocaNueva = obtenerSpriteRoca();
-                        if (spriteRocaNueva != null) {
-                            agregarSprite(spriteRocaNueva, fila, columna);
-                        }
-
-                    }
-                }*/ // Chequeos para agregar rocas
 
                 String spriteRecurso = celda.obtenerSpriteRecurso();
                 if (spriteRecurso != null) {
@@ -146,31 +129,6 @@ public class ControladorVistaMapa {
 
         this.grilla.add(sprite, fila, columna);
     }
-
-    /*public String obtenerSpriteRoca() {
-        return elejirRutaRandom();
-    }
-
-    public String elejirRutaRandom() {
-        Random random = new Random();
-        int maximo = 3;
-        int eleccionRandom = random.nextInt(maximo);
-
-        return (this.rutaRocas + this.opcionesRocas[eleccionRandom]);
-
-    }
-
-    public boolean agregarRocas() {
-
-        Random random = new Random();
-        int maximo = 3;
-        int eleccionRandom = random.nextInt(maximo);
-
-        if (eleccionRandom == 1) {
-            return true;
-        }
-        return false;
-    }*/ // obtenerSpriteRoca() // elejirRutaRandom()  // agregarRoca()
 
     public void agregarBoton(int fila, int columna) {
 

@@ -18,10 +18,14 @@ public abstract class OpcionElegible {
 
     public String obtenerTextoBoton(int index) { return this.textoBotones.get(index); }
 
-    public abstract void gestionarClick(Celda celda, String opcionElejida);
+    public int cantidadDeOpcionesInternas() { return this.textoBotones.toArray().length; }
 
     public void estblecerCeldasConExtractor(Celda[] celdas) {
         this.celdasConExtractor =  celdas;
     }
+
+    public abstract void gestionarClick(Celda celda, String opcionElejida);
+
+
 
 }
