@@ -25,7 +25,7 @@ public class Acceso extends EdificioProtoss implements Construible {
         this.rutaSprite = this.rutaSprite + "edificios/acceso.png";
     }
     @Override
-    public void construirSobreRecurso(NoRecurso tipoRecurso) {throw  new ConstruccionProhibida();}
+    public void construirSobreRecurso(NoRecurso tipoRecurso) {}
     @Override
     public void construirSobreRecurso(NodoMineral tipoRecurso) {
         throw new ConstruccionProhibida();
@@ -35,11 +35,9 @@ public class Acceso extends EdificioProtoss implements Construible {
         throw new ConstruccionProhibida();
     }
     @Override
-    public void construirSobreTipo(CeldaConMoho tipo) {}
+    public void construirSobreTipo(CeldaConMoho tipo) {throw new ConstruccionProhibida();}
     @Override
-    public void construirSobreTipo(CeldaEnergizada tipo) {
-        throw new ConstruccionProhibida();
-    }
+    public void construirSobreTipo(CeldaEnergizada tipo) {}
     @Override
     public void construirSobreTipo(CeldaLibre tipo) {
         throw new ConstruccionProhibida();

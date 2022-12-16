@@ -27,6 +27,6 @@ public class BotonCelda {
         return this.boton;
     }
 
-    private void gestionarClickEnCelda(){ this.controladorMapa.gestionarClickEnCelda(this.fila, this.columna, this.boton); }
+    private void gestionarClickEnCelda() { this.controladorMapa.gestionarClickEnCelda(this.fila, this.columna, this.boton); }
 
 }
