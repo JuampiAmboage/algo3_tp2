@@ -137,8 +137,6 @@ public class ControladorVistaMapa {
 
         desactivarBoton(boton);
 
-        agregarSprite("/sprites/celdas/seleccionada.png",fila, columna);
-
         app.mostrarMenu(celda.gestionarOpcionesParaJugador(), celda);
     }
 

@@ -1,0 +1,8 @@
+Button {
+    -fx-background-color: #FFFFFF00;
+}
+
+Button:disabled {
+    -fx-border-width: 5px;
+    -fx-border-color: #000000;
+}
