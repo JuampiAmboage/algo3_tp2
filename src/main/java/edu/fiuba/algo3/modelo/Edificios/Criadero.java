@@ -12,6 +12,8 @@ import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoBusquedaYColocacion;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
+import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
+import edu.fiuba.algo3.modelo.Razas.Tropas.TropaTerrestre;
 import edu.fiuba.algo3.modelo.Visibilidad.Visible;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
@@ -82,7 +84,16 @@ public class Criadero extends Edificio {
         tipoUnidad.existeEdificioNecesario();
         comunidad.agregarUnidad(tipoUnidad);
         cantidadLarvasEnEspera--;
-        rangoBusquedaYColocacion.colocarUnidad(tipoUnidad);
+    }
+
+    public void engendrarPorTierra(TropaTerrestre tipoUnidad){
+        engendrar(tipoUnidad);
+        rangoBusquedaYColocacion.colocarPorTierra(tipoUnidad);
+    }
+
+    public void engendrarPorAire(TropaAerea tipoUnidad){
+        engendrar(tipoUnidad);
+        rangoBusquedaYColocacion.colocarPorAire(tipoUnidad);
     }
 
     @Override

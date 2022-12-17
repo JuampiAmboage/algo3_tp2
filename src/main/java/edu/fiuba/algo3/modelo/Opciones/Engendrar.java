@@ -39,29 +39,28 @@ public class Engendrar extends OpcionElegible{
 
     public void engendrarZangano(Celda celda, Criadero criadero){
         Zangano zangano = new Zangano();
-        ComunidadZerg.obtenerInstanciaDeClase().crearUnidad(criadero,zangano);
+        ComunidadZerg.obtenerInstanciaDeClase().crearUnidadTerrestre(criadero,zangano);
         celda.instanciarUnidad(zangano);
     }
-
     public void engendrarZerling(Celda celda, Criadero criadero){
         Zerling zerling = new Zerling();
-        ComunidadZerg.obtenerInstanciaDeClase().crearUnidad(criadero,zerling);
+        ComunidadZerg.obtenerInstanciaDeClase().crearUnidadTerrestre(criadero,zerling);
         celda.instanciarUnidad(zerling);
     }
     public void engendrarHidralisco(Celda celda, Criadero criadero){
         Hidralisco hidralisco = new Hidralisco();
-        ComunidadZerg.obtenerInstanciaDeClase().crearUnidad(criadero,hidralisco);
+        ComunidadZerg.obtenerInstanciaDeClase().crearUnidadTerrestre(criadero,hidralisco);
         celda.instanciarUnidad(hidralisco);
     }
     public void engendrarMutalisco(Celda celda, Criadero criadero){
         Mutalisco mutalisco = new Mutalisco();
-        ComunidadZerg.obtenerInstanciaDeClase().crearUnidad(criadero,mutalisco);
+        ComunidadZerg.obtenerInstanciaDeClase().crearUnidadAerea(criadero,mutalisco);
         celda.instanciarUnidad(mutalisco);
     }
 
     public void engendrarAmoSupremo(Celda celda, Criadero criadero){
         AmoSupremo amoSupremo = new AmoSupremo();
-        ComunidadZerg.obtenerInstanciaDeClase().crearUnidad(criadero,amoSupremo);
+        ComunidadZerg.obtenerInstanciaDeClase().crearUnidadAerea(criadero,amoSupremo);
         celda.instanciarUnidad(amoSupremo);
     }
 

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Rango;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Excepciones.CeldaConRecurso;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Excepciones.CoordenadaFueraDeRango;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
@@ -15,25 +16,29 @@ public class RangoBusquedaYColocacion extends Rango{
     public RangoBusquedaYColocacion(Posicion posicionObjetoConRango, int radioBusqueda) {
         super(posicionObjetoConRango,radioBusqueda);
     }
-
-    public void colocarUnidad(Tropa tropaAColocar){
+    public void colocarPorTierra(TropaTerrestre tropaAColocar){
         Mapa mapa = Mapa.getInstance();
         for(Posicion unaPosicion : posicionesEnRango) {
             try {
                 Celda celda = mapa.obtenerCelda(unaPosicion);
-                if(tropaAColocar.getClass().equals(TropaTerrestre.class)){
-                    celda.estaOcupadaPorTierra();
-                    celda.ocuparPorTierra(tropaAColocar);
-                    return;
-                }
-                else if(tropaAColocar.getClass().equals(TropaAerea.class)){
-                    celda.estaOcupadaPorAire();
-                    celda.ocuparPorAire((TropaAerea) tropaAColocar);
-                    return;
-                }
-            } catch (CoordenadaFueraDeRango | CeldaOcupada e) {
-                continue;
+                celda.estaOcupadaPorTierra();
+                celda.celdaConRecurso();
+                celda.ocuparPorTierra(tropaAColocar);
+                return;
             }
+            catch (CoordenadaFueraDeRango | CeldaOcupada | CeldaConRecurso ignore) {}
+        }
+    }
+    public void colocarPorAire(TropaAerea tropaAColocar){
+        Mapa mapa = Mapa.getInstance();
+        for(Posicion unaPosicion : posicionesEnRango) {
+            try {
+                Celda celda = mapa.obtenerCelda(unaPosicion);
+                celda.estaOcupadaPorAire();
+                celda.ocuparPorAire((TropaAerea) tropaAColocar);
+                return;
+
+            } catch (CoordenadaFueraDeRango | CeldaOcupada | CeldaConRecurso ignore) {}
         }
     }
 }

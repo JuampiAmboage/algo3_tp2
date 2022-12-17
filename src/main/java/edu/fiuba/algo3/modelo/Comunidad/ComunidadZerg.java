@@ -4,10 +4,7 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Mutalisco;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
-import edu.fiuba.algo3.modelo.Razas.Tropas.UnidadEvolucionada;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
+import edu.fiuba.algo3.modelo.Razas.Tropas.*;
 
 
 public class ComunidadZerg extends Comunidad {
@@ -30,8 +27,11 @@ public class ComunidadZerg extends Comunidad {
         return comunidadZerg;
     }
 
-    public void crearUnidad(Criadero criaderoQueGenera, Tropa unidadAGenerar) {
-        criaderoQueGenera.engendrar(unidadAGenerar);
+    public void crearUnidadTerrestre(Criadero criadero, TropaTerrestre tropaAGenerar){
+        criadero.engendrarPorTierra(tropaAGenerar);
+    }
+    public void crearUnidadAerea(Criadero criadero, TropaAerea tropaAGenerar){
+        criadero.engendrarPorAire(tropaAGenerar);
     }
 
     public void construirEdificio(Celda celda, Zangano zanganoAEvolucionar, Edificio nuevoEdificio) {
