@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
+import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Ataque.Atacar;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Excepciones.EdificioHabilitadorNoCreado;
 import edu.fiuba.algo3.modelo.Excepciones.SinMasMovimientos;
 import edu.fiuba.algo3.modelo.Opciones.MoverseADerecha;
@@ -61,24 +63,44 @@ public abstract class Tropa extends Unidad implements Correlatividad {
     }
     public void moverArriba(){
         Celda celdaDestino = posicion.obtenerCeldaSuperior();
-        this.mover(celdaDestino);
-        this.posicion.movimientoSuperior();
+        try {
+            this.mover(celdaDestino);
+            this.posicion.movimientoSuperior();
+        }
+        catch (CeldaOcupada celdaOcupada){
+            App.lanzarWarning("Esta celda esta ocupada");
+        }
     }
 
     public void moverAbajo(){
         Celda celdaDestino = posicion.obtenerCeldaInferior();
-        this.mover(celdaDestino);
-        this.posicion.movimientoInferior();
+        try {
+            this.mover(celdaDestino);
+            this.posicion.movimientoInferior();
+        }
+        catch (CeldaOcupada celdaOcupada){
+            App.lanzarWarning("Esta celda esta ocupada");
+        }
     }
     public void moverDerecha(){
         Celda celdaDestino = posicion.obtenerCeldaDerecha();
-        this.mover(celdaDestino);
-        this.posicion.movimientoDerecha();
+        try {
+            this.mover(celdaDestino);
+            this.posicion.movimientoDerecha();
+        }
+        catch (CeldaOcupada celdaOcupada){
+            App.lanzarWarning("Esta celda esta ocupada");
+        }
     }
     public void moverIzquierda(){
         Celda celdaDestino = posicion.obtenerCeldaIzquierda();
-        this.mover(celdaDestino);
-        this.posicion.movimientoIzquierda();
+        try {
+            this.mover(celdaDestino);
+            this.posicion.movimientoIzquierda();
+        }
+        catch (CeldaOcupada celdaOcupada){
+            App.lanzarWarning("Esta celda esta ocupada");
+        }
     }
     public abstract void ocuparCelda(Celda celda);
 

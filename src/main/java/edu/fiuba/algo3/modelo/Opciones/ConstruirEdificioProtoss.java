@@ -4,6 +4,7 @@ import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Edificios.*;
+import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 
 public class ConstruirEdificioProtoss extends OpcionElegible{
 
@@ -34,15 +35,31 @@ public class ConstruirEdificioProtoss extends OpcionElegible{
 
     private void construirPilonEn(Celda celda) {
         Pilon pilon = new Pilon();
-        ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda, pilon);
-        celda.instanciarUnidad(pilon);
+        try {
+            ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda, pilon);
+            celda.instanciarUnidad(pilon);
+        }
+        catch (CeldaOcupada celdaOcupada){
+            App.lanzarWarning("Esta celda esta ocupada");
+        }
     }private void construirAccsesoEn(Celda celda) {
         Acceso acceso = new Acceso();
-        ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda, acceso);
-        celda.instanciarUnidad(acceso);
-    }private void construirPuertoEn(Celda celda) {
+        try {
+            ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda, acceso);
+            celda.instanciarUnidad(acceso);
+        }
+        catch (CeldaOcupada celdaOcupada){
+            App.lanzarWarning("Esta celda esta ocupada");
+        }
+    }
+    private void construirPuertoEn(Celda celda) {
         PuertoEstelar puertoEstelar = new PuertoEstelar();
-        ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda,puertoEstelar);
-        celda.instanciarUnidad(puertoEstelar);
+        try {
+            ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda, puertoEstelar);
+            celda.instanciarUnidad(puertoEstelar);
+        }
+        catch (CeldaOcupada celdaOcupada){
+            App.lanzarWarning("Esta celda esta ocupada");
+        }
     }
 }

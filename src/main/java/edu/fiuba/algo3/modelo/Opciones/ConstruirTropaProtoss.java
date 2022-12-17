@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
+import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Edificios.EdificioProtoss;
+import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Razas.Tropas.*;
 
 public class ConstruirTropaProtoss extends OpcionElegible {
@@ -29,25 +31,40 @@ public class ConstruirTropaProtoss extends OpcionElegible {
 
     public void construirZealotEn(Celda celda) {
         Zealot zealot = new Zealot();
-        celda.estaOcupadaPorTierra();
-        ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(zealot);
-        celda.ocuparPorTierra(zealot);
-        celda.instanciarUnidad(zealot);
+        try {
+            celda.estaOcupadaPorTierra();
+            ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(zealot);
+            celda.ocuparPorTierra(zealot);
+            celda.instanciarUnidad(zealot);
+        }
+        catch (CeldaOcupada celdaOcupada){
+            App.lanzarWarning("Esta celda esta ocupada");
+        }
     }
 
     public void construirDragonEn(Celda celda) {
         Dragon dragon = new Dragon();
-        celda.estaOcupadaPorTierra();
-        ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(dragon);
-        celda.ocuparPorTierra(dragon);
-        celda.instanciarUnidad(dragon);
+        try {
+            celda.estaOcupadaPorTierra();
+            ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(dragon);
+            celda.ocuparPorTierra(dragon);
+            celda.instanciarUnidad(dragon);
+        }
+        catch (CeldaOcupada celdaOcupada){
+            App.lanzarWarning("Esta celda esta ocupada");
+        }
     }
 
     public void construirScoutEn(Celda celda) {
         Scout scout = new Scout();
-        celda.estaOcupadaPorAire();
-        ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(scout);
-        celda.ocuparPorAire(scout);
-        celda.instanciarUnidad(scout);
+        try {
+            celda.estaOcupadaPorAire();
+            ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(scout);
+            celda.ocuparPorAire(scout);
+            celda.instanciarUnidad(scout);
+        }
+        catch (CeldaOcupada celdaOcupada){
+            App.lanzarWarning("Esta celda esta ocupada");
+        }
     }
 }
