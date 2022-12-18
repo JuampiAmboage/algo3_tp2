@@ -51,7 +51,7 @@ public abstract class Tropa extends Unidad implements Correlatividad {
         }
     }
     public void tieneMovimientos(){
-        if(cantidadMovimientos >= 4){
+        if(this.cantidadMovimientos >= 3){
             throw new SinMasMovimientos();
         }
     }

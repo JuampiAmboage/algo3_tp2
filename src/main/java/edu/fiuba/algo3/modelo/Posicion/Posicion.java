@@ -55,20 +55,20 @@ public class Posicion {
         return Mapa.getInstance().obtenerCelda(new Posicion(this.fila+1,this.columna));
     }
     public Celda obtenerCeldaIzquierda(){
-        return Mapa.getInstance().obtenerCelda(new Posicion(this.fila,this.columna-1));
+        return Mapa.getInstance().obtenerCelda(new Posicion(this.fila,this.columna+1));
     }
     public Celda obtenerCeldaDerecha(){
-        return Mapa.getInstance().obtenerCelda(new Posicion(this.fila,this.columna+1));
+        return Mapa.getInstance().obtenerCelda(new Posicion(this.fila,this.columna-1));
     }
     public void movimientoSuperior(){ this.fila -= 1; }
     public void movimientoInferior(){
         this.fila += 1;
     }
     public void movimientoDerecha(){
-        this.columna += 1;
+        this.columna -= 1;
     }
     public void movimientoIzquierda(){
-        this.columna -= 1;
+        this.columna += 1;
     }
 
     public int obtenerFila(){return fila;}
