@@ -94,25 +94,45 @@ public class ControladorVistaConfiguracionPartida {
 
     public void gestionarSeleccionDeRaza() {
         //Jugador uno
-        if (this.checkZergJugadorUno.isSelected()) { //Elije Zerg
+        if (!this.checkZergJugadorUno.isSelected() && !this.checkProtossJugadorUno.isSelected()) { // No eligio ninguno se elije por defecto
+
+            this.checkProtossJugadorUno.setVisible(true);
+            this.checkZergJugadorUno.setVisible(true);
+
+            this.comunidades[0] = ComunidadZerg.obtenerInstanciaDeClase(); // Por defecto Zerg
+
+            this.perfiles[0] = this.perfilZerg;
+
+        } else if (this.checkZergJugadorUno.isSelected()) { //Elije Zerg
 
             this.checkProtossJugadorUno.setVisible(false);
 
-
             this.comunidades[0] = ComunidadZerg.obtenerInstanciaDeClase();
+
             this.perfiles[0] = this.perfilZerg;
 
-        } else if (this.checkProtossJugadorUno.isSelected()) { //Elije Protoss
+        } else { //Elije Protoss
 
             this.checkZergJugadorUno.setVisible(false);
 
-
             this.comunidades[0] = ComunidadProtoss.obtenerInstanciaDeClase();
+
             this.perfiles[0] = this.perfilProtoss;
+
         }
 
         //Jugador dos
-        if (this.checkZergJugadorDos.isSelected()){ //Elije Zerg
+        if ( !this.checkZergJugadorDos.isSelected() && !this.checkProtossJugadorDos.isSelected() ) { // No eligio ninguno se elije por defecto
+
+            this.checkProtossJugadorDos.setVisible(true);
+
+            this.checkZergJugadorDos.setVisible(true);
+
+            this.comunidades[1] = ComunidadProtoss.obtenerInstanciaDeClase(); // Por defecto Protoss
+
+            this.perfiles[1] = this.perfilProtoss;
+
+        } else if (this.checkZergJugadorDos.isSelected()){ //Elije Zerg
 
             this.checkProtossJugadorDos.setVisible(false);
 
@@ -120,14 +140,14 @@ public class ControladorVistaConfiguracionPartida {
 
             this.perfiles[1] = this.perfilZerg;
 
-        } else if (this.checkProtossJugadorDos.isSelected())  { //Elije Protoss
+        } else { //Elije Protoss
 
             this.checkZergJugadorDos.setVisible(false);
-
 
             this.comunidades[1] = ComunidadProtoss.obtenerInstanciaDeClase();
 
             this.perfiles[1] = this.perfilProtoss;
+
         }
 
         if (!this.checkZergJugadorUno.isSelected() && !this.checkProtossJugadorUno.isSelected()) {
