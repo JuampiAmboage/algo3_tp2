@@ -17,7 +17,6 @@ public class BotonCelda {
 
         this.boton.setPrefSize(70.0, 70.0);
         this.boton.setOnAction(e->gestionarClickEnCelda());
-        //this.boton.setOpacity(0);
 
         this.fila = fila;
         this.columna = columna;
