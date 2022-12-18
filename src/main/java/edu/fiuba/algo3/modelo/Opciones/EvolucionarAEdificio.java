@@ -12,7 +12,7 @@ public class EvolucionarAEdificio extends OpcionElegible{
         this.pertenceA = "zerg";
         this.textoBotones.add("Criadero");
         this.textoBotones.add("Reserva de reproduccion");
-        this.textoBotones.add("Guardia");
+        this.textoBotones.add("Guarida");
         this.textoBotones.add("Espiral");
     }
 
@@ -27,13 +27,10 @@ public class EvolucionarAEdificio extends OpcionElegible{
                 construirReservaReproduccionEn(celda,zanganoAEvolucionar);
             }
             else if (textoBotones.get(2).equals(opcionElejida)) {
-                construirReservaReproduccionEn(celda,zanganoAEvolucionar);
+                construirGuaridaEn(celda,zanganoAEvolucionar);
             }
-            else if (textoBotones.get(3).equals(opcionElejida)){
-                construirGuaridaEn(celda,zanganoAEvolucionar);}
             else{
-                construirEspiralEn(celda,zanganoAEvolucionar);
-            }
+                construirEspiralEn(celda,zanganoAEvolucionar);}
 
         }
     }
