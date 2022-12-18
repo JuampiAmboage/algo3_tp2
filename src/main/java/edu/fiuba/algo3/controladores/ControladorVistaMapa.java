@@ -45,7 +45,7 @@ public class ControladorVistaMapa {
         this.grilla.setAlignment(Pos.CENTER);
         this.grilla.setId("grilla");
 
-        //this.grilla.setRotate(90.0);
+        this.grilla.setRotate(90.0);
 
         this.baseMapa.setCenter(grilla);
     }
@@ -120,7 +120,7 @@ public class ControladorVistaMapa {
         sprite.setFitHeight(70.0);
         sprite.setImage(imagen);
 
-        //sprite.setRotate(-90.0);
+        sprite.setRotate(-90.0);
 
         this.grilla.add(sprite, fila, columna);
     }
