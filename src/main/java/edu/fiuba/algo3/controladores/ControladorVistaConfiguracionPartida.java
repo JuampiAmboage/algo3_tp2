@@ -75,8 +75,6 @@ public class ControladorVistaConfiguracionPartida {
 
         }
 
-
-
         this.nombreDeJugadores[0] = this.nombreJugadorUno.getText();
         this.nombreDeJugadores[1] = this.nombreJugadorDos.getText();
 
