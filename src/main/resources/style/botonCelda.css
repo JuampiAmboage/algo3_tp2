@@ -2,6 +2,11 @@ Button {
     -fx-background-color: #FFFFFF00;
 }
 
+Button:hover {
+    -fx-border-width: 5px;
+    -fx-border-color: #ff0000;
+}
+
 Button:disabled {
     -fx-border-width: 5px;
     -fx-border-color: #000000;
