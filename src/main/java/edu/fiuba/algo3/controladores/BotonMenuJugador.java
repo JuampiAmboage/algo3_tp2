@@ -34,6 +34,7 @@ public class BotonMenuJugador {
         }
 
         this.opcion.gestionarClick(celda, opcionElejida);
+        this.controlador.limpiarMenu();
         this.controlador.actualizarMapa();
     }
 }
