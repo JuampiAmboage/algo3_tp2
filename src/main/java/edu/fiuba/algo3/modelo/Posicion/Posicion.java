@@ -60,15 +60,15 @@ public class Posicion {
     public Celda obtenerCeldaDerecha(){
         return Mapa.getInstance().obtenerCelda(new Posicion(this.fila,this.columna+1));
     }
-    public void movimientoSuperior(){ this.columna -= 1; }
+    public void movimientoSuperior(){ this.fila -= 1; }
     public void movimientoInferior(){
-        this.columna += 1;
-    }
-    public void movimientoDerecha(){
         this.fila += 1;
     }
+    public void movimientoDerecha(){
+        this.columna += 1;
+    }
     public void movimientoIzquierda(){
-        this.fila -= 1;
+        this.columna -= 1;
     }
 
     public int obtenerFila(){return fila;}
