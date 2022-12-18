@@ -10,6 +10,7 @@ public class MoverseHaciaArriba extends OpcionElegible{
     }
 
     @Override
-    public void gestionarClick(Celda celda, String opcionElejida) {  Tropa tropaAMovilizar = (Tropa) celda.obtenerOcupanteTerrestre();
+    public void gestionarClick(Celda celda, String opcionElejida) {
+        Tropa tropaAMovilizar = (Tropa) celda.obtenerOcupanteTerrestre();
         tropaAMovilizar.moverArriba(); }
 }

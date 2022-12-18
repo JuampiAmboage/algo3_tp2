@@ -44,7 +44,8 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
         this.aplicarPesoEnSuministro();
         this.aniadirSuministro();
     }
-    public void realizarAccionesTurno(){vida.pasarTurno();
+    public void realizarAccionesTurno(){
+        vida.pasarTurno();
         cantidadMovimientos = 0;
     }
 

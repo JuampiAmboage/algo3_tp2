@@ -14,7 +14,7 @@ public class ConstruirExtractor extends OpcionElegible{
     public ConstruirExtractor(String descripcion) {
         this.titulo = "Construir extractor";
         this.pertenceA = "zerg";
-        this.textoBotones.add("Construir");
+        this.textoBotones.add("Construir Extractor");
     }
 
     @Override
