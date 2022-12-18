@@ -12,7 +12,7 @@ public class ConstruirNexoMineral extends OpcionElegible{
     public ConstruirNexoMineral(String descripcion) {
         this.titulo = "Construir nexo Mineral";
         this.pertenceA = "protoss";
-        this.textoBotones.add("Construir");
+        this.textoBotones.add("Construir Nexo Mineral");
     }
 
     @Override

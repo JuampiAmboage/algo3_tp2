@@ -40,8 +40,8 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
     }
 
     public void realizarAccionesTurno() {
-        vida.pasarTurno();
-        cantidadMovimientos = 0;
+        this.vida.pasarTurno();
+        this.cantidadMovimientos = 0;
 
     }
     @Override
@@ -59,15 +59,6 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
     }
     public int obtenerEscudo(){return vida.getEscudoActual();}
 
-    /*@Override
-    public void mostrarDescripcion() {
-        System.out.println("-Zealot-");
-        System.out.println("Al eliminar tres enemigos se vuelve invisible. Si pierde Boca hace lo mismo. \n");
-        System.out.println("Escudo actual: " + this.vida.getEscudoActual());
-        System.out.println("Vida actual: "+ this.vida.getVidaActual());
-        System.out.println("Daño aereo: No tiene");
-        System.out.println("Danio terrestre:" + this.danioTerrestre);
-    }*/
     public String obtenerSprite() { return this.rutaSprite; }
 
     @Override
