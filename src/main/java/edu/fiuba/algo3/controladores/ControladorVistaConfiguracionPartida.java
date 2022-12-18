@@ -47,6 +47,7 @@ public class ControladorVistaConfiguracionPartida {
         this.botonIniciarPartida.setVisible(false);
 
         if (validarInformacionObligatoria()) {
+            gestionarSeleccionDeRaza();
             gestionarPasajeDeDatosAlBackend();
             mostrarVistaJuego(this.perfiles);
         } else {
@@ -76,8 +77,6 @@ public class ControladorVistaConfiguracionPartida {
 
         this.nombreDeJugadores[0] = this.nombreJugadorUno.getText();
         this.nombreDeJugadores[1] = this.nombreJugadorDos.getText();
-
-        gestionarSeleccionDeRaza();
 
         return true;
 
