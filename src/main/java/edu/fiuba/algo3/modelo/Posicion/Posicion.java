@@ -8,34 +8,34 @@ import edu.fiuba.algo3.modelo.Recursos.Recurso;
 import java.util.ArrayList;
 
 public class Posicion {
-    private int X;
-    private int Y;
+    private int fila;
+    private int columna;
 
-    public Posicion(int posicionX, int posicionY){
-        X = posicionX;
-        Y = posicionY;
+    public Posicion(int posicionFila, int posicionColumna){
+        fila = posicionFila;
+        columna = posicionColumna;
     }
 
     public boolean esMismaPosicion(Posicion posicionDeBusqueda){
-        return posicionDeBusqueda.obtenerDistanciaA(X, Y) == 0;
+        return posicionDeBusqueda.obtenerDistanciaA(fila, columna) == 0;
     }
     public double solicitarDistanciaAUnidad(Unidad unidadParaSolicitar){
-        return unidadParaSolicitar.obtenerDistanciaA(X,Y);
+        return unidadParaSolicitar.obtenerDistanciaA(fila,columna);
     }
    public double solicitarDistanciaARecurso(Recurso recursoParaSolicitar){
-        return recursoParaSolicitar.obtenerDistanciaA(X,Y);
+        return recursoParaSolicitar.obtenerDistanciaA(fila,columna);
     }
     public double obtenerDistanciaA(int posicionXDestino, int posicionYDestino){
-        return Math.sqrt(Math.pow((posicionXDestino-X),2)+Math.pow((posicionYDestino-Y),2));
+        return Math.sqrt(Math.pow((posicionXDestino-fila),2)+Math.pow((posicionYDestino-columna),2));
     }
     public boolean estaEnLimites(int maxLongitudX, int maxLongitudY) {
-        return this.X >= 0 && this.X < maxLongitudX && this.Y >= 0 && this.Y < maxLongitudY;
+        return this.fila >= 0 && this.fila < maxLongitudX && this.columna >= 0 && this.columna < maxLongitudY;
     }
     public ArrayList<Posicion> obtenerPosicionesEnRadio(int radio) {
         Mapa mapa = Mapa.getInstance();
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        for(int i = (this.X - radio); i <= (this.X + radio); i++) {
-            for(int j = (this.Y - radio); j <= (this.Y + radio); j++) {
+        for(int i = (this.fila - radio); i <= (this.fila + radio); i++) {
+            for(int j = (this.columna - radio); j <= (this.columna + radio); j++) {
                 Posicion unaPosicion = new Posicion(i,j);
                 if (mapa.estaPosicionEnLimites(unaPosicion)) {
                     posiciones.add(unaPosicion);
@@ -49,28 +49,28 @@ public class Posicion {
     }*/
 
     public Celda obtenerCeldaSuperior(){
-        return Mapa.getInstance().obtenerCelda(new Posicion(this.X,this.Y-1));
+        return Mapa.getInstance().obtenerCelda(new Posicion(this.fila-1,this.columna));
     }
     public Celda obtenerCeldaInferior(){
-        return Mapa.getInstance().obtenerCelda(new Posicion(this.X,this.Y+1));
+        return Mapa.getInstance().obtenerCelda(new Posicion(this.fila+1,this.columna));
     }
     public Celda obtenerCeldaIzquierda(){
-        return Mapa.getInstance().obtenerCelda(new Posicion(this.X-1,this.Y));
+        return Mapa.getInstance().obtenerCelda(new Posicion(this.fila,this.columna-1));
     }
     public Celda obtenerCeldaDerecha(){
-        return Mapa.getInstance().obtenerCelda(new Posicion(this.X+1,this.Y));
+        return Mapa.getInstance().obtenerCelda(new Posicion(this.fila,this.columna+1));
     }
-    public void movimientoSuperior(){
-        this.X -= 1;
-    }
+    public void movimientoSuperior(){ this.columna -= 1; }
     public void movimientoInferior(){
-        this.X += 1;
+        this.columna += 1;
     }
     public void movimientoDerecha(){
-        this.Y += 1;
+        this.fila += 1;
     }
     public void movimientoIzquierda(){
-        this.Y -= 1;
+        this.fila -= 1;
     }
 
+    public int obtenerFila(){return fila;}
+    public int obtenerColumna(){return columna;}
 }

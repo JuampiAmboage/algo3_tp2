@@ -33,7 +33,7 @@ public class Celda {
         this.ocupanteTerrestre = new UnidadInexistente();
         this.ocupanteAereo = new TropaAereaInexistente();
         this.tipo = new CeldaLibre(this);
-        this.posicion = new Posicion(posicionX,posicionY);
+        this.posicion = new Posicion(posicionX, posicionY);
     }
     public Celda(Recurso unRecurso, TipoCelda unTipo, Posicion unaPosicion) {
         this.recurso = unRecurso;
@@ -108,8 +108,10 @@ public class Celda {
     public TropaAerea obtenerOcupanteAereo(){return ocupanteAereo; }
 
     public void instanciarUnidad(Unidad unidad){
-        unidad.instanciacionesIniciales(posicion);
+        Posicion posicionNueva = new Posicion(posicion.obtenerFila(), posicion.obtenerColumna());
+        unidad.instanciacionesIniciales(posicionNueva);
     }
+
     public ArrayList<OpcionElegible> gestionarOpcionesParaJugador() {
 
         ArrayList<OpcionElegible> listaDeOpciones = new ArrayList<OpcionElegible>();

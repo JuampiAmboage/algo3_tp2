@@ -45,6 +45,8 @@ public class ControladorVistaMapa {
         this.grilla.setAlignment(Pos.CENTER);
         this.grilla.setId("grilla");
 
+        //this.grilla.setRotate(90.0);
+
         this.baseMapa.setCenter(grilla);
     }
 
@@ -56,7 +58,7 @@ public class ControladorVistaMapa {
             inicializarGrilla();
         }
 
-        pedirSprites(true);
+        pedirSprites();
 
         if (this.seActualizo) {
             actualizarMapa();
@@ -65,7 +67,7 @@ public class ControladorVistaMapa {
 
     }
 
-    public void pedirSprites(boolean primeraVez) {
+    public void pedirSprites() {
         for (int fila = 0; fila < LONGITUD_FILAS_MAPA; fila++) {
 
             for (int columna = 0; columna < LONGITUD_COLUMNAS_MAPA; columna++) {
@@ -80,27 +82,24 @@ public class ControladorVistaMapa {
                 String spriteTipo = celda.obtenerSpriteTipo();
                 if (spriteTipo != null) {
                     agregarSprite(spriteTipo, fila, columna);
-                    agregarBoton(fila, columna);
                 }
 
                 String spriteRecurso = celda.obtenerSpriteRecurso();
                 if (spriteRecurso != null) {
                     agregarSprite(spriteRecurso, fila, columna);
-                    agregarBoton(fila, columna);
                 }
 
                 String spriteOcupanteTerrestre = celda.obtenerSpriteOcupanteTerrestre();
                 if (spriteOcupanteTerrestre != null) {
                     agregarSprite(spriteOcupanteTerrestre, fila, columna);
-                    agregarBoton(fila, columna);
                 }
 
                 String spriteOcupanteAero = celda.obtenerSpriteOcupanteAereo();
                 if (spriteOcupanteAero != null) {
                     agregarSprite(spriteOcupanteAero, fila, columna);
-                    agregarBoton(fila, columna);
                 }
 
+                agregarBoton(fila, columna);
 
             }
 
@@ -109,10 +108,10 @@ public class ControladorVistaMapa {
 
     public void actualizarMapa(){
         this.grilla.getChildren().clear();
-        pedirSprites(false);
+        pedirSprites();
     }
 
-    public void agregarSprite(String rutaSprite, int fila, int columna) {
+    public void agregarSprite(String rutaSprite,int fila,int columna) {
 
         Image imagen = new Image(getClass().getResourceAsStream(rutaSprite));
 
@@ -120,6 +119,8 @@ public class ControladorVistaMapa {
         sprite.setFitWidth(70.0);
         sprite.setFitHeight(70.0);
         sprite.setImage(imagen);
+
+        //sprite.setRotate(-90.0);
 
         this.grilla.add(sprite, fila, columna);
     }

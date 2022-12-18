@@ -18,8 +18,8 @@ public class BotonCelda {
         this.boton.setPrefSize(70.0, 70.0);
         this.boton.setOnAction(e->gestionarClickEnCelda());
 
-        this.fila = fila;
         this.columna = columna;
+        this.fila = fila;
     }
 
     public Button obtenerBotonNodo(){

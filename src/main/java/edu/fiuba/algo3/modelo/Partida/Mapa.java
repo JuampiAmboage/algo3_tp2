@@ -43,7 +43,7 @@ public class Mapa {
                 if (celda.esMismaPosicion(posicionDeBusqueda))
                     return celda;
             }
-        throw new CoordenadaFueraDeRango();
+        throw new CoordenadaFueraDeRango(posicionDeBusqueda);
     }
 
     public void generarRecursos(){
