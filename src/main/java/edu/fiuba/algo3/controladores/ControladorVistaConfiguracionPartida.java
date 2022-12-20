@@ -65,17 +65,20 @@ public class ControladorVistaConfiguracionPartida {
         }
 
         gestionarSeleccionDeRaza();
-        if (this.comunidades[0] == this.comunidades[1]) {
 
+        if (this.comunidades[0] == null || this.comunidades[1] == null) {
+            warning.setHeaderText(null);
+            warning.setTitle("Atencion");
+            warning.setContentText("Se debe seleccionar una raza.");
+            warning.showAndWait();
+            return false;
+        } else if (this.comunidades[0] == this.comunidades[1]) {
             warning.setHeaderText(null);
             warning.setTitle("Atencion");
             warning.setContentText("Se debe seleccionar razas diferentes.");
             warning.showAndWait();
             return false;
-
         }
-
-
 
         this.nombreDeJugadores[0] = this.nombreJugadorUno.getText();
         this.nombreDeJugadores[1] = this.nombreJugadorDos.getText();
@@ -146,6 +149,20 @@ public class ControladorVistaConfiguracionPartida {
             this.perfiles[1] = this.perfilProtoss;
 
         }
+
+        if (!this.checkZergJugadorUno.isSelected() && !this.checkProtossJugadorUno.isSelected()) {
+
+            this.comunidades[0] = null;
+            this.checkZergJugadorUno.setVisible(true);
+            this.checkProtossJugadorUno.setVisible(true);
+
+        } else if (!this.checkZergJugadorDos.isSelected() && !this.checkProtossJugadorDos.isSelected()) {
+
+            this.comunidades[1] = null;
+            this.checkZergJugadorDos.setVisible(true);
+            this.checkProtossJugadorDos.setVisible(true);
+        }
+
     }
 
     public void mostrarVistaJuego(String[] perfiles) {
