@@ -4,6 +4,10 @@ import edu.fiuba.algo3.modelo.Ataque.AtacarTierra;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Edificios.Acceso;
 
+import edu.fiuba.algo3.modelo.Opciones.MoverTerrestreHaciaAbajo;
+import edu.fiuba.algo3.modelo.Opciones.MoverTerrestreHaciaArriba;
+import edu.fiuba.algo3.modelo.Opciones.MoverTerrestreHaciaDerecha;
+import edu.fiuba.algo3.modelo.Opciones.MoverTerrestreHaciaIzquierda;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
@@ -31,6 +35,10 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
         //opciones.add(new TropaTerrestreAtacaTierra(obtenerDescripcion()));
 
         this.rutaSprite = this.rutaSprite + "tropas/protoss/zealot.png";
+        opciones.add(new MoverTerrestreHaciaArriba(obtenerDescripcion(),"protoss"));
+        opciones.add(new MoverTerrestreHaciaAbajo(obtenerDescripcion(),"protoss"));
+        opciones.add(new MoverTerrestreHaciaIzquierda(obtenerDescripcion(),"protoss"));
+        opciones.add(new MoverTerrestreHaciaDerecha(obtenerDescripcion(),"protoss"));
     }
 
     @Override

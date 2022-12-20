@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Ataque.AtacarTierraYAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Espiral;
 
-import edu.fiuba.algo3.modelo.Opciones.Mutar;
+import edu.fiuba.algo3.modelo.Opciones.*;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
@@ -26,6 +26,10 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
         //opciones.add(new TropaAereaAtacaTierra(obtenerDescripcion()));
         //opciones.add(new TropaAereaAtacaTierra(obtenerDescripcion()));
         opciones.add(new Mutar(obtenerDescripcion()));
+        opciones.add(new MoverAereaHaciaArriba(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverAereaHaciaAbajo(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverAereaHaciaIzquierda(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverAereaHaciaDerecha(obtenerDescripcion(),"zerg"));
 
     }
 
@@ -35,6 +39,7 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
     }
 
     public void mutar(UnidadEvolucionada unidadPostMutacion){
+        this.esUsable();
         ComunidadZerg comunidadZerg = ComunidadZerg.obtenerInstanciaDeClase();
         comunidadZerg.agregarUnidad((Unidad) unidadPostMutacion);
         comunidadZerg.quitarUnidad(this);

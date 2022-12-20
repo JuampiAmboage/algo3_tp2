@@ -8,11 +8,10 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Excepciones.EdificioHabilitadorNoCreado;
 import edu.fiuba.algo3.modelo.Excepciones.SinMasMovimientos;
-import edu.fiuba.algo3.modelo.Opciones.MoverseADerecha;
-import edu.fiuba.algo3.modelo.Opciones.MoverseAIzquierda;
-import edu.fiuba.algo3.modelo.Opciones.MoverseHaciaAbajo;
-import edu.fiuba.algo3.modelo.Opciones.MoverseHaciaArriba;
-import edu.fiuba.algo3.modelo.Partida.Mapa;
+import edu.fiuba.algo3.modelo.Opciones.MoverTerrestreHaciaDerecha;
+import edu.fiuba.algo3.modelo.Opciones.MoverTerrestreHaciaIzquierda;
+import edu.fiuba.algo3.modelo.Opciones.MoverTerrestreHaciaAbajo;
+import edu.fiuba.algo3.modelo.Opciones.MoverTerrestreHaciaArriba;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Razas.Correlatividad;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
@@ -29,11 +28,9 @@ public abstract class Tropa extends Unidad implements Correlatividad {
         super();
         visibilidad = new Visible(this);
         cantidadMovimientos = 0;
-        opciones.add(new MoverseHaciaArriba(obtenerDescripcion()));
-        opciones.add(new MoverseHaciaAbajo(obtenerDescripcion()));
-        opciones.add(new MoverseAIzquierda(obtenerDescripcion()));
-        opciones.add(new MoverseADerecha(obtenerDescripcion()));
     }
+    public abstract void realizarAccionesTurno();
+
     public int obtenerDanioTerrestre(){
         return danioTerrestre;
     }
@@ -62,6 +59,7 @@ public abstract class Tropa extends Unidad implements Correlatividad {
 
     }
     public void moverArriba(){
+        this.estado.esUsable();
         Celda celdaDestino = posicion.obtenerCeldaSuperior();
         try {
             this.mover(celdaDestino);
@@ -73,6 +71,7 @@ public abstract class Tropa extends Unidad implements Correlatividad {
     }
 
     public void moverAbajo(){
+        this.estado.esUsable();
         Celda celdaDestino = posicion.obtenerCeldaInferior();
         try {
             this.mover(celdaDestino);
@@ -83,6 +82,7 @@ public abstract class Tropa extends Unidad implements Correlatividad {
         }
     }
     public void moverDerecha(){
+        this.estado.esUsable();
         Celda celdaDestino = posicion.obtenerCeldaDerecha();
         try {
             this.mover(celdaDestino);
@@ -93,6 +93,7 @@ public abstract class Tropa extends Unidad implements Correlatividad {
         }
     }
     public void moverIzquierda(){
+        this.estado.esUsable();
         Celda celdaDestino = posicion.obtenerCeldaIzquierda();
         try {
             this.mover(celdaDestino);

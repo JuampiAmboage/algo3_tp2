@@ -2,6 +2,10 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Ataque.AtacarTierra;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
+import edu.fiuba.algo3.modelo.Opciones.MoverAereaHaciaAbajo;
+import edu.fiuba.algo3.modelo.Opciones.MoverAereaHaciaArriba;
+import edu.fiuba.algo3.modelo.Opciones.MoverAereaHaciaDerecha;
+import edu.fiuba.algo3.modelo.Opciones.MoverAereaHaciaIzquierda;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.Vida;
@@ -19,6 +23,10 @@ public class Guardian extends TropaAerea implements UnidadEvolucionada{
         vida = new Vida(100);
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         //opciones.add(new TropaAereaAtacaTierra(obtenerDescripcion()));
+        opciones.add(new MoverAereaHaciaArriba(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverAereaHaciaAbajo(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverAereaHaciaIzquierda(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverAereaHaciaDerecha(obtenerDescripcion(),"zerg"));
 
         this.rutaSprite = this.rutaSprite + "tropas/zerg/guardian.png";
     }

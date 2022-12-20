@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 import edu.fiuba.algo3.modelo.Ataque.AtacarTierraYAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Guarida;
+import edu.fiuba.algo3.modelo.Opciones.*;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.Vida;
@@ -23,6 +24,10 @@ public class Hidralisco extends TropaTerrestre{
         //opciones.add(new TropaTerrestreAtacaTierra(obtenerDescripcion()));
         //opciones.add(new TropaTerrestreAtacaAire(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/hidralisco.png";
+        opciones.add(new MoverTerrestreHaciaArriba(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverTerrestreHaciaAbajo(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverTerrestreHaciaIzquierda(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverTerrestreHaciaDerecha(obtenerDescripcion(),"zerg"));
     }
 
     @Override

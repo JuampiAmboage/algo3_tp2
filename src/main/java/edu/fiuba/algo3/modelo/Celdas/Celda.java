@@ -131,7 +131,7 @@ public class Celda {
             if (opcionesDeOcupanteAereo != null) { listaDeOpciones.addAll(opcionesDeOcupanteAereo); }
         }
 
-        if (this.recurso != null && this.tipo != null) {
+        if (this.recurso.existe()) {
             ArrayList<OpcionElegible> opcionesDeRecurso = this.recurso.obtenerOpciones();
             if (opcionesDeRecurso != null) { listaDeOpciones.addAll(opcionesDeRecurso); }
         }

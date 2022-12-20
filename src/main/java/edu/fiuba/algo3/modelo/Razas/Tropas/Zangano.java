@@ -1,13 +1,13 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
+import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Excepciones.*;
-import edu.fiuba.algo3.modelo.Opciones.AsignarTrabajoEnExtractor;
-import edu.fiuba.algo3.modelo.Opciones.AsignarTrabajoEnNodoMineral;
-import edu.fiuba.algo3.modelo.Opciones.EvolucionarAEdificio;
+import edu.fiuba.algo3.modelo.Opciones.*;
+import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
@@ -28,6 +28,19 @@ public class Zangano extends TropaTerrestre {
         opciones.add(new AsignarTrabajoEnExtractor(obtenerDescripcion()));
         opciones.add(new AsignarTrabajoEnNodoMineral(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/zangano.png";
+        opciones.add(new MoverTerrestreHaciaArriba(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverTerrestreHaciaAbajo(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverTerrestreHaciaIzquierda(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverTerrestreHaciaDerecha(obtenerDescripcion(),"zerg"));
+    }
+
+    @Override
+    public void ocuparCelda(Celda celda){
+        Celda celdaActual = Mapa.getInstance().obtenerCelda(this.posicion);
+        celda.estaOcupadaPorTierra();
+        celda.ocuparPorTierra(this);
+        celdaActual.desocuparPorTierra();
+        this.cantidadMovimientos++;
     }
     public void realizarAccionesTurno(){
         vida.pasarTurno();
@@ -35,6 +48,7 @@ public class Zangano extends TropaTerrestre {
         if(nodoMineralDondeTrabaja != null)
             comunidad.aniadirMineral(extraerMineral());
     }
+
     public void asignarTrabajoEnExtractor(Unidad extractorQueContrata){
         this.esUsable();
         if(extractorQueContrata instanceof Extractor){
@@ -69,6 +83,7 @@ public class Zangano extends TropaTerrestre {
     }
 
     public void evolucionarAEdificio(Edificio edificioNuevo){
+        this.estado.esUsable();
         comunidad.agregarUnidad(edificioNuevo);
         comunidad.quitarUnidad(this);
     }
@@ -77,17 +92,6 @@ public class Zangano extends TropaTerrestre {
             throw new ZanganoYaEmpleado();
         }
     }
-
-    /*@Override
-    public void mostrarDescripcion() {
-        System.out.println("-Zangano-");
-        System.out.println("Se lo puede evolucionar a edificio o asignar trabajo en una celda con recursos. De zángano no tiene nada. \n");
-        System.out.println("Vida actual: "+ this.vida.getVidaActual());
-        if(this.extractorDondeTrabaja != null || nodoMineralDondeTrabaja != null)
-            System.out.println("Estado laboral: Empleado.");
-        else
-            System.out.println("Estado laboral: Cesante.");
-    }*/
     public String obtenerSprite() { return this.rutaSprite; }
 
     @Override

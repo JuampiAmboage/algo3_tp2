@@ -3,6 +3,10 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 import edu.fiuba.algo3.modelo.Ataque.AtacarTierra;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.ReservaDeReproduccion;
+import edu.fiuba.algo3.modelo.Opciones.MoverTerrestreHaciaAbajo;
+import edu.fiuba.algo3.modelo.Opciones.MoverTerrestreHaciaArriba;
+import edu.fiuba.algo3.modelo.Opciones.MoverTerrestreHaciaDerecha;
+import edu.fiuba.algo3.modelo.Opciones.MoverTerrestreHaciaIzquierda;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.Vida;
@@ -23,6 +27,10 @@ public class Zerling extends TropaTerrestre {
         //opciones.add(new TropaTerrestreAtacaTierra(obtenerDescripcion()));
 
         this.rutaSprite = this.rutaSprite + "tropas/zerg/zerlilng.png";
+        opciones.add(new MoverTerrestreHaciaArriba(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverTerrestreHaciaAbajo(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverTerrestreHaciaIzquierda(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverTerrestreHaciaDerecha(obtenerDescripcion(),"zerg"));
     }
 
     public void instanciacionesIniciales(Posicion posicionALocalizar){

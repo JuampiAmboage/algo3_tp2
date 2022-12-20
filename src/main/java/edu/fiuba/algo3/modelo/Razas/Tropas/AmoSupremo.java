@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Ataque.AtacarAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
-import edu.fiuba.algo3.modelo.Opciones.DetectarTropasInvisibles;
+import edu.fiuba.algo3.modelo.Opciones.*;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoDetector;
 import edu.fiuba.algo3.modelo.Razas.UnidadConAmpliacionDeSuministro;
@@ -24,6 +24,10 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
         suministro = 0;
         opciones.add(new DetectarTropasInvisibles(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/amosSupremo.png";
+        opciones.add(new MoverAereaHaciaArriba(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverAereaHaciaAbajo(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverAereaHaciaIzquierda(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverAereaHaciaDerecha(obtenerDescripcion(),"zerg"));
     }
 
     public void aniadirSuministro(){
@@ -50,6 +54,7 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
     }
 
     public void localicarZealots(){
+        this.esUsable();
         rangoDetector.localizarZealots();
     }
 

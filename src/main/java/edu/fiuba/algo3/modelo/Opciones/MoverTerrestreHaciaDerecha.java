@@ -1,10 +1,11 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 
-public class MoverseADerecha extends OpcionElegible{
-    public MoverseADerecha(String descripcion) {
+public class MoverTerrestreHaciaDerecha extends OpcionElegible{
+    public MoverTerrestreHaciaDerecha(String descripcion, String pertenencia) {
         this.titulo = "Mover a la derecha";
         this.textoBotones.add("Mover");
     }
