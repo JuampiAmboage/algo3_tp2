@@ -7,6 +7,8 @@ public class MoverAereaHaciaArriba extends OpcionElegible{
     public MoverAereaHaciaArriba(String descripcion, String pertenencia) {
         this.titulo = "Mover hacia arriba";
         this.textoBotones.add("Mover");
+        this.pertenceA = pertenencia;
+
     }
 
     @Override

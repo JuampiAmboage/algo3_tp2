@@ -7,6 +7,8 @@ public class MoverTerrestreHaciaAbajo extends OpcionElegible{
     public MoverTerrestreHaciaAbajo(String descripcion, String pertenencia) {
         this.titulo = "Mover hacia abajo";
         this.textoBotones.add("Mover");
+        this.pertenceA = pertenencia;
+
     }
     @Override
     public void gestionarClick(Celda celda, String opcionElejida) {

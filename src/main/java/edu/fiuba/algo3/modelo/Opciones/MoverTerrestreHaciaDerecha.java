@@ -8,6 +8,8 @@ public class MoverTerrestreHaciaDerecha extends OpcionElegible{
     public MoverTerrestreHaciaDerecha(String descripcion, String pertenencia) {
         this.titulo = "Mover a la derecha";
         this.textoBotones.add("Mover");
+        this.pertenceA = pertenencia;
+
     }
 
     @Override
