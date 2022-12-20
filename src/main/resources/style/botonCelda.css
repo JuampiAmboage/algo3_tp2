@@ -4,7 +4,7 @@ Button {
 
 Button:hover {
     -fx-border-width: 5px;
-    -fx-border-color: #ff0000;
+    -fx-border-color: #5000009E;
 }
 
 Button:disabled {
