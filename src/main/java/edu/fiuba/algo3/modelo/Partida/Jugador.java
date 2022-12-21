@@ -57,5 +57,9 @@ public class Jugador {
         return nombre;
     }
 
+    public int[] obtenerAlmacenamiento(){
+        return this.comunidad.obtenerAlmacenamiento();
+    }
+
 
 }

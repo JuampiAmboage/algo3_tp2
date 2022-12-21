@@ -49,11 +49,9 @@ public class NexoMineral extends EdificioProtoss implements Construible{
         throw new ConstruccionProhibida();
     }
     @Override
-    public void construirSobreTipo(CeldaConMoho tipo) {throw new ConstruccionProhibida();}
+    public void construirSobreTipo(CeldaConMoho tipo) {}
     @Override
-    public void construirSobreTipo(CeldaEnergizada tipo) {
-        throw new ConstruccionProhibida();
-    }
+    public void construirSobreTipo(CeldaEnergizada tipo) {}
     @Override
     public void construirSobreTipo(CeldaLibre tipo) {}
     @Override

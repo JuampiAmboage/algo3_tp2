@@ -23,6 +23,11 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
     @FXML
     private GridPane grillaMenu;
 
+    @FXML
+    private Label gas;
+    @FXML
+    private Label mineral;
+
     @Override
     public void establecerPerfil(String perfil, String nombre, App app) {
         this.app = app;
@@ -84,6 +89,19 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
         } else {
             this.grillaMenu.setStyle("-fx-border-color: red");
         }
+    }
+
+    @Override
+    public void establecerAlmacenamiento(int[] almacenamiento) {
+        this.almacenDeGas = almacenamiento[0] + "";
+        this.almacenDeMineral = almacenamiento[1] + "";
+        actualizarAlmacenamiento();
+    }
+
+    @Override
+    public void actualizarAlmacenamiento() {
+        this.gas.setText("Gas almacenado: " + this.almacenDeGas);
+        this.mineral.setText("Mineral almacenado: " + this.almacenDeMineral);
     }
 
 }

@@ -47,11 +47,9 @@ public class Asimilador extends EdificioProtoss {
     @Override
     public void construirSobreRecurso(Volcan tipoRecurso) {}
     @Override
-    public void construirSobreTipo(CeldaConMoho tipo) {throw new ConstruccionProhibida();}
+    public void construirSobreTipo(CeldaConMoho tipo) {}
     @Override
-    public void construirSobreTipo(CeldaEnergizada tipo) {
-        throw new ConstruccionProhibida();
-    }
+    public void construirSobreTipo(CeldaEnergizada tipo) {}
     @Override
     public void construirSobreTipo(CeldaLibre tipo) {}
     @Override

@@ -90,4 +90,8 @@ public abstract class Comunidad {
     public abstract void inicializarBase();
     public int obtenerSuministro(){return cantidadPoblacionHabilitada;}
 
+    public int[] obtenerAlmacenamiento() {
+        return this.almacenamiento.obtenerAlmacenamiento();
+    }
+
 }

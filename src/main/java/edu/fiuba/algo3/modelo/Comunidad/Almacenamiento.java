@@ -40,5 +40,12 @@ public class Almacenamiento {
         return mineral;
     }
 
+    public int[] obtenerAlmacenamiento() {
+        int[] almacenamiento = new int[2];
+        almacenamiento[0] = obtenerCantidadGasAlmacenado();
+        almacenamiento[1] = obtenerCantidadMineralAlmacenado();
+        return almacenamiento;
+    }
+
 
 }

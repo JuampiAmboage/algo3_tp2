@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Excepciones.ExtractorLleno;
+import edu.fiuba.algo3.modelo.Rango.RangoBusquedaYColocacion;
 import edu.fiuba.algo3.modelo.Visibilidad.Visible;
 import edu.fiuba.algo3.modelo.Construccion.UnidadEnConstruccion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
@@ -21,6 +22,7 @@ public class Extractor extends Edificio {
     Volcan volcan;
     private int cantidadMaximaDeTrabajadores = 3;
     private ArrayList<Zangano> trabajadores = new ArrayList<Zangano>(0);
+    private RangoBusquedaYColocacion rangoBusquedaYColocacion;
 
     public Extractor(Volcan volcan){
         this.tiempoConstruccion = 6;
@@ -28,6 +30,7 @@ public class Extractor extends Edificio {
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.volcan = volcan;
         this.visibilidad = new Visible(this);
+        this.rangoBusquedaYColocacion = new RangoBusquedaYColocacion(posicion,1);
         this.rutaSprite = this.rutaSprite + "edificios/extractor.png";
     }
     public Extractor(Volcan volcan, int tiempoDeConstruccion) {
@@ -44,6 +47,8 @@ public class Extractor extends Edificio {
     public void realizarAccionesTurno() {
         vida.pasarTurno();
         comunidad.aniadirGasVespeno(extraerGas());
+        for(Zangano zangano: trabajadores)
+            zangano.pasarTurno();
     }
 
     public void agregarTrabajador(Zangano trabajador) {
@@ -52,6 +57,16 @@ public class Extractor extends Edificio {
         } else {
             throw (new ExtractorLleno());
         }
+    }
+
+    public void liberarTrabajador(){
+        if(!trabajadores.isEmpty()){
+            Zangano zanganoLiberado = this.trabajadores.get(0);
+            rangoBusquedaYColocacion.colocarPorTierra(zanganoLiberado);
+        }
+        /*else{
+            throw new ExtractorVacio();
+        }*/
     }
 
     public int extraerGas() {

@@ -192,9 +192,11 @@ public class App extends Application {
 
         if (controlador.equals(this.controladorVistaMenuJugadorUno)){
             this.controladorVistaMenuJugadorDos.activar();
+            this.controladorVistaMenuJugadorDos.establecerAlmacenamiento(this.partida.obtenerAlmacenamiento(1));
             actualizarMapa();
         } else {
             this.controladorVistaMenuJugadorUno.activar();
+            this.controladorVistaMenuJugadorUno.establecerAlmacenamiento(this.partida.obtenerAlmacenamiento(2));
             actualizarMapa();
         }
     }

@@ -22,6 +22,10 @@ public abstract class ControladorVistaMenuJugadores {
 
     protected String perfil;
     protected String nombre;
+
+    protected String almacenDeGas;
+    protected String almacenDeMineral;
+
     protected boolean activo;
 
     protected Accordion acordeon;
@@ -115,6 +119,10 @@ public abstract class ControladorVistaMenuJugadores {
     public abstract void activar();
     public abstract void desactivar();
     public abstract void indicadorDeTurnoActivo();
+
+    public abstract void establecerAlmacenamiento(int[] almacenamiento);
+
+    public abstract void actualizarAlmacenamiento();
 
     protected void mostrarTurno() {
         app.mostrarTurno("Es el turno de: " + this.nombre);

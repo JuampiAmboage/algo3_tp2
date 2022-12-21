@@ -29,7 +29,7 @@ public class NodoMineral extends Recurso {
         construible.construirSobreRecurso(this);
     }
 
-    public ArrayList<OpcionElegible> obtenerOpciones() { return null; }
+    public ArrayList<OpcionElegible> obtenerOpciones() { return opciones; }
 
     @Override
     public String obtenerSprite() { return this.rutaSprite; }

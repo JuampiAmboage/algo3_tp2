@@ -35,7 +35,7 @@ public class Volcan extends Recurso {
     }
 
     @Override
-    public ArrayList<OpcionElegible> obtenerOpciones() { return null; }
+    public ArrayList<OpcionElegible> obtenerOpciones() { return opciones; }
 
     @Override
     public String obtenerSprite() { return this.rutaSprite; }

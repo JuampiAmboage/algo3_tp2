@@ -45,4 +45,12 @@ public class Partida {
             App.terminarPartida(segundoJugador.obtenerNombre());
     }
 
+    public int[] obtenerAlmacenamiento(int jugador) {
+        if (jugador != 1) {
+            return this.segundoJugador.obtenerAlmacenamiento();
+        }
+
+        return this.primerJugador.obtenerAlmacenamiento();
+    }
+
 }

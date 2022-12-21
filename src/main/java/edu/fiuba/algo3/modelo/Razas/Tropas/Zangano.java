@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Excepciones.*;
 import edu.fiuba.algo3.modelo.Opciones.*;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
@@ -24,14 +25,15 @@ public class Zangano extends TropaTerrestre {
         this.suministro = 1;
         this.vida = new Vida(25);
         this.edificioNecesario = new Criadero();
-        opciones.add(new EvolucionarAEdificio(obtenerDescripcion()));
-        opciones.add(new AsignarTrabajoEnExtractor(obtenerDescripcion()));
-        opciones.add(new AsignarTrabajoEnNodoMineral(obtenerDescripcion()));
-        this.rutaSprite = this.rutaSprite + "tropas/zerg/zangano.png";
         opciones.add(new MoverTerrestreHaciaArriba(obtenerDescripcion(),"zerg"));
         opciones.add(new MoverTerrestreHaciaAbajo(obtenerDescripcion(),"zerg"));
         opciones.add(new MoverTerrestreHaciaIzquierda(obtenerDescripcion(),"zerg"));
         opciones.add(new MoverTerrestreHaciaDerecha(obtenerDescripcion(),"zerg"));
+        opciones.add(new EvolucionarAEdificio(obtenerDescripcion()));
+        opciones.add(new AsignarTrabajoEnExtractor(obtenerDescripcion()));
+        opciones.add(new AsignarTrabajoEnNodoMineral(obtenerDescripcion()));
+        this.rutaSprite = this.rutaSprite + "tropas/zerg/zangano.png";
+
     }
 
     @Override
@@ -67,8 +69,10 @@ public class Zangano extends TropaTerrestre {
 
     public void asignarTrabajoEnNodo(Recurso recursoDeLaCelda){
         this.esUsable();
-        if (recursoDeLaCelda instanceof NodoMineral)
+        if (recursoDeLaCelda instanceof NodoMineral) {
             this.nodoMineralDondeTrabaja = (NodoMineral) recursoDeLaCelda;
+            this.reacondicionarOpcionesPostContratacionEnNodo(5);
+        }
         else
             throw new ZanganoEnDistintaACeldaANodoMineral();
     }
@@ -98,5 +102,21 @@ public class Zangano extends TropaTerrestre {
     public String obtenerDescripcion() {
         String descripcion = "";
         return descripcion;
+    }
+
+    public void reacondicionarOpcionesPostContratacionEnNodo(int opcionQueNoEsAsignarTrabajoElegido){
+        for(int i=0;i<4;i++)
+            opciones.remove(i);
+        opciones.remove(opcionQueNoEsAsignarTrabajoElegido);
+    }
+    public void reacondicionarOpcionesPostDespido(){
+        opciones.clear();
+        opciones.add(new MoverTerrestreHaciaArriba(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverTerrestreHaciaAbajo(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverTerrestreHaciaIzquierda(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverTerrestreHaciaDerecha(obtenerDescripcion(),"zerg"));
+        opciones.add(new EvolucionarAEdificio(obtenerDescripcion()));
+        opciones.add(new AsignarTrabajoEnExtractor(obtenerDescripcion()));
+        opciones.add(new AsignarTrabajoEnNodoMineral(obtenerDescripcion()));
     }
 }
