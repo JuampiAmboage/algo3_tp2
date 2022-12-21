@@ -24,10 +24,7 @@ public class Hidralisco extends TropaTerrestre{
         //opciones.add(new TropaTerrestreAtacaTierra(obtenerDescripcion()));
         //opciones.add(new TropaTerrestreAtacaAire(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/hidralisco.png";
-        opciones.add(new MoverTerrestreHaciaArriba(obtenerDescripcion(),"zerg"));
-        opciones.add(new MoverTerrestreHaciaAbajo(obtenerDescripcion(),"zerg"));
-        opciones.add(new MoverTerrestreHaciaIzquierda(obtenerDescripcion(),"zerg"));
-        opciones.add(new MoverTerrestreHaciaDerecha(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverTerrestre("zerg"));
     }
 
     @Override

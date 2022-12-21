@@ -4,10 +4,7 @@ import edu.fiuba.algo3.modelo.Ataque.AtacarTierraYAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Edificios.PuertoEstelar;
 
-import edu.fiuba.algo3.modelo.Opciones.MoverAereaHaciaAbajo;
-import edu.fiuba.algo3.modelo.Opciones.MoverAereaHaciaArriba;
-import edu.fiuba.algo3.modelo.Opciones.MoverAereaHaciaDerecha;
-import edu.fiuba.algo3.modelo.Opciones.MoverAereaHaciaIzquierda;
+import edu.fiuba.algo3.modelo.Opciones.MoverAerea;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
@@ -25,13 +22,10 @@ public class Scout extends TropaAerea{
         vida = new VidaConEscudo(150,100);
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         edificioNecesario = new PuertoEstelar();
-        //opciones.add(new TropaTerrestreAtacaTierra(obtenerDescripcion()));
-        //opciones.add(new TropaTerrestreAtacaAire(obtenerDescripcion()));
+        //opciones.add(new TropaTerrestreAtacaTierra());
+        //opciones.add(new TropaTerrestreAtacaAire());
         this.rutaSprite = this.rutaSprite + "tropas/protoss/scout.png";
-        opciones.add(new MoverAereaHaciaArriba(obtenerDescripcion(),"protoss"));
-        opciones.add(new MoverAereaHaciaAbajo(obtenerDescripcion(),"protoss"));
-        opciones.add(new MoverAereaHaciaIzquierda(obtenerDescripcion(),"protoss"));
-        opciones.add(new MoverAereaHaciaDerecha(obtenerDescripcion(),"protoss"));
+        opciones.add(new MoverAerea("protoss"));
     }
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;

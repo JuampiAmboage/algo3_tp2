@@ -30,7 +30,7 @@ public class Extractor extends Edificio {
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.volcan = volcan;
         this.visibilidad = new Visible(this);
-        this.rangoBusquedaYColocacion = new RangoBusquedaYColocacion(posicion,1);
+        //this.rangoBusquedaYColocacion = new RangoBusquedaYColocacion(posicion,1);
         this.rutaSprite = this.rutaSprite + "edificios/extractor.png";
     }
     public Extractor(Volcan volcan, int tiempoDeConstruccion) {
@@ -62,7 +62,7 @@ public class Extractor extends Edificio {
     public void liberarTrabajador(){
         if(!trabajadores.isEmpty()){
             Zangano zanganoLiberado = this.trabajadores.get(0);
-            rangoBusquedaYColocacion.colocarPorTierra(zanganoLiberado);
+            //rangoBusquedaYColocacion.colocarPorTierra(zanganoLiberado);
         }
         /*else{
             throw new ExtractorVacio();

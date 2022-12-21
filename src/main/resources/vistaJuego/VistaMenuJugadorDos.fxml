@@ -21,7 +21,7 @@
             <RowConstraints maxHeight="669.0" minHeight="10.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label fx:id="nombrePerfil" alignment="CENTER" contentDisplay="CENTER" GridPane.halignment="LEFT">
+                <Label fx:id="nombrePerfil" alignment="CENTER" contentDisplay="CENTER" text="nombre" GridPane.valignment="TOP">
                     <opaqueInsets>
                         <Insets />
                     </opaqueInsets>
@@ -36,6 +36,16 @@
                 </ImageView>
                 <VBox fx:id="vBoxMenu" prefHeight="489.0" prefWidth="275.0" GridPane.rowIndex="1" />
                 <Button fx:id="botonPasarTurno" mnemonicParsing="false" onAction="#gestionarPasarTurno" text="Pasar turno" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Label fx:id="gas" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="10.0" text="gas" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Label fx:id="mineral" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="107.0" text="mineral" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
             </children>
             <VBox.margin>
                 <Insets />

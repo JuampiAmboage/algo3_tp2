@@ -10,36 +10,46 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="275.0" stylesheets="@../style/vistaJuego.css, @../style/botonesVistaJuego.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controladores.ControladorVistaMenuJugadorUno">
-   <children>
-      <GridPane fx:id="grillaMenu" alignment="TOP_CENTER" prefHeight="700.0" VBox.vgrow="ALWAYS">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="669.0" minHeight="-Infinity" prefHeight="512.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="669.0" minHeight="10.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label fx:id="nombrePerfil" alignment="CENTER" contentDisplay="CENTER" GridPane.halignment="LEFT">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <GridPane.margin>
-                  <Insets left="50.0" />
-               </GridPane.margin>
-            </Label>
-            <ImageView fx:id="imagenPerfil" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT">
-               <GridPane.margin>
-                  <Insets right="25.0" />
-               </GridPane.margin>
-            </ImageView>
-            <VBox fx:id="vBoxMenu" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1" />
-            <Button fx:id="botonPasarTurno" mnemonicParsing="false" onAction="#gestionarPasarTurno" text="Pasar turno" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-         </children>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-      </GridPane>
-   </children>
+    <children>
+        <GridPane fx:id="grillaMenu" alignment="TOP_CENTER" prefHeight="750.0" VBox.vgrow="ALWAYS">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="669.0" minHeight="-Infinity" prefHeight="513.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="669.0" minHeight="10.0" prefHeight="50.0" valignment="TOP" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label fx:id="nombrePerfil" alignment="CENTER" contentDisplay="CENTER" text="nombre" GridPane.valignment="TOP">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <GridPane.margin>
+                        <Insets left="50.0" />
+                    </GridPane.margin>
+                </Label>
+                <ImageView fx:id="imagenPerfil" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT">
+                    <GridPane.margin>
+                        <Insets right="25.0" />
+                    </GridPane.margin>
+                </ImageView>
+                <VBox fx:id="vBoxMenu" prefHeight="489.0" prefWidth="275.0" GridPane.rowIndex="1" />
+                <Button fx:id="botonPasarTurno" mnemonicParsing="false" onAction="#gestionarPasarTurno" text="Pasar turno" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                <Label fx:id="gas" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="10.0" text="gas" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Label>
+                <Label fx:id="mineral" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="107.0" text="mineral" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Label>
+            </children>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </GridPane>
+    </children>
 </VBox>

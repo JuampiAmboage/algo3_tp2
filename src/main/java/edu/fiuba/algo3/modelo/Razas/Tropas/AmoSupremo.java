@@ -24,10 +24,7 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
         suministro = 0;
         opciones.add(new DetectarTropasInvisibles(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/amosSupremo.png";
-        opciones.add(new MoverAereaHaciaArriba(obtenerDescripcion(),"zerg"));
-        opciones.add(new MoverAereaHaciaAbajo(obtenerDescripcion(),"zerg"));
-        opciones.add(new MoverAereaHaciaIzquierda(obtenerDescripcion(),"zerg"));
-        opciones.add(new MoverAereaHaciaDerecha(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverAerea("zerg"));
     }
 
     public void aniadirSuministro(){

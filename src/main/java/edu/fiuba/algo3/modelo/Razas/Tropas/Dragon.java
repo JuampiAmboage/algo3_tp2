@@ -26,10 +26,7 @@ public class Dragon extends TropaTerrestre{
         //opciones.add(new TropaTerrestreAtacaTierra(obtenerDescripcion()));
         //opciones.add(new TropaTerrestreAtacaAire(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/protoss/dragon.png";
-        opciones.add(new MoverTerrestreHaciaArriba(obtenerDescripcion(),"protoss"));
-        opciones.add(new MoverTerrestreHaciaAbajo(obtenerDescripcion(),"protoss"));
-        opciones.add(new MoverTerrestreHaciaIzquierda(obtenerDescripcion(),"protoss"));
-        opciones.add(new MoverTerrestreHaciaIzquierda(obtenerDescripcion(),"protoss"));
+        opciones.add(new MoverTerrestre("protoss"));
     }
     public void realizarAccionesTurno(){
         vida.pasarTurno();

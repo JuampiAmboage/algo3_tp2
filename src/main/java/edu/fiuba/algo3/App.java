@@ -132,6 +132,8 @@ public class App extends Application {
 
             this.controladorVistaMenuJugadorUno = controladorVistaMenuJugadorUno;
 
+            this.controladorVistaMenuJugadorUno.establecerAlmacenamiento(this.partida.obtenerAlmacenamiento(1));
+
             this.layoutRaiz.setLeft(VistaMenuJugadorUno);
 
         } catch (IOException e) { e.printStackTrace(); }
@@ -149,6 +151,8 @@ public class App extends Application {
             controladorVistaMenuJugadorDos.establecerPerfil(perfil, nombre, this);
 
             this.controladorVistaMenuJugadorDos = controladorVistaMenuJugadorDos;
+
+            this.controladorVistaMenuJugadorDos.establecerAlmacenamiento(this.partida.obtenerAlmacenamiento(2));
 
             this.layoutRaiz.setRight(VistaMenuJugadorDos);
 
@@ -192,16 +196,20 @@ public class App extends Application {
 
         if (controlador.equals(this.controladorVistaMenuJugadorUno)){
             this.controladorVistaMenuJugadorDos.activar();
-            this.controladorVistaMenuJugadorDos.establecerAlmacenamiento(this.partida.obtenerAlmacenamiento(1));
             actualizarMapa();
+            this.controladorVistaMenuJugadorUno.establecerAlmacenamiento(this.partida.obtenerAlmacenamiento(1));
         } else {
             this.controladorVistaMenuJugadorUno.activar();
-            this.controladorVistaMenuJugadorUno.establecerAlmacenamiento(this.partida.obtenerAlmacenamiento(2));
             actualizarMapa();
+            this.controladorVistaMenuJugadorDos.establecerAlmacenamiento(this.partida.obtenerAlmacenamiento(2));
         }
     }
 
-    public void actualizarMapa() { this.controladorVistaMapa.actualizarMapa(); }
+    public void actualizarMapa() {
+        this.controladorVistaMapa.actualizarMapa();
+        this.controladorVistaMenuJugadorUno.establecerAlmacenamiento(this.partida.obtenerAlmacenamiento(1));
+        this.controladorVistaMenuJugadorDos.establecerAlmacenamiento(this.partida.obtenerAlmacenamiento(2));
+    }
 
     public Celda[] obtenerCeldasConExtractor() {
         return this.controladorVistaMapa.obtenerCeldasConExtractor();

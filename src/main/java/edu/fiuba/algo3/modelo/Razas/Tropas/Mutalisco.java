@@ -26,10 +26,7 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
         //opciones.add(new TropaAereaAtacaTierra(obtenerDescripcion()));
         //opciones.add(new TropaAereaAtacaTierra(obtenerDescripcion()));
         opciones.add(new Mutar(obtenerDescripcion()));
-        opciones.add(new MoverAereaHaciaArriba(obtenerDescripcion(),"zerg"));
-        opciones.add(new MoverAereaHaciaAbajo(obtenerDescripcion(),"zerg"));
-        opciones.add(new MoverAereaHaciaIzquierda(obtenerDescripcion(),"zerg"));
-        opciones.add(new MoverAereaHaciaDerecha(obtenerDescripcion(),"zerg"));
+        opciones.add(new MoverAerea("zerg"));
 
     }
 

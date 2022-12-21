@@ -35,8 +35,8 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
         this.perfil = perfil;
         this.activo = false;
 
-        this.imagenPerfil.setFitWidth(100.0);
-        this.imagenPerfil.setFitHeight(100.0);
+        this.imagenPerfil.setFitWidth(80.0);
+        this.imagenPerfil.setFitHeight(80.0);
         this.imagenPerfil.setImage(establecerImagen());
 
         establecerNombre(nombre);
@@ -100,8 +100,8 @@ public class ControladorVistaMenuJugadorDos extends ControladorVistaMenuJugadore
 
     @Override
     public void actualizarAlmacenamiento() {
-        this.gas.setText("Gas almacenado: " + this.almacenDeGas);
-        this.mineral.setText("Mineral almacenado: " + this.almacenDeMineral);
+        this.gas.setText("Gas: " + this.almacenDeGas);
+        this.mineral.setText("Mineral: " + this.almacenDeMineral);
     }
 
 }
