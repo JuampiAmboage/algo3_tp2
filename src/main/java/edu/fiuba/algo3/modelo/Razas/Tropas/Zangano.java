@@ -33,6 +33,8 @@ public class Zangano extends TropaTerrestre {
         this.establecerOpciones();
 
         this.rutaSprite = this.rutaSprite + "tropas/zerg/zangano.png";
+        this.nombreUnidad = "Zángano";
+
 
     }
     public void realizarAccionesTurno(){

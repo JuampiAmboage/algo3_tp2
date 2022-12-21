@@ -165,4 +165,7 @@ public class Celda {
         if (this.recurso != null) { return this.recurso.obtenerSprite(); }
         return null;
     }
+    public Posicion obtenerPosicion(){
+        return posicion;
+    }
 }

@@ -41,6 +41,8 @@ public class Criadero extends Edificio {
         this.costoEnMinerales = 200;
         opciones.add(new Engendrar(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "edificios/criadero.png";
+        this.nombreUnidad = "Criadero";
+
     }
 
     public void instanciacionesIniciales(Posicion posicionALocalizar){

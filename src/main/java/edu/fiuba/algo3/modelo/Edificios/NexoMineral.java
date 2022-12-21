@@ -23,6 +23,8 @@ public class NexoMineral extends EdificioProtoss implements Construible{
         this.nodoMineral = nodoMineral;
         this.visibilidad = new Visible(this);
         this.rutaSprite = this.rutaSprite + "edificios/nexoMineral.png";
+        this.nombreUnidad = "Nexo mineral";
+
     }
 
     public int extraerMineral(){

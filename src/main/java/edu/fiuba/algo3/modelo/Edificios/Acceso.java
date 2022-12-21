@@ -24,6 +24,7 @@ public class Acceso extends EdificioProtoss implements Construible {
         this.comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         this.visibilidad = new Visible(this);
         this.rutaSprite = this.rutaSprite + "edificios/acceso.png";
+        this.nombreUnidad = "Acceso";
     }
     @Override
     public void construirSobreRecurso(NoRecurso tipoRecurso) {}

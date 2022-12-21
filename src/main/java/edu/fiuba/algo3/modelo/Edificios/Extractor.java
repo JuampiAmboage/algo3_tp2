@@ -37,6 +37,8 @@ public class Extractor extends Edificio {
         this.visibilidad = new Visible(this);
         this.rutaSprite = this.rutaSprite + "edificios/extractor.png";
         this.opciones.add(new DesemplearZangano(obtenerDescripcion()));
+        this.nombreUnidad = "Extractor";
+
     }
     @Override
     public void instanciacionesIniciales(Posicion posicionALocalizar){
@@ -88,11 +90,10 @@ public class Extractor extends Edificio {
         this.esUsable();
         int cantidadGasExtraido = 0;
         if (this.trabajadores.size() != 0 ) {
-            for (Zangano trabajador :this.trabajadores) {
+            for (int i=0;i<trabajadores.size();i++) {
                 cantidadGasExtraido += volcan.extraer(10);
             }
         }
-        ComunidadZerg.obtenerInstanciaDeClase().aniadirGasVespeno(cantidadGasExtraido);
         return cantidadGasExtraido;
     }
 

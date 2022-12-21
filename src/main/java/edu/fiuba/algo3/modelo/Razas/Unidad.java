@@ -27,6 +27,7 @@ public abstract class Unidad {
     protected int tiempoConstruccion;
     protected int suministro;
     protected String rutaSprite = "/sprites/";
+    protected String nombreUnidad;
 
     protected ArrayList<OpcionElegible> opciones;
 
@@ -103,4 +104,8 @@ public abstract class Unidad {
     }
 
     public abstract String obtenerDescripcion();
+
+    public String obtenerNombreUnidad(){
+        return this.nombreUnidad;
+    }
 }

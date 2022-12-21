@@ -14,7 +14,7 @@ public class TropaAereaAtacaAire extends OpcionElegible{
 
 
     public void gestionarClick(Celda celdaAtacante, Celda celdaAtacado) {
-        TropaAerea tropaAtacante = celdaAtacante.obtenerOcupanteAereo();
+        TropaAerea tropaAtacante = celdaAtacante.obteceldasnerOcupanteAereo();
         try{
             celdaAtacante.estaOcupadaPorAire();
         }

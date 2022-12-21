@@ -32,24 +32,6 @@ public class App extends Application {
         launch();
     }
 
-    public void terminarPartida(String ganador){
-        try {
-            this.controladorVistaRaiz.mostrarMenuBar();
-            FXMLLoader cargador = new FXMLLoader();
-            cargador.setLocation(
-                    App.class.getResource("/vistaJuego/VistaFinDePartida.fxml")
-            );
-            AnchorPane vistaFin = (AnchorPane) cargador.load();
-
-            vistaFin.setMaxSize(this.tamanioDelEscenario[0], this.tamanioDelEscenario[1]);
-
-            this.layoutRaiz.setCenter(vistaFin);
-
-            ControladorVistaFinDePartida controlador = cargador.getController();
-            controlador.mostrarPantallaFinal(ganador);
-
-        } catch (IOException e) { e.printStackTrace(); }
-    }
     @Override
     public void start(Stage escenario) {
         this.escenarioPrimario = escenario;
@@ -62,7 +44,8 @@ public class App extends Application {
 
         this.controladorVistaRaiz.mostrarMenuBar();
 
-        mostrarVistaInicio();
+        //mostrarVistaInicio();
+        terminarPartida("Joaquin");
     }
 
     public void establecerPartida(Partida partida){ this.partida = partida; this.partida.establecerApp(this); }
@@ -83,6 +66,25 @@ public class App extends Application {
 
             this.controladorVistaRaiz = cargador.getController();
             this.controladorVistaRaiz.setApp(this);
+
+        } catch (IOException e) { e.printStackTrace(); }
+    }
+
+    public void terminarPartida(String ganador){
+        try {
+            this.controladorVistaRaiz.mostrarMenuBar();
+            FXMLLoader cargador = new FXMLLoader();
+            cargador.setLocation(
+                    App.class.getResource("/vistaJuego/VistaFinDePartida.fxml")
+            );
+            BorderPane vistaFin = (BorderPane) cargador.load();
+
+            vistaFin.setMaxSize(this.tamanioDelEscenario[0], this.tamanioDelEscenario[1]);
+
+            this.layoutRaiz.setCenter(vistaFin);
+
+            ControladorVistaFinDePartida controlador = cargador.getController();
+            controlador.mostrarPantallaFinal(ganador);
 
         } catch (IOException e) { e.printStackTrace(); }
     }
@@ -226,6 +228,9 @@ public class App extends Application {
 
     public ArrayList<Celda> obtenerCeldasConExtractor() {
         return this.controladorVistaMapa.obtenerCeldasConExtractor();
+    }
+    public ArrayList<Celda> obtenerCeldasConTropas() {
+        return this.controladorVistaMapa.obtenerCeldasConTropas();
     }
 
 

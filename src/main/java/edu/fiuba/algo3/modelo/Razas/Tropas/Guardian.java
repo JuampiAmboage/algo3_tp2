@@ -23,6 +23,8 @@ public class Guardian extends TropaAerea implements UnidadEvolucionada{
         opciones.add(new MoverAerea("zerg"));
 
         this.rutaSprite = this.rutaSprite + "tropas/zerg/guardian.png";
+        this.nombreUnidad = "Guardián";
+
     }
     public void realizarAccionesTurno(){vida.pasarTurno();
         cantidadMovimientos = 0;

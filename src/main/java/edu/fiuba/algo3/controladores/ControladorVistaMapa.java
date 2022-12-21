@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -31,6 +32,7 @@ public class ControladorVistaMapa {
     private Button botonAnterior;
 
     private ArrayList<Celda> celdasConExtractor = new ArrayList<>();
+    private ArrayList<Celda> celdasConTropas = new ArrayList<>();
 
     private boolean seActualizo = false;
 
@@ -78,6 +80,10 @@ public class ControladorVistaMapa {
                 if (celda.obtenerOcupanteTerrestre() instanceof Extractor) {
                     if (!this.celdasConExtractor.contains(celda)) {
                         this.celdasConExtractor.add(celda);
+                    }
+                } else if (celda.obtenerOcupanteTerrestre() instanceof Tropa) {
+                    if (!this.celdasConTropas.contains(celda)) {
+                        this.celdasConTropas.add(celda);
                     }
                 }
 
@@ -146,6 +152,10 @@ public class ControladorVistaMapa {
 
     public ArrayList<Celda> obtenerCeldasConExtractor() {
         return this.celdasConExtractor;
+    }
+
+    public ArrayList<Celda> obtenerCeldasConTropas() {
+        return this.celdasConTropas;
     }
 
     private void desactivarBoton(Button boton) {
