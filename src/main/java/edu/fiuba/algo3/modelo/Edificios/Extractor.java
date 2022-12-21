@@ -37,6 +37,7 @@ public class Extractor extends Edificio {
         this.rutaSprite = this.rutaSprite + "edificios/extractor.png";
         this.opciones.add(new DesemplearZangano(obtenerDescripcion()));
     }
+    @Override
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
         rangoBusquedaYColocacion = new RangoBusquedaYColocacion(posicion,1);
