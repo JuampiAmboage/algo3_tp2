@@ -25,24 +25,9 @@ public class Zangano extends TropaTerrestre {
         this.suministro = 1;
         this.vida = new Vida(25);
         this.edificioNecesario = new Criadero();
-        opciones.add(new MoverTerrestreHaciaArriba(obtenerDescripcion(),"zerg"));
-        opciones.add(new MoverTerrestreHaciaAbajo(obtenerDescripcion(),"zerg"));
-        opciones.add(new MoverTerrestreHaciaIzquierda(obtenerDescripcion(),"zerg"));
-        opciones.add(new MoverTerrestreHaciaDerecha(obtenerDescripcion(),"zerg"));
-        opciones.add(new EvolucionarAEdificio(obtenerDescripcion()));
-        opciones.add(new AsignarTrabajoEnExtractor(obtenerDescripcion()));
-        opciones.add(new AsignarTrabajoEnNodoMineral(obtenerDescripcion()));
+        this.establecerOpciones();
         this.rutaSprite = this.rutaSprite + "tropas/zerg/zangano.png";
 
-    }
-
-    @Override
-    public void ocuparCelda(Celda celda){
-        Celda celdaActual = Mapa.getInstance().obtenerCelda(this.posicion);
-        celda.estaOcupadaPorTierra();
-        celda.ocuparPorTierra(this);
-        celdaActual.desocuparPorTierra();
-        this.cantidadMovimientos++;
     }
     public void realizarAccionesTurno(){
         vida.pasarTurno();
@@ -71,10 +56,14 @@ public class Zangano extends TropaTerrestre {
         this.esUsable();
         if (recursoDeLaCelda instanceof NodoMineral) {
             this.nodoMineralDondeTrabaja = (NodoMineral) recursoDeLaCelda;
-            this.reacondicionarOpcionesPostContratacionEnNodo(5);
+            this.reacondicionarOpcionesPostContratacionEnNodo();
         }
         else
             throw new ZanganoEnDistintaACeldaANodoMineral();
+    }
+
+    public void liberarDeNodo(){
+        this.nodoMineralDondeTrabaja = null;
     }
 
     public int extraerMineral(){
@@ -104,12 +93,11 @@ public class Zangano extends TropaTerrestre {
         return descripcion;
     }
 
-    public void reacondicionarOpcionesPostContratacionEnNodo(int opcionQueNoEsAsignarTrabajoElegido){
-        for(int i=0;i<4;i++)
-            opciones.remove(i);
-        opciones.remove(opcionQueNoEsAsignarTrabajoElegido);
+    public void reacondicionarOpcionesPostContratacionEnNodo(){
+        opciones.clear();
+        opciones.add(new DesocuparNodo(obtenerDescripcion()));
     }
-    public void reacondicionarOpcionesPostDespido(){
+    public void establecerOpciones(){
         opciones.clear();
         opciones.add(new MoverTerrestreHaciaArriba(obtenerDescripcion(),"zerg"));
         opciones.add(new MoverTerrestreHaciaAbajo(obtenerDescripcion(),"zerg"));

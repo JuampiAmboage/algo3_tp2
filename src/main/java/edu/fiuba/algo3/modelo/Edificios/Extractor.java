@@ -7,6 +7,10 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Excepciones.ExtractorLleno;
+import edu.fiuba.algo3.modelo.Excepciones.ExtractorVacio;
+import edu.fiuba.algo3.modelo.Opciones.DesemplearZangano;
+import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Rango.RangoBusquedaYColocacion;
 import edu.fiuba.algo3.modelo.Visibilidad.Visible;
 import edu.fiuba.algo3.modelo.Construccion.UnidadEnConstruccion;
@@ -30,8 +34,13 @@ public class Extractor extends Edificio {
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.volcan = volcan;
         this.visibilidad = new Visible(this);
-        this.rangoBusquedaYColocacion = new RangoBusquedaYColocacion(posicion,1);
         this.rutaSprite = this.rutaSprite + "edificios/extractor.png";
+        this.opciones.add(new DesemplearZangano(obtenerDescripcion()));
+    }
+    public void instanciacionesIniciales(Posicion posicionALocalizar){
+        posicion = posicionALocalizar;
+        rangoBusquedaYColocacion = new RangoBusquedaYColocacion(posicion,1);
+
     }
     public Extractor(Volcan volcan, int tiempoDeConstruccion) {
         this.tiempoConstruccion = tiempoDeConstruccion;
@@ -64,9 +73,9 @@ public class Extractor extends Edificio {
             Zangano zanganoLiberado = this.trabajadores.get(0);
             rangoBusquedaYColocacion.colocarPorTierra(zanganoLiberado);
         }
-        /*else{
+        else{
             throw new ExtractorVacio();
-        }*/
+        }
     }
 
     public int extraerGas() {
@@ -107,14 +116,6 @@ public class Extractor extends Edificio {
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
 
-    /*@Override
-    public void mostrarDescripcion() {
-        System.out.println("-Extractor-");
-        System.out.println("Extrae gas de un volcán. Requiere zánganos para la extracción.\n");
-        System.out.println("Extracción: En cada turno, 10 por zangano empleado");
-        System.out.println("Zanganos trabajando: " + this.trabajadores.size() + "/3");
-        System.out.println("Vida actual: " + this.vida.getVidaActual());
-    }*/
     public String obtenerDescripcion() {
         String descripcion = "";
         return descripcion;
