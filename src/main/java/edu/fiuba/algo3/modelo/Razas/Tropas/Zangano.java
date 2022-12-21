@@ -64,6 +64,7 @@ public class Zangano extends TropaTerrestre {
 
     public void liberarDeNodo(){
         this.nodoMineralDondeTrabaja = null;
+        this.establecerOpciones();
     }
 
     public int extraerMineral(){
