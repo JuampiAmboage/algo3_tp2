@@ -11,15 +11,15 @@ public class Almacenamiento {
 
     public Almacenamiento(){
         this.gasVespeno = 0;
-        this.mineral = 400;
+        this.mineral = 200;
     }
     public boolean suficientesRecursos(int costoGasUnidadAGenerar, int costoMineralUnidadAGenerar) {
         return (costoGasUnidadAGenerar <= gasVespeno && costoMineralUnidadAGenerar <= mineral);
     }
 
     public void descontarRecursos(int cantidadGasARetirar, int cantidadMineralARetirar){
-        gasVespeno -= cantidadGasARetirar;
-        mineral -= cantidadMineralARetirar;
+        this.gasVespeno -= cantidadGasARetirar;
+        this.mineral -= cantidadMineralARetirar;
     }
     public void almacenarGasVespeno(int cantidadEntrante) {
         this.gasVespeno += cantidadEntrante;

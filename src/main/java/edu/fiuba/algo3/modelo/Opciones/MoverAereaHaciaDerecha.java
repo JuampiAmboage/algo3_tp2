@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Opciones;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
+import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
 
 public class MoverAereaHaciaDerecha extends OpcionElegible{
     public MoverAereaHaciaDerecha(String descripcion, String pertenencia) {
@@ -14,7 +15,7 @@ public class MoverAereaHaciaDerecha extends OpcionElegible{
 
     @Override
     public void gestionarClick(Celda celda, String opcionElejida) {
-        Tropa tropaAMovilizar = (Tropa) celda.obtenerOcupanteAereo();
+        TropaAerea tropaAMovilizar = (TropaAerea) celda.obtenerOcupanteAereo();
         tropaAMovilizar.moverDerecha();
     }
 }

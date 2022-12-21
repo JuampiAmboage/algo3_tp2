@@ -6,6 +6,8 @@ import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Zealot;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 
+import java.util.ArrayList;
+
 public class RangoAtaque {
     Tropa tropa;
     Posicion posicion;
@@ -22,4 +24,5 @@ public class RangoAtaque {
         else
             throw new EnemigoFueraDeRango();
     }
+
 }
