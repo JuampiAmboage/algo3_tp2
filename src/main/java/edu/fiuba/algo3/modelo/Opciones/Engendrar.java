@@ -40,41 +40,22 @@ public class Engendrar extends OpcionElegible{
     public void engendrarZangano(Celda celda, Criadero criadero){
         Zangano zangano = new Zangano();
         ComunidadZerg.obtenerInstanciaDeClase().crearUnidadTerrestre(criadero,zangano);
-        celda.instanciarUnidad(zangano);
     }
     public void engendrarZerling(Celda celda, Criadero criadero){
         Zerling zerling = new Zerling();
         ComunidadZerg.obtenerInstanciaDeClase().crearUnidadTerrestre(criadero,zerling);
-        celda.instanciarUnidad(zerling);
     }
     public void engendrarHidralisco(Celda celda, Criadero criadero){
         Hidralisco hidralisco = new Hidralisco();
         ComunidadZerg.obtenerInstanciaDeClase().crearUnidadTerrestre(criadero,hidralisco);
-        celda.instanciarUnidad(hidralisco);
     }
     public void engendrarMutalisco(Celda celda, Criadero criadero){
         Mutalisco mutalisco = new Mutalisco();
         ComunidadZerg.obtenerInstanciaDeClase().crearUnidadAerea(criadero,mutalisco);
-        celda.instanciarUnidad(mutalisco);
     }
 
     public void engendrarAmoSupremo(Celda celda, Criadero criadero){
         AmoSupremo amoSupremo = new AmoSupremo();
         ComunidadZerg.obtenerInstanciaDeClase().crearUnidadAerea(criadero,amoSupremo);
-        celda.instanciarUnidad(amoSupremo);
     }
-
-    /*public void gestionarClick(Celda celda) {
-        Tropa unidadAEngendrar = obtenerTropa();
-        Criadero criadero = (Criadero) celda.obtenerOcupanteTerrestre();
-        ComunidadZerg.obtenerInstanciaDeClase().crearUnidad(criadero,unidadAEngendrar);
-    }
-
-
-    private Tropa obtenerTropa() {
-        // TODO: Mostrar ventana con opciones.
-        Opciones de tropas: Zangano, Zerling, Hidralisco, Mutalisco, Amo Supremo
-
-        return tropa;
-    }*/
 }
