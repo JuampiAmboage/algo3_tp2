@@ -17,6 +17,7 @@ public class Asimilador extends EdificioProtoss {
     public Asimilador(Volcan volcan) {
         super();
         this.tiempoConstruccion = 6;
+        this.costoEnMinerales = 100;
         this.vida = new VidaConEscudo(450, 450);
         this.comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         this.volcan = volcan;

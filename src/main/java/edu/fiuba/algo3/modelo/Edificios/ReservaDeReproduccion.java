@@ -17,7 +17,6 @@ public class ReservaDeReproduccion extends Edificio {
     public ReservaDeReproduccion(){
         this.tiempoConstruccion = 12;
         this.vida = new Vida(1000);
-        this.costoEnGas = 0;
         this.costoEnMinerales = 150;
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.visibilidad = new Visible(this);

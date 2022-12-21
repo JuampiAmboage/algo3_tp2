@@ -29,6 +29,7 @@ public class Criadero extends Edificio {
     public Criadero(){
         super();
         this.tiempoConstruccion = 4;
+        this.costoEnMinerales = 200;
         this.inicializaciones();
     }
     public void inicializaciones(){

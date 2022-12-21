@@ -6,6 +6,8 @@ import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 
+import java.util.ArrayList;
+
 public class BotonMenuJugador {
 
     public Button botonNodo;
@@ -28,8 +30,8 @@ public class BotonMenuJugador {
     public Button obtenerBotonNodo() { return this.botonNodo; }
     private void gestionarClick(Celda celda, String opcionElejida) {
 
-        if (this.opcion.equals(new AsignarTrabajoEnExtractor(""))) {
-            Celda[] celdas = this.controlador.obtenerCeldasConExtractor();
+        if (this.opcion instanceof AsignarTrabajoEnExtractor) {
+            ArrayList<Celda> celdas = this.controlador.obtenerCeldasConExtractor();
             this.opcion.estblecerCeldasConExtractor(celdas);
         }
 

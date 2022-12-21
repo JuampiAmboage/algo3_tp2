@@ -18,6 +18,8 @@ public class Espiral extends Edificio {
     private Edificio edificioNecesario;
     public Espiral(){
         this.tiempoConstruccion = 10;
+        this.costoEnMinerales = 150;
+        this.costoEnGas = 100;
         this.edificioNecesario = new Guarida();
         this.vida = new Vida(1300);
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();

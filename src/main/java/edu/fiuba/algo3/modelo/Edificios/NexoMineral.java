@@ -17,6 +17,7 @@ public class NexoMineral extends EdificioProtoss implements Construible{
 
     public NexoMineral(NodoMineral nodoMineral){
         tiempoConstruccion = 4;
+        this.costoEnMinerales = 50;
         vida = new VidaConEscudo(250,250);
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         this.nodoMineral = nodoMineral;

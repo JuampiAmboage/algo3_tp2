@@ -30,11 +30,11 @@ public class Extractor extends Edificio {
 
     public Extractor(Volcan volcan){
         this.tiempoConstruccion = 6;
+        this.costoEnMinerales = 100;
         vida = new Vida(750);
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.volcan = volcan;
         this.visibilidad = new Visible(this);
-        //this.rangoBusquedaYColocacion = new RangoBusquedaYColocacion(posicion,1);
         this.rutaSprite = this.rutaSprite + "edificios/extractor.png";
         this.opciones.add(new DesemplearZangano(obtenerDescripcion()));
     }
@@ -63,6 +63,7 @@ public class Extractor extends Edificio {
     }
 
     public void agregarTrabajador(Zangano trabajador) {
+        this.esUsable();
         if (this.trabajadores.size() != cantidadMaximaDeTrabajadores) {
             this.trabajadores.add(trabajador);
         } else {
@@ -71,9 +72,12 @@ public class Extractor extends Edificio {
     }
 
     public void liberarTrabajador(){
+        this.esUsable();
         if(!trabajadores.isEmpty()){
             Zangano zanganoLiberado = this.trabajadores.get(0);
-            //rangoBusquedaYColocacion.colocarPorTierra(zanganoLiberado);
+            zanganoLiberado.liberarDeExtractor();
+            trabajadores.remove(0);
+            rangoBusquedaYColocacion.colocarPorTierra(zanganoLiberado);
         }
         else{
             throw new ExtractorVacio();
@@ -81,6 +85,7 @@ public class Extractor extends Edificio {
     }
 
     public int extraerGas() {
+        this.esUsable();
         int cantidadGasExtraido = 0;
         if (this.trabajadores.size() != 0 ) {
             for (Zangano trabajador :this.trabajadores) {
@@ -102,13 +107,13 @@ public class Extractor extends Edificio {
     @Override
     public void construirSobreRecurso(Volcan tipoRecurso) {}
     @Override
-    public void construirSobreTipo(CeldaConMoho tipo) {throw new ConstruccionProhibida();}
+    public void construirSobreTipo(CeldaConMoho tipo) {}
     @Override
     public void construirSobreTipo(CeldaEnergizada tipo) {
         throw new ConstruccionProhibida();
     }
     @Override
-    public void construirSobreTipo(CeldaLibre tipo) {}
+    public void construirSobreTipo(CeldaLibre tipo) {throw new ConstruccionProhibida();}
     @Override
     public void construirSobre(Celda celda) {
         celda.quiereConstruir(this);

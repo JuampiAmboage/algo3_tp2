@@ -75,8 +75,10 @@ public class ControladorVistaMapa {
                 Posicion posicion = new Posicion(fila, columna);
                 Celda celda = mapa.obtenerCelda(posicion);
 
-                if ((celda.obtenerOcupanteTerrestre()).equals(new Extractor(new Volcan()))) {
-                    this.celdasConExtractor.add(celda);
+                if (celda.obtenerOcupanteTerrestre() instanceof Extractor) {
+                    if (!this.celdasConExtractor.contains(celda)) {
+                        this.celdasConExtractor.add(celda);
+                    }
                 }
 
                 String spriteTipo = celda.obtenerSpriteTipo();
@@ -142,10 +144,8 @@ public class ControladorVistaMapa {
     }
 
 
-    public Celda[] obtenerCeldasConExtractor() {
-        ArrayList<Celda> celda = this.celdasConExtractor;
-        Celda[] celdas = (Celda[]) celda.toArray();
-        return celdas;
+    public ArrayList<Celda> obtenerCeldasConExtractor() {
+        return this.celdasConExtractor;
     }
 
     private void desactivarBoton(Button boton) {

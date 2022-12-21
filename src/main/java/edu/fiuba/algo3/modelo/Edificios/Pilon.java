@@ -17,6 +17,7 @@ public class Pilon extends EdificioProtoss implements UnidadConAmpliacionDeSumin
     public Pilon(){
         super();
         this.tiempoConstruccion = 5;
+        this.costoEnMinerales = 100;
         inicializaciones();
     }
 

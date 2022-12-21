@@ -114,7 +114,7 @@ public abstract class ControladorVistaMenuJugadores {
 
     public void actualizarMapa() { this.app.actualizarMapa(); }
 
-    public Celda[] obtenerCeldasConExtractor() { return this.app.obtenerCeldasConExtractor(); }
+    public ArrayList<Celda> obtenerCeldasConExtractor() { return this.app.obtenerCeldasConExtractor(); }
 
     public abstract void activar();
     public abstract void desactivar();

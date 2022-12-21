@@ -6,9 +6,9 @@ import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
 
 public class DesemplearZangano extends OpcionElegible{
     public DesemplearZangano(String descripcion) {
-        this.titulo = "Desocupar nodo";
+        this.titulo = "Desemplear zangano";
         this.pertenceA = "zerg";
-        this.textoBotones.add("Desocupar nodo");
+        this.textoBotones.add("Desemplear zangano");
     }
 
     @Override

@@ -27,7 +27,7 @@ public class Zangano extends TropaTerrestre {
 
         opciones.add(new MoverTerrestre("zerg"));
         opciones.add(new EvolucionarAEdificio(obtenerDescripcion()));
-        opciones.add(new AsignarTrabajoEnExtractor(obtenerDescripcion()));
+        opciones.add(new AsignarTrabajoEnExtractor());
         opciones.add(new AsignarTrabajoEnNodoMineral(obtenerDescripcion()));
 
         this.establecerOpciones();
@@ -42,15 +42,12 @@ public class Zangano extends TropaTerrestre {
             comunidad.aniadirMineral(extraerMineral());
     }
 
-    public void asignarTrabajoEnExtractor(Unidad extractorQueContrata){
+    public void asignarTrabajoEnExtractor(Extractor extractorQueContrata){
         this.esUsable();
-        if(extractorQueContrata instanceof Extractor){
-            evaluarDistanciaAExtractor((Extractor) extractorQueContrata);
-            ((Extractor) extractorQueContrata).agregarTrabajador(this);
-            this.extractorDondeTrabaja = (Extractor) extractorQueContrata;
-        }
-        else
-            throw new ZanganoLejosDeExtractor();
+        evaluarDistanciaAExtractor(extractorQueContrata);
+        revisarEstadoLaboral();
+        extractorQueContrata.agregarTrabajador(this);
+        this.extractorDondeTrabaja = extractorQueContrata;
     }
 
     public void evaluarDistanciaAExtractor(Extractor extractor){
@@ -73,6 +70,9 @@ public class Zangano extends TropaTerrestre {
         this.establecerOpciones();
     }
 
+    public void liberarDeExtractor(){
+        this.extractorDondeTrabaja = null;
+    }
     public int extraerMineral(){
         this.esUsable();
         if(nodoMineralDondeTrabaja != null){
@@ -108,7 +108,7 @@ public class Zangano extends TropaTerrestre {
         opciones.clear();
         opciones.add(new MoverTerrestre("zerg"));
         opciones.add(new EvolucionarAEdificio(obtenerDescripcion()));
-        opciones.add(new AsignarTrabajoEnExtractor(obtenerDescripcion()));
+        opciones.add(new AsignarTrabajoEnExtractor());
         opciones.add(new AsignarTrabajoEnNodoMineral(obtenerDescripcion()));
     }
 }

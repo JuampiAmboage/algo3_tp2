@@ -7,6 +7,8 @@ public class Partida {
 
 
     private Mapa mapa;
+
+    private App app;
     private Jugador primerJugador;
     private Jugador segundoJugador;
     public Partida(String[] nombreJugadores, Comunidad[] comunidades) {
@@ -40,9 +42,9 @@ public class Partida {
 
     public void finDePartida(){
         if(quienJuega() == 1)
-            App.terminarPartida(primerJugador.obtenerNombre());
+            this.app.terminarPartida(primerJugador.obtenerNombre());
         else
-            App.terminarPartida(segundoJugador.obtenerNombre());
+            this.app.terminarPartida(segundoJugador.obtenerNombre());
     }
 
     public int[] obtenerAlmacenamiento(int jugador) {
@@ -52,5 +54,7 @@ public class Partida {
 
         return this.primerJugador.obtenerAlmacenamiento();
     }
+
+    public void establecerApp(App app) { this.app = app; }
 
 }

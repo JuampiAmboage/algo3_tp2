@@ -4,15 +4,16 @@ import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Excepciones.ZanganoLejosDeExtractor;
+import edu.fiuba.algo3.modelo.Excepciones.ZanganoYaEmpleado;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 public class AsignarTrabajoEnExtractor extends OpcionElegible{
 
-    public AsignarTrabajoEnExtractor(String descripcion) {
+    public AsignarTrabajoEnExtractor() {
         this.titulo = "Asignar trabajo en extractor";
         this.pertenceA = "zerg";
-        this.textoBotones.add("Asignar trabajo");
+        this.textoBotones.add("Asignar trabajo en extractor");
     }
 
     @Override
@@ -28,7 +29,7 @@ public class AsignarTrabajoEnExtractor extends OpcionElegible{
             Extractor extractor = (Extractor) celdaConextractor.obtenerOcupanteTerrestre();
             try {
                 zangano.asignarTrabajoEnExtractor(extractor);
-            } catch (ZanganoLejosDeExtractor ignored) {}
+            } catch (ZanganoLejosDeExtractor | ZanganoYaEmpleado ignored) {}
         }
     }
 }

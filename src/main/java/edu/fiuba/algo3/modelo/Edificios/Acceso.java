@@ -19,6 +19,7 @@ public class Acceso extends EdificioProtoss implements Construible {
     public Acceso(){
         super();
         this.tiempoConstruccion = 8;
+        this.costoEnMinerales = 150;
         this.vida = new VidaConEscudo(500, 500);
         this.comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         this.visibilidad = new Visible(this);

@@ -32,11 +32,24 @@ public class App extends Application {
         launch();
     }
 
-    public static void terminarPartida(String ganador){
-        //pantallazo final
+    public void terminarPartida(String ganador){
+        try {
+            this.controladorVistaRaiz.mostrarMenuBar();
+            FXMLLoader cargador = new FXMLLoader();
+            cargador.setLocation(
+                    App.class.getResource("/vistaJuego/VistaFinDePartida.fxml")
+            );
+            AnchorPane vistaFin = (AnchorPane) cargador.load();
 
+            vistaFin.setMaxSize(this.tamanioDelEscenario[0], this.tamanioDelEscenario[1]);
+
+            this.layoutRaiz.setCenter(vistaFin);
+
+            ControladorVistaFinDePartida controlador = cargador.getController();
+            controlador.mostrarPantallaFinal(ganador);
+
+        } catch (IOException e) { e.printStackTrace(); }
     }
-
     @Override
     public void start(Stage escenario) {
         this.escenarioPrimario = escenario;
@@ -52,7 +65,7 @@ public class App extends Application {
         mostrarVistaInicio();
     }
 
-    public void establecerPartida(Partida partida){ this.partida = partida; }
+    public void establecerPartida(Partida partida){ this.partida = partida; this.partida.establecerApp(this); }
 
     public void inicializarlayoutRaiz() {
         try {
@@ -81,11 +94,11 @@ public class App extends Application {
             cargador.setLocation(
                     App.class.getResource("/VistaInicio.fxml")
             );
-            AnchorPane VistaInicio = (AnchorPane) cargador.load();
+            AnchorPane vistaInicio = (AnchorPane) cargador.load();
 
-            VistaInicio.setMaxSize(this.tamanioDelEscenario[0], this.tamanioDelEscenario[1]);
+            vistaInicio.setMaxSize(this.tamanioDelEscenario[0], this.tamanioDelEscenario[1]);
 
-            this.layoutRaiz.setCenter(VistaInicio);
+            this.layoutRaiz.setCenter(vistaInicio);
 
             ControladorVistaInicio controlador = cargador.getController();
             controlador.setApp(this);
@@ -211,7 +224,7 @@ public class App extends Application {
         this.controladorVistaMenuJugadorDos.establecerAlmacenamiento(this.partida.obtenerAlmacenamiento(2));
     }
 
-    public Celda[] obtenerCeldasConExtractor() {
+    public ArrayList<Celda> obtenerCeldasConExtractor() {
         return this.controladorVistaMapa.obtenerCeldasConExtractor();
     }
 

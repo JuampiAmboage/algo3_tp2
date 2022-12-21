@@ -11,7 +11,7 @@ public abstract class OpcionElegible {
     public String pertenceA;
     public ArrayList<String> textoBotones = new ArrayList<>();
 
-    protected Celda[] celdasConExtractor;
+    protected ArrayList<Celda> celdasConExtractor;
 
     public String obtenerTitulo() { return this.titulo; }
     public String obtenerPertenencia(){ return this.pertenceA; }
@@ -20,7 +20,7 @@ public abstract class OpcionElegible {
 
     public int cantidadDeOpcionesInternas() { return this.textoBotones.toArray().length; }
 
-    public void estblecerCeldasConExtractor(Celda[] celdas) {
+    public void estblecerCeldasConExtractor(ArrayList<Celda> celdas) {
         this.celdasConExtractor =  celdas;
     }
 

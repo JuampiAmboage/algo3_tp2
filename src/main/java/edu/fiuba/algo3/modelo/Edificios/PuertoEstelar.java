@@ -20,6 +20,8 @@ public class PuertoEstelar extends Edificio {
     public PuertoEstelar(){
         super();
         this.tiempoConstruccion = 10;
+        this.costoEnMinerales = 150;
+        this.costoEnGas = 150;
         this.edificioNecesario = new Acceso();
         this.vida = new VidaConEscudo(600, 600);
         this.comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
