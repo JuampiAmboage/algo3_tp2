@@ -35,6 +35,7 @@ public class ConstruirTropaProtoss extends OpcionElegible {
         Zealot zealot = new Zealot();
         try {
             celda.estaOcupadaPorTierra();
+            zealot.existeEdificioNecesario();
             ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(zealot);
             celda.ocuparPorTierra(zealot);
             celda.instanciarUnidad(zealot);
@@ -48,6 +49,7 @@ public class ConstruirTropaProtoss extends OpcionElegible {
         Dragon dragon = new Dragon();
         try {
             celda.estaOcupadaPorTierra();
+            dragon.existeEdificioNecesario();
             ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(dragon);
             celda.ocuparPorTierra(dragon);
             celda.instanciarUnidad(dragon);
@@ -61,6 +63,7 @@ public class ConstruirTropaProtoss extends OpcionElegible {
         Scout scout = new Scout();
         try {
             celda.estaOcupadaPorAire();
+            scout.existeEdificioNecesario();
             ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(scout);
             celda.ocuparPorAire(scout);
             celda.instanciarUnidad(scout);
