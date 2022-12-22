@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Ataque.AtacarTierraYAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Edificios.PuertoEstelar;
 
+import edu.fiuba.algo3.modelo.Opciones.AtaqueTropaAerea;
 import edu.fiuba.algo3.modelo.Opciones.MoverAerea;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
@@ -22,10 +23,9 @@ public class Scout extends TropaAerea{
         vida = new VidaConEscudo(150,100);
         comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         edificioNecesario = new PuertoEstelar();
-        //opciones.add(new TropaTerrestreAtacaTierra());
-        //opciones.add(new TropaTerrestreAtacaAire());
         this.rutaSprite = this.rutaSprite + "tropas/protoss/scout.png";
         opciones.add(new MoverAerea("protoss"));
+        opciones.add(new AtaqueTropaAerea("protoss"));
         this.nombreUnidad = "Scout";
 
     }
