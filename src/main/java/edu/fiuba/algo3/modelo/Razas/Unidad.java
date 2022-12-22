@@ -72,7 +72,7 @@ public abstract class Unidad {
         comunidad.aniadirGasVespeno(this.costoEnGas);
         comunidad.aniadirMineral(this.costoEnMinerales);
         comunidad.quitarUnidad(this);
-        comunidad.restarCapacidadSuministro(this.suministro);
+        comunidad.restarPesoEnSuministro(this.suministro);
     }
 
     public void daniar(int puntosAtaque){
