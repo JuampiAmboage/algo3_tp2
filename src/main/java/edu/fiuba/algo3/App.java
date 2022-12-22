@@ -7,9 +7,11 @@ import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -45,7 +47,8 @@ public class App extends Application {
 
         this.controladorVistaRaiz.mostrarMenuBar();
 
-        this.layoutRaiz.setCursor(Cursor.CROSSHAIR);
+        Image image = new Image(App.class.getResourceAsStream("/sprites/cursor.png"));
+        this.layoutRaiz.setCursor(new ImageCursor(image));
 
         mostrarVistaInicio();
     }
