@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Ataque.AtacarTierra;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
+import edu.fiuba.algo3.modelo.Opciones.AtaqueTropaAerea;
 import edu.fiuba.algo3.modelo.Opciones.MoverAerea;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
@@ -20,7 +21,7 @@ public class Guardian extends TropaAerea implements UnidadEvolucionada{
         vida = new Vida(100);
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         opciones.add(new MoverAerea("zerg"));
-
+        opciones.add(new AtaqueTropaAerea("zerg"));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/guardian.png";
         this.nombreUnidad = "Guardián";
 

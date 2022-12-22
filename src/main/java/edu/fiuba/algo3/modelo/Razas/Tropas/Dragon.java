@@ -25,6 +25,8 @@ public class Dragon extends TropaTerrestre{
         vida = new VidaConEscudo(100,80);
         this.rutaSprite = this.rutaSprite + "tropas/protoss/dragon.png";
         opciones.add(new MoverTerrestre("protoss"));
+        opciones.add(new AtaqueTropaTerrestre("protoss"));
+
         this.nombreUnidad = "Dragón";
 
     }

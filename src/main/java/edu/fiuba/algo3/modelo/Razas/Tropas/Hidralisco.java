@@ -21,10 +21,9 @@ public class Hidralisco extends TropaTerrestre{
         edificioNecesario = new Guarida();
         vida = new Vida(80);
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-        //opciones.add(new TropaTerrestreAtacaTierra(obtenerDescripcion()));
-        //opciones.add(new TropaTerrestreAtacaAire(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/hidralisco.png";
         opciones.add(new MoverTerrestre("zerg"));
+        opciones.add(new AtaqueTropaTerrestre("zerg"));
         this.nombreUnidad = "Hidralisco";
 
     }

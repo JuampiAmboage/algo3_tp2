@@ -8,8 +8,9 @@ public class AtaqueTropaTerrestre extends OpcionElegible{
     private Celda celdaAtacante;
     private boolean ejecutado = true;
 
-    public AtaqueTropaTerrestre() {
+    public AtaqueTropaTerrestre(String pertenencia) {
         this.titulo = "Atacar";
+        this.pertenceA = pertenencia;
         this.textoBotones.add("Atacar tropa aérea");
         this.textoBotones.add("Atacar tropa en tierra");
     }

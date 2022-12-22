@@ -8,7 +8,6 @@ public abstract class TropaTerrestre extends Tropa{
 
     public TropaTerrestre(){
         super();
-        this.opciones.add(new AtaqueTropaTerrestre());
     }
     public abstract void realizarAccionesTurno();
 

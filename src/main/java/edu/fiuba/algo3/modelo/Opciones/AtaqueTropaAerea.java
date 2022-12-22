@@ -6,8 +6,9 @@ import edu.fiuba.algo3.modelo.Razas.Tropas.TropaTerrestre;
 
 public class AtaqueTropaAerea  extends OpcionElegible {
     private Celda celdaAtacante;
-    public AtaqueTropaAerea() {
+    public AtaqueTropaAerea(String pertenencia) {
         this.titulo = "Atacar";
+        this.pertenceA = pertenencia;
         this.textoBotones.add("Atacar tropa aérea");
         this.textoBotones.add("Atacar tropa en tierra");
     }

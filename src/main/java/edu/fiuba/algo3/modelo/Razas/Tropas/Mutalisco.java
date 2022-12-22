@@ -23,10 +23,9 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
         vida = new Vida(80);
         edificioNecesario = new Espiral();
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-        //opciones.add(new TropaAereaAtacaTierra(obtenerDescripcion()));
-        //opciones.add(new TropaAereaAtacaTierra(obtenerDescripcion()));
         opciones.add(new Mutar(obtenerDescripcion()));
         opciones.add(new MoverAerea("zerg"));
+        opciones.add(new AtaqueTropaAerea("zerg"));
         this.nombreUnidad = "Mutalisco";
 
 
