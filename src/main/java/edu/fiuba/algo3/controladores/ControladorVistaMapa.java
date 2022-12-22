@@ -91,6 +91,8 @@ public class ControladorVistaMapa {
                     this.celdasConExtractor.add(celda);
                 } else if (celda.obtenerOcupanteTerrestre().existe() || celda.obtenerOcupanteAereo().existe() ) {
                     this.celdasConTropas.add(celda);
+                } else if(!celda.obtenerOcupanteTerrestre().existe() && !celda.obtenerOcupanteAereo().existe()){
+                    celdasConTropas.remove(celda);
                 }
 
                 String spriteTipo = celda.obtenerSpriteTipo();
