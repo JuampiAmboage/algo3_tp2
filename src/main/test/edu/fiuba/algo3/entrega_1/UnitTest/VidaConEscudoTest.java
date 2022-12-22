@@ -95,19 +95,5 @@ public class VidaConEscudoTest {
         assertEquals(escudoMaximo, v.getEscudoActual());
     }
 
-    @Test
-    public void unaVcERecibeUnAtaqueFulminanteYNoSeRecuperaAlPasarLosTurnos() {
-        int vidaMaxima = 500;
-        int escudoMaximo = 200;
-        int ataqueFulminante = 700;
-        VidaConEscudo v = new VidaConEscudo(vidaMaxima, escudoMaximo);
 
-        v.recibirAtaque(ataqueFulminante);
-        for(int i = 0; i < 10; i++) {
-            v.pasarTurno();
-        }
-
-        assertEquals(0, v.getVidaActual());
-        assertEquals(0, v.getEscudoActual());
-    }
 }
