@@ -9,4 +9,7 @@ public class RecibirAtaque extends OpcionElegible{
     }
 
     public void gestionarClick(Celda celda, String opcionElejida){}
+
+    @Override
+    public void atacar(Celda celdaAAtacar){}
 }

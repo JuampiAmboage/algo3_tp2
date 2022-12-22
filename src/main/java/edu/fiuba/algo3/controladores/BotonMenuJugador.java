@@ -17,10 +17,13 @@ public class BotonMenuJugador {
     private OpcionElegible opcion;
     private ControladorVistaMenuJugadores controlador;
 
-    public BotonMenuJugador(OpcionElegible opcion, ControladorVistaMenuJugadores controlador, Celda celda, int index) {
+    private ControladorVistaMapa controladorVistaMapa;
+
+    public BotonMenuJugador(OpcionElegible opcion, ControladorVistaMenuJugadores controlador, Celda celda, int index, ControladorVistaMapa controladorVistaMapa) {
         this.opcion = opcion;
 
         this.controlador = controlador;
+        this.controladorVistaMapa = controladorVistaMapa;
 
         this.botonNodo = new Button();
         this.botonNodo.setText(opcion.obtenerTextoBoton(index));
@@ -32,6 +35,8 @@ public class BotonMenuJugador {
 
     public Button obtenerBotonNodo() { return this.botonNodo; }
     private void gestionarClick(Celda celda, String opcionElejida) {
+
+        this.opcion.establecerControlador(this.controladorVistaMapa);
 
         if (this.opcion instanceof AsignarTrabajoEnExtractor) {
             ArrayList<Celda> celdas = this.controlador.obtenerCeldasConExtractor();

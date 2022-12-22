@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
+import edu.fiuba.algo3.controladores.ControladorVistaMapa;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
@@ -14,9 +15,11 @@ public abstract class OpcionElegible {
 
     public ArrayList<String> textoBotones = new ArrayList<>();
 
+    protected ControladorVistaMapa controladorVistaMapa;
+
     protected ArrayList<Celda> celdasConExtractor;
-    protected HashMap<String,Unidad> enemigosTerrestres;
-    protected HashMap<String, TropaAerea> enemigosAereos;
+    protected ArrayList<Celda> enemigosTerrestres;
+    protected ArrayList<Celda> enemigosAereos;
 
 
 
@@ -36,18 +39,22 @@ public abstract class OpcionElegible {
         for (Celda celdaConTropa : celdasConTropas) {
 
             if (celdaConTropa.obtenerOcupanteTerrestre().existe()) {
-                Unidad enemigoAtacable = celdaConTropa.obtenerOcupanteTerrestre();
-                enemigosTerrestres.put(enemigoAtacable.obtenerNombreUnidad(),enemigoAtacable);
+                Celda enemigoAtacable = celdaConTropa;
+                enemigosTerrestres.add(enemigoAtacable);
             }
             if (celdaConTropa.obtenerOcupanteAereo().existe()) {
-                TropaAerea enemigoAtacable= celdaConTropa.obtenerOcupanteAereo();
-                enemigosAereos.put(enemigoAtacable.obtenerNombreUnidad(),enemigoAtacable);
+                Celda enemigoAtacable= celdaConTropa;
+                enemigosAereos.add(enemigoAtacable);
             }
         }
     }
 
+    public void establecerControlador(ControladorVistaMapa controladorVistaMapa) {
+        this.controladorVistaMapa = controladorVistaMapa;
+    }
+
     public abstract void gestionarClick(Celda celda, String opcionElejida);
 
-
+    public abstract void atacar(Celda celdaAAtacar);
 
 }

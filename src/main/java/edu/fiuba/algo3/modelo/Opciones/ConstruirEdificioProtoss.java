@@ -62,4 +62,7 @@ public class ConstruirEdificioProtoss extends OpcionElegible{
             App.lanzarWarning("Esta celda esta ocupada");
         }
     }
+
+    @Override
+    public void atacar(Celda celdaAAtacar){}
 }

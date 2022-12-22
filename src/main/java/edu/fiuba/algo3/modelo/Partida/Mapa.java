@@ -43,11 +43,11 @@ public class Mapa {
                 if (celda.esMismaPosicion(posicionDeBusqueda))
                     return celda;
             }
-        throw new CoordenadaFueraDeRango(posicionDeBusqueda);
+        throw new CoordenadaFueraDeRango();
     }
 
     public void generarRecursos(){
-        generadorElementos.generarRecursos();
+        generadorElementos.generarRecursos(15);
     }
     public void pasarTurno(){
         for (ArrayList<Celda> fila : mapaJuego){
@@ -56,9 +56,6 @@ public class Mapa {
             }
         }
     }
-    /*public void ocuparUnaCeldaPorTierra(Posicion posicionAOcupar, Unidad ocupante){
-        this.obtenerCelda(posicionAOcupar).
-    }*/
 
     public boolean estaPosicionEnLimites(Posicion unaPosicion) {
         return unaPosicion.estaEnLimites(this.LONGITUD_FILAS_MAPA, this.LONGITUD_COLUMNAS_MAPA);

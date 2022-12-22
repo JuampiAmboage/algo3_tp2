@@ -44,8 +44,8 @@ public class App extends Application {
 
         this.controladorVistaRaiz.mostrarMenuBar();
 
-        //mostrarVistaInicio();
-        terminarPartida("Joaquin");
+        mostrarVistaInicio();
+        //terminarPartida("Joaquin");
     }
 
     public void establecerPartida(Partida partida){ this.partida = partida; this.partida.establecerApp(this); }
@@ -144,6 +144,7 @@ public class App extends Application {
 
             ControladorVistaMenuJugadorUno controladorVistaMenuJugadorUno = cargador.getController();
             controladorVistaMenuJugadorUno.establecerPerfil(perfil, nombre, this);
+            controladorVistaMenuJugadorUno.establecerControladorVistaMapa(this.controladorVistaMapa);
 
             this.controladorVistaMenuJugadorUno = controladorVistaMenuJugadorUno;
 
@@ -164,6 +165,7 @@ public class App extends Application {
 
             ControladorVistaMenuJugadorDos controladorVistaMenuJugadorDos = cargador.getController();
             controladorVistaMenuJugadorDos.establecerPerfil(perfil, nombre, this);
+            controladorVistaMenuJugadorDos.establecerControladorVistaMapa(this.controladorVistaMapa);
 
             this.controladorVistaMenuJugadorDos = controladorVistaMenuJugadorDos;
 

@@ -4,6 +4,7 @@ package edu.fiuba.algo3.controladores;
 import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
+import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
@@ -107,7 +108,7 @@ public class ControladorVistaMapa {
                     agregarSprite(spriteOcupanteAero, fila, columna);
                 }
 
-                agregarBoton(fila, columna);
+                agregarBotonCelda(fila, columna);
 
             }
 
@@ -133,7 +134,7 @@ public class ControladorVistaMapa {
         this.grilla.add(sprite, fila, columna);
     }
 
-    public void agregarBoton(int fila, int columna) {
+    public void agregarBotonCelda(int fila, int columna) {
 
         BotonCelda botonCelda = new BotonCelda(fila, columna, this);
 
@@ -165,6 +166,13 @@ public class ControladorVistaMapa {
         }
         boton.setDisable(true);
         this.botonAnterior = boton;
+    }
+
+    public void cambiarBotonAAtaque(Celda celda, OpcionElegible opcion) {
+        BotonAtaque botonAtaque = new BotonAtaque(celda, this, opcion);
+
+        Posicion posicion = celda.obtenerPosicion();
+        this.grilla.add(botonAtaque.obtenerBotonNodo(), posicion.obtenerFila(), posicion.obtenerColumna());
     }
 
 }

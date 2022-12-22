@@ -20,4 +20,7 @@ public class DesocuparNodo extends OpcionElegible{
         Zangano zangano = (Zangano) celda.obtenerOcupanteTerrestre();
         zangano.liberarDeNodo();
     }
+
+    @Override
+    public void atacar(Celda celdaAAtacar){}
 }

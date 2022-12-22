@@ -38,4 +38,7 @@ public class Mutar extends OpcionElegible{
         mutalisco.mutar(guardian);
         celda.instanciarUnidad(guardian);
     }
+
+    @Override
+    public void atacar(Celda celdaAAtacar){}
 }

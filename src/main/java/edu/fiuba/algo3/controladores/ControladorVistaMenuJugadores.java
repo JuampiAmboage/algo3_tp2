@@ -3,10 +3,7 @@ package edu.fiuba.algo3.controladores;
 import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
-import javafx.scene.control.Accordion;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TitledPane;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -28,12 +25,16 @@ public abstract class ControladorVistaMenuJugadores {
 
     protected boolean activo;
 
+    protected ControladorVistaMapa controladorVistaMapa;
+
     protected Accordion acordeon;
     protected App app;
 
     // PERFIL
     public abstract void establecerPerfil(String perfil, String nombre, App app);
     protected abstract void establecerNombre(String nombre);
+
+    public void establecerControladorVistaMapa(ControladorVistaMapa controladorVistaMapa) { this.controladorVistaMapa = controladorVistaMapa; }
     protected Image establecerImagen() {
         return new Image(getClass().getResourceAsStream("/sprites/perfiles/"+this.perfil+".png"));
     }
@@ -105,7 +106,7 @@ public abstract class ControladorVistaMenuJugadores {
     protected ArrayList<BotonMenuJugador> obtenerBoton(OpcionElegible opcion, Celda celda) {
         ArrayList<BotonMenuJugador> botones = new ArrayList<>();
         for (int i = 0; i < opcion.cantidadDeOpcionesInternas(); i++) {
-            BotonMenuJugador boton = new BotonMenuJugador(opcion, this, celda, i);
+            BotonMenuJugador boton = new BotonMenuJugador(opcion, this, celda, i, this.controladorVistaMapa);
             botones.add(boton);
         }
         return botones;

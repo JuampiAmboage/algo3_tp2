@@ -17,4 +17,7 @@ public class DetectarTropasInvisibles extends OpcionElegible{
         amoSupremo.localicarZealots();
         amoSupremo.compararTropasDetectadasEntreTurnos();
     }
+
+    @Override
+    public void atacar(Celda celdaAAtacar){}
 }

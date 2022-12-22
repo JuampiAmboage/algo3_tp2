@@ -58,18 +58,7 @@ public class EvolucionarAEdificio extends OpcionElegible{
         ComunidadZerg.obtenerInstanciaDeClase().construirEdificio(celda,zangano,espiral);
         celda.instanciarUnidad(espiral);
     }
-/*
-    public void gestionarClick(Celda celdaAConstruir) {
-        Edificio edificioAConstruir = obtenerEdificioAConstruir();
-        Zangano zanganoAEvolucionar = (Zangano) celdaAConstruir.obtenerOcupanteTerrestre();
-        ComunidadZerg.obtenerInstanciaDeClase().construirEdificio(celdaAConstruir,zanganoAEvolucionar,edificioAConstruir);
-        celdaAConstruir.instanciarUnidad(edificioAConstruir);
-    }
 
-    private Edificio obtenerEdificioAConstruir(){
-        // TODO: Mostrar ventana con opciones.
-        Opciones de edificio: Criadero, Reserva De Reproduccion, Guarida, Espiral
-
-        return edificioAConstruir;
-    }*/
+    @Override
+    public void atacar(Celda celdaAAtacar){}
 }

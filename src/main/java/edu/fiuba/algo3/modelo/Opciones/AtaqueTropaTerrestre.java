@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaTerrestre;
 
 public class AtaqueTropaTerrestre extends OpcionElegible{
+    private Celda celdaAtacante;
+
     public AtaqueTropaTerrestre(String descripcion) {
         this.titulo = "Atacar";
         this.textoBotones.add("Atacar tropa aérea");
@@ -12,29 +14,31 @@ public class AtaqueTropaTerrestre extends OpcionElegible{
 
     @Override
     public void gestionarClick(Celda celda, String opcionElegida){
-        TropaTerrestre tropaAtacante = (TropaTerrestre) celda.obtenerOcupanteTerrestre();
+        this.celdaAtacante = celda;
+
+        TropaTerrestre tropaAtacante = (TropaTerrestre) this.celdaAtacante.obtenerOcupanteTerrestre();
         if (textoBotones.contains(opcionElegida)) {
             if (textoBotones.get(0).equals(opcionElegida)) {
                 crearBotonesEnemigosAereos();
-                //seleccionan enemigo
-                //enemigoSeleccionado.cambiarSprite(""); esto no va, pero lo dejo como ref
-                //hacer que controlarVistaMapa lea solo esta celda y actualice el sprite
-                textoBotones.add("Confirmar ataque");
-                tropaAtacante.atacarTierra(enemigoSeleccionado);
-                enemigoSeleccionado.restablecerSprite(); //vuelve al original
-            }
-            else {
+            } else {
                 crearBotonesEnemigosTerrestres();
-                //lo mismo de arriba pero atancando a aire
             }
         }
     }
 
-    // Creo que no se van a necesitar
     public void crearBotonesEnemigosTerrestres(){
-        this.textoBotones.addAll(enemigosTerrestres.keySet());
+        for (Celda celdaConTerrestre : this.enemigosTerrestres) {
+            this.controladorVistaMapa.cambiarBotonAAtaque(celdaConTerrestre, this);
+        }
     }
     public void crearBotonesEnemigosAereos(){
-        this.textoBotones.addAll(enemigosAereos.keySet());
+        for (Celda celdaConAereo : this.enemigosAereos) {
+            this.controladorVistaMapa.cambiarBotonAAtaque(celdaConAereo, this);
+        }
+    }
+
+    @Override
+    public void atacar(Celda celdaAAtacar){
+        System.out.println("Funciona");
     }
 }
