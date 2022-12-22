@@ -18,8 +18,8 @@ public abstract class OpcionElegible {
     protected ControladorVistaMapa controladorVistaMapa;
 
     protected ArrayList<Celda> celdasConExtractor;
-    protected ArrayList<Celda> enemigosTerrestres;
-    protected ArrayList<Celda> enemigosAereos;
+    protected ArrayList<Celda> enemigosTerrestres = new ArrayList<>();
+    protected ArrayList<Celda> enemigosAereos = new ArrayList<>();
 
 
 
@@ -43,9 +43,10 @@ public abstract class OpcionElegible {
                 enemigosTerrestres.add(enemigoAtacable);
             }
             if (celdaConTropa.obtenerOcupanteAereo().existe()) {
-                Celda enemigoAtacable= celdaConTropa;
+                Celda enemigoAtacable = celdaConTropa;
                 enemigosAereos.add(enemigoAtacable);
             }
+
         }
     }
 
@@ -54,7 +55,5 @@ public abstract class OpcionElegible {
     }
 
     public abstract void gestionarClick(Celda celda, String opcionElejida);
-
-    public abstract void atacar(Celda celdaAAtacar);
 
 }

@@ -18,6 +18,4 @@ public class DetectarTropasInvisibles extends OpcionElegible{
         amoSupremo.compararTropasDetectadasEntreTurnos();
     }
 
-    @Override
-    public void atacar(Celda celdaAAtacar){}
 }

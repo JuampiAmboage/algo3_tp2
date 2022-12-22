@@ -1,12 +1,14 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
+import edu.fiuba.algo3.modelo.Opciones.AtaqueTropaTerrestre;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 
 public abstract class TropaTerrestre extends Tropa{
 
     public TropaTerrestre(){
         super();
+        this.opciones.add(new AtaqueTropaTerrestre());
     }
     public abstract void realizarAccionesTurno();
 

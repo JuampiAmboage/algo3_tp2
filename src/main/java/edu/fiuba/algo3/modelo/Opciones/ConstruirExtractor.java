@@ -30,6 +30,4 @@ public class ConstruirExtractor extends OpcionElegible{
         }
     }
 
-    @Override
-    public void atacar(Celda celdaAAtacar){}
 }

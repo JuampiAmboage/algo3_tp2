@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Construccion.UnidadConstruida;
 import edu.fiuba.algo3.modelo.Construccion.UnidadEnConstruccion;
 import edu.fiuba.algo3.modelo.Excepciones.RecursosInsuficientes;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
+import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Visibilidad.Visibilidad;
 import edu.fiuba.algo3.modelo.Salud.Salud;
@@ -73,11 +74,16 @@ public abstract class Unidad {
     public void daniarIgnorandoVisibilidad(int puntosAtaque){
         visibilidad.recibirDanioIgnorandoVisibilidad(puntosAtaque);
     }
+
+    public void desaparecerUnidadDeCelda(){
+        Mapa.getInstance().obtenerCelda(posicion).desocuparPorTierra();
+    }
     public void disminuirVida(int puntosAtaque){
         vida.recibirAtaque(puntosAtaque);
         if(vida.estaSinVida()) {
             comunidad.restarPesoEnSuministro(suministro);
             comunidad.quitarUnidad(this);
+            this.desaparecerUnidadDeCelda();
         }
     }
 
@@ -105,4 +111,6 @@ public abstract class Unidad {
     public String obtenerNombreUnidad(){
         return this.nombreUnidad;
     }
+
+    public boolean unidadDesconocidaEnComunidadPropia(Unidad unidadAConsultar){return this.comunidad.existeUnidad(unidadAConsultar);}
 }

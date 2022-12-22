@@ -144,7 +144,6 @@ public class App extends Application {
 
             ControladorVistaMenuJugadorUno controladorVistaMenuJugadorUno = cargador.getController();
             controladorVistaMenuJugadorUno.establecerPerfil(perfil, nombre, this);
-            controladorVistaMenuJugadorUno.establecerControladorVistaMapa(this.controladorVistaMapa);
 
             this.controladorVistaMenuJugadorUno = controladorVistaMenuJugadorUno;
 
@@ -165,8 +164,6 @@ public class App extends Application {
 
             ControladorVistaMenuJugadorDos controladorVistaMenuJugadorDos = cargador.getController();
             controladorVistaMenuJugadorDos.establecerPerfil(perfil, nombre, this);
-            controladorVistaMenuJugadorDos.establecerControladorVistaMapa(this.controladorVistaMapa);
-
             this.controladorVistaMenuJugadorDos = controladorVistaMenuJugadorDos;
 
             this.controladorVistaMenuJugadorDos.establecerAlmacenamiento(this.partida.obtenerAlmacenamiento(2));
@@ -190,6 +187,12 @@ public class App extends Application {
 
             ControladorVistaMapa controladorVistaMapa = cargador.getController();
             this.controladorVistaMapa = controladorVistaMapa;
+
+            this.controladorVistaMenuJugadorUno.establecerControladorMapa(this.controladorVistaMapa);
+            this.controladorVistaMenuJugadorDos.establecerControladorMapa(this.controladorVistaMapa);
+
+            this.controladorVistaMapa.establecerControladores(this.controladorVistaMenuJugadorUno, this.controladorVistaMenuJugadorDos);
+
             controladorVistaMapa.establecerApp(this);
             controladorVistaMapa.mostrarMapa();
 

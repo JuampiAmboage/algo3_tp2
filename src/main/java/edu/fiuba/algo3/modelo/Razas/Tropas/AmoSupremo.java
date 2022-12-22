@@ -50,6 +50,7 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
     public void realizarAccionesTurno(){
         vida.pasarTurno();
         cantidadMovimientos = 0;
+        cantidadAtaques = 0;
     }
 
     public void localicarZealots(){

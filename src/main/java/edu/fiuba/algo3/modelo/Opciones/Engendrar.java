@@ -59,6 +59,4 @@ public class Engendrar extends OpcionElegible{
         ComunidadZerg.obtenerInstanciaDeClase().crearUnidadAerea(criadero,amoSupremo);
     }
 
-    @Override
-    public void atacar(Celda celdaAAtacar){}
 }

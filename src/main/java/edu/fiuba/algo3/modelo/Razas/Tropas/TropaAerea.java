@@ -8,6 +8,8 @@ public abstract class TropaAerea extends Tropa {
 
     public TropaAerea(){
         super();
+        this.opciones.add(new AtaqueTropaTerrestre());
+
     }
 
     public abstract void realizarAccionesTurno();
@@ -18,5 +20,9 @@ public abstract class TropaAerea extends Tropa {
         celda.ocuparPorAire(this);
         celdaActual.desocuparPorAire();
         this.cantidadMovimientos++;
+    }
+    @Override
+    public void desaparecerUnidadDeCelda(){
+        Mapa.getInstance().obtenerCelda(posicion).desocuparPorAire();
     }
 }

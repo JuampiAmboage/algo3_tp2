@@ -63,6 +63,4 @@ public class ConstruirEdificioProtoss extends OpcionElegible{
         }
     }
 
-    @Override
-    public void atacar(Celda celdaAAtacar){}
 }

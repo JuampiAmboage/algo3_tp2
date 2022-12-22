@@ -46,6 +46,8 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
     public void realizarAccionesTurno() {
         this.vida.pasarTurno();
         this.cantidadMovimientos = 0;
+        cantidadAtaques = 0;
+
 
     }
     @Override

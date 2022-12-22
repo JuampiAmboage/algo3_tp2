@@ -70,6 +70,4 @@ public class ConstruirTropaProtoss extends OpcionElegible {
         }
     }
 
-    @Override
-    public void atacar(Celda celdaAAtacar){}
 }

@@ -33,8 +33,9 @@ public abstract class ControladorVistaMenuJugadores {
     // PERFIL
     public abstract void establecerPerfil(String perfil, String nombre, App app);
     protected abstract void establecerNombre(String nombre);
-
-    public void establecerControladorVistaMapa(ControladorVistaMapa controladorVistaMapa) { this.controladorVistaMapa = controladorVistaMapa; }
+    public void establecerControladorMapa(ControladorVistaMapa controladorVistaMapa) {
+        this.controladorVistaMapa = controladorVistaMapa;
+    }
     protected Image establecerImagen() {
         return new Image(getClass().getResourceAsStream("/sprites/perfiles/"+this.perfil+".png"));
     }

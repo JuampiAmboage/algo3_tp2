@@ -35,6 +35,8 @@ public class Scout extends TropaAerea{
     }
     public void realizarAccionesTurno(){vida.pasarTurno();
         cantidadMovimientos = 0;
+        cantidadAtaques = 0;
+
     }
     public int obtenerEscudo(){return vida.getEscudoActual();}
 

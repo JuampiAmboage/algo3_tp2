@@ -1,13 +1,18 @@
+#botonAtaque {
+    -fx-border-width: 5px;
+    -fx-border-color: #FF00009B;
+}
+
 Button {
     -fx-background-color: #FFFFFF00;
 }
 
-Button:hover {
+#botonCelda:hover {
     -fx-border-width: 5px;
     -fx-border-color: #5000009E;
 }
 
-Button:disabled {
+#botonCelda:disabled {
     -fx-border-width: 5px;
     -fx-border-color: #000000;
 }

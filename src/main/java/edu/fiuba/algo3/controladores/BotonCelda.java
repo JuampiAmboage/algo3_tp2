@@ -15,6 +15,7 @@ public class BotonCelda {
 
         this.boton = new Button();
 
+        this.boton.setId("botonCelda");
         this.boton.setPrefSize(70.0, 70.0);
         this.boton.setOnAction(e->gestionarClickEnCelda());
 

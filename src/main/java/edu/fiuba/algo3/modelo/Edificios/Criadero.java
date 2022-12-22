@@ -49,7 +49,7 @@ public class Criadero extends Edificio {
         this.posicion = posicionALocalizar;
         this.aniadirSuministro();
         this.rangoExpansible = new RangoExpansible(posicion,1);
-        this.rangoBusquedaYColocacion = new RangoBusquedaYColocacion(posicion,4);
+        this.rangoBusquedaYColocacion = new RangoBusquedaYColocacion(posicion,1);
         this.infectarCeldasEnRango();
 
     }

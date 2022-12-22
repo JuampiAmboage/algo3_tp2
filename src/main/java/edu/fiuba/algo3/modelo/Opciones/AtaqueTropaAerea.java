@@ -6,8 +6,7 @@ import edu.fiuba.algo3.modelo.Razas.Tropas.TropaTerrestre;
 
 public class AtaqueTropaAerea  extends OpcionElegible {
     private Celda celdaAtacante;
-
-    public AtaqueTropaAerea(String descripcion) {
+    public AtaqueTropaAerea() {
         this.titulo = "Atacar";
         this.textoBotones.add("Atacar tropa aérea");
         this.textoBotones.add("Atacar tropa en tierra");
@@ -20,26 +19,23 @@ public class AtaqueTropaAerea  extends OpcionElegible {
         TropaAerea tropaAtacante = (TropaAerea) this.celdaAtacante.obtenerOcupanteTerrestre();
         if (textoBotones.contains(opcionElegida)) {
             if (textoBotones.get(0).equals(opcionElegida)) {
-                crearBotonesEnemigosAereos();
+                crearBotonesEnemigosAereos(tropaAtacante);
             } else {
-                crearBotonesEnemigosTerrestres();
+                crearBotonesEnemigosTerrestres(tropaAtacante);
             }
         }
     }
-
-    public void crearBotonesEnemigosTerrestres(){
-        for (Celda celdaConTerrestre : this.enemigosTerrestres) {
-            this.controladorVistaMapa.cambiarBotonAAtaque(celdaConTerrestre, this);
-        }
-    }
-    public void crearBotonesEnemigosAereos(){
+    public void crearBotonesEnemigosAereos(TropaAerea tropaAtacante){
         for (Celda celdaConAereo : this.enemigosAereos) {
-            this.controladorVistaMapa.cambiarBotonAAtaque(celdaConAereo, this);
+            if(!tropaAtacante.unidadDesconocidaEnComunidadPropia(celdaConAereo.obtenerOcupanteAereo()))
+                this.controladorVistaMapa.cambiarBotonAAtaque(celdaConAereo, this, this.celdaAtacante, this.textoBotones.get(0));
+        }
+    }
+    public void crearBotonesEnemigosTerrestres(TropaAerea tropaAtacante){
+        for (Celda celdaConTerrestre : this.enemigosTerrestres) {
+            if(!tropaAtacante.unidadDesconocidaEnComunidadPropia(celdaConTerrestre.obtenerOcupanteTerrestre()))
+                this.controladorVistaMapa.cambiarBotonAAtaque(celdaConTerrestre, this, this.celdaAtacante, this.textoBotones.get(1));
         }
     }
 
-    @Override
-    public void atacar(Celda celdaAAtacar){
-        System.out.println("Funciona");
-    }
 }

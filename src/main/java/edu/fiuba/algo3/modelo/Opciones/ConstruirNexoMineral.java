@@ -27,6 +27,4 @@ public class ConstruirNexoMineral extends OpcionElegible{
         }
     }
 
-    @Override
-    public void atacar(Celda celdaAAtacar){}
 }

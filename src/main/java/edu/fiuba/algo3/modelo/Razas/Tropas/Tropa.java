@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Excepciones.EdificioHabilitadorNoCreado;
 import edu.fiuba.algo3.modelo.Excepciones.SinMasMovimientos;
+import edu.fiuba.algo3.modelo.Opciones.AtaqueTropaTerrestre;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Razas.Correlatividad;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
@@ -20,10 +21,12 @@ public abstract class Tropa extends Unidad implements Correlatividad {
     protected Atacar ataque;
     protected RangoAtaque rangoAtaque;
     protected int cantidadMovimientos;
+    protected int cantidadAtaques;
     public Tropa(){
         super();
         visibilidad = new Visible(this);
         cantidadMovimientos = 0;
+        cantidadAtaques = 0;
     }
     public abstract void realizarAccionesTurno();
 
@@ -33,10 +36,16 @@ public abstract class Tropa extends Unidad implements Correlatividad {
     public int obtenerDanioAereo(){ return danioAereo;}
     public void atacarTierra(Unidad unidadAtacable){
         this.esUsable();
-        ataque.atacarTierra(rangoAtaque,unidadAtacable,danioTerrestre);
+        this.tieneAtaques();
+        this.ataque.atacarTierra(rangoAtaque,unidadAtacable,danioTerrestre);
+        this.cantidadAtaques++;
     }
     public void atacarAire(TropaAerea unidadAtacable){ this.esUsable();
-        ataque.atacarAire(rangoAtaque,unidadAtacable,danioAereo);}
+        this.esUsable();
+        this.tieneAtaques();
+        this.ataque.atacarAire(rangoAtaque,unidadAtacable,danioAereo);
+        this.cantidadAtaques++;
+    }
 
     public void existeEdificioNecesario() {
         if(!ComunidadZerg.obtenerInstanciaDeClase().existeUnidad(edificioNecesario)){
@@ -45,6 +54,11 @@ public abstract class Tropa extends Unidad implements Correlatividad {
     }
     public void tieneMovimientos(){
         if(this.cantidadMovimientos >= 3){
+            throw new SinMasMovimientos();
+        }
+    }
+    public void tieneAtaques(){
+        if(this.cantidadAtaques >= 5){
             throw new SinMasMovimientos();
         }
     }

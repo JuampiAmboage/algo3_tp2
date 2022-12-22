@@ -9,7 +9,7 @@ import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Salud.Vida;
 
 public class Zerling extends TropaTerrestre {
-    public Zerling(){
+    public Zerling() {
         super();
         ataque = new AtacarTierra();
         costoEnMinerales = 25;
@@ -21,31 +21,26 @@ public class Zerling extends TropaTerrestre {
         vida = new Vida(35);
         edificioNecesario = new ReservaDeReproduccion();
         comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-        //opciones.add(new TropaTerrestreAtacaTierra(obtenerDescripcion()));
 
-        this.rutaSprite = this.rutaSprite + "tropas/zerg/zerlilng.png";
+        this.rutaSprite = this.rutaSprite + "tropas/zerg/zerling.png";
         opciones.add(new MoverTerrestre("zerg"));
         this.nombreUnidad = "Zerling";
 
     }
 
-    public void instanciacionesIniciales(Posicion posicionALocalizar){
+    public void instanciacionesIniciales(Posicion posicionALocalizar) {
         posicion = posicionALocalizar;
-        rangoAtaque = new RangoAtaque(this,1,posicion);
+        rangoAtaque = new RangoAtaque(this, 1, posicion);
 
     }
-    public void realizarAccionesTurno(){vida.pasarTurno();
+
+    public void realizarAccionesTurno() {
+        vida.pasarTurno();
         cantidadMovimientos = 0;
+        cantidadAtaques = 0;
+
     }
 
-    /*@Override
-    public void mostrarDescripcion() {
-        System.out.println("-Zerling-");
-        System.out.println("Tropa terrestre con mucho amor propio. No se la deja facil a nadie. \n");
-        System.out.println("Vida actual: "+ this.vida.getVidaActual());
-        System.out.println("Daño aereo: No tiene ");
-        System.out.println("Danio terrestre:" + this.danioTerrestre);
-    }*/
     public String obtenerSprite() { return this.rutaSprite; }
     @Override
     public String obtenerDescripcion() {

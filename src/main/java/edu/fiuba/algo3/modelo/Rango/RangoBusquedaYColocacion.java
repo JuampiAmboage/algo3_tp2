@@ -22,7 +22,6 @@ public class RangoBusquedaYColocacion extends Rango{
             try {
                 Celda celda = mapa.obtenerCelda(unaPosicion);
                 celda.estaOcupadaPorTierra();
-                celda.celdaConRecurso();
                 celda.ocuparPorTierra(tropaAColocar);
                 celda.instanciarUnidad(tropaAColocar);
                 return;

@@ -17,6 +17,4 @@ public class DesemplearZangano extends OpcionElegible{
         extractor.liberarTrabajador();
     }
 
-    @Override
-    public void atacar(Celda celdaAAtacar){}
 }

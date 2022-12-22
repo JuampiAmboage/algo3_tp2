@@ -18,7 +18,5 @@ public class AsignarTrabajoEnNodoMineral extends OpcionElegible{
         zanganoQueVaATrabajar.asignarTrabajoEnNodo((NodoMineral) celda.obtenerRecurso());
     }
 
-    @Override
-    public void atacar(Celda celdaAAtacar){}
 }
 

@@ -35,6 +35,7 @@ public class ControladorVistaMapa {
     private ArrayList<Celda> celdasConExtractor = new ArrayList<>();
     private ArrayList<Celda> celdasConTropas = new ArrayList<>();
 
+    private ArrayList<ControladorVistaMenuJugadores> controladoresJugadores = new ArrayList<>();
     private boolean seActualizo = false;
 
     private void inicializarGrilla() {
@@ -54,6 +55,10 @@ public class ControladorVistaMapa {
     }
 
     public void establecerApp(App app) { this.app = app; }
+    public void establecerControladores(ControladorVistaMenuJugadorUno controladorJugadorUno, ControladorVistaMenuJugadorDos controladorJugadorDos) {
+        this.controladoresJugadores.add(controladorJugadorUno);
+        this.controladoresJugadores.add(controladorJugadorDos);
+    }
 
     public void mostrarMapa() {
 
@@ -71,6 +76,9 @@ public class ControladorVistaMapa {
     }
 
     public void pedirSprites() {
+        this.celdasConExtractor.clear();
+        this.celdasConTropas.clear();
+
         for (int fila = 0; fila < LONGITUD_FILAS_MAPA; fila++) {
 
             for (int columna = 0; columna < LONGITUD_COLUMNAS_MAPA; columna++) {
@@ -79,13 +87,9 @@ public class ControladorVistaMapa {
                 Celda celda = mapa.obtenerCelda(posicion);
 
                 if (celda.obtenerOcupanteTerrestre() instanceof Extractor) {
-                    if (!this.celdasConExtractor.contains(celda)) {
-                        this.celdasConExtractor.add(celda);
-                    }
+                    this.celdasConExtractor.add(celda);
                 } else if (celda.obtenerOcupanteTerrestre().existe() || celda.obtenerOcupanteAereo().existe()) {
-                    if (!this.celdasConTropas.contains(celda)) {
-                        this.celdasConTropas.add(celda);
-                    }
+                    this.celdasConTropas.add(celda);
                 }
 
                 String spriteTipo = celda.obtenerSpriteTipo();
@@ -168,10 +172,10 @@ public class ControladorVistaMapa {
         this.botonAnterior = boton;
     }
 
-    public void cambiarBotonAAtaque(Celda celda, OpcionElegible opcion) {
-        BotonAtaque botonAtaque = new BotonAtaque(celda, this, opcion);
+    public void cambiarBotonAAtaque(Celda celdaAtacada, OpcionElegible opcion, Celda celdaAtacante, String opcionElejida) {
+        BotonAtaque botonAtaque = new BotonAtaque(celdaAtacada, opcion, celdaAtacante, this.controladoresJugadores.get(0), opcionElejida);
 
-        Posicion posicion = celda.obtenerPosicion();
+        Posicion posicion = celdaAtacada.obtenerPosicion();
         this.grilla.add(botonAtaque.obtenerBotonNodo(), posicion.obtenerFila(), posicion.obtenerColumna());
     }
 

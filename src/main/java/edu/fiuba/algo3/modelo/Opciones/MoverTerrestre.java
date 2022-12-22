@@ -37,7 +37,5 @@ public class MoverTerrestre extends OpcionElegible{
         }
     }
 
-    @Override
-    public void atacar(Celda celdaAAtacar){}
 
 }

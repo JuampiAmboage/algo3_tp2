@@ -29,6 +29,8 @@ public class Devorador extends TropaAerea implements UnidadEvolucionada{
     public void realizarAccionesTurno(){
         vida.pasarTurno();
         cantidadMovimientos = 0;
+        cantidadAtaques = 0;
+
     }
 
     @Override

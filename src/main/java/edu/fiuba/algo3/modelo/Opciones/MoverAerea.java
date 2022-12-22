@@ -36,7 +36,5 @@ public class MoverAerea extends OpcionElegible{
         }
     }
 
-    @Override
-    public void atacar(Celda celdaAAtacar){}
 }
 

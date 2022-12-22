@@ -59,6 +59,4 @@ public class EvolucionarAEdificio extends OpcionElegible{
         celda.instanciarUnidad(espiral);
     }
 
-    @Override
-    public void atacar(Celda celdaAAtacar){}
 }

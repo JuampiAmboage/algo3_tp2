@@ -21,6 +21,4 @@ public class DesocuparNodo extends OpcionElegible{
         zangano.liberarDeNodo();
     }
 
-    @Override
-    public void atacar(Celda celdaAAtacar){}
 }

@@ -51,7 +51,10 @@ public class BotonMenuJugador {
         }
 
         this.controlador.limpiarMenu();
-        this.controlador.actualizarMapa();
+
+        if ( !(this.opcion instanceof AtaqueTropaAerea) && !(this.opcion instanceof AtaqueTropaTerrestre) ) {
+            this.controlador.actualizarMapa();
+        }
     }
 }
 

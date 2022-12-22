@@ -39,6 +39,4 @@ public class Mutar extends OpcionElegible{
         celda.instanciarUnidad(guardian);
     }
 
-    @Override
-    public void atacar(Celda celdaAAtacar){}
 }

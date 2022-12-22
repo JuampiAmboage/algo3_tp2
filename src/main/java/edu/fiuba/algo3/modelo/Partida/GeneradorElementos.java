@@ -45,22 +45,22 @@ public class GeneradorElementos {
         int totalCeldas = this.calcularTotalCeldas();
         int cantidadCeldasConRecurso = (totalCeldas * porcentajeRecursosEnMapa) / 100;
         int quincePorCientoCeldasConRecurso = (cantidadCeldasConRecurso * 15) / 100;
-        int ochentaYCincoPorCientoCeldasConRecurso = (cantidadCeldasConRecurso * 85) / 10;
-        for (int i = 0; i < quincePorCientoCeldasConRecurso; i++) {
+        int ochentaYCincoPorCientoCeldasConRecurso = (cantidadCeldasConRecurso * 85) / 100;
+        for (int i = 0; i < 1; i++) {
             generarRecurso(new Volcan(), 0, 1);
-            generarRecurso(new Volcan(), 9, 10);
+            generarRecurso(new Volcan(), 8, 9);
             generarRecurso(new NodoMineral(), 0, 1);
-            generarRecurso(new NodoMineral(), 9, 10);
+            generarRecurso(new NodoMineral(), 8, 9);
         }
         for (int i = 0; i < ochentaYCincoPorCientoCeldasConRecurso; i++) {
-            generarRecurso(new Volcan(), 2, 8);
-            generarRecurso(new NodoMineral(), 2, 8);
+            generarRecurso(new Volcan(), 2, 7);
+            generarRecurso(new NodoMineral(), 2, 7);
         }
     }
 
     public void generarRecurso(Recurso recursoAGenerar, int minFila, int maxFila) {
         Celda celdaRandom;
-        Posicion posicionRandom = new Posicion((int) (Math.random() * ((maxFila-minFila+1)+minFila)), (int) (Math.random() * longitudColumnas));
+        Posicion posicionRandom = new Posicion((int) (Math.random() * longitudColumnas-1),(int) (Math.random() * ((maxFila-minFila+1)+minFila)));
         try {
             celdaRandom = Mapa.getInstance().obtenerCelda(posicionRandom);
             celdaRandom.estaOcupadaPorTierra();

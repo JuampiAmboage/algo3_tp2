@@ -37,6 +37,8 @@ public class Hidralisco extends TropaTerrestre{
     }
     public void realizarAccionesTurno(){vida.pasarTurno();
         cantidadMovimientos = 0;
+        cantidadAtaques = 0;
+
     }
 
 

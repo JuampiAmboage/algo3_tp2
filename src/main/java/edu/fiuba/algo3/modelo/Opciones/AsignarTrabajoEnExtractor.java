@@ -32,8 +32,5 @@ public class AsignarTrabajoEnExtractor extends OpcionElegible{
             } catch (ZanganoLejosDeExtractor | ZanganoYaEmpleado ignored) {}
         }
     }
-
-    @Override
-    public void atacar(Celda celdaAAtacar){}
 }
 

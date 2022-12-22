@@ -46,6 +46,8 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
     public void realizarAccionesTurno(){
         vida.pasarTurno();
         cantidadMovimientos = 0;
+        cantidadAtaques = 0;
+
 
     }
 
