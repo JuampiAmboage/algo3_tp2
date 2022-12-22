@@ -35,7 +35,7 @@ public class Dragon extends TropaTerrestre{
     }
 
 
-    public void instanciacionInicial(Posicion posicionAColocar){
+    public void instanciacionesIniciales(Posicion posicionAColocar){
         posicion = posicionAColocar;
         rangoAtaque = new RangoAtaque(this,4,posicion);
     }
