@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Excepciones.EdificioHabilitadorNoCreado;
+import edu.fiuba.algo3.modelo.Excepciones.SinMasAtaques;
 import edu.fiuba.algo3.modelo.Excepciones.SinMasMovimientos;
 import edu.fiuba.algo3.modelo.Opciones.AtaqueTropaTerrestre;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
@@ -59,7 +60,7 @@ public abstract class Tropa extends Unidad implements Correlatividad {
     }
     public void tieneAtaques(){
         if(this.cantidadAtaques >= 5){
-            throw new SinMasMovimientos();
+            throw new SinMasAtaques();
         }
     }
 

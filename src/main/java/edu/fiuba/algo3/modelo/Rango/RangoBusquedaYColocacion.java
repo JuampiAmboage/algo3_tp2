@@ -17,10 +17,8 @@ public class RangoBusquedaYColocacion extends Rango{
         super(posicionObjetoConRango,radioBusqueda);
     }
 
-    public void modificarRadio(int nuevoRadio){
-        this.radio = nuevoRadio;
-    }
     public void colocarPorTierra(TropaTerrestre tropaAColocar){
+        int radioOriginal = radio;
         Mapa mapa = Mapa.getInstance();
         for(Posicion unaPosicion : posicionesEnRango) {
             try {
@@ -32,9 +30,10 @@ public class RangoBusquedaYColocacion extends Rango{
             }
             catch (CoordenadaFueraDeRango | CeldaOcupada | CeldaConRecurso ignore) {}
         }
-        this.modificarRadio(radio+1);
+        this.radio++;
         this.crearPosiciones();
-        this.colocarPorTierra(tropaAColocar);
+        colocarPorTierra(tropaAColocar);
+        this.radio = radioOriginal;
     }
     public void colocarPorAire(TropaAerea tropaAColocar){
         Mapa mapa = Mapa.getInstance();
