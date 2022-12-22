@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Construccion.EstadoConstruccion;
 import edu.fiuba.algo3.modelo.Construccion.UnidadConstruida;
 import edu.fiuba.algo3.modelo.Construccion.UnidadEnConstruccion;
 import edu.fiuba.algo3.modelo.Excepciones.RecursosInsuficientes;
+import edu.fiuba.algo3.modelo.Excepciones.ZonaOcupada;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
@@ -65,6 +66,14 @@ public abstract class Unidad {
             almacenamiento.descontarRecursos(costoEnGas,costoEnMinerales);
         }
         else throw new RecursosInsuficientes();
+    }
+
+    public void deshacerCambiosEnComunidad(){
+        comunidad.aniadirGasVespeno(this.costoEnGas);
+        comunidad.aniadirMineral(this.costoEnMinerales);
+        comunidad.quitarUnidad(this);
+        comunidad.restarCapacidadSuministro(this.suministro);
+        throw new ZonaOcupada();
     }
 
     public void daniar(int puntosAtaque){
