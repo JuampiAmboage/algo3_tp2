@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaConRecurso;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Excepciones.CoordenadaFueraDeRango;
+import edu.fiuba.algo3.modelo.Excepciones.ZonaOcupada;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
@@ -36,6 +37,7 @@ public class RangoBusquedaYColocacion extends Rango{
             }
             catch (CoordenadaFueraDeRango | CeldaOcupada | CeldaConRecurso ignore) {}
         }
+        throw new ZonaOcupada();
     }
     public void colocarPorAire(TropaAerea tropaAColocar){
         this.tropaColocada = false;
@@ -51,5 +53,6 @@ public class RangoBusquedaYColocacion extends Rango{
 
             } catch (CoordenadaFueraDeRango | CeldaOcupada | CeldaConRecurso ignore) {}
         }
+        throw new ZonaOcupada();
     }
 }

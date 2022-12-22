@@ -73,7 +73,6 @@ public abstract class Unidad {
         comunidad.aniadirMineral(this.costoEnMinerales);
         comunidad.quitarUnidad(this);
         comunidad.restarCapacidadSuministro(this.suministro);
-        throw new ZonaOcupada();
     }
 
     public void daniar(int puntosAtaque){
