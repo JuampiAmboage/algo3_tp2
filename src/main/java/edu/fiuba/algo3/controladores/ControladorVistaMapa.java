@@ -36,7 +36,7 @@ public class ControladorVistaMapa {
     private ArrayList<Celda> celdasConExtractor = new ArrayList<>();
     private ArrayList<Celda> celdasConTropas = new ArrayList<>();
 
-    private ArrayList<BotonAtaque> botonesDeAtaque = new ArrayList<>();
+    private ArrayList<Button> botonesDeAtaque = new ArrayList<>();
 
     private ArrayList<ControladorVistaMenuJugadores> controladoresJugadores = new ArrayList<>();
     private boolean seActualizo = false;
@@ -184,13 +184,12 @@ public class ControladorVistaMapa {
         Posicion posicion = celdaAtacada.obtenerPosicion();
         this.grilla.add(botonAtaque.obtenerBotonNodo(), posicion.obtenerFila(), posicion.obtenerColumna());
 
-        this.botonesDeAtaque.add(botonAtaque);
+        this.botonesDeAtaque.add(botonAtaque.obtenerBotonNodo());
 
     }
 
     public void eliminarBotonesDeAtaque() {
-        for (BotonAtaque botonAtaque : this.botonesDeAtaque) {
-            Button boton = botonAtaque.obtenerBotonNodo();
+        for (Button boton : this.botonesDeAtaque) {
             boton.setDisable(true);
         }
     }

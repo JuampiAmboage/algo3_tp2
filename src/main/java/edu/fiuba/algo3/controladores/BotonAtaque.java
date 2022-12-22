@@ -31,6 +31,7 @@ public class BotonAtaque {
         this.botonNodo = new Button();
         this.botonNodo.setId("botonAtaque");
         this.botonNodo.setPrefSize(70.0, 70.0);
+
         this.botonNodo.setOnAction(e->gestionarClickEnCelda(opcionElejida));
     }
 
