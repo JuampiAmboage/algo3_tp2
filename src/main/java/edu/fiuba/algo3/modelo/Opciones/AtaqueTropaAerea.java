@@ -6,7 +6,7 @@ public class AtaqueTropaAerea  extends OpcionElegible {
     public AtaqueTropaAerea(String descripcion) {
         this.titulo = "Atacar";
         this.textoBotones.add("Atacar tropa aérea");
-        this.textoBotones.add("Atacat tropa en tierra");
+        this.textoBotones.add("Atacar tropa en tierra");
     }
     public void gestionarClick(Celda celda, String opcionElegida){
         if (textoBotones.contains(opcionElegida)) {

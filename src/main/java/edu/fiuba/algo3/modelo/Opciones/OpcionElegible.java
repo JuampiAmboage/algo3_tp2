@@ -2,18 +2,22 @@ package edu.fiuba.algo3.modelo.Opciones;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
+import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
+import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public abstract class OpcionElegible {
     public String titulo;
     public String pertenceA;
 
     public ArrayList<String> textoBotones = new ArrayList<>();
-    public ArrayList<Posicion> posicionesEnemigas = new ArrayList<>();
 
     protected ArrayList<Celda> celdasConExtractor;
-    protected ArrayList<Celda> celdasConTropas;
+    protected HashMap<String,Unidad> enemigosTerrestres;
+    protected HashMap<String, TropaAerea> enemigosAereos;
+
 
 
     public String obtenerTitulo() { return this.titulo; }
@@ -28,30 +32,18 @@ public abstract class OpcionElegible {
     }
 
     public void establecerCeldasConTropas(ArrayList<Celda> celdasConTropas) {
-        this.celdasConTropas =  celdasConTropas;
-
-        String nombreEnemigoAtacable;
-        ArrayList<String> enemigosAtacables = new ArrayList<>();
 
         for (Celda celdaConTropa : celdasConTropas) {
-            nombreEnemigoAtacable = "";
 
             if (celdaConTropa.obtenerOcupanteTerrestre().existe()) {
-                nombreEnemigoAtacable = celdaConTropa.obtenerOcupanteTerrestre().obtenerNombreUnidad();
+                Unidad enemigoAtacable = celdaConTropa.obtenerOcupanteTerrestre();
+                enemigosTerrestres.put(enemigoAtacable.obtenerNombreUnidad(),enemigoAtacable);
             }
-            else if (celdaConTropa.obtenerOcupanteAereo().existe()) {
-                nombreEnemigoAtacable = celdaConTropa.obtenerOcupanteAereo().obtenerNombreUnidad();
-            }
-
-            if (!nombreEnemigoAtacable.equals("")) {
-                enemigosAtacables.add(nombreEnemigoAtacable);
-                this.posicionesEnemigas.add(celdaConTropa.obtenerPosicion());
+            if (celdaConTropa.obtenerOcupanteAereo().existe()) {
+                TropaAerea enemigoAtacable= celdaConTropa.obtenerOcupanteAereo();
+                enemigosAereos.put(enemigoAtacable.obtenerNombreUnidad(),enemigoAtacable);
             }
         }
-
-        this.textoBotones.addAll(enemigosAtacables);
-
-
     }
 
     public abstract void gestionarClick(Celda celda, String opcionElejida);

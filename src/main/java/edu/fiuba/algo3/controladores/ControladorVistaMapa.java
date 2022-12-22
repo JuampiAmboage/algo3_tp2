@@ -81,7 +81,7 @@ public class ControladorVistaMapa {
                     if (!this.celdasConExtractor.contains(celda)) {
                         this.celdasConExtractor.add(celda);
                     }
-                } else if (celda.obtenerOcupanteTerrestre() instanceof Tropa) {
+                } else if (celda.obtenerOcupanteTerrestre().existe() || celda.obtenerOcupanteAereo().existe()) {
                     if (!this.celdasConTropas.contains(celda)) {
                         this.celdasConTropas.add(celda);
                     }
