@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import java.util.ArrayList;
 
 public class Rango {
-    private final int radio;
+    protected int radio;
     protected final ArrayList<Posicion> posicionesEnRango;
     protected final Posicion posicionOrigen;
 
@@ -15,6 +15,7 @@ public class Rango {
         this.radio = radio;
         this.posicionesEnRango = this.crearPosiciones();
     }
+
 
     protected ArrayList<Posicion> crearPosiciones() {
         return this.posicionOrigen.obtenerPosicionesEnRadio(this.radio);
