@@ -92,13 +92,19 @@ public class Criadero extends Edificio {
     public void engendrarPorTierra(TropaTerrestre tipoUnidad){
         engendrar(tipoUnidad);
         rangoBusquedaYColocacion.colocarPorTierra(tipoUnidad);
+        evaluarExitoEnColocacionDeTropaEngendrada(tipoUnidad);
     }
 
     public void engendrarPorAire(TropaAerea tipoUnidad){
         engendrar(tipoUnidad);
         rangoBusquedaYColocacion.colocarPorAire(tipoUnidad);
+        evaluarExitoEnColocacionDeTropaEngendrada(tipoUnidad);
     }
 
+    public void evaluarExitoEnColocacionDeTropaEngendrada(Tropa tipoUnidad){
+        if(!rangoBusquedaYColocacion.colocacionExitosa())
+            tipoUnidad.deshacerCambiosEnComunidad();
+    }
     @Override
     public void construirSobreRecurso(NoRecurso tipoRecurso) {}
     @Override
