@@ -9,12 +9,8 @@ public class AtaqueTropaTerrestre extends OpcionElegible{
         this.textoBotones.add("Atacar tropa aérea");
         this.textoBotones.add("Atacar tropa en tierra");
     }
-    public void crearBotonesEnemigosTerrestres(){
-        this.textoBotones.addAll(enemigosTerrestres.keySet());
-    }
-    public void crearBotonesEnemigosAereos(){
-        this.textoBotones.addAll(enemigosAereos.keySet());
-    }
+
+    @Override
     public void gestionarClick(Celda celda, String opcionElegida){
         TropaTerrestre tropaAtacante = (TropaTerrestre) celda.obtenerOcupanteTerrestre();
         if (textoBotones.contains(opcionElegida)) {
@@ -32,5 +28,13 @@ public class AtaqueTropaTerrestre extends OpcionElegible{
                 //lo mismo de arriba pero atancando a aire
             }
         }
+    }
+
+    // Creo que no se van a necesitar
+    public void crearBotonesEnemigosTerrestres(){
+        this.textoBotones.addAll(enemigosTerrestres.keySet());
+    }
+    public void crearBotonesEnemigosAereos(){
+        this.textoBotones.addAll(enemigosAereos.keySet());
     }
 }

@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.Razas;
 
-import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.Almacenamiento;
 import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
 import edu.fiuba.algo3.modelo.Construccion.EstadoConstruccion;
@@ -8,8 +7,6 @@ import edu.fiuba.algo3.modelo.Construccion.UnidadConstruida;
 import edu.fiuba.algo3.modelo.Construccion.UnidadEnConstruccion;
 import edu.fiuba.algo3.modelo.Excepciones.RecursosInsuficientes;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
-import edu.fiuba.algo3.modelo.Opciones.SolicitarInformacion;
-import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Visibilidad.Visibilidad;
 import edu.fiuba.algo3.modelo.Salud.Salud;

@@ -2,6 +2,8 @@ package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Opciones.AsignarTrabajoEnExtractor;
+import edu.fiuba.algo3.modelo.Opciones.AtaqueTropaAerea;
+import edu.fiuba.algo3.modelo.Opciones.AtaqueTropaTerrestre;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
 import javafx.geometry.Insets;
@@ -34,12 +36,15 @@ public class BotonMenuJugador {
         if (this.opcion instanceof AsignarTrabajoEnExtractor) {
             ArrayList<Celda> celdas = this.controlador.obtenerCeldasConExtractor();
             this.opcion.estblecerCeldasConExtractor(celdas);
-        } else if (this.opcion instanceof TropaAereaAtaca || this.opcion instanceof TropaTerrestreAtaca) {
-            ArrayList<Celda> celdas = this.controlador.obtenerCeldasConTropas();
-            this.opcion.establecerCeldasConTropas(celdas);
+            this.opcion.gestionarClick(celda, opcionElejida);
+        } else {
+            if (this.opcion instanceof AtaqueTropaAerea || this.opcion instanceof AtaqueTropaTerrestre) {
+                ArrayList<Celda> celdas = this.controlador.obtenerCeldasConTropas();
+                this.opcion.establecerCeldasConTropas(celdas);
+            }
+            this.opcion.gestionarClick(celda, opcionElejida);
         }
 
-        this.opcion.gestionarClick(celda, opcionElejida);
         this.controlador.limpiarMenu();
         this.controlador.actualizarMapa();
     }
