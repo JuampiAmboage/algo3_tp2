@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -44,8 +45,9 @@ public class App extends Application {
 
         this.controladorVistaRaiz.mostrarMenuBar();
 
+        this.layoutRaiz.setCursor(Cursor.CROSSHAIR);
+
         mostrarVistaInicio();
-        //terminarPartida("Joaquin");
     }
 
     public void establecerPartida(Partida partida){ this.partida = partida; this.partida.establecerApp(this); }

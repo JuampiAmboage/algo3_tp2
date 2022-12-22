@@ -19,7 +19,7 @@ public class MoverAerea extends OpcionElegible{
 
         if (textoBotones.contains(opcionElejida)) {
 
-            TropaAerea tropa = (TropaAerea) celda.obtenerOcupanteTerrestre();
+            TropaAerea tropa = (TropaAerea) celda.obtenerOcupanteAereo();
 
             if (textoBotones.get(0).equals(opcionElejida)) {
                 tropa.moverArriba();

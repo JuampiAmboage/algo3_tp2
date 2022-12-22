@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
+import edu.fiuba.algo3.modelo.Razas.UnidadInexistente;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -88,7 +89,7 @@ public class ControladorVistaMapa {
 
                 if (celda.obtenerOcupanteTerrestre() instanceof Extractor) {
                     this.celdasConExtractor.add(celda);
-                } else if (celda.obtenerOcupanteTerrestre().existe() || celda.obtenerOcupanteAereo().existe()) {
+                } else if (celda.obtenerOcupanteTerrestre().existe() || celda.obtenerOcupanteAereo().existe() ) {
                     this.celdasConTropas.add(celda);
                 }
 
