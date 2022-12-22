@@ -19,15 +19,6 @@ public class TestCase08 {
     // Caso de uso #8: Verificar que sino se tienen los recursos no se pueden construir los edificios (Para cada edificio para cada raza).
 */
     @Test
-    public void conLosMineralesInicialesPuedoConstruirUnAsimilador(){
-        Celda celda = new Celda(0,0);
-        celda.cambiarTipo(new CeldaConMoho(celda));
-        Extractor extractor = new Extractor(new Volcan());
-        celda.ocuparPorTierra(new Zangano());
-        assertDoesNotThrow(()->ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(extractor));
-    }
-
-    @Test
     public void sinRecursosNoPuedoConstruirUnaGuarida(){
         Celda celda = new Celda(0,0);
         Guarida guarida = new Guarida();

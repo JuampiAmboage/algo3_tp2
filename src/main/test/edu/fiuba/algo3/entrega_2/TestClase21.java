@@ -14,6 +14,7 @@ public class TestClase21 {
     public void unMutaliscoNoPuedeEvolucionarAGuardianSinRecursos(){
         Mutalisco mutalisco = new Mutalisco();
         Guardian guardian = new Guardian();
+        mutalisco.construccionInstantanea();
         assertThrows(RecursosInsuficientes.class,()->mutalisco.mutar(guardian));
     }
 
@@ -21,6 +22,7 @@ public class TestClase21 {
     public void unMutaliscoNoPuedeEvolucionarADevoradorSinRecursos(){
         Mutalisco mutalisco = new Mutalisco();
         Devorador devorador = new Devorador();
+        mutalisco.construccionInstantanea();
         assertThrows(RecursosInsuficientes.class,()->mutalisco.mutar(devorador));
     }
 }

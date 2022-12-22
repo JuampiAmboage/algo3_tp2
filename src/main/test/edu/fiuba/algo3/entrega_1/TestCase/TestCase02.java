@@ -15,12 +15,13 @@ import edu.fiuba.algo3.modelo.Edificios.Criadero;
 
 public class TestCase02 {
 
+
     @Test
     public void unCriaderoQueTarda4TurnosEnConstruirseLanzaUnErrorCuandoSeLoQuiereUsar() {
         Mapa.getInstance().instanciarMapa();
         Criadero criadero = new Criadero();
         criadero.instanciacionesIniciales(new Posicion(3,3));
-        ComunidadZerg.obtenerInstanciaDeClase().aniadirMineral(200);
+
         ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(criadero);
         assertThrows(UnidadNoTerminada.class,()->criadero.engendrar(new Zangano()));
     }
@@ -30,7 +31,10 @@ public class TestCase02 {
         Mapa.getInstance().instanciarMapa();
         Criadero criadero = new Criadero();
         criadero.instanciacionesIniciales(new Posicion(3,3));
+        ComunidadZerg.obtenerInstanciaDeClase().aniadirMineral(5000);
+        ComunidadZerg.obtenerInstanciaDeClase().aniadirGasVespeno(1000);
         ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(criadero);
+
         for(int i=0;i<4;i++) {
             criadero.pasarTurno();
         }

@@ -33,7 +33,7 @@ public class TestCase01 {
         Mapa.getInstance().instanciarMapa();
         Criadero criadero = new Criadero();
         ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(criadero);
-        ComunidadZerg.obtenerInstanciaDeClase().aniadirMineral(250);
+        ComunidadZerg.obtenerInstanciaDeClase().aniadirMineral(700);
         criadero.construccionInstantanea();
         criadero.instanciacionesIniciales(new Posicion(3,3));
         criadero.engendrar(new Zangano());

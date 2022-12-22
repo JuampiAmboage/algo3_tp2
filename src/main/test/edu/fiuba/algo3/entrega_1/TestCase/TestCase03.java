@@ -46,6 +46,7 @@ public class TestCase03 {
     public void sePuedeConstruirUnExtractorSobreUnVolcan() {
         Volcan volcan = new Volcan();
         Celda celda = new Celda();
+        celda.cambiarTipo(new CeldaConMoho(celda));
         celda.agregarRecurso(volcan);
         Extractor extractor = new Extractor(volcan);
 

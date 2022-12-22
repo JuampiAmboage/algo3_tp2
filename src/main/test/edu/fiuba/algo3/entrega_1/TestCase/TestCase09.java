@@ -15,7 +15,6 @@ public class TestCase09 {
     @Test
     public void unAccesoSigueOperativoSiLeDestruyenUnPilonQueLoEnergizaPeroEstaEnElRangoDeOtro(){
         Mapa mapa = Mapa.getInstance();
-        //mapa.instanciarMapa(8,8);
         mapa.instanciarMapa();
         Pilon unPilon = new Pilon();
         Pilon otroPilon = new Pilon();
