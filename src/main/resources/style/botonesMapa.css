@@ -3,6 +3,11 @@
     -fx-border-color: #FF00009B;
 }
 
+#botonAtaque:disabled {
+    -fx-background-color: #FFFFFF00;
+    -fx-border-color: #99ff00;
+}
+
 Button {
     -fx-background-color: #FFFFFF00;
 }
