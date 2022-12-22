@@ -21,9 +21,12 @@ public class TestCase27 {
         Devorador devorador = new Devorador();
         Mutalisco mutalisco = new Mutalisco();
         ComunidadZerg comunidadZerg = ComunidadZerg.obtenerInstanciaDeClase();
+
         comunidadZerg.aniadirGasVespeno(150);
         comunidadZerg.aniadirMineral(150);
         comunidadZerg.aniadirCapacidadSuministro(10);
+        mutalisco.construccionInstantanea();
+
         assertThrows(UnidadInexistente.class,()->comunidadZerg.mutar(mutalisco,devorador));
         //intento mutar un mutalisco que jamas fue "creado" (no está registrado en comunidad)
     }
@@ -32,11 +35,14 @@ public class TestCase27 {
     public void siHayUnMutaliscoPuedoTenerUnDevorador(){
         Devorador devorador = new Devorador();
         Mutalisco mutalisco = new Mutalisco();
+
         ComunidadZerg comunidadZerg = ComunidadZerg.obtenerInstanciaDeClase();
         comunidadZerg.aniadirCapacidadSuministro(10);
         comunidadZerg.aniadirGasVespeno(150); //
         comunidadZerg.aniadirMineral(50);
         comunidadZerg.agregarUnidad(mutalisco); //en este caso si registro al mutalisco
+        mutalisco.construccionInstantanea();
+
         assertDoesNotThrow(()->comunidadZerg.mutar(mutalisco,devorador));
     }
     @Test

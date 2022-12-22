@@ -16,6 +16,7 @@ public class TestCase04 { //A todos les falta probar con test y terminados de co
     public void unExtractorSinZanganosNoGeneraGas() {
         Volcan volcan = new Volcan();
         Extractor e = new Extractor(volcan,0);
+        e.construccionInstantanea();
 
         assertEquals(0, e.extraerGas());
     }
@@ -24,6 +25,7 @@ public class TestCase04 { //A todos les falta probar con test y terminados de co
     public void unExtractorConUnZanganoGenera10DeGas() {
         Volcan v = new Volcan();
         Extractor e = new Extractor(v);
+        e.construccionInstantanea();
 
         e.agregarTrabajador(new Zangano());
 
@@ -34,6 +36,7 @@ public class TestCase04 { //A todos les falta probar con test y terminados de co
     public void unExtractorConDosZanganosGenera20DeGas() {
         Volcan volcan =new Volcan();
         Extractor e = new Extractor(volcan);
+        e.construccionInstantanea();
 
         e.agregarTrabajador(new Zangano());
         e.agregarTrabajador(new Zangano());
@@ -45,6 +48,8 @@ public class TestCase04 { //A todos les falta probar con test y terminados de co
     public void unExtractorConTresZanganosGenera30DeGas() {
         Volcan volcan = new Volcan();
         Extractor e = new Extractor(volcan);
+        e.construccionInstantanea();
+
         e.agregarTrabajador(new Zangano());
         e.agregarTrabajador(new Zangano());
         e.agregarTrabajador(new Zangano());
@@ -55,6 +60,8 @@ public class TestCase04 { //A todos les falta probar con test y terminados de co
     public void unExtractorNoPuedeRecibirUnCuartoZangano() {
         Volcan volcan = new Volcan();
         Extractor e = new Extractor(volcan);
+        e.construccionInstantanea();
+
         e.agregarTrabajador(new Zangano());
         e.agregarTrabajador(new Zangano());
         e.agregarTrabajador(new Zangano());

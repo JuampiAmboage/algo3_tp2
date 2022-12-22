@@ -30,27 +30,16 @@ public class TestClass22 {
         Mapa.getInstance().instanciarMapa();
         Zangano zangano = new Zangano();
         Extractor extractor = new Extractor(new Volcan());
+
         zangano.instanciacionesIniciales(new Posicion(3,3));
         extractor.instanciacionesIniciales(new Posicion(3,4));
         zangano.iniciarConstruccion();
         zangano.pasarTurno();
+        extractor.construccionInstantanea();
+
         assertDoesNotThrow(()->zangano.asignarTrabajoEnExtractor(extractor));
     }
 
-    @Test
-    public void noPuedoConstruirUnZerlingSiNoHayUnaReservaDeReproduccion(){
-        Mapa.getInstance().instanciarMapa();
-        Criadero criadero = new Criadero();
-        Zerling zerling= new Zerling();
-        ComunidadZerg.obtenerInstanciaDeClase().agregarUnidad(criadero);
-        criadero.instanciacionesIniciales(new Posicion(3,3));
-        for(int i=0;i<4;i++)
-            criadero.pasarTurno(); //construyo el criadero
-        Executable construirZerling = () -> {
-            ComunidadZerg.obtenerInstanciaDeClase().crearUnidad(criadero,zerling);
-        };
-        assertThrows(EdificioHabilitadorNoCreado.class,construirZerling);
-    }
 
     @Test
     public void puedoConstruirUnZerlingSiHayUnaReservaDeReproduccion(){
@@ -71,7 +60,7 @@ public class TestClass22 {
             reservaDeReproduccion.pasarTurno(); //construyo la reserva
         }
         Executable construirZerling = () -> {
-            ComunidadZerg.obtenerInstanciaDeClase().crearUnidad(criadero,zerling);
+            ComunidadZerg.obtenerInstanciaDeClase().crearUnidadTerrestre(criadero,zerling);
         };
         assertDoesNotThrow(construirZerling);
     }
@@ -97,7 +86,7 @@ public class TestClass22 {
         }
         //ACLARACION: no necesito las correlativas de espiral porque uso agregarUnidad en lugar de construirEdificio
         Executable construirZerling = () -> {
-            ComunidadZerg.obtenerInstanciaDeClase().crearUnidad(criadero,mutalisco);
+            ComunidadZerg.obtenerInstanciaDeClase().crearUnidadAerea(criadero,mutalisco);
         };
         assertDoesNotThrow(construirZerling);
     }

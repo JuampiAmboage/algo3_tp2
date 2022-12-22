@@ -17,6 +17,7 @@ public class TestCase07 {
     public void siInstancioUnRecolectorConTresZanganosGeneroLaCantidadDeGasCorrecta(){
         Volcan volcan = new Volcan();
         Extractor extractor = new Extractor(volcan);
+        extractor.construccionInstantanea();
         for(int i=0;i<3;i++)
             extractor.agregarTrabajador(new Zangano());
 
@@ -29,6 +30,7 @@ public class TestCase07 {
     public void siInstancioUnAsimiladorYExtraigoCincoVecesTengoLaCantidadDeGasCorrecta() {
         Volcan volcan = new Volcan();
         Asimilador asimilador = new Asimilador(volcan);
+        asimilador.construccionInstantanea();
         int cantidadExtraida = 0;
         for(int i=0;i<5;i++)
             cantidadExtraida += asimilador.extraerGas(); //extra 20 por vez
@@ -41,6 +43,7 @@ public class TestCase07 {
     public void siInstancioUnNexoMineralYExtraigoCincoVecesTengoLaCantidadDeMineralCorrecta() {
         NodoMineral nodoMineral = new NodoMineral();
         NexoMineral nexoMineral = new NexoMineral(nodoMineral);
+        nexoMineral.construccionInstantanea();
         int cantidadExtraida = 0;
         for(int i=0;i<5;i++)
             cantidadExtraida += nexoMineral.extraerMineral(); //extrae 10 por vez
