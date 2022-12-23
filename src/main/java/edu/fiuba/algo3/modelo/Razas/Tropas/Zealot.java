@@ -24,7 +24,7 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
         costoEnMinerales = 100;
         costoEnGas = 0;
         tiempoConstruccion = 4;
-        danioTerrestre = 800;
+        danioTerrestre = 8;
         suministro = 2;
         vida = new VidaConEscudo(100,60);
         bajasGeneradas = 0;

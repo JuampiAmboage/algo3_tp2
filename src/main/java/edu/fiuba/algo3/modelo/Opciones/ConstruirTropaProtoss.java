@@ -35,7 +35,7 @@ public class ConstruirTropaProtoss extends OpcionElegible {
         Zealot zealot = new Zealot();
         try {
             celda.estaOcupadaPorTierra();
-            //zealot.existeEdificioNecesario();
+            zealot.existeEdificioNecesario();
             ComunidadProtoss.obtenerInstanciaDeClase().agregarUnidad(zealot);
             celda.ocuparPorTierra(zealot);
             celda.instanciarUnidad(zealot);
