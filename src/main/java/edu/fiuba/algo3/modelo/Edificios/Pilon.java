@@ -51,6 +51,7 @@ public class Pilon extends EdificioProtoss implements UnidadConAmpliacionDeSumin
             this.desernegizar();
             this.comunidad.restarCapacidadSuministro(5);
             this.comunidad.quitarUnidad(this);
+            this.desaparecerUnidadDeCelda();
         }
     }
     public void desernegizar(){

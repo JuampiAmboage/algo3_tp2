@@ -37,6 +37,7 @@ public abstract class Comunidad {
     public void quitarUnidad(Unidad unidadSaliente){
         if(unidades.contains(unidadSaliente)) {
             unidades.remove(unidadSaliente);
+            revisarPoblacion();
         }
         else
             throw new UnidadInexistente();
