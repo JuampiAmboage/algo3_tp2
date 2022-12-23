@@ -24,6 +24,11 @@ public abstract class Recurso {
         return posicion.obtenerDistanciaA(coordenadaX,coordenadaY);
     }
 
+    public void desactivarOpciones(){
+        opciones.clear();
+    }
+    public abstract void activarOpciones();
+
     public abstract ArrayList<OpcionElegible> obtenerOpciones();
 
     public abstract String obtenerSprite();

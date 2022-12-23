@@ -20,6 +20,7 @@ public class ConstruirAsimilador extends OpcionElegible {
             Asimilador asimilador = new Asimilador((Volcan) celda.obtenerRecurso());
             ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda, asimilador);
             celda.instanciarUnidad(asimilador);
+            celda.desactivarOpcionesRecurso();
         }
         catch (CeldaOcupada celdaOcupada){
             App.lanzarWarning("Esta celda esta ocupada");

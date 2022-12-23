@@ -9,6 +9,7 @@ import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Excepciones.ExtractorLleno;
 import edu.fiuba.algo3.modelo.Excepciones.ExtractorVacio;
 import edu.fiuba.algo3.modelo.Opciones.DesemplearZangano;
+import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoBusquedaYColocacion;
 import edu.fiuba.algo3.modelo.Visibilidad.Visible;
@@ -94,6 +95,17 @@ public class Extractor extends Edificio {
             }
         }
         return cantidadGasExtraido;
+    }
+
+    @Override
+    public void disminuirVida(int puntosAtaque){
+        vida.recibirAtaque(puntosAtaque);
+        if(vida.estaSinVida()) {
+            comunidad.restarPesoEnSuministro(suministro);
+            comunidad.quitarUnidad(this);
+            Mapa.getInstance().obtenerCelda(this.posicion).activarOpcionesRecurso();
+            this.desaparecerUnidadDeCelda();
+        }
     }
 
     @Override

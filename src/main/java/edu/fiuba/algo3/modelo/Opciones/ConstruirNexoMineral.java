@@ -21,6 +21,8 @@ public class ConstruirNexoMineral extends OpcionElegible{
         try {
             ComunidadProtoss.obtenerInstanciaDeClase().construirEdificio(celda, nexoMineral);
             celda.instanciarUnidad(nexoMineral);
+            celda.desactivarOpcionesRecurso();
+
         }
         catch (CeldaOcupada celdaOcupada){
             App.lanzarWarning("Esta celda esta ocupada");

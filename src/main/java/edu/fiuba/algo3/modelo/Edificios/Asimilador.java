@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Visibilidad.Visible;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
@@ -40,6 +41,16 @@ public class Asimilador extends EdificioProtoss {
     }
 
     @Override
+    public void disminuirVida(int puntosAtaque){
+        vida.recibirAtaque(puntosAtaque);
+        if(vida.estaSinVida()) {
+            comunidad.restarPesoEnSuministro(suministro);
+            comunidad.quitarUnidad(this);
+            Mapa.getInstance().obtenerCelda(this.posicion).activarOpcionesRecurso();
+            this.desaparecerUnidadDeCelda();
+        }
+    }
+    @Override
     public void construirSobreRecurso(NoRecurso tipoRecurso) {
         throw new ConstruccionProhibida();
     }
@@ -62,15 +73,6 @@ public class Asimilador extends EdificioProtoss {
 
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
-
-    /*@Override
-    public void mostrarDescripcion() {
-        System.out.println("-Acceso-");
-        System.out.println("Extrae gas de un volcán.");
-        System.out.println("Extracción: 20 por turno. \n");
-        System.out.println("Escudo actual: " + this.vida.getEscudoActual());
-        System.out.println("Vida actual: " + this.vida.getVidaActual());
-    }*/
 
     public String obtenerDescripcion() {
         String descripcion = "";

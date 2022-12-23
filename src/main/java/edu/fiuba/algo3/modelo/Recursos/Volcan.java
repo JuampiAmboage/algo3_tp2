@@ -14,9 +14,8 @@ public class Volcan extends Recurso {
         this.cantidad = 5000;
 
         this.rutaSprite = this.rutaSprite + "volcan.png";
+        this.activarOpciones();
 
-        this.opciones.add(new ConstruirAsimilador(obtenerDescripcion()));
-        this.opciones.add(new ConstruirExtractor(obtenerDescripcion()));
     }
     @Override
     public int extraer(int c) {
@@ -37,6 +36,12 @@ public class Volcan extends Recurso {
 
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
+
+    @Override
+    public void activarOpciones(){
+        this.opciones.add(new ConstruirAsimilador(obtenerDescripcion()));
+        this.opciones.add(new ConstruirExtractor(obtenerDescripcion()));
+    }
 
     @Override
     public String obtenerDescripcion() {

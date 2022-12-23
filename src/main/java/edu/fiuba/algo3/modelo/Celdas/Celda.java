@@ -101,6 +101,13 @@ public class Celda {
         this.tipo.quiereConstruir(unEdificio);
     }
 
+    public void desactivarOpcionesRecurso(){
+        this.recurso.desactivarOpciones();
+    }
+
+    public void activarOpcionesRecurso(){
+        this.recurso.activarOpciones();
+    }
     public Unidad obtenerOcupanteTerrestre(){
         return ocupanteTerrestre;
     }

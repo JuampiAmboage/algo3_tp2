@@ -22,6 +22,7 @@ public class ConstruirExtractor extends OpcionElegible{
             Zangano zanganoAEvolucionar = (Zangano) celda.obtenerOcupanteTerrestre();
             ComunidadZerg.obtenerInstanciaDeClase().construirEdificio(celda, zanganoAEvolucionar, extractorNuevo);
             celda.instanciarUnidad(extractorNuevo);
+            celda.desactivarOpcionesRecurso();
         }
         catch (CeldaOcupada celdaOcupada){
             App.lanzarWarning("Esta celda esta ocupada");
