@@ -35,7 +35,7 @@ public abstract class OpcionElegible {
     }
 
     public void establecerCeldasConTropas(ArrayList<Celda> celdasConTropas) {
-        this.enemigosAereos.clear();
+        this.enemigosTerrestres.clear();
         this.enemigosAereos.clear();
 
         for (Celda celdaConTropa : celdasConTropas) {

@@ -36,6 +36,8 @@ public class ControladorVistaMapa {
     private ArrayList<Celda> celdasConExtractor = new ArrayList<>();
     private ArrayList<Celda> celdasConTropas = new ArrayList<>();
 
+    private ArrayList<Button> botonesDeAtaque = new ArrayList<>();
+
     private ArrayList<ControladorVistaMenuJugadores> controladoresJugadores = new ArrayList<>();
     private boolean seActualizo = false;
 
@@ -77,8 +79,6 @@ public class ControladorVistaMapa {
     }
 
     public void pedirSprites() {
-        this.celdasConExtractor.clear();
-        this.celdasConTropas.clear();
 
         for (int fila = 0; fila < LONGITUD_FILAS_MAPA; fila++) {
 
@@ -91,8 +91,6 @@ public class ControladorVistaMapa {
                     this.celdasConExtractor.add(celda);
                 } else if (celda.obtenerOcupanteTerrestre().existe() || celda.obtenerOcupanteAereo().existe() ) {
                     this.celdasConTropas.add(celda);
-                } else if(!celda.obtenerOcupanteTerrestre().existe() && !celda.obtenerOcupanteAereo().existe()){
-                    celdasConTropas.remove(celda);
                 }
 
                 String spriteTipo = celda.obtenerSpriteTipo();
@@ -124,6 +122,11 @@ public class ControladorVistaMapa {
 
     public void actualizarMapa(){
         this.grilla.getChildren().clear();
+
+        this.celdasConExtractor.clear();
+        this.celdasConTropas.clear();
+
+        eliminarBotonesDeAtaque();
         pedirSprites();
     }
 
@@ -180,6 +183,16 @@ public class ControladorVistaMapa {
 
         Posicion posicion = celdaAtacada.obtenerPosicion();
         this.grilla.add(botonAtaque.obtenerBotonNodo(), posicion.obtenerFila(), posicion.obtenerColumna());
+
+        this.botonesDeAtaque.add(botonAtaque.obtenerBotonNodo());
+
+    }
+
+    public void eliminarBotonesDeAtaque() {
+        for (Button boton : this.botonesDeAtaque) {
+            boton.setDisable(true);
+        }
+        this.botonesDeAtaque.clear();
     }
 
 }
