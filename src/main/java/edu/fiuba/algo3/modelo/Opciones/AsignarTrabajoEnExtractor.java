@@ -29,7 +29,7 @@ public class AsignarTrabajoEnExtractor extends OpcionElegible{
             Extractor extractor = (Extractor) celdaConextractor.obtenerOcupanteTerrestre();
             try {
                 zangano.asignarTrabajoEnExtractor(extractor);
-            } catch (ZanganoLejosDeExtractor | ZanganoYaEmpleado ignored) {}
+            } catch (ZanganoLejosDeExtractor | ZanganoYaEmpleado ignore) {}
         }
     }
 }

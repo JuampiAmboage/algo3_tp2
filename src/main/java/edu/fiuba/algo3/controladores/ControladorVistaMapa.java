@@ -122,7 +122,6 @@ public class ControladorVistaMapa {
 
     public void actualizarMapa(){
         this.grilla.getChildren().clear();
-
         this.celdasConExtractor.clear();
         this.celdasConTropas.clear();
 

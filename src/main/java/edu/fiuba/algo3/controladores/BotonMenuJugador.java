@@ -41,13 +41,12 @@ public class BotonMenuJugador {
         if (this.opcion instanceof AsignarTrabajoEnExtractor) {
             ArrayList<Celda> celdas = this.controlador.obtenerCeldasConExtractor();
             this.opcion.estblecerCeldasConExtractor(celdas);
-        } else {
-            if (this.opcion instanceof AtaqueTropaAerea || this.opcion instanceof AtaqueTropaTerrestre) {
-                ArrayList<Celda> celdas = this.controlador.obtenerCeldasConTropas();
-                this.opcion.establecerCeldasConTropas(celdas);
-            }
-            this.opcion.gestionarClick(celda, opcionElejida);
+        } else if (this.opcion instanceof AtaqueTropaAerea || this.opcion instanceof AtaqueTropaTerrestre) {
+            ArrayList<Celda> celdas = this.controlador.obtenerCeldasConTropas();
+            this.opcion.establecerCeldasConTropas(celdas);
         }
+        this.opcion.gestionarClick(celda, opcionElejida);
+
 
         this.controlador.limpiarMenu();
 

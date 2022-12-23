@@ -31,6 +31,7 @@ public abstract class OpcionElegible {
     public int cantidadDeOpcionesInternas() { return this.textoBotones.toArray().length; }
 
     public void estblecerCeldasConExtractor(ArrayList<Celda> celdasConExtractor) {
+        if (this.celdasConExtractor != null ) { this.celdasConExtractor.clear(); }
         this.celdasConExtractor =  celdasConExtractor;
     }
 
