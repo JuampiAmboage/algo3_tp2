@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.Partida;
 
 import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
-import edu.fiuba.algo3.modelo.Edificios.Edificio;
 public class Partida {
 
 

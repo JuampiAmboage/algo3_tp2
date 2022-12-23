@@ -4,9 +4,6 @@ import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.Pilon;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Zealot;
-import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 public class ComunidadProtoss extends Comunidad{
 

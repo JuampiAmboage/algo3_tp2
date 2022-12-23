@@ -7,11 +7,9 @@ import edu.fiuba.algo3.modelo.Excepciones.CoordenadaFueraDeRango;
 import edu.fiuba.algo3.modelo.Excepciones.ZonaOcupada;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaTerrestre;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Zealot;
-import edu.fiuba.algo3.modelo.Razas.Unidad;
+
 
 public class RangoBusquedaYColocacion extends Rango{
     public RangoBusquedaYColocacion(Posicion posicionObjetoConRango, int radioBusqueda) {

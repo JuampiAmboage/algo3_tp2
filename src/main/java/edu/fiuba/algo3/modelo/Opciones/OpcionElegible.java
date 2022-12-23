@@ -2,12 +2,8 @@ package edu.fiuba.algo3.modelo.Opciones;
 
 import edu.fiuba.algo3.controladores.ControladorVistaMapa;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
-import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public abstract class OpcionElegible {
     public String titulo;

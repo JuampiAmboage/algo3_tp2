@@ -2,9 +2,7 @@ package edu.fiuba.algo3.modelo.Opciones;
 
 import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
-import edu.fiuba.algo3.modelo.Edificios.Asimilador;
 import edu.fiuba.algo3.modelo.Edificios.Extractor;
 import edu.fiuba.algo3.modelo.Excepciones.CeldaOcupada;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;

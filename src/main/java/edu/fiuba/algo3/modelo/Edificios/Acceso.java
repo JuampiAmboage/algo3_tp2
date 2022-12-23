@@ -10,7 +10,6 @@ import edu.fiuba.algo3.modelo.Visibilidad.Visible;
 import edu.fiuba.algo3.modelo.Recursos.NoRecurso;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
-import edu.fiuba.algo3.modelo.Salud.Salud;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class Acceso extends EdificioProtoss implements Construible {
