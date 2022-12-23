@@ -14,6 +14,7 @@ public class DesocuparNodo extends OpcionElegible{
     public void gestionarClick(Celda celda, String opcionElejida) {
         Zangano zangano = (Zangano) celda.obtenerOcupanteTerrestre();
         zangano.liberarDeNodo();
+        celda.activarOpcionesRecurso();
     }
 
 }
