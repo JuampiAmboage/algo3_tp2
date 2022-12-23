@@ -10,7 +10,6 @@ import edu.fiuba.algo3.modelo.Excepciones.ExtractorLleno;
 import edu.fiuba.algo3.modelo.Excepciones.ExtractorVacio;
 import edu.fiuba.algo3.modelo.Opciones.DesemplearZangano;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Rango.RangoBusquedaYColocacion;
 import edu.fiuba.algo3.modelo.Visibilidad.Visible;
 import edu.fiuba.algo3.modelo.Construccion.UnidadEnConstruccion;

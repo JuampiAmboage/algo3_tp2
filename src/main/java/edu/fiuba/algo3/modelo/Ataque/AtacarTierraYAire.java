@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo.Ataque;
 
-import edu.fiuba.algo3.modelo.Ataque.Atacar;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
-import edu.fiuba.algo3.modelo.Razas.Tropas.TropaTerrestre;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 

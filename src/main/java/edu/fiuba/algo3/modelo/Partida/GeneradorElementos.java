@@ -8,8 +8,6 @@ import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Recurso;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 
-import java.util.ArrayList;
-
 public class GeneradorElementos {
 
     private int longitudFilas;

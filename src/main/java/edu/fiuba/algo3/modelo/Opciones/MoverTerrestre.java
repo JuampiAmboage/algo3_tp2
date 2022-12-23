@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.Opciones;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaTerrestre;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
 
 public class MoverTerrestre extends OpcionElegible{
     public MoverTerrestre(String pertenencia) {

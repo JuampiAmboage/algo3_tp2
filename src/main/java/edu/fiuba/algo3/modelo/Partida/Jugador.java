@@ -1,16 +1,9 @@
 package edu.fiuba.algo3.modelo.Partida;
 
-import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.Comunidad;
-import edu.fiuba.algo3.modelo.Comunidad.ComunidadProtoss;
-import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Turno.CondicionTurno;
 import edu.fiuba.algo3.modelo.Turno.EsperandoTurno;
 import edu.fiuba.algo3.modelo.Turno.Jugando;
-import edu.fiuba.algo3.modelo.Edificios.Criadero;
-import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Tropa;
-import edu.fiuba.algo3.modelo.Razas.Tropas.Zangano;
 
 public class Jugador {
     Partida partidaQueEstaJugando;

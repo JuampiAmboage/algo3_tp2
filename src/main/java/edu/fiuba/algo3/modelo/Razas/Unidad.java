@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.Construccion.EstadoConstruccion;
 import edu.fiuba.algo3.modelo.Construccion.UnidadConstruida;
 import edu.fiuba.algo3.modelo.Construccion.UnidadEnConstruccion;
 import edu.fiuba.algo3.modelo.Excepciones.RecursosInsuficientes;
-import edu.fiuba.algo3.modelo.Excepciones.ZonaOcupada;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;

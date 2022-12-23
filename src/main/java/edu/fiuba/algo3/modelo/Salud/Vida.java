@@ -1,8 +1,5 @@
 package edu.fiuba.algo3.modelo.Salud;
 
-
-import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
-
 public class Vida extends Salud{
     public Vida(int vidaMaxima) {
         this.regenerable = new Regenerable(vidaMaxima);

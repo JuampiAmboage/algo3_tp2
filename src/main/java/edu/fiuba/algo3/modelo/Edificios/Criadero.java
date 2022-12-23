@@ -9,7 +9,6 @@ import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Excepciones.SinLarvas;
 import edu.fiuba.algo3.modelo.Excepciones.ZonaOcupada;
 import edu.fiuba.algo3.modelo.Opciones.Engendrar;
-import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoBusquedaYColocacion;
 import edu.fiuba.algo3.modelo.Rango.RangoExpansible;

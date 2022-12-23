@@ -1,13 +1,10 @@
 package edu.fiuba.algo3.modelo.Celdas;
 
 import edu.fiuba.algo3.modelo.Edificios.Construible;
-import edu.fiuba.algo3.modelo.Opciones.ConstruirEdificioProtoss;
-import edu.fiuba.algo3.modelo.Opciones.ConstruirTropaProtoss;
+
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
 
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class CeldaLibre extends TipoCelda {
 

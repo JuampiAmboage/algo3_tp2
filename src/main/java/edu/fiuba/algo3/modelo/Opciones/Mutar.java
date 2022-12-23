@@ -1,12 +1,9 @@
 package edu.fiuba.algo3.modelo.Opciones;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
-import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Devorador;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Guardian;
 import edu.fiuba.algo3.modelo.Razas.Tropas.Mutalisco;
-import edu.fiuba.algo3.modelo.Razas.Tropas.UnidadEvolucionada;
-import edu.fiuba.algo3.modelo.Razas.Unidad;
 
 public class Mutar extends OpcionElegible{
     public Mutar(String descripcion) {

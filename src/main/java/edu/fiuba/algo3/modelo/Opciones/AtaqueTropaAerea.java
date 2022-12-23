@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.Opciones;
 
 import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Razas.Tropas.TropaAerea;
-import edu.fiuba.algo3.modelo.Razas.Tropas.TropaTerrestre;
 
 public class AtaqueTropaAerea  extends OpcionElegible {
     private Celda celdaAtacante;

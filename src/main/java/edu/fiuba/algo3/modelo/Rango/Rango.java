@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.Rango;
 
-import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 
 import java.util.ArrayList;
