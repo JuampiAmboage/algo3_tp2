@@ -5,8 +5,6 @@ import edu.fiuba.algo3.modelo.Excepciones.GasEnVolcanAgotado;
 import edu.fiuba.algo3.modelo.Opciones.ConstruirAsimilador;
 import edu.fiuba.algo3.modelo.Opciones.ConstruirExtractor;
 import edu.fiuba.algo3.modelo.Opciones.OpcionElegible;
-import edu.fiuba.algo3.modelo.Posicion.Posicion;
-import javafx.geometry.Pos;
 
 import java.util.ArrayList;
 
