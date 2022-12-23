@@ -23,7 +23,6 @@ public class Devorador extends TropaAerea implements UnidadEvolucionada{
         vida = new Vida(200);
         suministro = 0;
         edificioNecesario = new Criadero();
-        //opciones.add(new AtaqueTropaAerea(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/devorador.png";
         opciones.add(new MoverAerea("zerg"));
         opciones.add(new AtaqueTropaAerea("zerg"));
