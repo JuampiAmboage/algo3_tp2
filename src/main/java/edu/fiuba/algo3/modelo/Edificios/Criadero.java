@@ -24,8 +24,7 @@ import edu.fiuba.algo3.modelo.Salud.Vida;
 public class Criadero extends Edificio {
 
     private int cantidadLarvasEnEspera;
-    protected RangoExpansible rangoExpansible;
-
+    private RangoExpansible rangoExpansible;
     private RangoBusquedaYColocacion rangoBusquedaYColocacion;
     public Criadero(){
         super();

@@ -24,14 +24,15 @@ import java.util.ArrayList;
 
 public class Extractor extends Edificio {
     Volcan volcan;
-    private ArrayList<Zangano> trabajadores = new ArrayList<Zangano>();
+    private ArrayList<Zangano> trabajadores;
     private RangoBusquedaYColocacion rangoBusquedaYColocacion;
 
     public Extractor(Volcan volcan){
         this.tiempoConstruccion = 6;
         this.costoEnMinerales = 100;
-        vida = new Vida(750);
-        comunidad = ComunidadZerg.obtenerInstanciaDeClase();
+        this.trabajadores = new ArrayList<>();
+        this.vida = new Vida(750);
+        this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.volcan = volcan;
         this.visibilidad = new Visible(this);
         this.rutaSprite = this.rutaSprite + "edificios/extractor.png";
@@ -44,12 +45,7 @@ public class Extractor extends Edificio {
         rangoBusquedaYColocacion = new RangoBusquedaYColocacion(posicion,1);
 
     }
-    public Extractor(Volcan volcan, int tiempoDeConstruccion) {
-        this.tiempoConstruccion = tiempoDeConstruccion;
-        this.vida = new Vida(750);
-        this.volcan = volcan;
-        this.visibilidad = new Visible(this);
-    }
+
     public void pasarTurno(){
         this.estado.pasarTurno();
     }
@@ -86,12 +82,10 @@ public class Extractor extends Edificio {
     }
 
     public int extraerGas() {
-        this.esUsable();
         int cantidadGasExtraido = 0;
-        if (this.trabajadores.size() != 0 ) {
-            for (int i=0;i<trabajadores.size();i++) {
+        if (!this.trabajadores.isEmpty()) {
+            for (Zangano zangano : trabajadores)
                 cantidadGasExtraido += volcan.extraer(10);
-            }
         }
         return cantidadGasExtraido;
     }
