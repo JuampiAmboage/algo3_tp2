@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class Extractor extends Edificio {
     Volcan volcan;
-    private ArrayList<Zangano> trabajadores = new ArrayList<Zangano>(0);
+    private ArrayList<Zangano> trabajadores = new ArrayList<Zangano>();
     private RangoBusquedaYColocacion rangoBusquedaYColocacion;
 
     public Extractor(Volcan volcan){
