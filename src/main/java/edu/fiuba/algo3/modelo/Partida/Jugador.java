@@ -37,7 +37,6 @@ public class Jugador {
         this.condicionTurno = new EsperandoTurno(this);
     }
     public void terminarTurno(){
-        this.comunidad.pasarTurno();
         this.mandarAEspera();
     }
 
