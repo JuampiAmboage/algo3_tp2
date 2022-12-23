@@ -38,7 +38,6 @@ public class Criadero extends Edificio {
         this.cantidadLarvasEnEspera = 3;
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.visibilidad = new Visible(this);
-        this.costoEnGas = 0;
         this.costoEnMinerales = 200;
         opciones.add(new Engendrar(obtenerDescripcion()));
         this.rutaSprite = this.rutaSprite + "edificios/criadero.png";
@@ -79,10 +78,10 @@ public class Criadero extends Edificio {
     }
     @Override
     public void realizarAccionesTurno() {
-        if(cantidadLarvasEnEspera < 3) {
-            cantidadLarvasEnEspera++;
+        if(this.cantidadLarvasEnEspera < 3) {
+            this.cantidadLarvasEnEspera++;
         }
-        vida.pasarTurno();
+        this.vida.pasarTurno();
     }
     public int obtenerCantidadDeLarvas(){
         return cantidadLarvasEnEspera;
