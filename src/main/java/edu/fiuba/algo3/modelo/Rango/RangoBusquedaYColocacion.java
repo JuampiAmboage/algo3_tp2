@@ -38,7 +38,7 @@ public class RangoBusquedaYColocacion extends Rango{
             try {
                 Celda celda = mapa.obtenerCelda(unaPosicion);
                 celda.estaOcupadaPorAire();
-                celda.ocuparPorAire((TropaAerea) tropaAColocar);
+                celda.ocuparPorAire(tropaAColocar);
                 celda.instanciarUnidad(tropaAColocar);
                 return;
 

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Ataque.AtacarAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
+import edu.fiuba.algo3.modelo.Edificios.Criadero;
 import edu.fiuba.algo3.modelo.Opciones.*;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoDetector;
@@ -22,8 +23,9 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
         danioTerrestre = 0;
         danioAereo = 0;
         suministro = 0;
+        edificioNecesario = new Criadero();
         opciones.add(new DetectarTropasInvisibles(obtenerDescripcion()));
-        this.rutaSprite = this.rutaSprite + "tropas/zerg/amosSupremo.png";
+        this.rutaSprite = this.rutaSprite + "tropas/zerg/amoSupremo.png";
         opciones.add(new MoverAerea("zerg"));
         opciones.add(new AtaqueTropaAerea("zerg"));
         this.nombreUnidad = "Amo supremo";

@@ -17,7 +17,7 @@ public class Mutar extends OpcionElegible{
     }
 
     public void gestionarClick(Celda celda, String opcionElejida){
-        Mutalisco mutalisco = (Mutalisco) celda.obtenerOcupanteTerrestre();
+        Mutalisco mutalisco = (Mutalisco) celda.obtenerOcupanteAereo();
         if (textoBotones.contains(opcionElejida)) {
 
             if (textoBotones.get(0).equals(opcionElejida))

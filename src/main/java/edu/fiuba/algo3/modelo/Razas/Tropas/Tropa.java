@@ -49,7 +49,7 @@ public abstract class Tropa extends Unidad implements Correlatividad {
     }
 
     public void existeEdificioNecesario() {
-        if(!ComunidadZerg.obtenerInstanciaDeClase().existeUnidad(edificioNecesario)){
+        if(!this.comunidad.existeUnidad(edificioNecesario)){
             throw new EdificioHabilitadorNoCreado();
         }
     }

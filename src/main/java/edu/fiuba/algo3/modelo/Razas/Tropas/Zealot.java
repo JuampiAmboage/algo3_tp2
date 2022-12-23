@@ -53,12 +53,14 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
     }
     @Override
     public void atacarTierra(Unidad unidadAtacable){
+        tieneAtaques();
         ataque.atacarTierra(rangoAtaque,unidadAtacable,danioTerrestre);
         if(unidadAtacable.estaSinVida()) {
             this.bajasGeneradas++;
             if(bajasGeneradas == 3)
                 this.volverInsvisible();
         }
+        this.cantidadAtaques++;
     }
     public void volverVisible(){ visibilidad = new Visible(this);}
     public void volverInsvisible(){

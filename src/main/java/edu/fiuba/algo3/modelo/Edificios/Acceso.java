@@ -14,8 +14,6 @@ import edu.fiuba.algo3.modelo.Salud.Salud;
 import edu.fiuba.algo3.modelo.Salud.VidaConEscudo;
 
 public class Acceso extends EdificioProtoss implements Construible {
-
-    private Salud vida;
     public Acceso(){
         super();
         this.tiempoConstruccion = 8;

@@ -41,8 +41,7 @@ public abstract class Unidad {
     public void construccionInstantanea() {
         this.estado = new UnidadConstruida(this);
     }
-    public void instanciacionesIniciales(Posicion posicionALocalizar){ this.posicion =posicionALocalizar;
-    }
+    public void instanciacionesIniciales(Posicion posicionALocalizar){ this.posicion = posicionALocalizar; }
     public void iniciarConstruccion(){
         this.estado = new UnidadEnConstruccion(this);
     }

@@ -29,7 +29,8 @@ public class Engendrar extends OpcionElegible{
             else if (textoBotones.get(2).equals(opcionElejida)){
                 engendrarHidralisco(celda,criadero);}
             else if (textoBotones.get(3).equals(opcionElejida)){
-                engendrarMutalisco(celda,criadero);}
+                engendrarMutalisco(celda,criadero);
+            }
             else{
                 engendrarAmoSupremo(celda,criadero);
             }

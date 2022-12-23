@@ -25,7 +25,7 @@ public class Guarida extends Edificio implements Correlatividad {
         this.edificioNecesario = new ReservaDeReproduccion();
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.visibilidad = new Visible(this);
-        this.rutaSprite = this.rutaSprite + "edificios/guardia";
+        this.rutaSprite = this.rutaSprite + "edificios/guarida.png";
         this.nombreUnidad = "Guarida";
 
     }

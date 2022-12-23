@@ -17,7 +17,7 @@ public class AtaqueTropaAerea  extends OpcionElegible {
     public void gestionarClick(Celda celda, String opcionElegida){
         this.celdaAtacante = celda;
 
-        TropaAerea tropaAtacante = (TropaAerea) this.celdaAtacante.obtenerOcupanteTerrestre();
+        TropaAerea tropaAtacante = (TropaAerea) this.celdaAtacante.obtenerOcupanteAereo();
         if (textoBotones.contains(opcionElegida)) {
             if (textoBotones.get(0).equals(opcionElegida)) {
                 crearBotonesEnemigosAereos(tropaAtacante);

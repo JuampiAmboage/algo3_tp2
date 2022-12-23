@@ -13,7 +13,7 @@ public class DetectarTropasInvisibles extends OpcionElegible{
 
     @Override
     public void gestionarClick(Celda celda, String opcionElejida) {
-        AmoSupremo amoSupremo = (AmoSupremo) celda.obtenerOcupanteTerrestre();
+        AmoSupremo amoSupremo = (AmoSupremo) celda.obtenerOcupanteAereo();
         amoSupremo.localicarZealots();
         amoSupremo.compararTropasDetectadasEntreTurnos();
     }
