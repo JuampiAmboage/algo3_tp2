@@ -82,7 +82,6 @@ public class Extractor extends Edificio {
     }
 
     public int extraerGas() {
-        this.esUsable();
         int cantidadGasExtraido = 0;
         if (!this.trabajadores.isEmpty()) {
             for (Zangano zangano : trabajadores)
