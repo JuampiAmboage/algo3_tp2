@@ -24,7 +24,6 @@ public class Asimilador extends EdificioProtoss {
         this.volcan = volcan;
         this.visibilidad = new Visible(this);
         this.rutaSprite = this.rutaSprite + "edificios/asimilador.png";
-        this.nombreUnidad = "Asimilador";
 
     }
     @Override

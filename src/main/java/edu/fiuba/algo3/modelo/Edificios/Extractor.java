@@ -24,7 +24,6 @@ import java.util.ArrayList;
 
 public class Extractor extends Edificio {
     Volcan volcan;
-    private int cantidadMaximaDeTrabajadores = 3;
     private ArrayList<Zangano> trabajadores = new ArrayList<Zangano>(0);
     private RangoBusquedaYColocacion rangoBusquedaYColocacion;
 
@@ -37,7 +36,6 @@ public class Extractor extends Edificio {
         this.visibilidad = new Visible(this);
         this.rutaSprite = this.rutaSprite + "edificios/extractor.png";
         this.opciones.add(new DesemplearZangano(obtenerDescripcion()));
-        this.nombreUnidad = "Extractor";
 
     }
     @Override
@@ -66,7 +64,8 @@ public class Extractor extends Edificio {
 
     public void agregarTrabajador(Zangano trabajador) {
         this.esUsable();
-        if (this.trabajadores.size() != cantidadMaximaDeTrabajadores) {
+        int cantidadMaximaDeTrabajadores = 3;
+        if (this.trabajadores.size() <= cantidadMaximaDeTrabajadores) {
             this.trabajadores.add(trabajador);
         } else {
             throw (new ExtractorLleno());

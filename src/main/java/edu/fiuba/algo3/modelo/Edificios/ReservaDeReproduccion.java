@@ -21,7 +21,6 @@ public class ReservaDeReproduccion extends Edificio {
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.visibilidad = new Visible(this);
         this.rutaSprite = this.rutaSprite + "edificios/reservaDeReproduccion.png";
-        this.nombreUnidad = "Reserva de reproducción";
 
     }
     @Override

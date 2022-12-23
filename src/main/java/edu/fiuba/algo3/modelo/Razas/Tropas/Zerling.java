@@ -27,7 +27,6 @@ public class Zerling extends TropaTerrestre {
         this.rutaSprite = this.rutaSprite + "tropas/zerg/zerling.png";
         opciones.add(new MoverTerrestre("zerg"));
         opciones.add(new AtaqueTropaTerrestre("zerg"));
-        this.nombreUnidad = "Zerling";
 
     }
 

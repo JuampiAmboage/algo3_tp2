@@ -25,7 +25,6 @@ public class Espiral extends Edificio {
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.visibilidad = new Visible(this);
         this.rutaSprite = this.rutaSprite + "edificios/espiral.png";
-        this.nombreUnidad = "Espiral";
 
     }
     public void construirEn(Celda celda) { celda.ocuparPorTierra(this);}
