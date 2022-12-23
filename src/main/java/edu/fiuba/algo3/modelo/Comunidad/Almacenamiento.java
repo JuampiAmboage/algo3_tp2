@@ -6,8 +6,8 @@ public class Almacenamiento {
     private int mineral;
 
     public Almacenamiento(){
-        this.gasVespeno = 10_000_000;
-        this.mineral = 10_000_000;
+        this.gasVespeno = 0;
+        this.mineral = 200;
     }
     public boolean suficientesRecursos(int costoGasUnidadAGenerar, int costoMineralUnidadAGenerar) {
         return (costoGasUnidadAGenerar <= gasVespeno && costoMineralUnidadAGenerar <= mineral);
