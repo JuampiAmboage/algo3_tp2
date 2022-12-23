@@ -25,11 +25,14 @@ import java.util.ArrayList;
 public class Extractor extends Edificio {
     Volcan volcan;
     private ArrayList<Zangano> trabajadores;
+
+    private int cantidadTrabajadoresActuales;
     private RangoBusquedaYColocacion rangoBusquedaYColocacion;
 
     public Extractor(Volcan volcan){
         this.tiempoConstruccion = 6;
         this.costoEnMinerales = 100;
+        this.cantidadTrabajadoresActuales = 0;
         this.trabajadores = new ArrayList<>();
         this.vida = new Vida(750);
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
@@ -61,8 +64,9 @@ public class Extractor extends Edificio {
     public void agregarTrabajador(Zangano trabajador) {
         this.esUsable();
         int cantidadMaximaDeTrabajadores = 3;
-        if (this.trabajadores.size() <= cantidadMaximaDeTrabajadores) {
+        if (this.cantidadTrabajadoresActuales < cantidadMaximaDeTrabajadores) {
             this.trabajadores.add(trabajador);
+            this.cantidadTrabajadoresActuales++;
         } else {
             throw (new ExtractorLleno());
         }
@@ -70,11 +74,12 @@ public class Extractor extends Edificio {
 
     public void liberarTrabajador(){
         this.esUsable();
-        if(!trabajadores.isEmpty()){
+        if(cantidadTrabajadoresActuales > 0){
             Zangano zanganoLiberado = this.trabajadores.get(0);
             zanganoLiberado.liberarDeExtractor();
-            rangoBusquedaYColocacion.colocarPorTierra(zanganoLiberado);
-            trabajadores.remove(0);
+            this.rangoBusquedaYColocacion.colocarPorTierra(zanganoLiberado);
+            this.trabajadores.remove(0);
+            this.cantidadTrabajadoresActuales--;
         }
         else{
             throw new ExtractorVacio();
@@ -83,7 +88,7 @@ public class Extractor extends Edificio {
 
     public int extraerGas() {
         int cantidadGasExtraido = 0;
-        if (!this.trabajadores.isEmpty()) {
+        if (this.cantidadTrabajadoresActuales > 0) {
             for (Zangano zangano : trabajadores)
                 cantidadGasExtraido += volcan.extraer(10);
         }
