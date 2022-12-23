@@ -18,7 +18,6 @@ public class Zangano extends TropaTerrestre {
     NodoMineral nodoMineralDondeTrabaja;
     public Zangano(){
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-        this.costoEnGas = 0;
         this.costoEnMinerales = 25;
         this.tiempoConstruccion = 1;
         this.suministro = 1;
@@ -36,8 +35,8 @@ public class Zangano extends TropaTerrestre {
 
     }
     public void realizarAccionesTurno(){
-        vida.pasarTurno();
-        cantidadMovimientos = 0;
+        this.vida.pasarTurno();
+        this.cantidadMovimientos = 0;
         if(nodoMineralDondeTrabaja != null)
             comunidad.aniadirMineral(extraerMineral());
     }

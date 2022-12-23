@@ -23,7 +23,6 @@ public class RangoBusquedaYColocacion extends Rango{
                 Celda celda = mapa.obtenerCelda(unaPosicion);
                 celda.estaOcupadaPorTierra();
                 celda.ocuparPorTierra(tropaAColocar);
-                celda.instanciarUnidad(tropaAColocar);
                 return;
             }
             catch (CoordenadaFueraDeRango | CeldaOcupada | CeldaConRecurso ignore) {}
@@ -37,7 +36,6 @@ public class RangoBusquedaYColocacion extends Rango{
                 Celda celda = mapa.obtenerCelda(unaPosicion);
                 celda.estaOcupadaPorAire();
                 celda.ocuparPorAire(tropaAColocar);
-                celda.instanciarUnidad(tropaAColocar);
                 return;
 
             } catch (CoordenadaFueraDeRango | CeldaOcupada | CeldaConRecurso ignore) {}

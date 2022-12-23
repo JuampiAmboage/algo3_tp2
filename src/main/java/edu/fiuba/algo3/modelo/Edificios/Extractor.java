@@ -26,13 +26,13 @@ public class Extractor extends Edificio {
     Volcan volcan;
     private ArrayList<Zangano> trabajadores;
 
-    private int cantidadTrabajadoresActuales;
+    static int cantidadTrabajadoresActuales;
     private RangoBusquedaYColocacion rangoBusquedaYColocacion;
 
     public Extractor(Volcan volcan){
         this.tiempoConstruccion = 6;
         this.costoEnMinerales = 100;
-        this.cantidadTrabajadoresActuales = 0;
+        cantidadTrabajadoresActuales = 0;
         this.trabajadores = new ArrayList<>();
         this.vida = new Vida(750);
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
@@ -44,8 +44,8 @@ public class Extractor extends Edificio {
     }
     @Override
     public void instanciacionesIniciales(Posicion posicionALocalizar){
-        posicion = posicionALocalizar;
-        rangoBusquedaYColocacion = new RangoBusquedaYColocacion(posicion,1);
+        this.posicion = posicionALocalizar;
+        this.rangoBusquedaYColocacion = new RangoBusquedaYColocacion(posicion,1);
 
     }
 
@@ -64,9 +64,9 @@ public class Extractor extends Edificio {
     public void agregarTrabajador(Zangano trabajador) {
         this.esUsable();
         int cantidadMaximaDeTrabajadores = 3;
-        if (this.cantidadTrabajadoresActuales < cantidadMaximaDeTrabajadores) {
+        if (cantidadTrabajadoresActuales < cantidadMaximaDeTrabajadores) {
             this.trabajadores.add(trabajador);
-            this.cantidadTrabajadoresActuales++;
+            cantidadTrabajadoresActuales++;
         } else {
             throw (new ExtractorLleno());
         }
@@ -79,7 +79,7 @@ public class Extractor extends Edificio {
             zanganoLiberado.liberarDeExtractor();
             this.rangoBusquedaYColocacion.colocarPorTierra(zanganoLiberado);
             this.trabajadores.remove(0);
-            this.cantidadTrabajadoresActuales--;
+            cantidadTrabajadoresActuales--;
         }
         else{
             throw new ExtractorVacio();
@@ -88,7 +88,7 @@ public class Extractor extends Edificio {
 
     public int extraerGas() {
         int cantidadGasExtraido = 0;
-        if (this.cantidadTrabajadoresActuales > 0) {
+        if (cantidadTrabajadoresActuales > 0) {
             for (Zangano zangano : trabajadores)
                 cantidadGasExtraido += volcan.extraer(10);
         }

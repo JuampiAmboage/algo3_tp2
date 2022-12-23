@@ -41,23 +41,28 @@ public class Engendrar extends OpcionElegible{
     public void engendrarZangano(Celda celda, Criadero criadero){
         Zangano zangano = new Zangano();
         ComunidadZerg.obtenerInstanciaDeClase().crearUnidadTerrestre(criadero,zangano);
+
     }
     public void engendrarZerling(Celda celda, Criadero criadero){
         Zerling zerling = new Zerling();
         ComunidadZerg.obtenerInstanciaDeClase().crearUnidadTerrestre(criadero,zerling);
+
     }
     public void engendrarHidralisco(Celda celda, Criadero criadero){
         Hidralisco hidralisco = new Hidralisco();
         ComunidadZerg.obtenerInstanciaDeClase().crearUnidadTerrestre(criadero,hidralisco);
+
     }
     public void engendrarMutalisco(Celda celda, Criadero criadero){
         Mutalisco mutalisco = new Mutalisco();
         ComunidadZerg.obtenerInstanciaDeClase().crearUnidadAerea(criadero,mutalisco);
+
     }
 
     public void engendrarAmoSupremo(Celda celda, Criadero criadero){
         AmoSupremo amoSupremo = new AmoSupremo();
         ComunidadZerg.obtenerInstanciaDeClase().crearUnidadAerea(criadero,amoSupremo);
+
     }
 
 }
