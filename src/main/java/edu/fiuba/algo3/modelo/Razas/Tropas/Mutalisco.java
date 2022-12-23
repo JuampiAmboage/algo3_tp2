@@ -1,10 +1,12 @@
 package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Ataque.AtacarTierraYAire;
+import edu.fiuba.algo3.modelo.Celdas.Celda;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Edificios.Espiral;
 
 import edu.fiuba.algo3.modelo.Opciones.*;
+import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
 import edu.fiuba.algo3.modelo.Rango.RangoAtaque;
 import edu.fiuba.algo3.modelo.Razas.Unidad;
@@ -38,10 +40,14 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
     }
 
     public void mutar(UnidadEvolucionada unidadPostMutacion){
+        Celda celda = Mapa.getInstance().obtenerCelda(this.posicion);
         this.esUsable();
         ComunidadZerg comunidadZerg = ComunidadZerg.obtenerInstanciaDeClase();
         comunidadZerg.agregarUnidad((Unidad) unidadPostMutacion);
         comunidadZerg.quitarUnidad(this);
+        celda.desocuparPorAire();
+        celda.ocuparPorAire((TropaAerea) unidadPostMutacion);
+        celda.instanciarUnidad((Unidad) unidadPostMutacion);
     }
     public void realizarAccionesTurno(){
         vida.pasarTurno();
@@ -49,10 +55,7 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
         cantidadAtaques = 0;
     }
 
-    @Override
-    public void pasarTurno() {
-        estado.pasarTurno();
-    }
+
 
     public String obtenerSprite() { return null; }
 
