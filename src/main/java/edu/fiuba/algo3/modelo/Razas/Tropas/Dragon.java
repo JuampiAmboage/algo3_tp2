@@ -27,8 +27,6 @@ public class Dragon extends TropaTerrestre{
         opciones.add(new MoverTerrestre("protoss"));
         opciones.add(new AtaqueTropaTerrestre("protoss"));
 
-        this.nombreUnidad = "Dragón";
-
     }
     public void realizarAccionesTurno(){
         vida.pasarTurno();

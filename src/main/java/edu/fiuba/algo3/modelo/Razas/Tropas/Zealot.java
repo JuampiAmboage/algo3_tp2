@@ -34,7 +34,6 @@ public class Zealot extends TropaTerrestre implements VisibilidadCambiante {
         this.rutaSprite = this.rutaSprite + "tropas/protoss/zealot.png";
         opciones.add(new MoverTerrestre("protoss"));
         opciones.add(new AtaqueTropaTerrestre("protoss"));
-        this.nombreUnidad = "Zelaot";
 
     }
 

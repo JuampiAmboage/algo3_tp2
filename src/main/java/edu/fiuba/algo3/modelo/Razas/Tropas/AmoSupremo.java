@@ -28,7 +28,6 @@ public class AmoSupremo extends TropaAerea implements UnidadConAmpliacionDeSumin
         this.rutaSprite = this.rutaSprite + "tropas/zerg/amoSupremo.png";
         opciones.add(new MoverAerea("zerg"));
         opciones.add(new AtaqueTropaAerea("zerg"));
-        this.nombreUnidad = "Amo supremo";
 
     }
 

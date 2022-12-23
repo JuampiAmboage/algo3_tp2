@@ -24,7 +24,6 @@ public class Hidralisco extends TropaTerrestre{
         this.rutaSprite = this.rutaSprite + "tropas/zerg/hidralisco.png";
         opciones.add(new MoverTerrestre("zerg"));
         opciones.add(new AtaqueTropaTerrestre("zerg"));
-        this.nombreUnidad = "Hidralisco";
 
     }
 

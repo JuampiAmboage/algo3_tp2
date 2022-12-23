@@ -27,7 +27,6 @@ public class Pilon extends EdificioProtoss implements UnidadConAmpliacionDeSumin
         this.suministro = 5;
         this.visibilidad = new Visible(this);
         this.rutaSprite = this.rutaSprite + "edificios/pilon.png";
-        this.nombreUnidad = "Pilón";
     }
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;

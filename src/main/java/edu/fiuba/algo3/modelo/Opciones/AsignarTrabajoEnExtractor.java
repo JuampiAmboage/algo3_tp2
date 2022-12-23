@@ -17,7 +17,6 @@ public class AsignarTrabajoEnExtractor extends OpcionElegible{
     @Override
     public void gestionarClick(Celda celdaZangano, String opcionElejida) {
         Zangano zangano = (Zangano) celdaZangano.obtenerOcupanteTerrestre();
-        zangano.revisarEstadoLaboral();
         enviarAtrabajar(zangano);
         celdaZangano.desocuparPorTierra();
     }

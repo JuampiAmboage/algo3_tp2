@@ -28,7 +28,6 @@ public class PuertoEstelar extends Edificio implements Correlatividad{
         this.comunidad = ComunidadProtoss.obtenerInstanciaDeClase();
         this.visibilidad = new Visible(this);
         this.rutaSprite = this.rutaSprite + "edificios/puertoEstelar.png";
-        this.nombreUnidad = "Puerto estelar";
 
     }
 

@@ -26,8 +26,6 @@ public class Scout extends TropaAerea{
         this.rutaSprite = this.rutaSprite + "tropas/protoss/scout.png";
         opciones.add(new MoverAerea("protoss"));
         opciones.add(new AtaqueTropaAerea("protoss"));
-        this.nombreUnidad = "Scout";
-
     }
     public void instanciacionesIniciales(Posicion posicionALocalizar){
         posicion = posicionALocalizar;
