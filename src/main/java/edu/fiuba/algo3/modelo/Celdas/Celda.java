@@ -138,12 +138,9 @@ public class Celda {
             if (opcionesDeOcupanteAereo != null) { listaDeOpciones.addAll(opcionesDeOcupanteAereo); }
         }
 
-        if (!this.ocupanteTerrestre.existe() && !this.ocupanteAereo.existe())
-        {
-            if (this.recurso.existe()) {
-                ArrayList<OpcionElegible> opcionesDeRecurso = this.recurso.obtenerOpciones();
-                if (opcionesDeRecurso != null) { listaDeOpciones.addAll(opcionesDeRecurso); }
-            }
+        if (this.recurso.existe()) {
+            ArrayList<OpcionElegible> opcionesDeRecurso = this.recurso.obtenerOpciones();
+            if (opcionesDeRecurso != null) { listaDeOpciones.addAll(opcionesDeRecurso); }
         }
 
         return listaDeOpciones;
