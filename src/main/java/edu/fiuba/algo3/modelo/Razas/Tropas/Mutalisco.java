@@ -13,19 +13,19 @@ import edu.fiuba.algo3.modelo.Salud.Vida;
 public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
     public Mutalisco(){
         super();
-        ataque = new AtacarTierraYAire();
-        costoEnMinerales = 100;
-        costoEnGas = 100;
-        tiempoConstruccion = 4;
-        danioTerrestre = 9;
-        danioAereo = 9;
-        suministro = 4;
-        vida = new Vida(80);
-        edificioNecesario = new Espiral();
-        comunidad = ComunidadZerg.obtenerInstanciaDeClase();
-        opciones.add(new Mutar(obtenerDescripcion()));
-        opciones.add(new MoverAerea("zerg"));
-        opciones.add(new AtaqueTropaAerea("zerg"));
+        this.ataque = new AtacarTierraYAire();
+        this.costoEnMinerales = 100;
+        this.costoEnGas = 100;
+        this.tiempoConstruccion = 4;
+        this.danioTerrestre = 9;
+        this.danioAereo = 9;
+        this.suministro = 4;
+        this.vida = new Vida(80);
+        this.edificioNecesario = new Espiral();
+        this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
+        this.opciones.add(new Mutar(obtenerDescripcion()));
+        this.opciones.add(new MoverAerea("zerg"));
+        this.opciones.add(new AtaqueTropaAerea("zerg"));
         this.rutaSprite = this.rutaSprite + "tropas/zerg/mutalisco.png";
         this.nombreUnidad = "Mutalisco";
 
@@ -47,15 +47,12 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
         vida.pasarTurno();
         cantidadMovimientos = 0;
         cantidadAtaques = 0;
-
-
     }
 
     @Override
     public void pasarTurno() {
-        vida.pasarTurno();
+        estado.pasarTurno();
     }
-
 
     public String obtenerSprite() { return null; }
 
