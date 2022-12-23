@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.Razas.Tropas;
 
 import edu.fiuba.algo3.modelo.Ataque.AtacarTierraYAire;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
-import edu.fiuba.algo3.modelo.Edificios.Espiral;
+import edu.fiuba.algo3.modelo.Edificios.Criadero;
 
 import edu.fiuba.algo3.modelo.Opciones.*;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
@@ -21,7 +21,7 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
         this.danioAereo = 9;
         this.suministro = 4;
         this.vida = new Vida(80);
-        this.edificioNecesario = new Espiral();
+        this.edificioNecesario = new Criadero();
         this.comunidad = ComunidadZerg.obtenerInstanciaDeClase();
         this.opciones.add(new Mutar(obtenerDescripcion()));
         this.opciones.add(new MoverAerea("zerg"));
@@ -49,12 +49,7 @@ public class Mutalisco extends TropaAerea implements UnidadEvolucionable {
         cantidadAtaques = 0;
     }
 
-    @Override
-    public void pasarTurno() {
-        estado.pasarTurno();
-    }
-
-    public String obtenerSprite() { return null; }
+    public String obtenerSprite() { return rutaSprite; }
 
     @Override
     public String obtenerDescripcion() {

@@ -29,7 +29,7 @@ public class Mutar extends OpcionElegible{
 
     public void mutarADevorador(Celda celda,Mutalisco mutalisco){
         Devorador devorador = new Devorador();
-        mutalisco.mutar((UnidadEvolucionada) devorador);
+        mutalisco.mutar(devorador);
         celda.instanciarUnidad(devorador);
     }
 
