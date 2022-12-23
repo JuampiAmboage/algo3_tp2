@@ -36,4 +36,7 @@ public class NoRecurso extends Recurso {
     public boolean existe(){
         return false;
     }
+
+    @Override
+    public void activarOpciones(){}
 }
