@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
 import edu.fiuba.algo3.modelo.Excepciones.SinLarvas;
+import edu.fiuba.algo3.modelo.Excepciones.ZonaOcupada;
 import edu.fiuba.algo3.modelo.Opciones.Engendrar;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
@@ -99,16 +100,23 @@ public class Criadero extends Edificio {
 
     public void engendrarPorTierra(TropaTerrestre tipoUnidad){
         engendrar(tipoUnidad);
-        rangoBusquedaYColocacion.colocarPorTierra(tipoUnidad);
-        evaluarExitoEnColocacionDeTropaEngendrada(tipoUnidad);
+        try {
+            rangoBusquedaYColocacion.colocarPorTierra(tipoUnidad);
+        }
+        catch(ZonaOcupada zonaOcupada){
+            evaluarExitoEnColocacionDeTropaEngendrada(tipoUnidad);
+        }
     }
 
     public void engendrarPorAire(TropaAerea tipoUnidad){
         engendrar(tipoUnidad);
-        rangoBusquedaYColocacion.colocarPorAire(tipoUnidad);
-        evaluarExitoEnColocacionDeTropaEngendrada(tipoUnidad);
+        try {
+            rangoBusquedaYColocacion.colocarPorAire(tipoUnidad);
+        }
+        catch(ZonaOcupada zonaOcupada) {
+            evaluarExitoEnColocacionDeTropaEngendrada(tipoUnidad);
+        }
     }
-
     public void evaluarExitoEnColocacionDeTropaEngendrada(Tropa tipoUnidad){
         if(!rangoBusquedaYColocacion.colocacionExitosa())
             tipoUnidad.deshacerCambiosEnComunidad();
