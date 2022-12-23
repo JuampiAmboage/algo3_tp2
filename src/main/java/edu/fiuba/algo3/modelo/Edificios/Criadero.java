@@ -104,7 +104,7 @@ public class Criadero extends Edificio {
             rangoBusquedaYColocacion.colocarPorTierra(tipoUnidad);
         }
         catch(ZonaOcupada zonaOcupada){
-            evaluarExitoEnColocacionDeTropaEngendrada(tipoUnidad);
+            tipoUnidad.deshacerCambiosEnComunidad();
         }
     }
 
@@ -114,12 +114,8 @@ public class Criadero extends Edificio {
             rangoBusquedaYColocacion.colocarPorAire(tipoUnidad);
         }
         catch(ZonaOcupada zonaOcupada) {
-            evaluarExitoEnColocacionDeTropaEngendrada(tipoUnidad);
-        }
-    }
-    public void evaluarExitoEnColocacionDeTropaEngendrada(Tropa tipoUnidad){
-        if(!rangoBusquedaYColocacion.colocacionExitosa())
             tipoUnidad.deshacerCambiosEnComunidad();
+        }
     }
     @Override
     public void construirSobreRecurso(NoRecurso tipoRecurso) {}
