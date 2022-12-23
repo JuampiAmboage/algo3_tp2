@@ -73,8 +73,8 @@ public class Extractor extends Edificio {
         if(!trabajadores.isEmpty()){
             Zangano zanganoLiberado = this.trabajadores.get(0);
             zanganoLiberado.liberarDeExtractor();
-            trabajadores.remove(0);
             rangoBusquedaYColocacion.colocarPorTierra(zanganoLiberado);
+            trabajadores.remove(0);
         }
         else{
             throw new ExtractorVacio();
