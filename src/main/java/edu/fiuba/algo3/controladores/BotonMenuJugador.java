@@ -41,7 +41,6 @@ public class BotonMenuJugador {
         if (this.opcion instanceof AsignarTrabajoEnExtractor) {
             ArrayList<Celda> celdas = this.controlador.obtenerCeldasConExtractor();
             this.opcion.estblecerCeldasConExtractor(celdas);
-            this.opcion.gestionarClick(celda, opcionElejida);
         } else {
             if (this.opcion instanceof AtaqueTropaAerea || this.opcion instanceof AtaqueTropaTerrestre) {
                 ArrayList<Celda> celdas = this.controlador.obtenerCeldasConTropas();

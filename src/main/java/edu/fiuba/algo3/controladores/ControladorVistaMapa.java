@@ -192,6 +192,7 @@ public class ControladorVistaMapa {
         for (Button boton : this.botonesDeAtaque) {
             boton.setDisable(true);
         }
+        this.botonesDeAtaque.clear();
     }
 
 }
