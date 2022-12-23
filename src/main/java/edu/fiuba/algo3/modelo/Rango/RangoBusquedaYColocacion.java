@@ -32,7 +32,7 @@ public class RangoBusquedaYColocacion extends Rango{
                 celda.estaOcupadaPorTierra();
                 celda.ocuparPorTierra(tropaAColocar);
                 celda.instanciarUnidad(tropaAColocar);
-                tropaColocada = true;
+                this.tropaColocada = true;
                 return;
             }
             catch (CoordenadaFueraDeRango | CeldaOcupada | CeldaConRecurso ignore) {}

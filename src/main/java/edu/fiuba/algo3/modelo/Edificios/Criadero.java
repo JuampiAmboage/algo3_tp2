@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Celdas.CeldaEnergizada;
 import edu.fiuba.algo3.modelo.Celdas.CeldaLibre;
 import edu.fiuba.algo3.modelo.Comunidad.ComunidadZerg;
 import edu.fiuba.algo3.modelo.Excepciones.ConstruccionProhibida;
+import edu.fiuba.algo3.modelo.Excepciones.SinLarvas;
 import edu.fiuba.algo3.modelo.Opciones.Engendrar;
 import edu.fiuba.algo3.modelo.Partida.Mapa;
 import edu.fiuba.algo3.modelo.Posicion.Posicion;
@@ -71,6 +72,12 @@ public class Criadero extends Edificio {
     public void pasarTurno(){
         this.estado.pasarTurno();
     }
+
+    public void hayLarvasRestantes(){
+        if(cantidadLarvasEnEspera == 0){
+            throw new SinLarvas();
+        }
+    }
     @Override
     public void realizarAccionesTurno() {
         if(cantidadLarvasEnEspera < 3) {
@@ -84,6 +91,7 @@ public class Criadero extends Edificio {
 
     public void engendrar(Tropa tipoUnidad) {
         this.estado.esUsable();
+        this.hayLarvasRestantes();
         tipoUnidad.existeEdificioNecesario();
         comunidad.agregarUnidad(tipoUnidad);
         cantidadLarvasEnEspera--;
@@ -133,13 +141,6 @@ public class Criadero extends Edificio {
     @Override
     public String obtenerSprite() { return this.rutaSprite; }
 
-    /*@Override
-    public void mostrarDescripcion() {
-        System.out.println("-Criadero-");
-        System.out.println("Unidad escencial Zerg. Engendra tropas e infecta con moho su entorno.");
-        System.out.println("Engendra: Zangano, Zerling, Hidralisco, Mutalisco, Amo Supremo. \n");
-        System.out.println("Vida actual: " + this.vida.getVidaActual());
-    }*/
     public String obtenerDescripcion(){
         String descripcion = "";
         return descripcion;
